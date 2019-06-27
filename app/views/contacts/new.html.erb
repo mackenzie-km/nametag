@@ -1,0 +1,40 @@
+<h2> Create a New Contact </h2>
+
+<%= form_for Contact.new do |f| %>
+  <%= f.label "Contact Name" %>
+  <%= f.text_field :name %><br>
+
+  <%= f.label "Email" %>
+  <%= f.text_field :email %><br>
+
+  <%= f.label "Female:" %>
+  <%= f.radio_button :gender, "female" %>
+  <%= f.label "Male:" %>
+  <%= f.radio_button :gender, "male" %><br>
+
+  <%= f.label "Staff" %>
+  <%= f.collection_select :user_id, User.all, :id, :name %><br>
+
+  <%= f.label "Phone Number" %>
+  <%= f.text_field :phone_number %><br>
+
+  <%= f.label "School Status" %>
+  <%= f.select :school_status, ["exchange", "freshmen", "sophomore", "junior", "senior", "masters", "PhD", "post doc", "visiting scholar", "family", "alumni"] %><br>
+
+  <%= f.label "Messenger Company" %>
+  <%= f.select :messenger_company, ["Line", "WeChat", "WhatsApp", "Kakao Talk"] %><br>
+
+  <%= f.label "Messenger Id" %>
+  <%= f.text_field :messenger_id %><br>
+
+  <%= f.label "Major" %>
+  <%= f.text_field :major %><br>
+
+  <%= f.label "Country" %>
+  <%= f.text_field :country %><br>
+
+  <%= f.label "Birthday" %>
+  <%= f.date_select :birthday, start_year: (Date.today.year - 50), end_year: (Date.today.year - 15) %><br>
+
+  <%= f.submit "Create Contact" %><br>
+<% end %>
