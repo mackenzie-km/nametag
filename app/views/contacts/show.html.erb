@@ -1,13 +1,12 @@
 <h2> Contact Info </h2>
 
-<%= @contact.name %><br>
-<%= @contact.email %><br>
-<%= @contact.gender %><br>
-<%= @contact.user_id %><br>
-<%= @contact.phone_number %><br>
-<%= @contact.school_status %><br>
-<%= @contact.messenger_company %><br>
-<%= @contact.messenger_id %><br>
-<%= @contact.major %><br>
-<%= @contact.country %><br>
-<%= @contact.birthday_human %><br>
+<label>Name:</label> <%= @contact.name %><br>
+<label>Email:</label> <%= @contact.email %><br>
+<label>Gender:</label> <%= @contact.gender %><br>
+<label>Staff:</label> <%= @contact.user.name %><br>
+<label>Phone Number:</label> <%= @contact.phone_number %><br>
+<label>School Status:</label> <%= @contact.school_status %><br>
+<label>Messenger:</label> <%= @contact.messenger_company + "/" + @contact.messenger_id %><br>
+<label>Major:</label> <%= @contact.major %><br>
+<label>Home Country:</label> <%= @contact.country %><br>
+<label>Birthday:</label> <%= @contact.birthday_human %><br>
