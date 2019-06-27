@@ -29,9 +29,8 @@ ActiveRecord::Schema.define(version: 2019_06_27_184458) do
   create_table "contacts_events", id: false, force: :cascade do |t|
     t.integer "contact_id", null: false
     t.integer "event_id", null: false
-    t.integer "guests"
-    t.index ["contact_id", "event_id"], name: "index_contacts_events_on_contact_id_and_event_id"
-    t.index ["event_id", "contact_id"], name: "index_contacts_events_on_event_id_and_contact_id"
+    t.index ["contact_id"], name: "index_contacts_events_on_contact_id"
+    t.index [nil], name: "index_contacts_events_on_part_id"
   end
 
   create_table "events", force: :cascade do |t|
