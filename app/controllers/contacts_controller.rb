@@ -3,6 +3,7 @@ class ContactsController < ApplicationController
   end
 
   def new
+    @contact = Contact.new
   end
 
   def create
@@ -15,9 +16,11 @@ class ContactsController < ApplicationController
   end
 
   def show
+    @contact = Contact.find(params[:id])
   end
 
   def edit
+    @contact = Contact.find(params[:id])
   end
 
   def update
