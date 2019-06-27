@@ -1,0 +1,2 @@
+<%= render partial: "event_form", locals: {event: @event} %>
+<%= button_to "Delete Event", "#{event_path(@event)}/delete", :method => :get %>

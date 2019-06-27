@@ -7,4 +7,5 @@ Rails.application.routes.draw do
   resources :users
 
   get "contacts/:id/delete", to: "contacts#destroy"
+  get "events/:id/delete", to: "events#destroy"
 end
