@@ -11,5 +11,5 @@
 <label>Home Country:</label> <%= @contact.country %><br>
 <label>Birthday:</label> <%= @contact.birthday_human %><br><br>
 
-<p><%= link_to "Edit Contact", edit_contact_path(@contact) %></p>
-<p><%= link_to "View All Contacts", contacts_path %></p>
+<%= button_to "Edit Contact", edit_contact_path(@contact), :method => :get  %>
+<%= button_to "View All Contacts", contacts_path, :method => :get %>

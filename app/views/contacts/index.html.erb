@@ -1,1 +1,4 @@
 <h2> contacts homepage </h2>
+<% @contacts.each do |contact| %>
+  <%= link_to contact.name, contact_path(contact) %><br>
+<% end %>
