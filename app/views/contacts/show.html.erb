@@ -9,4 +9,7 @@
 <label>Messenger:</label> <%= @contact.messenger_company + "/" + @contact.messenger_id %><br>
 <label>Major:</label> <%= @contact.major %><br>
 <label>Home Country:</label> <%= @contact.country %><br>
-<label>Birthday:</label> <%= @contact.birthday_human %><br>
+<label>Birthday:</label> <%= @contact.birthday_human %><br><br>
+
+<p><%= link_to "Edit Contact", edit_contact_path(@contact) %></p>
+<p><%= link_to "View All Contacts", contacts_path %></p>

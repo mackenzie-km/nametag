@@ -5,4 +5,6 @@ Rails.application.routes.draw do
   resources :contacts
   resources :events
   resources :users
+
+  get "contacts/:id/delete", to: "contacts#destroy"
 end
