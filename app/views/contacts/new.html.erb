@@ -22,7 +22,7 @@
   <%= f.select :school_status, ["exchange", "freshmen", "sophomore", "junior", "senior", "masters", "PhD", "post doc", "visiting scholar", "family", "alumni"] %><br>
 
   <%= f.label "Messenger Company" %>
-  <%= f.select :messenger_company, ["Line", "WeChat", "WhatsApp", "Kakao Talk"] %><br>
+  <%= f.select :messenger_company, ["Line", "WeChat", "WhatsApp", "Kakao Talk"], include_blank: true %><br>
 
   <%= f.label "Messenger Id" %>
   <%= f.text_field :messenger_id %><br>
@@ -34,7 +34,7 @@
   <%= f.text_field :country %><br>
 
   <%= f.label "Birthday" %>
-  <%= f.date_select :birthday, start_year: (Date.today.year - 50), end_year: (Date.today.year - 15) %><br>
+  <%= f.date_select :birthday, discard_year: true, include_blank: true  %><br>
 
   <%= f.submit "Create Contact" %><br>
 <% end %>
