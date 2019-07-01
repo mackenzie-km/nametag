@@ -1,1 +1,4 @@
-<h2> users homepage </h2>
+<h2> All the Users </h2>
+<% @users.each do |user| %>
+<%= user.name %> <%= button_to "Edit User", edit_user_path(user) %><br>
+<% end %>
