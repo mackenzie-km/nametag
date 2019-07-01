@@ -1,0 +1,8 @@
+<h2> Edit Access for <%= "#{@user.name.capitalize}" %> </h2>
+
+<%= form_for @user do |f| %>
+  <%= f.label "Access Level:" %>
+  <%= f.select(:admin_level, ["none", "igsm", "admin"]) %><br>
+
+  <%= f.submit "Submit" %><br>
+<% end %>

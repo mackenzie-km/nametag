@@ -4,8 +4,9 @@ Rails.application.routes.draw do
 
   resources :contacts
   resources :events
-  resources :users
+  resources :users, only: [:index, :new, :edit, :create, :update, :destroy]
 
   get "contacts/:id/delete", to: "contacts#destroy"
   get "events/:id/delete", to: "events#destroy"
+  get "users/:id/edit", to: "users#edit"
 end

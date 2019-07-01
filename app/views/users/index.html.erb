@@ -1,4 +1,4 @@
 <h2> All the Users </h2>
 <% @users.each do |user| %>
-<%= user.name %> <%= button_to "Edit User", edit_user_path(user) %><br>
+<%= user.name + "-" + user.admin_level %> <%= button_to "Edit Access", edit_user_path(user), :method => :get  %><br>
 <% end %>
