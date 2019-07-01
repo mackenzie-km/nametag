@@ -7,7 +7,8 @@ class UsersController < ApplicationController
   end
 
   def create
-    user = User.new(user_params)
+    user = User.new(email: user_params[:email], password: user_params[:password])
+    user.admin_level = user_params[:access_code]
     if user.save
       redirect_to contacts_path
     else
@@ -34,6 +35,6 @@ class UsersController < ApplicationController
 
   private
   def user_params
-    params.require(:user).permit(:email, :password, :admin_level, :access_code)
+    params.require(:user).permit(:email, :password, :access_code)
   end
 end
