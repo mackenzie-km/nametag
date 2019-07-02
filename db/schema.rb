@@ -24,6 +24,7 @@ ActiveRecord::Schema.define(version: 2019_06_27_184458) do
     t.string "major"
     t.string "country"
     t.date "birthday"
+    t.string "admin_level"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

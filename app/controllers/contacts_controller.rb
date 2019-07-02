@@ -1,5 +1,9 @@
 class ContactsController < ApplicationController
+
+  before_action :redirect_if_no_login
+
   def index
+    binding.pry
     if params[:event_id]
       @event = Event.find(params[:event_id])
       @contacts = @event.contacts
@@ -14,6 +18,7 @@ class ContactsController < ApplicationController
 
   def create
     contact = Contact.new(contact_params)
+    contact.admin_level=(User.find(session[:user_id]))
     if contact.save
       redirect_to contact_path(contact)
     else

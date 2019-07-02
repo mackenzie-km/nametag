@@ -7,6 +7,10 @@ class Contact < ApplicationRecord
     where('updated_at >= ?', Date.today - 3.month)
   }
 
+  scope :admin, -> {
+    where('admin_level = ?', current_user.admin_level)
+  }
+
   def birthday_human
     if self.birthday
       self.birthday.strftime("%B %-d")
@@ -22,5 +26,13 @@ class Contact < ApplicationRecord
       contact.events << event
       contact
     end
+  end
+
+  def admin_level=(user)
+    self[:admin_level] = user.admin_level
+  end
+
+  def admin_level
+    self[:admin_level]
   end
 end

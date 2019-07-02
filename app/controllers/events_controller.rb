@@ -1,4 +1,7 @@
 class EventsController < ApplicationController
+
+  before_action :redirect_if_no_login
+  
   def index
     if params[:contact_id]
       @contact = Contact.find(params[:contact_id])

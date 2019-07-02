@@ -12,6 +12,7 @@ class CreateContacts < ActiveRecord::Migration[5.2]
       t.string :major
       t.string :country
       t.date :birthday
+      t.string :admin_level 
       t.timestamps
     end
   end
