@@ -6,13 +6,17 @@ class User < ApplicationRecord
     self.email[/[^@]*/]
   end
 
-  def access_code
-    if :access_code == ENV['ADMIN']
-      self.admin_level = "admin"
-    elsif :access_code == ENV['IGSM']
-      self.admin_level = "igsm"
+  def admin_level=(code)
+    if code == ENV['ADMIN']
+      self[:admin_level] = "admin"
+    elsif code == ENV['IGSM']
+      self[:admin_level] = "igsm"
     else
-      self.admin_level = "none"
+      self[:admin_level] = "none"
     end
+  end
+
+  def admin_level
+    self[:admin_level]
   end
 end
