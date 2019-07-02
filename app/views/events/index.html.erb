@@ -1,6 +1,6 @@
 <h2> event homepage </h2>
 <% @events.each do |event| %>
   <%= link_to event.name, event_path(event) %><br>
-<% end %>
+<% end %><br>
 
 <%= button_to "Create Event", new_event_path, :method => :get %>
