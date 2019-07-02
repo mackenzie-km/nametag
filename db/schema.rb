@@ -24,6 +24,8 @@ ActiveRecord::Schema.define(version: 2019_06_27_184458) do
     t.string "major"
     t.string "country"
     t.date "birthday"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "contacts_events", id: false, force: :cascade do |t|

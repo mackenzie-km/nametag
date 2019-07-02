@@ -3,6 +3,10 @@ class Contact < ApplicationRecord
   has_many :contacts_events
   has_many :events, through: :contacts_events
 
+  scope :active, -> {
+    where('updated_at >= ?', Date.today - 3.month)
+  }
+
   def birthday_human
     if self.birthday
       self.birthday.strftime("%B %-d")
