@@ -4,19 +4,11 @@ class ApplicationController < ActionController::Base
 
   private
   def current_user
-    if !session[:user_id]
-      nil
-    else
-      User.find(session[:user_id])
-    end
+    if !session[:user_id] then nil else User.find(session[:user_id]) end
   end
 
   def has_access?(level)
-    if level > current_user.admin_level
-      false
-    else
-      true
-    end
+    if level > current_user.admin_level then false else true end
   end
 
   def redirect_if_no_login

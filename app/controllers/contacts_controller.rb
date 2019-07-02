@@ -1,6 +1,7 @@
 class ContactsController < ApplicationController
 
   before_action :redirect_if_no_login
+  before_action :find_contact, only: [:show, :edit, :update, :destroy]
 
   def index
     if params[:event_id]
@@ -18,33 +19,21 @@ class ContactsController < ApplicationController
   def create
     contact = Contact.new(contact_params)
     contact.admin_level=(User.find(session[:user_id]))
-    if contact.save
-      redirect_to contact_path(contact)
-    else
-      render :new
-    end
+    if contact.save then redirect_to contact_path(contact) else render :new end
   end
 
   def show
-    @contact = Contact.find(params[:id])
   end
 
   def edit
-    @contact = Contact.find(params[:id])
   end
 
   def update
-    @contact = Contact.find(params[:id])
     @contact.update(contact_params)
-    if @contact.save
-      redirect_to contact_path(@contact)
-    else
-      render :edit
-    end
+    if @contact.save then redirect_to contact_path(@contact) else render :edit end
   end
 
   def destroy
-    @contact = Contact.find(params[:id])
     @contact.delete
     redirect_to contacts_path
   end
@@ -52,5 +41,9 @@ class ContactsController < ApplicationController
   private
   def contact_params
     params.require(:contact).permit(:name, :email, :gender, :user_id, :phone_number, :school_status, :messenger_company, :messenger_id, :major, :country, :birthday)
+  end
+
+  def find_contact
+    @contact = Contact.find(params[:id])
   end
 end
