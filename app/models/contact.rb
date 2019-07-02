@@ -4,6 +4,10 @@ class Contact < ApplicationRecord
   has_many :events, through: :contacts_events
 
   def birthday_human
-    self.birthday.strftime("%B %-d")
+    if self.birthday
+      self.birthday.strftime("%B %-d")
+    else
+      nil
+    end 
   end
 end

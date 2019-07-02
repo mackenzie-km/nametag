@@ -7,3 +7,5 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 user = User.create(email: "unknown@gpmail.org", password: "not a real user", admin_level: "igsm")
+contact = Contact.create(name: "Mackenzie Moore")
+contact2 = Contact.create(name: "Madeline Moore")

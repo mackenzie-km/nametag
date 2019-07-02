@@ -25,6 +25,7 @@ class EventsController < ApplicationController
   end
 
   def update
+    binding.pry
     @event = Event.find(params[:id])
     @event.update(event_params)
     if @event.save
@@ -42,6 +43,6 @@ class EventsController < ApplicationController
 
   private
   def event_params
-    params.require(:event).permit(:name, :date)
+    params.require(:event).permit(:name, :date, :contact_ids)
   end
 end
