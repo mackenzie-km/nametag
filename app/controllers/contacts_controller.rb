@@ -3,7 +3,6 @@ class ContactsController < ApplicationController
   before_action :redirect_if_no_login
 
   def index
-    binding.pry
     if params[:event_id]
       @event = Event.find(params[:event_id])
       @contacts = @event.contacts

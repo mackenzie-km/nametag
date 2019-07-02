@@ -1,4 +1,7 @@
 class UsersController < ApplicationController
+
+  before_action :redirect_if_not_admin, only: [:index, :edit, :update, :destroy]
+
   def index
     @users = User.all
   end
@@ -23,8 +26,8 @@ class UsersController < ApplicationController
 
   def update
     @user = User.find(params[:id])
-    @user.admin_level = params[:user][:admin_level]
-    if @user.save
+    enter_code
+    if @user.valid?
       redirect_to users_path
     else
       render :edit
@@ -40,5 +43,15 @@ class UsersController < ApplicationController
   private
   def user_params
     params.require(:user).permit(:email, :password, :admin_level)
+  end
+
+  def enter_code
+    if params[:user][:admin_level].to_i == 2
+      @user.update(admin_level: ENV['ADMIN'])
+    elsif params[:user][:admin_level].to_i == 1
+      @user.update(admin_level: ENV['IGSM'])
+    else
+      @user.update(admin_level: 0)
+    end
   end
 end

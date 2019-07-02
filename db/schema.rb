@@ -24,7 +24,7 @@ ActiveRecord::Schema.define(version: 2019_06_27_184458) do
     t.string "major"
     t.string "country"
     t.date "birthday"
-    t.string "admin_level"
+    t.integer "admin_level"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -45,7 +45,7 @@ ActiveRecord::Schema.define(version: 2019_06_27_184458) do
   create_table "users", force: :cascade do |t|
     t.string "email"
     t.string "password_digest"
-    t.string "admin_level", default: "none"
+    t.integer "admin_level", default: 0
   end
 
 end

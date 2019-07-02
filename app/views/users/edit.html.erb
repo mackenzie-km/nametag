@@ -2,7 +2,7 @@
 
 <%= form_for @user do |f| %>
   <%= f.label "Access Level:" %>
-  <%= f.select(:admin_level, ["none", "igsm", "admin"]) %><br>
+  <%= f.select(:admin_level, [0, 1, 2]) %><br>
 
   <%= f.submit "Submit" %><br>
 <% end %>

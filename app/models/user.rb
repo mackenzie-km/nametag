@@ -8,11 +8,11 @@ class User < ApplicationRecord
 
   def admin_level=(code)
     if code == ENV['ADMIN']
-      self[:admin_level] = "admin"
+      self[:admin_level] = 2
     elsif code == ENV['IGSM']
-      self[:admin_level] = "igsm"
+      self[:admin_level] = 1
     else
-      self[:admin_level] = "none"
+      self[:admin_level] = 0
     end
   end
 

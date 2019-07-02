@@ -11,10 +11,11 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  def check_admin(level)
-    if level != current_user.admin_level
-      flash[:message] = "You are not authorized to view the previous page."
-      redirect_to root_path
+  def has_access?(level)
+    if level > current_user.admin_level
+      false
+    else
+      true
     end
   end
 
@@ -22,6 +23,13 @@ class ApplicationController < ActionController::Base
     if !current_user
       flash[:message] = "You need to sign in before viewing this page."
       redirect_to "/login"
+    end
+  end
+
+  def redirect_if_not_admin
+    if has_access?(2) != true
+      flash[:message] = "You do not have access to this page."
+      redirect_to root_path
     end
   end
 

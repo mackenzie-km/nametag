@@ -3,7 +3,7 @@ class CreateUsers < ActiveRecord::Migration[5.2]
     create_table :users do |t|
       t.string :email
       t.string :password_digest
-      t.string :admin_level, :default => "none"
+      t.integer :admin_level, :default => 0
     end
   end
 end
