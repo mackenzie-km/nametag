@@ -25,9 +25,9 @@ class EventsController < ApplicationController
   end
 
   def update
-    binding.pry
     @event = Event.find(params[:id])
     @event.update(event_params)
+    @event.contacts = Contact.add_contacts(params[:event][:contact_ids], @event)
     if @event.save
       redirect_to event_path(@event)
     else

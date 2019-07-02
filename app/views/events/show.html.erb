@@ -2,9 +2,9 @@
 
 <label>Name:</label> <%= @event.name %><br>
 <label>Date:</label> <%= @event.date_human %><br>
-<label>Attendees:</label>
-  <%= @event.contacts.each do |contact| %>
-  <% link_to contact.name, contact_path(contact) %><br>
+<label>Attendees:</label><br>
+  <% @event.contacts.each do |contact| %>
+  <%= link_to contact.name, contact_path(contact) %><br>
   <% end %>
 
 

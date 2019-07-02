@@ -3,6 +3,8 @@ class Event < ApplicationRecord
   has_many :contacts, through: :contacts_events
 
   def date_human
-    self.date.strftime("%B/%-d/%Y")
+    self.date.strftime("%B %-d, %Y")
   end
+
+
 end
