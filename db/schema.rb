@@ -40,6 +40,7 @@ ActiveRecord::Schema.define(version: 2019_06_27_184458) do
   create_table "events", force: :cascade do |t|
     t.string "name"
     t.date "date"
+    t.integer "admin_level"
   end
 
   create_table "users", force: :cascade do |t|

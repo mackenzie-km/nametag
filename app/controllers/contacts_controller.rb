@@ -1,7 +1,7 @@
 class ContactsController < ApplicationController
 
   before_action :redirect_if_no_login
-  before_action :find_contact, only: [:show, :edit, :update, :destroy]
+  before_action :access_contact, only: [:show, :edit, :update, :destroy]
 
   def index
     if params[:event_id]
@@ -45,5 +45,13 @@ class ContactsController < ApplicationController
 
   def find_contact
     @contact = Contact.find(params[:id])
+  end
+
+  def access_contact
+    find_contact
+    if !has_access?(@contact.admin_level)
+      flash[:message] = "You cannot edit/view this contact."
+      redirect_to contacts_path
+    end
   end
 end
