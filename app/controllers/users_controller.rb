@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
 
   before_action :redirect_if_not_admin, only: [:index, :edit, :update, :destroy]
+  before_action :find_user, only: [:edit, :update, :destroy]
 
   def index
     @users = User.all
@@ -21,21 +22,14 @@ class UsersController < ApplicationController
   end
 
   def edit
-    @user = User.find(params[:id])
   end
 
   def update
-    @user = User.find(params[:id])
     enter_code
-    if @user.valid?
-      redirect_to users_path
-    else
-      render :edit
-    end
+    redirect_to users_path
   end
 
   def destroy
-    @user = User.find(params[:id])
     @user.delete
     redirect_to users_path
   end
@@ -53,5 +47,9 @@ class UsersController < ApplicationController
     else
       @user.update(admin_level: 0)
     end
+  end
+
+  def find_user
+    @user = User.find(params[:id])
   end
 end
