@@ -10,6 +10,7 @@ class UsersController < ApplicationController
     user = User.new(email: user_params[:email], password: user_params[:password])
     user.admin_level=(user_params[:admin_level])
     if user.save
+      session[:user_id] = user.id
       redirect_to contacts_path
     else
       render :new

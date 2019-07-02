@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resources :contacts
   resources :events
   resources :users, only: [:index, :new, :edit, :create, :update, :destroy]
+  resources :sessions, only: [:new, :create, :destroy]
 
   resources :contacts, only: [:index] do
     resources :events, only: [:index]
