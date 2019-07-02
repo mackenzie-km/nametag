@@ -7,11 +7,11 @@ Rails.application.routes.draw do
   resources :users, only: [:index, :new, :edit, :create, :update, :destroy]
 
   resources :contacts, only: [:index] do
-    resources :events, only: [:index, :show]
+    resources :events, only: [:index]
   end
 
   resources :events, only: [:index] do
-    resources :contacts, only: [:index, :show]
+    resources :contacts, only: [:index]
   end
 
   get "contacts/:id/delete", to: "contacts#destroy"

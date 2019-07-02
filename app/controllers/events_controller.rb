@@ -1,6 +1,11 @@
 class EventsController < ApplicationController
   def index
-    @events = Event.all
+    if params[:contact_id]
+      @contact = Contact.find(params[:contact_id])
+      @events = @contact.events
+    else
+      @events = Event.all
+    end
   end
 
   def new

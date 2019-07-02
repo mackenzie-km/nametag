@@ -10,7 +10,7 @@
   <%= f.date_select :date %><br>
 
   <%= f.label "Attendees:" %><br>
-  <%= f.collection_check_boxes :contact_ids, Contact.all.active, :id, :name do |b| %>
+  <%= f.collection_check_boxes :contact_ids, Contact.active, :id, :name do |b| %>
     <%= b.check_box %> <%= b.label  %><br>
     <% end %>
 
