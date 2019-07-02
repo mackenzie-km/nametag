@@ -5,7 +5,6 @@ Rails.application.routes.draw do
   resources :contacts
   resources :events
   resources :users, only: [:index, :new, :edit, :create, :update, :destroy]
-  resources :sessions, only: [:new, :create, :destroy]
 
   resources :contacts, only: [:index] do
     resources :events, only: [:index]
@@ -18,4 +17,8 @@ Rails.application.routes.draw do
   get "contacts/:id/delete", to: "contacts#destroy"
   get "events/:id/delete", to: "events#destroy"
   get "users/:id/edit", to: "users#edit"
+
+  get "login", to: "sessions#new"
+  post "login", to: "sessions#create"
+  get "logout", to: "sessions#destroy"
 end
