@@ -1,3 +1,5 @@
+<%= render partial: "layouts/error_message", locals: {thing: @user} %>
+
 <h2> Edit Access for <%= "#{@user.name.capitalize}" %> </h2>
 
 <%= form_for @user do |f| %>
