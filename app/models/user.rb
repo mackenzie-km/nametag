@@ -27,8 +27,9 @@ class User < ApplicationRecord
   end
 
   def self.from_omniauth(auth)
-    @user = User.where(email: auth.info.email).first_or_create
+    @user = User.where(email: auth.info.email).first_or_initialize
     @user.password = SecureRandom.hex
+    @user.save
     @user
   end
 end

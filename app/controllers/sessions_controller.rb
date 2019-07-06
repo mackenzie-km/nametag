@@ -13,7 +13,7 @@ class SessionsController < ApplicationController
       session[:user_id] = @user.id
       redirect_to contacts_path
     else
-      flash[:message] = "This password/email combination is invalid."
+      flash[:message] = "This password/email combination is invalid. Try again - or try logging in via Google."
       render :new
     end
   end
@@ -32,7 +32,7 @@ class SessionsController < ApplicationController
     # Note: Refresh_token is only sent once during the first request
     refresh_token = access_token.credentials.refresh_token
     @user.google_refresh_token = refresh_token if refresh_token.present?
-    if @user.save then session[:user_id] = @user.id end
+    session[:user_id] = @user.id
     redirect_to contacts_path
   end
 end
