@@ -1,8 +1,6 @@
 # README
 
 Future Project Goals:
-* Filter indexes of events & contacts to only show contacts within your access level 
-* Nested resource newform 
 * Move more to helper methods & partials
 * Add bootstrap css (things such as navbar, grid layout, etc.)
 
