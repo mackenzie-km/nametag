@@ -25,4 +25,11 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def redirect_if_logged_in
+    if !!current_user
+      flash[:message] = "You are already logged in."
+      redirect_to contacts_path
+    end
+  end
+
 end
