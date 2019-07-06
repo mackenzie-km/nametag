@@ -42,9 +42,10 @@ class UsersController < ApplicationController
   end
 
   def enter_code
-    if params[:user][:admin_level].to_i == 2
+    code = params[:user][:admin_level].to_i
+    if code == 2
       @user.update(admin_level: ENV['ADMIN'])
-    elsif params[:user][:admin_level].to_i == 1
+    elsif code == 1
       @user.update(admin_level: ENV['IGSM'])
     else
       @user.update(admin_level: 0)
