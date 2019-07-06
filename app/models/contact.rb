@@ -3,11 +3,11 @@ class Contact < ApplicationRecord
   has_many :contacts_events
   has_many :events, through: :contacts_events
 
-  validates :name, uniqueness: true
+  validates :name, presence: true
 
-  scope :active, -> {
-    where('updated_at >= ?', Date.today - 3.month)
-  }
+  scope :active, -> { where('updated_at >= ?', Date.today - 3.month) }
+
+  scope :access, -> (admin_level) { where('admin_level <= ?', admin_level) }
 
   def birthday_human
     if self.birthday
