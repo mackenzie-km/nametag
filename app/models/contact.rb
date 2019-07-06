@@ -3,6 +3,8 @@ class Contact < ApplicationRecord
   has_many :contacts_events
   has_many :events, through: :contacts_events
 
+  validates :name, uniqueness: true
+
   scope :active, -> {
     where('updated_at >= ?', Date.today - 3.month)
   }
