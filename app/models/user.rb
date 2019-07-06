@@ -1,5 +1,11 @@
 class User < ApplicationRecord
   has_many :contacts
+  validates :email, presence: true
+  validates :email, format: { with: /\A\S+@.+\.\S+\z/ }
+  validates :email, uniqueness: true
+  validates :password, format: { with: /\A(?=.*[a-zA-Z])(?=.*[0-9]).{6,}\z/,
+    message: "must be 6+ characters long & include one number & one letter" }
+
   has_secure_password
 
   def name
