@@ -17,9 +17,9 @@ class ContactsController < ApplicationController
   end
 
   def create
-    contact = Contact.new(contact_params)
-    contact.admin_level=(User.find(session[:user_id]))
-    if contact.save then redirect_to contact_path(contact) else render :new end
+    @contact = Contact.new(contact_params)
+    @contact.admin_level=(User.find(session[:user_id]))
+    if @contact.save then redirect_to contact_path(@contact) else render :new end
   end
 
   def show
