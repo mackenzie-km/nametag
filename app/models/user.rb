@@ -28,6 +28,7 @@ class User < ApplicationRecord
 
   def self.from_omniauth(auth)
     @user = User.where(email: auth.info.email).first_or_initialize
+    @user.admin_level=(ENV['IGSM']) if @user.email.include?("@gpmail.org")
     @user.password = SecureRandom.hex
     @user.save
     @user
