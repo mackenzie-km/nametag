@@ -8,7 +8,7 @@ class EventsController < ApplicationController
       @contact = Contact.find(params[:contact_id])
       @events = @contact.events
     else
-      @events = Event.all
+      @events = Event.all.access(current_user.admin_level)
     end
   end
 
