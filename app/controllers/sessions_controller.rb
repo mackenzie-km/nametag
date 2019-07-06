@@ -26,6 +26,7 @@ class SessionsController < ApplicationController
   def googleAuth
     access_token = request.env["omniauth.auth"]
     @user = User.from_omniauth(access_token)
+    @user.save
     # Access_token is used to authenticate request made from the rails application to the google server
     @user.google_token = access_token.credentials.token
     # Refresh_token to request new access_token
