@@ -7,10 +7,6 @@ class ApplicationController < ActionController::Base
     if !session[:user_id] then nil else User.find(session[:user_id]) end
   end
 
-  def has_access?(level)
-    if level > current_user.admin_level then false else true end
-  end
-
   def redirect_if_no_login
     if !current_user
       flash[:message] = "You need to sign in before viewing this page."
@@ -30,6 +26,11 @@ class ApplicationController < ActionController::Base
       flash[:message] = "You are already logged in."
       redirect_to contacts_path
     end
+  end
+
+  def has_access?(level)
+    redirect_if_no_login
+    if (current_user && level > current_user.admin_level) then false else true end
   end
 
 end
