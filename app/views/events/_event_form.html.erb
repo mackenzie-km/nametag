@@ -1,19 +1,17 @@
 <%= render partial: "layouts/error_message", locals: {thing: @event} %>
 
-<h2> Create a New Event </h2>
-
 <%= form_for @event do |f| %>
+
   <%= f.label "Event Name" %>
-  <%= f.text_field :name %><br>
+  <%= f.text_field :name, :class => "form-control" %><br>
 
   <%= f.label "Event Date" %>
-  <%= f.date_select :date %><br>
+  <%= f.date_select :date, class: "form-control" %><br>
 
   <%= f.label "Attendees:" %><br>
-  <%= f.collection_check_boxes :contact_ids, Contact.active, :id, :name do |b| %>
+  <%= f.collection_check_boxes :contact_ids, Contact.active, :id, :name, class: "form-control" do |b| %>
     <%= b.check_box %> <%= b.label  %><br>
     <% end %>
-
 
   <%= f.submit "Submit", class: "btn btn-primary" %><br>
 <% end %>
