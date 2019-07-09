@@ -13,7 +13,7 @@
   <label>Birthday:</label> <%= @contact.birthday_human %><br>
   <label>Attendance Count:</label> <%= @contact.events.count %><br>
 
-  <%= button_to "Edit Contact", edit_contact_path(@contact), :method => :get  %>
-  <%= button_to "View Attended Events", contact_events_path(@contact), :method => :get  %>
-  <%= button_to "View All Contacts", contacts_path, :method => :get %>
+  <%= button_to "Edit Contact", edit_contact_path(@contact), :class => "btn btn-primary", :method => :get  %>
+  <%= button_to "View Attended Events", contact_events_path(@contact), :class => "btn btn-primary", :method => :get  %>
+  <%= button_to "View All Contacts", contacts_path, :class => "btn btn-primary", :method => :get %>
 <% end %>
