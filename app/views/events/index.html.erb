@@ -1,6 +1,8 @@
-<h2> event homepage </h2>
-<% @events.each do |event| %>
-  <%= link_to event.name, event_path(event) %><br>
-<% end %><br>
+<%= render :layout => 'layouts/card_header', :locals => {:header => "Welcome to Nametag", :description => "Sign up/login in to keep track of your contacts & events"} do %>
+  <h2> event homepage </h2>
+  <% @events.each do |event| %>
+    <%= link_to event.name, event_path(event) %><br>
+  <% end %><br>
 
-<%= button_to "Create Event", new_event_path, :method => :get %>
+  <%= button_to "Create Event", new_event_path, :method => :get %>
+<% end %>

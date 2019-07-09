@@ -1,14 +1,16 @@
-<h2> Event Info </h2>
+<%= render :layout => 'layouts/card_header', :locals => {:header => "Welcome to Nametag", :description => "Sign up/login in to keep track of your contacts & events"} do %>
+  <h2> Event Info </h2>
 
-<label>Name:</label> <%= @event.name %><br>
-<label>Date:</label> <%= @event.date_human %><br>
-<label>Attendee Count:</label> <%= @event.contacts.count %><br>
-<label>Attendees:</label><br>
-  <% @event.contacts.each do |contact| %>
-  <%= link_to contact.name, contact_path(contact) %><br>
-  <% end %><br>
+  <label>Name:</label> <%= @event.name %><br>
+  <label>Date:</label> <%= @event.date_human %><br>
+  <label>Attendee Count:</label> <%= @event.contacts.count %><br>
+  <label>Attendees:</label><br>
+    <% @event.contacts.each do |contact| %>
+    <%= link_to contact.name, contact_path(contact) %><br>
+    <% end %><br>
 
 
-<%= button_to "Edit Event", edit_event_path(@event), :method => :get  %>
-<%= button_to "View Detailed Contacts", event_contacts_path(@event), :method => :get  %>
-<%= button_to "View All Events", events_path, :method => :get %>
+  <%= button_to "Edit Event", edit_event_path(@event), :method => :get  %>
+  <%= button_to "View Detailed Contacts", event_contacts_path(@event), :method => :get  %>
+  <%= button_to "View All Events", events_path, :method => :get %>
+<% end %>

@@ -1,17 +1,19 @@
-<h2> Contact Info </h2>
+<%= render :layout => 'layouts/card_header', :locals => {:header => "Welcome to Nametag", :description => "Sign up/login in to keep track of your contacts & events"} do %>
+  <h2> Contact Info </h2>
 
-<label>Name:</label> <%= @contact.name %><br>
-<label>Email:</label> <%= @contact.email %><br>
-<label>Gender:</label> <%= @contact.gender %><br>
-<label>Staff:</label> <%= @contact.user.name %><br>
-<label>Phone Number:</label> <%= @contact.phone_number %><br>
-<label>School Status:</label> <%= @contact.school_status %><br>
-<label>Messenger:</label> <%= @contact.messenger_company %> / <%= @contact.messenger_id %><br>
-<label>Major:</label> <%= @contact.major %><br>
-<label>Home Country:</label> <%= @contact.country %><br>
-<label>Birthday:</label> <%= @contact.birthday_human %><br>
-<label>Attendance Count:</label> <%= @contact.events.count %><br>
+  <label>Name:</label> <%= @contact.name %><br>
+  <label>Email:</label> <%= @contact.email %><br>
+  <label>Gender:</label> <%= @contact.gender %><br>
+  <label>Staff:</label> <%= @contact.user.name %><br>
+  <label>Phone Number:</label> <%= @contact.phone_number %><br>
+  <label>School Status:</label> <%= @contact.school_status %><br>
+  <label>Messenger:</label> <%= @contact.messenger_company %> / <%= @contact.messenger_id %><br>
+  <label>Major:</label> <%= @contact.major %><br>
+  <label>Home Country:</label> <%= @contact.country %><br>
+  <label>Birthday:</label> <%= @contact.birthday_human %><br>
+  <label>Attendance Count:</label> <%= @contact.events.count %><br>
 
-<%= button_to "Edit Contact", edit_contact_path(@contact), :method => :get  %>
-<%= button_to "View Attended Events", contact_events_path(@contact), :method => :get  %>
-<%= button_to "View All Contacts", contacts_path, :method => :get %>
+  <%= button_to "Edit Contact", edit_contact_path(@contact), :method => :get  %>
+  <%= button_to "View Attended Events", contact_events_path(@contact), :method => :get  %>
+  <%= button_to "View All Contacts", contacts_path, :method => :get %>
+<% end %>

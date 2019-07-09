@@ -22240,3 +22240,521 @@ Processing by SessionsController#new as HTML
 Completed 200 OK in 45ms (Views: 43.3ms | ActiveRecord: 0.0ms)
 
 
+Started GET "/users/new" for ::1 at 2019-07-09 10:15:28 -0700
+  [1m[35m (2.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/Mackenzie/.rvm/gems/ruby-2.6.1/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered layouts/_error_message.html.erb (0.6ms)
+  Rendered users/new.html.erb within layouts/application (54.5ms)
+Completed 200 OK in 791ms (Views: 751.4ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/" for ::1 at 2019-07-09 10:20:51 -0700
+Processing by ApplicationController#index as HTML
+  Rendering application/index.html.erb within layouts/application
+  Rendered layouts/_card_header.html.erb (0.9ms)
+  Rendered application/index.html.erb within layouts/application (7.4ms)
+Completed 200 OK in 97ms (Views: 92.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2019-07-09 10:21:07 -0700
+Processing by ApplicationController#index as HTML
+  Rendering application/index.html.erb within layouts/application
+  Rendered layouts/_card_header.html.erb (0.6ms)
+  Rendered application/index.html.erb within layouts/application (3.9ms)
+Completed 200 OK in 16ms (Views: 15.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2019-07-09 10:21:09 -0700
+Processing by ApplicationController#index as HTML
+  Rendering application/index.html.erb within layouts/application
+  Rendered layouts/_card_header.html.erb (0.3ms)
+  Rendered application/index.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 13ms (Views: 11.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2019-07-09 10:21:54 -0700
+Processing by ApplicationController#index as HTML
+  Rendering application/index.html.erb within layouts/application
+  Rendered layouts/_card_header.html.erb (1.3ms)
+  Rendered application/index.html.erb within layouts/application (6.9ms)
+Completed 200 OK in 46ms (Views: 39.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2019-07-09 10:23:43 -0700
+Processing by ApplicationController#index as HTML
+  Rendering application/index.html.erb within layouts/application
+  Rendered application/index.html.erb within layouts/application (37.2ms)
+Completed 500 Internal Server Error in 47ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error ('nil' is not an ActiveModel-compatible object. It must implement :to_partial_path.):
+    1: <%= render partial: "layouts/card_header", locals: {header: "Welcome to Nametag", description: "Keep track of your contacts & events"} do %>
+    2: 
+    3:     <div class="row">
+    4:         <div class="col-md-6">
+  
+app/views/application/index.html.erb:1:in `_app_views_application_index_html_erb___3970478757173173711_70281967953140'
+Started GET "/" for ::1 at 2019-07-09 10:25:13 -0700
+Processing by ApplicationController#index as HTML
+  Rendering application/index.html.erb within layouts/application
+  Rendered application/index.html.erb within layouts/application (2.1ms)
+Completed 500 Internal Server Error in 6ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (Missing partial /_card_heaer with {:locale=>[:en], :formats=>[:html], :variants=>[], :handlers=>[:raw, :erb, :html, :builder, :ruby, :coffee, :jbuilder]}. Searched in:
+  * "/Users/Mackenzie/nametag/app/views"
+):
+    1: <%= render :layout => '/card_heaer', :locals => {:header => "Welcome to Nametag", :description => "Keep track of your contacts & events"} do %>
+    2:     <div class="row">
+    3:         <div class="col-md-6">
+    4:           <p>Synth kitsch flexitarian narwhal pork belly. Synth authentic migas austin est pickled. Everyday carry 8-bit semiotics sint meditation, leggings tumeric duis banjo cred viral tilde proident. Ea artisan meggings man braid typewriter pinterest meh, eiusmod celiac.
+  
+app/views/application/index.html.erb:1:in `_app_views_application_index_html_erb___3970478757173173711_70281937898040'
+Started GET "/" for ::1 at 2019-07-09 10:25:26 -0700
+Processing by ApplicationController#index as HTML
+  Rendering application/index.html.erb within layouts/application
+  Rendered application/index.html.erb within layouts/application (2.2ms)
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (Missing partial /_card_header with {:locale=>[:en], :formats=>[:html], :variants=>[], :handlers=>[:raw, :erb, :html, :builder, :ruby, :coffee, :jbuilder]}. Searched in:
+  * "/Users/Mackenzie/nametag/app/views"
+):
+    1: <%= render :layout => '/card_header', :locals => {:header => "Welcome to Nametag", :description => "Keep track of your contacts & events"} do %>
+    2:     <div class="row">
+    3:         <div class="col-md-6">
+    4:           <p>Synth kitsch flexitarian narwhal pork belly. Synth authentic migas austin est pickled. Everyday carry 8-bit semiotics sint meditation, leggings tumeric duis banjo cred viral tilde proident. Ea artisan meggings man braid typewriter pinterest meh, eiusmod celiac.
+  
+app/views/application/index.html.erb:1:in `_app_views_application_index_html_erb___3970478757173173711_70281950404800'
+Started GET "/" for ::1 at 2019-07-09 10:25:40 -0700
+Processing by ApplicationController#index as HTML
+  Rendering application/index.html.erb within layouts/application
+  Rendered layouts/_card_header.html.erb (0.7ms)
+  Rendered application/index.html.erb within layouts/application (4.2ms)
+Completed 200 OK in 29ms (Views: 28.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2019-07-09 10:26:38 -0700
+Processing by ApplicationController#index as HTML
+  Rendering application/index.html.erb within layouts/application
+  Rendered layouts/_card_header.html.erb (0.9ms)
+  Rendered application/index.html.erb within layouts/application (4.5ms)
+Completed 200 OK in 22ms (Views: 20.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/login" for ::1 at 2019-07-09 10:28:02 -0700
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (13.3ms)
+Completed 200 OK in 29ms (Views: 27.7ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/login" for ::1 at 2019-07-09 10:28:06 -0700
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"R+EXbHDxdRe8k9v2cQA559BTed8dK18/W7tKHyhXpfoYfxObmIvkZou/0CWFOGTa/FiJYhOHNrFesRHJLSIPPg==", "user"=>{"email"=>"macmoore@ucdavis.edu", "password"=>"[FILTERED]"}, "commit"=>"Submit"}
+  [1m[36mUser Load (3.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "macmoore@ucdavis.edu"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:10
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (3.1ms)
+Completed 200 OK in 40ms (Views: 20.5ms | ActiveRecord: 3.1ms)
+
+
+Started POST "/login" for ::1 at 2019-07-09 10:28:17 -0700
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"MKbCaV3UR2NniNfHKPzJUDU0xfu4FPetwDb9ZCiRgrlvOMaeta7WElCk3BTcxJRtGT81Rra4niPFPKayLeQofQ==", "user"=>{"email"=>"theadmin@admin.com", "password"=>"[FILTERED]"}, "commit"=>"Submit"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "theadmin@admin.com"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:10
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (4.2ms)
+Completed 200 OK in 47ms (Views: 44.6ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/login" for ::1 at 2019-07-09 10:28:23 -0700
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"i/PpXiVU/ak6gRPL1c3Q42NROrk6BSYAxNHCzPCJ0LbUbe2pzS5s2A2tGBgh9Y3eT1rKBDSpT47B25ka9fx6cg==", "user"=>{"email"=>"macmoore@ucdavis.edu", "password"=>"[FILTERED]"}, "commit"=>"Submit"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "macmoore@ucdavis.edu"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:10
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (3.7ms)
+Completed 200 OK in 26ms (Views: 23.3ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/auth/google_oauth2" for ::1 at 2019-07-09 10:28:26 -0700
+Started GET "/auth/google_oauth2/callback?state=7dcfcef127218cd0f50efc73201b212a44cc8190409792a9&code=4/gQH-fhwFAynvu5HvHwrG67w6VLe9yXb2LtGrHjY6Rpe7ecFtBwo2n8brqC6tYVW8w31u5LWRVvPjZqCOrtznKhs&scope=email%20profile%20https://www.googleapis.com/auth/userinfo.profile%20https://www.googleapis.com/auth/userinfo.email&authuser=1&hd=ucdavis.edu&session_state=f3d8b5c1678843e965c68b7446f9e08257a0ff3f..fcb0&prompt=none" for ::1 at 2019-07-09 10:28:32 -0700
+Processing by SessionsController#googleAuth as HTML
+  Parameters: {"state"=>"7dcfcef127218cd0f50efc73201b212a44cc8190409792a9", "code"=>"4/gQH-fhwFAynvu5HvHwrG67w6VLe9yXb2LtGrHjY6Rpe7ecFtBwo2n8brqC6tYVW8w31u5LWRVvPjZqCOrtznKhs", "scope"=>"email profile https://www.googleapis.com/auth/userinfo.profile https://www.googleapis.com/auth/userinfo.email", "authuser"=>"1", "hd"=>"ucdavis.edu", "session_state"=>"f3d8b5c1678843e965c68b7446f9e08257a0ff3f..fcb0", "prompt"=>"none", "provider"=>"google_oauth2"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "macmoore@ucdavis.edu"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:30
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/models/user.rb:33
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "macmoore@ucdavis.edu"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:33
+  [1m[36mUser Create (5.4ms)[0m  [1m[32mINSERT INTO "users" ("email", "password_digest") VALUES (?, ?)[0m  [["email", "macmoore@ucdavis.edu"], ["password_digest", "$2a$12$dkXE1uwBtEZE8qtyMceW2u6V4VLPGQFVcHIIlNwl1qmWc7VvUn8mS"]]
+  ↳ app/models/user.rb:33
+  [1m[35m (2.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/models/user.rb:33
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/sessions_controller.rb:29
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? AND "users"."id" != ? LIMIT ?[0m  [["email", "macmoore@ucdavis.edu"], ["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:29
+  [1m[35m (0.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/sessions_controller.rb:29
+Redirected to http://localhost:3000/contacts
+Completed 302 Found in 365ms (ActiveRecord: 9.2ms)
+
+
+Started GET "/contacts" for ::1 at 2019-07-09 10:28:33 -0700
+Processing by ContactsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  Rendering contacts/index.html.erb within layouts/application
+  [1m[36mContact Load (1.7ms)[0m  [1m[34mSELECT "contacts".* FROM "contacts" WHERE (admin_level <= 0)[0m
+  ↳ app/views/contacts/index.html.erb:3
+  Rendered layouts/_card_header.html.erb (7.3ms)
+  Rendered contacts/index.html.erb within layouts/application (15.6ms)
+Completed 200 OK in 79ms (Views: 43.0ms | ActiveRecord: 2.7ms)
+
+
+Started GET "/" for ::1 at 2019-07-09 10:31:05 -0700
+Processing by ApplicationController#index as HTML
+  Rendering application/index.html.erb within layouts/application
+  Rendered layouts/_card_header.html.erb (1.5ms)
+  Rendered application/index.html.erb within layouts/application (7.5ms)
+Completed 200 OK in 39ms (Views: 32.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/new" for ::1 at 2019-07-09 10:31:06 -0700
+Processing by UsersController#new as HTML
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+Redirected to http://localhost:3000/contacts
+Filter chain halted as :redirect_if_logged_in rendered or redirected
+Completed 302 Found in 9ms (ActiveRecord: 0.8ms)
+
+
+Started GET "/contacts" for ::1 at 2019-07-09 10:31:06 -0700
+Processing by ContactsController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  Rendering contacts/index.html.erb within layouts/application
+  [1m[36mContact Load (0.6ms)[0m  [1m[34mSELECT "contacts".* FROM "contacts" WHERE (admin_level <= 0)[0m
+  ↳ app/views/contacts/index.html.erb:3
+  Rendered layouts/_card_header.html.erb (5.1ms)
+  Rendered contacts/index.html.erb within layouts/application (7.1ms)
+Completed 200 OK in 25ms (Views: 20.8ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/contacts/new" for ::1 at 2019-07-09 10:31:08 -0700
+Processing by ContactsController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  Rendering contacts/new.html.erb within layouts/application
+  Rendered layouts/_error_message.html.erb (0.6ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/contacts/_contact_form.html.erb:17
+  Rendered contacts/_contact_form.html.erb (344.1ms)
+  Rendered layouts/_card_header.html.erb (347.7ms)
+  Rendered contacts/new.html.erb within layouts/application (349.5ms)
+Completed 200 OK in 390ms (Views: 362.0ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/contacts" for ::1 at 2019-07-09 10:31:10 -0700
+Processing by ContactsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  Rendering contacts/index.html.erb within layouts/application
+  [1m[36mContact Load (0.2ms)[0m  [1m[34mSELECT "contacts".* FROM "contacts" WHERE (admin_level <= 0)[0m
+  ↳ app/views/contacts/index.html.erb:3
+  Rendered layouts/_card_header.html.erb (1.9ms)
+  Rendered contacts/index.html.erb within layouts/application (3.4ms)
+Completed 200 OK in 21ms (Views: 15.8ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/events" for ::1 at 2019-07-09 10:31:13 -0700
+Processing by EventsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE (admin_level <= 0)[0m
+  ↳ app/views/events/index.html.erb:3
+  Rendered layouts/_card_header.html.erb (2.7ms)
+  Rendered events/index.html.erb within layouts/application (4.4ms)
+Completed 200 OK in 28ms (Views: 16.8ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/users" for ::1 at 2019-07-09 10:31:14 -0700
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+Redirected to http://localhost:3000/
+Filter chain halted as :redirect_if_not_admin rendered or redirected
+Completed 302 Found in 4ms (ActiveRecord: 0.3ms)
+
+
+Started GET "/" for ::1 at 2019-07-09 10:31:14 -0700
+Processing by ApplicationController#index as HTML
+  Rendering application/index.html.erb within layouts/application
+  Rendered layouts/_card_header.html.erb (0.4ms)
+  Rendered application/index.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 15ms (Views: 13.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/events" for ::1 at 2019-07-09 10:31:18 -0700
+Processing by EventsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE (admin_level <= 0)[0m
+  ↳ app/views/events/index.html.erb:3
+  Rendered layouts/_card_header.html.erb (1.3ms)
+  Rendered events/index.html.erb within layouts/application (2.7ms)
+Completed 200 OK in 18ms (Views: 14.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/contacts" for ::1 at 2019-07-09 10:31:19 -0700
+Processing by ContactsController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  Rendering contacts/index.html.erb within layouts/application
+  [1m[36mContact Load (0.2ms)[0m  [1m[34mSELECT "contacts".* FROM "contacts" WHERE (admin_level <= 0)[0m
+  ↳ app/views/contacts/index.html.erb:3
+  Rendered layouts/_card_header.html.erb (1.2ms)
+  Rendered contacts/index.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 17ms (Views: 13.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/login" for ::1 at 2019-07-09 10:31:20 -0700
+Processing by SessionsController#new as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+Redirected to http://localhost:3000/contacts
+Filter chain halted as :redirect_if_logged_in rendered or redirected
+Completed 302 Found in 3ms (ActiveRecord: 0.1ms)
+
+
+Started GET "/contacts" for ::1 at 2019-07-09 10:31:20 -0700
+Processing by ContactsController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  Rendering contacts/index.html.erb within layouts/application
+  [1m[36mContact Load (0.2ms)[0m  [1m[34mSELECT "contacts".* FROM "contacts" WHERE (admin_level <= 0)[0m
+  ↳ app/views/contacts/index.html.erb:3
+  Rendered layouts/_card_header.html.erb (1.4ms)
+  Rendered contacts/index.html.erb within layouts/application (3.4ms)
+Completed 200 OK in 17ms (Views: 14.5ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/users/new" for ::1 at 2019-07-09 10:31:21 -0700
+Processing by UsersController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+Redirected to http://localhost:3000/contacts
+Filter chain halted as :redirect_if_logged_in rendered or redirected
+Completed 302 Found in 3ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/contacts" for ::1 at 2019-07-09 10:31:21 -0700
+Processing by ContactsController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  Rendering contacts/index.html.erb within layouts/application
+  [1m[36mContact Load (0.2ms)[0m  [1m[34mSELECT "contacts".* FROM "contacts" WHERE (admin_level <= 0)[0m
+  ↳ app/views/contacts/index.html.erb:3
+  Rendered layouts/_card_header.html.erb (1.4ms)
+  Rendered contacts/index.html.erb within layouts/application (3.3ms)
+Completed 200 OK in 16ms (Views: 13.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for ::1 at 2019-07-09 10:31:22 -0700
+Processing by ApplicationController#index as HTML
+  Rendering application/index.html.erb within layouts/application
+  Rendered layouts/_card_header.html.erb (0.7ms)
+  Rendered application/index.html.erb within layouts/application (2.8ms)
+Completed 200 OK in 16ms (Views: 15.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/login" for ::1 at 2019-07-09 10:31:39 -0700
+Processing by SessionsController#new as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+Redirected to http://localhost:3000/contacts
+Filter chain halted as :redirect_if_logged_in rendered or redirected
+Completed 302 Found in 3ms (ActiveRecord: 0.3ms)
+
+
+Started GET "/contacts" for ::1 at 2019-07-09 10:31:39 -0700
+Processing by ContactsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  Rendering contacts/index.html.erb within layouts/application
+  [1m[36mContact Load (0.2ms)[0m  [1m[34mSELECT "contacts".* FROM "contacts" WHERE (admin_level <= 0)[0m
+  ↳ app/views/contacts/index.html.erb:3
+  Rendered layouts/_card_header.html.erb (1.9ms)
+  Rendered contacts/index.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 18ms (Views: 13.6ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/users/new" for ::1 at 2019-07-09 10:31:40 -0700
+Processing by UsersController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+Redirected to http://localhost:3000/contacts
+Filter chain halted as :redirect_if_logged_in rendered or redirected
+Completed 302 Found in 2ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/contacts" for ::1 at 2019-07-09 10:31:40 -0700
+Processing by ContactsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  Rendering contacts/index.html.erb within layouts/application
+  [1m[36mContact Load (0.2ms)[0m  [1m[34mSELECT "contacts".* FROM "contacts" WHERE (admin_level <= 0)[0m
+  ↳ app/views/contacts/index.html.erb:3
+  Rendered layouts/_card_header.html.erb (1.4ms)
+  Rendered contacts/index.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 20ms (Views: 16.3ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for ::1 at 2019-07-09 10:31:41 -0700
+Processing by ApplicationController#index as HTML
+  Rendering application/index.html.erb within layouts/application
+  Rendered layouts/_card_header.html.erb (0.6ms)
+  Rendered application/index.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 18ms (Views: 16.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/events" for ::1 at 2019-07-09 10:31:43 -0700
+Processing by EventsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE (admin_level <= 0)[0m
+  ↳ app/views/events/index.html.erb:3
+  Rendered layouts/_card_header.html.erb (1.3ms)
+  Rendered events/index.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 17ms (Views: 13.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/contacts" for ::1 at 2019-07-09 10:31:43 -0700
+Processing by ContactsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  Rendering contacts/index.html.erb within layouts/application
+  [1m[36mContact Load (0.2ms)[0m  [1m[34mSELECT "contacts".* FROM "contacts" WHERE (admin_level <= 0)[0m
+  ↳ app/views/contacts/index.html.erb:3
+  Rendered layouts/_card_header.html.erb (1.3ms)
+  Rendered contacts/index.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 45ms (Views: 40.6ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/login" for ::1 at 2019-07-09 10:31:44 -0700
+Processing by SessionsController#new as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+Redirected to http://localhost:3000/contacts
+Filter chain halted as :redirect_if_logged_in rendered or redirected
+Completed 302 Found in 1ms (ActiveRecord: 0.1ms)
+
+
+Started GET "/contacts" for ::1 at 2019-07-09 10:31:44 -0700
+Processing by ContactsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  Rendering contacts/index.html.erb within layouts/application
+  [1m[36mContact Load (0.2ms)[0m  [1m[34mSELECT "contacts".* FROM "contacts" WHERE (admin_level <= 0)[0m
+  ↳ app/views/contacts/index.html.erb:3
+  Rendered layouts/_card_header.html.erb (1.2ms)
+  Rendered contacts/index.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 19ms (Views: 14.8ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/users/new" for ::1 at 2019-07-09 10:31:44 -0700
+Processing by UsersController#new as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+Redirected to http://localhost:3000/contacts
+Filter chain halted as :redirect_if_logged_in rendered or redirected
+Completed 302 Found in 2ms (ActiveRecord: 0.1ms)
+
+
+Started GET "/contacts" for ::1 at 2019-07-09 10:31:44 -0700
+Processing by ContactsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  Rendering contacts/index.html.erb within layouts/application
+  [1m[36mContact Load (0.2ms)[0m  [1m[34mSELECT "contacts".* FROM "contacts" WHERE (admin_level <= 0)[0m
+  ↳ app/views/contacts/index.html.erb:3
+  Rendered layouts/_card_header.html.erb (1.1ms)
+  Rendered contacts/index.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 17ms (Views: 13.5ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for ::1 at 2019-07-09 10:31:45 -0700
+Processing by ApplicationController#index as HTML
+  Rendering application/index.html.erb within layouts/application
+  Rendered layouts/_card_header.html.erb (0.5ms)
+  Rendered application/index.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 15ms (Views: 13.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2019-07-09 10:33:19 -0700
+Processing by ApplicationController#index as HTML
+  Rendering application/index.html.erb within layouts/application
+  Rendered layouts/_card_header.html.erb (1.4ms)
+  Rendered application/index.html.erb within layouts/application (7.6ms)
+Completed 200 OK in 289ms (Views: 281.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2019-07-09 10:33:38 -0700
+Processing by ApplicationController#index as HTML
+  Rendering application/index.html.erb within layouts/application
+  Rendered layouts/_card_header.html.erb (0.6ms)
+  Rendered application/index.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 124ms (Views: 122.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2019-07-09 10:34:24 -0700
+Processing by ApplicationController#index as HTML
+  Rendering application/index.html.erb within layouts/application
+  Rendered layouts/_card_header.html.erb (1.0ms)
+  Rendered application/index.html.erb within layouts/application (3.1ms)
+Completed 200 OK in 42ms (Views: 39.4ms | ActiveRecord: 0.0ms)
+
+

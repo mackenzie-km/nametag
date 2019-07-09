@@ -1,7 +1,9 @@
-<h2> contacts homepage </h2>
-<% @contacts.each do |contact| %>
-  <%= link_to contact.name, contact_path(contact) %><br>
-<% end %><br>
+<%= render :layout => 'layouts/card_header', :locals => {:header => "Welcome to Nametag", :description => "Sign up/login in to keep track of your contacts & events"} do %>
+  <h2> contacts homepage </h2>
+  <% @contacts.each do |contact| %>
+    <%= link_to contact.name, contact_path(contact) %><br>
+  <% end %><br>
 
 
-<%= button_to "Create Contact", new_contact_path, :method => :get %>
+  <%= button_to "Create Contact", new_contact_path, :method => :get %>
+<% end %>
