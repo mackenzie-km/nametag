@@ -1,9 +1,10 @@
-<%= render :layout => 'layouts/card_header', :locals => {:header => "Welcome to Nametag", :description => "Sign up/login in to keep track of your contacts & events"} do %>
+<%= render :layout => 'layouts/card_header', :locals => {:header => "View an Event", :description => "View all of the data for an event"} do %>
   <h2> Event Info </h2>
 
   <label>Name:</label> <%= @event.name %><br>
   <label>Date:</label> <%= @event.date_human %><br>
-  <label>Attendee Count:</label> <%= @event.contacts.count %><br>
+  <label>Student Count:</label> <%= @event.contacts.count %><br>
+  <label>Guest Count:</label> <%= @event.contacts_events.sum(:guests) %><br>
   <label>Attendees:</label><br>
     <% @event.contacts.each do |contact| %>
     <%= link_to contact.name, contact_path(contact) %><br>
