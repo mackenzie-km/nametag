@@ -5,13 +5,13 @@
   <%= f.label "Event Name" %>
   <%= f.text_field :name, :class => "form-control" %><br>
 
-  <%= f.label "Event Date" %>
-  <%= f.date_select :date, class: "form-control" %><br>
+  <%= f.label "Event Date" %><br>
+  <%= f.date_select :date, class: "form-control" %><br><br>
 
   <%= f.label "Attendees:" %><br>
-  <%= f.collection_check_boxes :contact_ids, Contact.active, :id, :name, class: "form-control" do |b| %>
-    <%= b.check_box %> <%= b.label  %><br>
-    <% end %>
+  <%= f.collection_check_boxes :contact_ids, Contact.active, :id, :name do |b| %>
+    <%= b.check_box %> <%= b.label %><br>
+    <% end %><br>
 
   <%= f.submit "Submit", class: "btn btn-primary" %><br>
 <% end %>
