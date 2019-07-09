@@ -33,13 +33,20 @@
 
   <!-- Container Begins -->
     <div class="wrapper">
-      <div class="content">
-        <div class="main-panel">
+      <div class="main-panel">
+        <div class="content">
           <div class="container-fluid">
             <div class="row">
-              <div class="col">
-                <%= yield %>
-              </div>
+              <div class="col-md-12">
+                <div class="card">
+                  <div class="card-header card-header-primary">
+                    <h2 class="card-category">Welcome to Nametag</h2>
+                  </div>
+                    <div class="card-body">
+                      <%= yield %>
+                    </div>
+                  </div>
+                </div>
             </div>
           </div>
         </div>
