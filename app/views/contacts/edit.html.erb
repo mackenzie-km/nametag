@@ -1,2 +1,15 @@
-<%= render partial: "contact_form", locals: {contact: @contact} %>
-<%= button_to "Delete Contact", "#{contact_path(@contact)}/delete", :method => :get %>
+
+<div class="card">
+  <div class="card-header card-header-primary">
+    <h3 class="card-category">Welcome to Nametag</h3>
+    <p class="card-category">Complete your profile</p>
+  </div>
+
+<div class="card-body">
+
+  <%= render partial: "contact_form", locals: {contact: @contact} %>
+  <%= button_to "Delete Contact", "#{contact_path(@contact)}/delete", :method => :get %>
+
+
+  </div>
+</div>

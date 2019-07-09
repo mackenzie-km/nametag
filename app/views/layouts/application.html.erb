@@ -5,10 +5,13 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= stylesheet_link_tag "https://fonts.googleapis.com/css?family=Raleway" %>
   <%= stylesheet_link_tag "https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" %>
 </head>
 
   <body>
+
+
 
 
   <!-- Sidebar -->
@@ -34,24 +37,47 @@
   <!-- Container Begins -->
     <div class="wrapper">
       <div class="main-panel">
+        <div class="container-fluid">
+
+          <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">
+            <div class="container-fluid">
+            <div class="navbar-wrapper">
+            </div>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="navbar-toggler-icon icon-bar"></span>
+              <span class="navbar-toggler-icon icon-bar"></span>
+              <span class="navbar-toggler-icon icon-bar"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end">
+              <ul class="navbar-nav">
+                <li class="nav-item">
+                  <a class="nav-link" href="https://github.com/mackenzie-km">By: Mackenzie Moore</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="www.flatironschool.com/‎">Project: Flatiron School</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="https://www.creative-tim.com/product/material-dashboard">Theme: Creative Tim</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+      </div>
+
         <div class="content">
           <div class="container-fluid">
             <div class="row">
               <div class="col-md-12">
-                <div class="card">
-                  <div class="card-header card-header-primary">
-                    <h2 class="card-category">Welcome to Nametag</h2>
-                  </div>
-                    <div class="card-body">
+
                       <%= yield %>
-                    </div>
-                  </div>
-                </div>
+                   
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
 
   </body>
 </html>

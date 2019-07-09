@@ -14885,7 +14885,7 @@ fieldset[disabled] .form-group.is-focused .togglebutton label {
 
 .main-panel>.content {
   margin-top: 70px;
-  padding: 30px 15px;
+  padding: 15px 15px;
   min-height: calc(100vh - 123px);
 }
 
@@ -16638,6 +16638,7 @@ label {
 
 .card .card-category {
   margin-top: 10px;
+  font-family: 'Raleway', cursive;
 }
 
 .card .card-category .material-icons {
@@ -16829,7 +16830,7 @@ label {
 .card .card-header-primary .card-icon,
 .card .card-header-primary:not(.card-header-icon):not(.card-header-text),
 .card .card-header-primary .card-text {
-  box-shadow: 0 4px 20px 0px rgba(0, 0, 0, 0.14), 0 7px 10px -5px rgba(105, 105, 105, 0.5);
+  box-shadow: 0 4px 20px 0px rgba(0, 0, 0, 0.14), 0 7px 10px -5px rgba(10, 10, 10, 0.5);
 }
 
 .card .card-header-danger .card-icon,
