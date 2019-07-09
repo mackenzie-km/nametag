@@ -8,29 +8,42 @@
   <%= stylesheet_link_tag "https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" %>
 </head>
 
-  <body class>
+  <body>
 
-  <!-- Navbar -->
-    <nav class="navbar navbar-default">
+
+  <!-- Sidebar -->
+    <nav class="sidebar sidebar-default">
       <div class="container-fluid">
-        <div class="navbar-header">
-          <a class="navbar-brand" href="#">nametag</a>
+        <div class="sidebar-header">
+          <div class="logo">
+            <a href="/"><img src="<%= image_path('nametag.png') %>"></a>
+            </div>
         </div>
-        <ul class="nav navbar-nav">
-            <li class="active"><a href="/">Home</a></li>
-            <li><a href="/users/new">Signup</a></li>
-            <li><a href="/login">Login</a></li>
-            <li><a href="/contacts">Contacts</a></li>
-            <li><a href="/events">Events</a></li>
-            <li><a href="/users">Admin</a></li>
-            <li><a href="/logout">Logout</a></li>
+        <ul class="nav sidebar-nav">
+            <li class="nav-item"><a class="nav-link" href="/"><i class="material-icons">home</i> <p>HOME</p></a></li>
+            <li class="nav-item"><a class="nav-link" href="/users/new"><i class="material-icons">person</i> <p>SIGNUP</p></a></li>
+            <li class="nav-item"><a class="nav-link" href="/login"><i class="material-icons">open_in_new</i> <p>LOGIN</p></a></li>
+            <li class="nav-item"><a class="nav-link" href="/contacts"><i class="material-icons">perm_contact_calendar</i> <p>CONTACTS</p></a></li>
+            <li class="nav-item"><a class="nav-link" href="/events"><i class="material-icons">event</i> <p>EVENTS</p></a></li>
+            <li class="nav-item"><a class="nav-link" href="/users"><i class="material-icons">pan_tool</i> <p>ADMIN</p></a></li>
+            <li class="nav-item"><a class="nav-link" href="/logout"><i class="material-icons">eject</i> <p>LOGOUT</p></a></li>
           </ul>
         </div>
       </nav>
 
   <!-- Container Begins -->
-    <div class="container">
-        <%= yield %>
+    <div class="wrapper">
+      <div class="content">
+        <div class="main-panel">
+          <div class="container-fluid">
+            <div class="row">
+              <div class="col">
+                <%= yield %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
 
   </body>
