@@ -33,4 +33,8 @@ class Contact < ApplicationRecord
   def admin_level
     self[:admin_level]
   end
+
+  def user_name
+    self.user.name
+  end
 end
