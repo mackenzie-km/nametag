@@ -1,10 +1,12 @@
-<%= render partial: "layouts/error_message", locals: {thing: @user} %>
+<%= render :layout => 'layouts/card_header', :locals => {:header => "Welcome to Nametag", :description => "Sign up/login in to keep track of your contacts & events"} do %>
+  <%= render partial: "layouts/error_message", locals: {thing: @user} %>
 
-<h2> Edit Access for <%= "#{@user.name.capitalize}" %> </h2>
+  <h2> Edit Access for <%= "#{@user.name.capitalize}" %> </h2>
 
-<%= form_for @user do |f| %>
-  <%= f.label "Access Level:" %>
-  <%= f.select(:admin_level, [0, 1, 2]) %><br>
+  <%= form_for @user do |f| %>
+    <%= f.label "Access Level:" %>
+    <%= f.select(:admin_level, [0, 1, 2]) %><br>
 
-  <%= f.submit "Submit" %><br>
+    <%= f.submit "Submit" %><br>
+  <% end %>
 <% end %>

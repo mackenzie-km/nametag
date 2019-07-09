@@ -1,2 +1,4 @@
-<%= render partial: "event_form", locals: {event: @event} %>
-<%= button_to "Delete Event", "#{event_path(@event)}/delete", :method => :get %>
+<%= render :layout => 'layouts/card_header', :locals => {:header => "Welcome to Nametag", :description => "Sign up/login in to keep track of your contacts & events"} do %>
+  <%= render partial: "event_form", locals: {event: @event} %>
+  <%= button_to "Delete Event", "#{event_path(@event)}/delete", :method => :get %>
+<% end %>

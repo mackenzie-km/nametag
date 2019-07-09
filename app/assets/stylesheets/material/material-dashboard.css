@@ -16779,7 +16779,7 @@ label {
 .card.bg-primary,
 .card.card-rotate.bg-primary .front,
 .card.card-rotate.bg-primary .back {
-  background: linear-gradient(60deg, #255a7b, #255A7B);
+  background: linear-gradient(60deg, #255a7b, #427ca1);
 }
 
 .card .card-header-info .card-icon,

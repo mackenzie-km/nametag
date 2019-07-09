@@ -1,13 +1,5 @@
-
-<div class="card">
-  <div class="card-header card-header-primary">
-    <h3 class="card-category">Welcome to Nametag</h3>
-    <p class="card-category">Complete your profile</p>
-  </div>
-
-<div class="card-body">
-
-      <div class="row">
+<%= render :layout => 'layouts/card_header', :locals => {:header => "Welcome to Nametag", :description => "Sign up/login in to keep track of your contacts & events"} do %>
+    <div class="row">
         <div class="col-md-6">
           <p>Synth kitsch flexitarian narwhal pork belly. Synth authentic migas austin est pickled. Everyday carry 8-bit semiotics sint meditation, leggings tumeric duis banjo cred viral tilde proident. Ea artisan meggings man braid typewriter pinterest meh, eiusmod celiac.
 
@@ -26,8 +18,7 @@
       Sartorial culpa blog est, veniam enamel pin selvage. La croix lomo scenester glossier. Tote bag master cleanse etsy glossier pitchfork. Dolore cronut offal authentic yuccie laborum slow-carb actually aesthetic pork belly. Adipisicing irure fingerstache kombucha forage normcore succulents semiotics reprehenderit dolore copper mug taxidermy irony. Chartreuse knausgaard viral single-origin coffee hexagon la croix put a bird on it dreamcatcher bitters. Locavore fashion axe ut, organic voluptate paleo raclette copper mug magna cold-pressed vape esse hexagon.
 
       </p>
-        </div>
-      </div>
-
       </div>
     </div>
+
+<% end %>

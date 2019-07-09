@@ -1,10 +1,4 @@
-<div class="card">
-  <div class="card-header card-header-primary">
-    <h3 class="card-category">Welcome to Nametag</h3>
-    <p class="card-category">Complete your profile</p>
-  </div>
-
-<div class="card-body">
+<%= render :layout => 'layouts/card_header', :locals => {:header => "Welcome to Nametag", :description => "Sign up/login in to keep track of your contacts & events"} do %>
 
   <%= flash[:message] %>
 
@@ -22,5 +16,4 @@
   <%= button_to('Sign Up', '/users/new', method: 'get') %>
   <%= button_to('Log in with Google!', '/auth/google_oauth2') %>
 
-  </div>
-</div>
+<% end %>

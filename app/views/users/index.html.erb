@@ -1,7 +1,11 @@
-<h2> All the Users </h2>
-<% @users.each do |user| %>
-<%= "User: " + user.name %> <br>
-<%= "Admin Level: " + user.admin_level.to_s %><br>
-<%= button_to "Edit Access", edit_user_path(user), :method => :get  %>
-<%= button_to "Delete User", user_path(user), :method => :delete  %><br>
+<%= render :layout => 'layouts/card_header', :locals => {:header => "Welcome to Nametag", :description => "Sign up/login in to keep track of your contacts & events"} do %>
+
+  <h2> All the Users </h2>
+  <% @users.each do |user| %>
+  <%= "User: " + user.name %> <br>
+  <%= "Admin Level: " + user.admin_level.to_s %><br>
+  <%= button_to "Edit Access", edit_user_path(user), :method => :get  %>
+  <%= button_to "Delete User", user_path(user), :method => :delete  %><br>
+  <% end %>
+
 <% end %>
