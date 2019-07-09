@@ -22758,3 +22758,1281 @@ Processing by ApplicationController#index as HTML
 Completed 200 OK in 42ms (Views: 39.4ms | ActiveRecord: 0.0ms)
 
 
+Started GET "/" for ::1 at 2019-07-09 11:06:14 -0700
+  [1m[35m (2.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/Mackenzie/.rvm/gems/ruby-2.6.1/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by ApplicationController#index as HTML
+  Rendering application/index.html.erb within layouts/application
+  Rendered layouts/_card_header.html.erb (1.6ms)
+  Rendered application/index.html.erb within layouts/application (7.9ms)
+Completed 200 OK in 541ms (Views: 529.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2019-07-09 12:15:01 -0700
+Processing by ApplicationController#index as HTML
+  Rendering application/index.html.erb within layouts/application
+  Rendered layouts/_card_header.html.erb (1.5ms)
+  Rendered application/index.html.erb within layouts/application (7.0ms)
+Completed 200 OK in 290ms (Views: 283.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/logout" for ::1 at 2019-07-09 12:15:09 -0700
+Processing by SessionsController#destroy as HTML
+  [1m[36mUser Load (2.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+Redirected to http://localhost:3000/
+Completed 302 Found in 47ms (ActiveRecord: 3.2ms)
+
+
+Started GET "/" for ::1 at 2019-07-09 12:15:09 -0700
+Processing by ApplicationController#index as HTML
+  Rendering application/index.html.erb within layouts/application
+  Rendered layouts/_card_header.html.erb (0.4ms)
+  Rendered application/index.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 15ms (Views: 13.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/logout" for ::1 at 2019-07-09 12:15:12 -0700
+Processing by SessionsController#destroy as HTML
+Redirected to http://localhost:3000/login
+Filter chain halted as :redirect_if_no_login rendered or redirected
+Completed 302 Found in 2ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/login" for ::1 at 2019-07-09 12:15:12 -0700
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered layouts/_card_header.html.erb (42.6ms)
+  Rendered sessions/new.html.erb within layouts/application (44.1ms)
+Completed 200 OK in 61ms (Views: 59.7ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/login" for ::1 at 2019-07-09 12:15:34 -0700
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"tglQiUX2q2fqg1UYrghpzS/ko1EtyIlLGd1AQXGa7ol1sh8tTTQl2uZQO49KzPUo57wVLLq5i9GJalnsDRbc2A==", "user"=>{"email"=>"theadmin@admin.com", "password"=>"[FILTERED]"}, "commit"=>"Submit"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "theadmin@admin.com"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:10
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered layouts/_card_header.html.erb (2.7ms)
+  Rendered sessions/new.html.erb within layouts/application (4.1ms)
+Completed 200 OK in 20ms (Views: 17.3ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/login" for ::1 at 2019-07-09 12:15:39 -0700
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"s0e+nJ2Ro8tXLin94b6yP9PqK0l0zs8l2wrlNQf8tH5w/PE4lVMtdlv9R2oFei7aG7KdNOO/zb9LvfyYe3CGLw==", "user"=>{"email"=>"admin@nametag.com", "password"=>"[FILTERED]"}, "commit"=>"Submit"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "admin@nametag.com"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:10
+Redirected to http://localhost:3000/contacts
+Completed 302 Found in 327ms (ActiveRecord: 0.3ms)
+
+
+Started GET "/contacts" for ::1 at 2019-07-09 12:15:39 -0700
+Processing by ContactsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  Rendering contacts/index.html.erb within layouts/application
+  [1m[36mContact Load (2.3ms)[0m  [1m[34mSELECT "contacts".* FROM "contacts" WHERE (admin_level <= 2)[0m
+  ↳ app/views/contacts/index.html.erb:3
+  Rendered layouts/_card_header.html.erb (28.1ms)
+  Rendered contacts/index.html.erb within layouts/application (29.5ms)
+Completed 200 OK in 60ms (Views: 39.1ms | ActiveRecord: 3.3ms)
+
+
+Started GET "/logout" for ::1 at 2019-07-09 12:15:48 -0700
+Processing by SessionsController#destroy as HTML
+  [1m[36mUser Load (2.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+Redirected to http://localhost:3000/
+Completed 302 Found in 4ms (ActiveRecord: 2.2ms)
+
+
+Started GET "/" for ::1 at 2019-07-09 12:15:48 -0700
+Processing by ApplicationController#index as HTML
+  Rendering application/index.html.erb within layouts/application
+  Rendered layouts/_card_header.html.erb (0.9ms)
+  Rendered application/index.html.erb within layouts/application (2.7ms)
+Completed 200 OK in 16ms (Views: 14.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/new" for ::1 at 2019-07-09 12:15:50 -0700
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered layouts/_error_message.html.erb (0.5ms)
+  Rendered layouts/_card_header.html.erb (4.4ms)
+  Rendered users/new.html.erb within layouts/application (6.0ms)
+Completed 200 OK in 22ms (Views: 19.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for ::1 at 2019-07-09 12:15:54 -0700
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"dcMz/uvdArGStR+SZSGKg9QNjbEGgRj7LND8lai061zoawuGqWf+vpCsIX9t5u5FM3ngcck9Yk9S/ktEVW/xjg==", "user"=>{"email"=>"ammerman.kiernan@gene.com", "password"=>"[FILTERED]", "admin_level"=>"95688"}, "commit"=>"Submit"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:18
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "ammerman.kiernan@gene.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:18
+  [1m[36mUser Create (2.9ms)[0m  [1m[32mINSERT INTO "users" ("email", "password_digest") VALUES (?, ?)[0m  [["email", "ammerman.kiernan@gene.com"], ["password_digest", "$2a$12$Ye2QGMjdjdKA61Zl9o1vTeyPBWdChb8JypaBpnn2h1ekvSoaroyjK"]]
+  ↳ app/controllers/users_controller.rb:18
+  [1m[35m (3.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:18
+Redirected to http://localhost:3000/contacts
+Completed 302 Found in 329ms (ActiveRecord: 6.4ms)
+
+
+Started GET "/contacts" for ::1 at 2019-07-09 12:15:54 -0700
+Processing by ContactsController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  Rendering contacts/index.html.erb within layouts/application
+  [1m[36mContact Load (2.3ms)[0m  [1m[34mSELECT "contacts".* FROM "contacts" WHERE (admin_level <= 0)[0m
+  ↳ app/views/contacts/index.html.erb:3
+  Rendered layouts/_card_header.html.erb (3.8ms)
+  Rendered contacts/index.html.erb within layouts/application (5.0ms)
+Completed 200 OK in 18ms (Views: 13.5ms | ActiveRecord: 2.5ms)
+
+
+Started GET "/logout" for ::1 at 2019-07-09 12:15:57 -0700
+Processing by SessionsController#destroy as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+Redirected to http://localhost:3000/
+Completed 302 Found in 3ms (ActiveRecord: 0.4ms)
+
+
+Started GET "/" for ::1 at 2019-07-09 12:15:57 -0700
+Processing by ApplicationController#index as HTML
+  Rendering application/index.html.erb within layouts/application
+  Rendered layouts/_card_header.html.erb (0.4ms)
+  Rendered application/index.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 18ms (Views: 16.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/new" for ::1 at 2019-07-09 12:15:58 -0700
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered layouts/_error_message.html.erb (0.4ms)
+  Rendered layouts/_card_header.html.erb (3.3ms)
+  Rendered users/new.html.erb within layouts/application (4.7ms)
+Completed 200 OK in 19ms (Views: 18.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for ::1 at 2019-07-09 12:16:03 -0700
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"kLN4nsBbJuELzv9ItG+qSGhmf9XFKcU83FyeOCr+YOfva9w+Q0mL8j2H0sU9E2W+JURd8ng+pPmquBnx2c58Tw==", "user"=>{"email"=>"ammerman.kiernan@gene.com", "password"=>"[FILTERED]", "admin_level"=>"95688"}, "commit"=>"Submit"}
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:18
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "ammerman.kiernan@gene.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:18
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/users_controller.rb:18
+  Rendering users/new.html.erb within layouts/application
+  Rendered layouts/_error_message.html.erb (1.1ms)
+  Rendered layouts/_card_header.html.erb (3.8ms)
+  Rendered users/new.html.erb within layouts/application (5.0ms)
+Completed 200 OK in 340ms (Views: 17.7ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/" for ::1 at 2019-07-09 12:32:36 -0700
+Processing by ApplicationController#index as HTML
+  Rendering application/index.html.erb within layouts/application
+  Rendered layouts/_card_header.html.erb (1.2ms)
+  Rendered application/index.html.erb within layouts/application (5.1ms)
+Completed 200 OK in 39ms (Views: 34.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/contacts" for ::1 at 2019-07-09 12:32:40 -0700
+Processing by ContactsController#index as HTML
+Redirected to http://localhost:3000/login
+Filter chain halted as :redirect_if_no_login rendered or redirected
+Completed 302 Found in 2ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/login" for ::1 at 2019-07-09 12:32:40 -0700
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered layouts/_card_header.html.erb (7.1ms)
+  Rendered sessions/new.html.erb within layouts/application (9.1ms)
+Completed 200 OK in 25ms (Views: 22.7ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/login" for ::1 at 2019-07-09 12:32:44 -0700
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"NT2oEFtcc9qEvGZOxkAqz0eXq2Ex5xChh2GitA/xlnFWRzYQZfGrRSqisz/8GXXyazdsYqVULtV6hKK/qYaJcA==", "user"=>{"email"=>"macmoore@ucdavis.edu", "password"=>"[FILTERED]"}, "commit"=>"Submit"}
+  [1m[36mUser Load (3.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "macmoore@ucdavis.edu"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:10
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered layouts/_card_header.html.erb (2.7ms)
+  Rendered sessions/new.html.erb within layouts/application (5.1ms)
+Completed 200 OK in 387ms (Views: 25.0ms | ActiveRecord: 3.8ms)
+
+
+Started POST "/auth/google_oauth2" for ::1 at 2019-07-09 12:32:46 -0700
+Started GET "/auth/google_oauth2/callback?state=29123d546c2d477f7a61014393c5f0e3fad9e686b0f369e9&code=4/gQFkHDm-6ACIa2wBFf_6QPVtlTxMq6xpJSjRyQipgCVS5c3zfvFjxzDocrBE5Lq11lhizYVfD1iGYGPrNA0U0dI&scope=email%20profile%20https://www.googleapis.com/auth/userinfo.profile%20https://www.googleapis.com/auth/userinfo.email&authuser=1&hd=ucdavis.edu&session_state=e2d492473294651c9a2e3b6a051ae492253e7345..4496&prompt=none" for ::1 at 2019-07-09 12:32:50 -0700
+Processing by SessionsController#googleAuth as HTML
+  Parameters: {"state"=>"29123d546c2d477f7a61014393c5f0e3fad9e686b0f369e9", "code"=>"4/gQFkHDm-6ACIa2wBFf_6QPVtlTxMq6xpJSjRyQipgCVS5c3zfvFjxzDocrBE5Lq11lhizYVfD1iGYGPrNA0U0dI", "scope"=>"email profile https://www.googleapis.com/auth/userinfo.profile https://www.googleapis.com/auth/userinfo.email", "authuser"=>"1", "hd"=>"ucdavis.edu", "session_state"=>"e2d492473294651c9a2e3b6a051ae492253e7345..4496", "prompt"=>"none", "provider"=>"google_oauth2"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "macmoore@ucdavis.edu"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:30
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/models/user.rb:33
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? AND "users"."id" != ? LIMIT ?[0m  [["email", "macmoore@ucdavis.edu"], ["id", 3], ["LIMIT", 1]]
+  ↳ app/models/user.rb:33
+  [1m[36mUser Update (5.7ms)[0m  [1m[33mUPDATE "users" SET "password_digest" = ? WHERE "users"."id" = ?[0m  [["password_digest", "$2a$12$/48UHrzfhfl5r1mfs4c4jeImgWT5MMeppaNOxTz.5OAhiiiPzIzda"], ["id", 3]]
+  ↳ app/models/user.rb:33
+  [1m[35m (4.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/models/user.rb:33
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/sessions_controller.rb:29
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? AND "users"."id" != ? LIMIT ?[0m  [["email", "macmoore@ucdavis.edu"], ["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:29
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/sessions_controller.rb:29
+Redirected to http://localhost:3000/contacts
+Completed 302 Found in 354ms (ActiveRecord: 11.2ms)
+
+
+Started GET "/contacts" for ::1 at 2019-07-09 12:32:51 -0700
+Processing by ContactsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  Rendering contacts/index.html.erb within layouts/application
+  [1m[36mContact Load (0.3ms)[0m  [1m[34mSELECT  "contacts".* FROM "contacts" WHERE (admin_level <= 0) ORDER BY "contacts"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/views/contacts/index.html.erb:7
+  Rendered layouts/_card_header.html.erb (11.0ms)
+  Rendered contacts/index.html.erb within layouts/application (19.9ms)
+Completed 500 Internal Server Error in 29ms (ActiveRecord: 0.5ms)
+
+
+  
+ActionView::Template::Error (undefined method `attributes' for nil:NilClass):
+     6:   </div>
+     7: 
+     8:     <div class="card-body">
+     9:       <%= yield %>
+    10:     </div>
+    11:   </div>
+  
+app/views/contacts/index.html.erb:7:in `block in _app_views_contacts_index_html_erb___2435771184157074126_70253046335500'
+app/views/layouts/_card_header.html.erb:9:in `_app_views_layouts__card_header_html_erb__4483617996527224565_70253061576440'
+app/views/contacts/index.html.erb:1:in `_app_views_contacts_index_html_erb___2435771184157074126_70253046335500'
+Started GET "/contacts" for ::1 at 2019-07-09 12:33:02 -0700
+Processing by ContactsController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  Rendering contacts/index.html.erb within layouts/application
+  [1m[36mContact Load (0.4ms)[0m  [1m[34mSELECT  "contacts".* FROM "contacts" WHERE (admin_level <= 0) ORDER BY "contacts"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/views/contacts/index.html.erb:7
+  Rendered layouts/_card_header.html.erb (4.8ms)
+  Rendered contacts/index.html.erb within layouts/application (6.8ms)
+Completed 500 Internal Server Error in 15ms (ActiveRecord: 0.7ms)
+
+
+  
+ActionView::Template::Error (undefined method `attributes' for nil:NilClass):
+     6:   </div>
+     7: 
+     8:     <div class="card-body">
+     9:       <%= yield %>
+    10:     </div>
+    11:   </div>
+  
+app/views/contacts/index.html.erb:7:in `block in _app_views_contacts_index_html_erb___2435771184157074126_70253053842320'
+app/views/layouts/_card_header.html.erb:9:in `_app_views_layouts__card_header_html_erb__4483617996527224565_70253053938640'
+app/views/contacts/index.html.erb:1:in `_app_views_contacts_index_html_erb___2435771184157074126_70253053842320'
+Started GET "/contacts/new" for ::1 at 2019-07-09 12:33:09 -0700
+Processing by ContactsController#new as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  Rendering contacts/new.html.erb within layouts/application
+  Rendered layouts/_error_message.html.erb (1.0ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/contacts/_contact_form.html.erb:17
+  Rendered contacts/_contact_form.html.erb (142.0ms)
+  Rendered layouts/_card_header.html.erb (144.8ms)
+  Rendered contacts/new.html.erb within layouts/application (147.8ms)
+Completed 200 OK in 283ms (Views: 275.0ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/contacts" for ::1 at 2019-07-09 12:33:19 -0700
+Processing by ContactsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Hrz9zezJtiVnBF53FlknoXGoshPdxKyV4Ss88i3Sav8UWyh5Q/NQJ4V5uDCNFCGitk6T6FHe22foA1uL3k6tCQ==", "contact"=>{"name"=>"Kiernan Ammerman", "email"=>"ammerman.kiernan@gene.com", "gender"=>"female", "user_id"=>"1", "phone_number"=>"7073306211", "school_status"=>"exchange", "messenger_company"=>"Line", "messenger_id"=>"mackenzie_km", "major"=>"fake ", "country"=>"", "birthday(1i)"=>"1", "birthday(2i)"=>"1", "birthday(3i)"=>""}, "commit"=>"Submit"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/contacts_controller.rb:21
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/contacts_controller.rb:22
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/contacts_controller.rb:22
+  [1m[36mContact Create (0.6ms)[0m  [1m[32mINSERT INTO "contacts" ("name", "email", "gender", "user_id", "phone_number", "school_status", "messenger_company", "messenger_id", "major", "country", "admin_level", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Kiernan Ammerman"], ["email", "ammerman.kiernan@gene.com"], ["gender", "female"], ["user_id", 1], ["phone_number", 7073306211], ["school_status", "exchange"], ["messenger_company", "Line"], ["messenger_id", "mackenzie_km"], ["major", "fake "], ["country", ""], ["admin_level", 0], ["created_at", "2019-07-09 19:33:19.830087"], ["updated_at", "2019-07-09 19:33:19.830087"]]
+  ↳ app/controllers/contacts_controller.rb:22
+  [1m[35m (2.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/contacts_controller.rb:22
+Redirected to http://localhost:3000/contacts/5
+Completed 302 Found in 64ms (ActiveRecord: 4.3ms)
+
+
+Started GET "/contacts/5" for ::1 at 2019-07-09 12:33:19 -0700
+Processing by ContactsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mContact Load (0.2ms)[0m  [1m[34mSELECT  "contacts".* FROM "contacts" WHERE "contacts"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/contacts_controller.rb:47
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  Rendering contacts/show.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/contacts/show.html.erb:7
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "events" INNER JOIN "contacts_events" ON "events"."id" = "contacts_events"."event_id" WHERE "contacts_events"."contact_id" = ?[0m  [["contact_id", 5]]
+  ↳ app/views/contacts/show.html.erb:14
+  Rendered layouts/_card_header.html.erb (57.5ms)
+  Rendered contacts/show.html.erb within layouts/application (58.9ms)
+Completed 200 OK in 82ms (Views: 75.6ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/contacts" for ::1 at 2019-07-09 12:33:22 -0700
+Processing by ContactsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  Rendering contacts/index.html.erb within layouts/application
+  [1m[36mContact Load (0.2ms)[0m  [1m[34mSELECT  "contacts".* FROM "contacts" WHERE (admin_level <= 0) ORDER BY "contacts"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/views/contacts/index.html.erb:7
+  [1m[36mContact Load (0.2ms)[0m  [1m[34mSELECT "contacts".* FROM "contacts" WHERE (admin_level <= 0)[0m
+  ↳ app/views/contacts/index.html.erb:14
+  Rendered layouts/_card_header.html.erb (3.3ms)
+  Rendered contacts/index.html.erb within layouts/application (4.6ms)
+Completed 200 OK in 22ms (Views: 17.3ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/contacts" for ::1 at 2019-07-09 12:34:19 -0700
+Processing by ContactsController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  Rendering contacts/index.html.erb within layouts/application
+  [1m[36mContact Load (0.4ms)[0m  [1m[34mSELECT  "contacts".* FROM "contacts" WHERE (admin_level <= 0) ORDER BY "contacts"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/views/contacts/index.html.erb:7
+  Rendered layouts/_card_header.html.erb (6.2ms)
+  Rendered contacts/index.html.erb within layouts/application (8.5ms)
+Completed 500 Internal Server Error in 15ms (ActiveRecord: 0.8ms)
+
+
+  
+ActionView::Template::Error (undefined method `each' for nil:NilClass):
+     6:   </div>
+     7: 
+     8:     <div class="card-body">
+     9:       <%= yield %>
+    10:     </div>
+    11:   </div>
+  
+app/views/contacts/index.html.erb:7:in `block in _app_views_contacts_index_html_erb___2435771184157074126_70253061282720'
+app/views/layouts/_card_header.html.erb:9:in `_app_views_layouts__card_header_html_erb__4483617996527224565_70253046106980'
+app/views/contacts/index.html.erb:1:in `_app_views_contacts_index_html_erb___2435771184157074126_70253061282720'
+Started GET "/contacts" for ::1 at 2019-07-09 12:34:35 -0700
+Processing by ContactsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  Rendering contacts/index.html.erb within layouts/application
+  [1m[36mContact Load (0.3ms)[0m  [1m[34mSELECT  "contacts".* FROM "contacts" WHERE (admin_level <= 0) ORDER BY "contacts"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/views/contacts/index.html.erb:7
+  Rendered layouts/_card_header.html.erb (3.5ms)
+  Rendered contacts/index.html.erb within layouts/application (5.6ms)
+Completed 500 Internal Server Error in 11ms (ActiveRecord: 0.5ms)
+
+
+  
+ActionView::Template::Error (undefined method `each' for nil:NilClass):
+     6:   </div>
+     7: 
+     8:     <div class="card-body">
+     9:       <%= yield %>
+    10:     </div>
+    11:   </div>
+  
+app/views/contacts/index.html.erb:7:in `block in _app_views_contacts_index_html_erb___2435771184157074126_70253016814260'
+app/views/layouts/_card_header.html.erb:9:in `_app_views_layouts__card_header_html_erb__4483617996527224565_70253020542020'
+app/views/contacts/index.html.erb:1:in `_app_views_contacts_index_html_erb___2435771184157074126_70253016814260'
+Started GET "/contacts" for ::1 at 2019-07-09 12:34:53 -0700
+Processing by ContactsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  Rendering contacts/index.html.erb within layouts/application
+  [1m[36mContact Load (0.3ms)[0m  [1m[34mSELECT  "contacts".* FROM "contacts" WHERE (admin_level <= 0) ORDER BY "contacts"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/views/contacts/index.html.erb:7
+  [1m[36mContact Load (0.2ms)[0m  [1m[34mSELECT "contacts".* FROM "contacts" WHERE (admin_level <= 0)[0m
+  ↳ app/views/contacts/index.html.erb:14
+  Rendered layouts/_card_header.html.erb (3.4ms)
+  Rendered contacts/index.html.erb within layouts/application (5.3ms)
+Completed 200 OK in 34ms (Views: 30.0ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/contacts" for ::1 at 2019-07-09 12:39:23 -0700
+Processing by ContactsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  Rendering contacts/index.html.erb within layouts/application
+  [1m[36mContact Load (0.2ms)[0m  [1m[34mSELECT  "contacts".* FROM "contacts" WHERE (admin_level <= 0) ORDER BY "contacts"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/models/contact.rb:40
+  [1m[36mContact Load (0.2ms)[0m  [1m[34mSELECT "contacts".* FROM "contacts" WHERE (admin_level <= 0)[0m
+  ↳ app/views/contacts/index.html.erb:14
+  Rendered layouts/_card_header.html.erb (20.8ms)
+  Rendered contacts/index.html.erb within layouts/application (132.3ms)
+Completed 200 OK in 216ms (Views: 150.2ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/contacts" for ::1 at 2019-07-09 12:39:53 -0700
+Processing by ContactsController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  Rendering contacts/index.html.erb within layouts/application
+  [1m[36mContact Load (0.3ms)[0m  [1m[34mSELECT "contacts".* FROM "contacts" WHERE (admin_level <= 0)[0m
+  ↳ app/views/contacts/index.html.erb:7
+  Rendered layouts/_card_header.html.erb (26.3ms)
+  Rendered contacts/index.html.erb within layouts/application (29.2ms)
+Completed 500 Internal Server Error in 36ms (ActiveRecord: 0.7ms)
+
+
+  
+ActionView::Template::Error (undefined method `table_attributes' for #<Contact:0x00007fca20811798>
+Did you mean?  update_attributes):
+     6:   </div>
+     7: 
+     8:     <div class="card-body">
+     9:       <%= yield %>
+    10:     </div>
+    11:   </div>
+  
+app/views/contacts/index.html.erb:8:in `block (2 levels) in _app_views_contacts_index_html_erb___2435771184157074126_70253010608440'
+app/views/contacts/index.html.erb:7:in `block in _app_views_contacts_index_html_erb___2435771184157074126_70253010608440'
+app/views/layouts/_card_header.html.erb:9:in `_app_views_layouts__card_header_html_erb__4483617996527224565_70253010712000'
+app/views/contacts/index.html.erb:1:in `_app_views_contacts_index_html_erb___2435771184157074126_70253010608440'
+Started GET "/contacts" for ::1 at 2019-07-09 12:40:11 -0700
+Processing by ContactsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  Rendering contacts/index.html.erb within layouts/application
+  Rendered layouts/_card_header.html.erb (13.1ms)
+  Rendered contacts/index.html.erb within layouts/application (16.5ms)
+Completed 500 Internal Server Error in 24ms (ActiveRecord: 0.2ms)
+
+
+  
+ActionView::Template::Error (uninitialized constant ActionView::CompiledTemplates::Contacts):
+     6:   </div>
+     7: 
+     8:     <div class="card-body">
+     9:       <%= yield %>
+    10:     </div>
+    11:   </div>
+  
+app/views/contacts/index.html.erb:7:in `block in _app_views_contacts_index_html_erb___2435771184157074126_70253046436060'
+app/views/layouts/_card_header.html.erb:9:in `_app_views_layouts__card_header_html_erb__4483617996527224565_70253062069540'
+app/views/contacts/index.html.erb:1:in `_app_views_contacts_index_html_erb___2435771184157074126_70253046436060'
+Started GET "/contacts" for ::1 at 2019-07-09 12:40:20 -0700
+Processing by ContactsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  Rendering contacts/index.html.erb within layouts/application
+  [1m[36mContact Load (0.4ms)[0m  [1m[34mSELECT  "contacts".* FROM "contacts" ORDER BY "contacts"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/models/contact.rb:40
+  [1m[36mContact Load (0.2ms)[0m  [1m[34mSELECT "contacts".* FROM "contacts" WHERE (admin_level <= 0)[0m
+  ↳ app/views/contacts/index.html.erb:14
+  Rendered layouts/_card_header.html.erb (5.1ms)
+  Rendered contacts/index.html.erb within layouts/application (6.8ms)
+Completed 200 OK in 34ms (Views: 30.4ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/contacts" for ::1 at 2019-07-09 12:43:19 -0700
+Processing by ContactsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  Rendering contacts/index.html.erb within layouts/application
+  [1m[36mContact Load (0.2ms)[0m  [1m[34mSELECT  "contacts".* FROM "contacts" ORDER BY "contacts"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/models/contact.rb:40
+  [1m[36mContact Load (0.3ms)[0m  [1m[34mSELECT "contacts".* FROM "contacts" WHERE (admin_level <= 0)[0m
+  ↳ app/views/contacts/index.html.erb:14
+  Rendered layouts/_card_header.html.erb (51.2ms)
+  Rendered contacts/index.html.erb within layouts/application (52.8ms)
+Completed 200 OK in 110ms (Views: 73.4ms | ActiveRecord: 2.5ms)
+
+
+Started GET "/contacts" for ::1 at 2019-07-09 12:44:03 -0700
+Processing by ContactsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  Rendering contacts/index.html.erb within layouts/application
+  [1m[36mContact Load (0.4ms)[0m  [1m[34mSELECT  "contacts".* FROM "contacts" ORDER BY "contacts"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/models/contact.rb:39
+  Rendered layouts/_card_header.html.erb (61.4ms)
+  Rendered contacts/index.html.erb within layouts/application (62.8ms)
+Completed 500 Internal Server Error in 118ms (ActiveRecord: 7.5ms)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `ignore' for #<Class:0x00007fca20a3a858>):
+     6:   </div>
+     7: 
+     8:     <div class="card-body">
+     9:       <%= yield %>
+    10:     </div>
+    11:   </div>
+  
+app/models/contact.rb:40:in `block in table_attributes'
+app/models/contact.rb:39:in `each'
+app/models/contact.rb:39:in `table_attributes'
+app/views/contacts/index.html.erb:7:in `block in _app_views_contacts_index_html_erb___2435771184157074126_70253054086600'
+app/views/layouts/_card_header.html.erb:9:in `_app_views_layouts__card_header_html_erb__4483617996527224565_70253054184860'
+app/views/contacts/index.html.erb:1:in `_app_views_contacts_index_html_erb___2435771184157074126_70253054086600'
+Started GET "/contacts" for ::1 at 2019-07-09 12:45:15 -0700
+Processing by ContactsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  Rendering contacts/index.html.erb within layouts/application
+  [1m[36mContact Load (0.2ms)[0m  [1m[34mSELECT  "contacts".* FROM "contacts" ORDER BY "contacts"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/models/contact.rb:38
+  Rendered layouts/_card_header.html.erb (21.7ms)
+  Rendered contacts/index.html.erb within layouts/application (24.2ms)
+Completed 500 Internal Server Error in 63ms (ActiveRecord: 2.9ms)
+
+
+  
+ActionView::Template::Error (undefined method `each' for nil:NilClass):
+     6:   </div>
+     7: 
+     8:     <div class="card-body">
+     9:       <%= yield %>
+    10:     </div>
+    11:   </div>
+  
+app/views/contacts/index.html.erb:7:in `block in _app_views_contacts_index_html_erb___2435771184157074126_70253018420500'
+app/views/layouts/_card_header.html.erb:9:in `_app_views_layouts__card_header_html_erb__4483617996527224565_70253018470000'
+app/views/contacts/index.html.erb:1:in `_app_views_contacts_index_html_erb___2435771184157074126_70253018420500'
+Started GET "/contacts" for ::1 at 2019-07-09 12:45:37 -0700
+Processing by ContactsController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  Rendering contacts/index.html.erb within layouts/application
+  [1m[36mContact Load (0.2ms)[0m  [1m[34mSELECT  "contacts".* FROM "contacts" ORDER BY "contacts"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/models/contact.rb:38
+  [1m[36mContact Load (0.2ms)[0m  [1m[34mSELECT "contacts".* FROM "contacts" WHERE (admin_level <= 0)[0m
+  ↳ app/views/contacts/index.html.erb:14
+  Rendered layouts/_card_header.html.erb (20.7ms)
+  Rendered contacts/index.html.erb within layouts/application (22.6ms)
+Completed 200 OK in 80ms (Views: 46.1ms | ActiveRecord: 3.4ms)
+
+
+Started GET "/contacts" for ::1 at 2019-07-09 12:46:42 -0700
+Processing by ContactsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  Rendering contacts/index.html.erb within layouts/application
+  [1m[36mContact Load (0.3ms)[0m  [1m[34mSELECT  "contacts".* FROM "contacts" ORDER BY "contacts"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/models/contact.rb:38
+  [1m[36mContact Load (0.3ms)[0m  [1m[34mSELECT "contacts".* FROM "contacts" WHERE (admin_level <= 0)[0m
+  ↳ app/views/contacts/index.html.erb:14
+  Rendered layouts/_card_header.html.erb (31.6ms)
+  Rendered contacts/index.html.erb within layouts/application (33.8ms)
+Completed 200 OK in 89ms (Views: 53.9ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/contacts" for ::1 at 2019-07-09 12:47:45 -0700
+Processing by ContactsController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  Rendering contacts/index.html.erb within layouts/application
+  [1m[36mContact Load (0.2ms)[0m  [1m[34mSELECT  "contacts".* FROM "contacts" WHERE (admin_level <= 0) ORDER BY "contacts"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/views/contacts/index.html.erb:7
+  [1m[36mContact Load (0.2ms)[0m  [1m[34mSELECT "contacts".* FROM "contacts" WHERE (admin_level <= 0)[0m
+  ↳ app/views/contacts/index.html.erb:14
+  Rendered layouts/_card_header.html.erb (21.0ms)
+  Rendered contacts/index.html.erb within layouts/application (23.3ms)
+Completed 200 OK in 68ms (Views: 39.4ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/contacts" for ::1 at 2019-07-09 12:48:30 -0700
+Processing by ContactsController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  Rendering contacts/index.html.erb within layouts/application
+  [1m[36mContact Load (0.3ms)[0m  [1m[34mSELECT  "contacts".* FROM "contacts" WHERE (admin_level <= 0) ORDER BY "contacts"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/views/contacts/index.html.erb:7
+  [1m[36mContact Load (0.3ms)[0m  [1m[34mSELECT "contacts".* FROM "contacts" WHERE (admin_level <= 0)[0m
+  ↳ app/views/contacts/index.html.erb:14
+  Rendered layouts/_card_header.html.erb (5.8ms)
+  Rendered contacts/index.html.erb within layouts/application (7.6ms)
+Completed 200 OK in 23ms (Views: 17.8ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/contacts" for ::1 at 2019-07-09 12:48:52 -0700
+Processing by ContactsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  Rendering contacts/index.html.erb within layouts/application
+  [1m[36mContact Load (0.5ms)[0m  [1m[34mSELECT  "contacts".* FROM "contacts" WHERE (admin_level <= 0) ORDER BY "contacts"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/views/contacts/index.html.erb:7
+  [1m[36mContact Load (0.2ms)[0m  [1m[34mSELECT "contacts".* FROM "contacts" WHERE (admin_level <= 0)[0m
+  ↳ app/views/contacts/index.html.erb:14
+  Rendered layouts/_card_header.html.erb (5.8ms)
+  Rendered contacts/index.html.erb within layouts/application (7.5ms)
+Completed 200 OK in 27ms (Views: 21.1ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/contacts" for ::1 at 2019-07-09 12:48:54 -0700
+Processing by ContactsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  Rendering contacts/index.html.erb within layouts/application
+  [1m[36mContact Load (0.2ms)[0m  [1m[34mSELECT  "contacts".* FROM "contacts" WHERE (admin_level <= 0) ORDER BY "contacts"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/views/contacts/index.html.erb:7
+  [1m[36mContact Load (0.2ms)[0m  [1m[34mSELECT "contacts".* FROM "contacts" WHERE (admin_level <= 0)[0m
+  ↳ app/views/contacts/index.html.erb:14
+  Rendered layouts/_card_header.html.erb (4.2ms)
+  Rendered contacts/index.html.erb within layouts/application (6.2ms)
+Completed 200 OK in 25ms (Views: 20.7ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/contacts" for ::1 at 2019-07-09 12:49:04 -0700
+Processing by ContactsController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  Rendering contacts/index.html.erb within layouts/application
+  [1m[36mContact Load (0.2ms)[0m  [1m[34mSELECT  "contacts".* FROM "contacts" WHERE (admin_level <= 0) ORDER BY "contacts"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/views/contacts/index.html.erb:7
+  [1m[36mContact Load (0.3ms)[0m  [1m[34mSELECT "contacts".* FROM "contacts" WHERE (admin_level <= 0)[0m
+  ↳ app/views/contacts/index.html.erb:14
+  Rendered layouts/_card_header.html.erb (4.0ms)
+  Rendered contacts/index.html.erb within layouts/application (5.5ms)
+Completed 200 OK in 23ms (Views: 19.1ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/contacts/new" for ::1 at 2019-07-09 12:49:36 -0700
+Processing by ContactsController#new as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  Rendering contacts/new.html.erb within layouts/application
+  Rendered layouts/_error_message.html.erb (0.6ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/contacts/_contact_form.html.erb:17
+  Rendered contacts/_contact_form.html.erb (17.5ms)
+  Rendered layouts/_card_header.html.erb (19.0ms)
+  Rendered contacts/new.html.erb within layouts/application (21.4ms)
+Completed 200 OK in 67ms (Views: 63.5ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/contacts" for ::1 at 2019-07-09 12:49:40 -0700
+Processing by ContactsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"SIdUvUiW2kKlNit40ZF25OTLdHWxPt6H8PGlPBtIA49CYIEJ56w8QEdLzT9K3HDnIy1Vjj0kqXX52cJF6NTEeQ==", "contact"=>{"name"=>"MACKENZIE MOORE", "email"=>"MACKENZIE-MOORE@LIVE.COM", "user_id"=>"1", "phone_number"=>"7144007002", "school_status"=>"exchange", "messenger_company"=>"", "messenger_id"=>"", "major"=>"", "country"=>"United States", "birthday(1i)"=>"1", "birthday(2i)"=>"", "birthday(3i)"=>""}, "commit"=>"Submit"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/contacts_controller.rb:21
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/contacts_controller.rb:22
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/contacts_controller.rb:22
+  [1m[36mContact Create (0.7ms)[0m  [1m[32mINSERT INTO "contacts" ("name", "email", "user_id", "phone_number", "school_status", "messenger_company", "messenger_id", "major", "country", "admin_level", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "MACKENZIE MOORE"], ["email", "MACKENZIE-MOORE@LIVE.COM"], ["user_id", 1], ["phone_number", 7144007002], ["school_status", "exchange"], ["messenger_company", ""], ["messenger_id", ""], ["major", ""], ["country", "United States"], ["admin_level", 0], ["created_at", "2019-07-09 19:49:40.168466"], ["updated_at", "2019-07-09 19:49:40.168466"]]
+  ↳ app/controllers/contacts_controller.rb:22
+  [1m[35m (4.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/contacts_controller.rb:22
+Redirected to http://localhost:3000/contacts/6
+Completed 302 Found in 32ms (ActiveRecord: 5.6ms)
+
+
+Started GET "/contacts/6" for ::1 at 2019-07-09 12:49:40 -0700
+Processing by ContactsController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mContact Load (0.5ms)[0m  [1m[34mSELECT  "contacts".* FROM "contacts" WHERE "contacts"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/contacts_controller.rb:47
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  Rendering contacts/show.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/contacts/show.html.erb:7
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "events" INNER JOIN "contacts_events" ON "events"."id" = "contacts_events"."event_id" WHERE "contacts_events"."contact_id" = ?[0m  [["contact_id", 6]]
+  ↳ app/views/contacts/show.html.erb:14
+  Rendered layouts/_card_header.html.erb (71.5ms)
+  Rendered contacts/show.html.erb within layouts/application (75.5ms)
+Completed 200 OK in 114ms (Views: 98.7ms | ActiveRecord: 3.4ms)
+
+
+Started GET "/contacts" for ::1 at 2019-07-09 12:49:42 -0700
+Processing by ContactsController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  Rendering contacts/index.html.erb within layouts/application
+  [1m[36mContact Load (0.2ms)[0m  [1m[34mSELECT  "contacts".* FROM "contacts" WHERE (admin_level <= 0) ORDER BY "contacts"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/views/contacts/index.html.erb:7
+  [1m[36mContact Load (0.2ms)[0m  [1m[34mSELECT "contacts".* FROM "contacts" WHERE (admin_level <= 0)[0m
+  ↳ app/views/contacts/index.html.erb:14
+  Rendered layouts/_card_header.html.erb (3.7ms)
+  Rendered contacts/index.html.erb within layouts/application (5.0ms)
+Completed 200 OK in 58ms (Views: 54.6ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/contacts" for ::1 at 2019-07-09 12:50:12 -0700
+Processing by ContactsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  Rendering contacts/index.html.erb within layouts/application
+  [1m[36mContact Load (0.3ms)[0m  [1m[34mSELECT  "contacts".* FROM "contacts" WHERE (admin_level <= 0) ORDER BY "contacts"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/views/contacts/index.html.erb:7
+  [1m[36mContact Load (0.2ms)[0m  [1m[34mSELECT "contacts".* FROM "contacts" WHERE (admin_level <= 0)[0m
+  ↳ app/views/contacts/index.html.erb:13
+  Rendered layouts/_card_header.html.erb (3.7ms)
+  Rendered contacts/index.html.erb within layouts/application (5.2ms)
+Completed 200 OK in 24ms (Views: 20.3ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/contacts" for ::1 at 2019-07-09 12:50:56 -0700
+Processing by ContactsController#index as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  Rendering contacts/index.html.erb within layouts/application
+  [1m[36mContact Load (0.7ms)[0m  [1m[34mSELECT  "contacts".* FROM "contacts" WHERE (admin_level <= 0) ORDER BY "contacts"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/views/contacts/index.html.erb:7
+  [1m[36mContact Load (0.5ms)[0m  [1m[34mSELECT "contacts".* FROM "contacts" WHERE (admin_level <= 0)[0m
+  ↳ app/views/contacts/index.html.erb:13
+  Rendered layouts/_card_header.html.erb (12.4ms)
+  Rendered contacts/index.html.erb within layouts/application (16.9ms)
+Completed 200 OK in 55ms (Views: 45.8ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/contacts" for ::1 at 2019-07-09 12:51:06 -0700
+Processing by ContactsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  Rendering contacts/index.html.erb within layouts/application
+  [1m[36mContact Load (0.3ms)[0m  [1m[34mSELECT  "contacts".* FROM "contacts" WHERE (admin_level <= 0) ORDER BY "contacts"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/views/contacts/index.html.erb:6
+  [1m[36mContact Load (0.2ms)[0m  [1m[34mSELECT "contacts".* FROM "contacts" WHERE (admin_level <= 0)[0m
+  ↳ app/views/contacts/index.html.erb:12
+  Rendered layouts/_card_header.html.erb (4.5ms)
+  Rendered contacts/index.html.erb within layouts/application (7.6ms)
+Completed 200 OK in 27ms (Views: 22.4ms | ActiveRecord: 0.7ms)
+
+
+  [1m[36mContact Load (0.5ms)[0m  [1m[35m{:conditions=>["SELECT name, user_id, email, gender FROM contacts"]}[0m
+  [1m[36mContact Load (15.3ms)[0m  [1m[34mSELECT name, user_id, email, gender FROM contacts[0m
+  [1m[36mContact Load (0.4ms)[0m  [1m[34mSELECT name, user_id, email, gender FROM contacts[0m
+Started GET "/contacts" for ::1 at 2019-07-09 13:08:35 -0700
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/Mackenzie/.rvm/gems/ruby-2.6.1/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by ContactsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  Rendering contacts/index.html.erb within layouts/application
+  [1m[36mContact Load (0.3ms)[0m  [1m[34mSELECT name, user_id, email, gender FROM contacts[0m
+  ↳ app/models/contact.rb:44
+  Rendered layouts/_card_header.html.erb (65.2ms)
+  Rendered contacts/index.html.erb within layouts/application (70.8ms)
+Completed 500 Internal Server Error in 150ms (ActiveRecord: 2.5ms)
+
+
+  
+ActionView::Template::Error (undefined method `titleize' for #<Contact:0x00007fb68e9bc458>):
+     6:   </div>
+     7: 
+     8:     <div class="card-body">
+     9:       <%= yield %>
+    10:     </div>
+    11:   </div>
+  
+app/models/contact.rb:39:in `block in short_headers'
+app/models/contact.rb:38:in `collect'
+app/models/contact.rb:38:in `short_headers'
+app/views/contacts/index.html.erb:6:in `block in _app_views_contacts_index_html_erb__3634639246953672391_70211011338080'
+app/views/layouts/_card_header.html.erb:9:in `_app_views_layouts__card_header_html_erb___3618169112375902268_70211026380320'
+app/views/contacts/index.html.erb:1:in `_app_views_contacts_index_html_erb__3634639246953672391_70211011338080'
+Started GET "/contacts" for ::1 at 2019-07-09 13:09:33 -0700
+Processing by ContactsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  Rendering contacts/index.html.erb within layouts/application
+  [1m[36mContact Load (0.2ms)[0m  [1m[34mSELECT name, user_id, email, gender FROM contacts[0m
+  ↳ app/models/contact.rb:46
+  Rendered layouts/_card_header.html.erb (151.3ms)
+  Rendered contacts/index.html.erb within layouts/application (152.8ms)
+Completed 500 Internal Server Error in 189ms (ActiveRecord: 3.1ms)
+
+
+  
+ActionView::Template::Error (undefined method `collect' for #<Contact:0x00007fb68d574630>):
+     6:   </div>
+     7: 
+     8:     <div class="card-body">
+     9:       <%= yield %>
+    10:     </div>
+    11:   </div>
+  
+app/models/contact.rb:39:in `block in short_headers'
+app/models/contact.rb:38:in `each'
+app/models/contact.rb:38:in `short_headers'
+app/views/contacts/index.html.erb:6:in `block in _app_views_contacts_index_html_erb__3634639246953672391_70211018435220'
+app/views/layouts/_card_header.html.erb:9:in `_app_views_layouts__card_header_html_erb___3618169112375902268_70211018488040'
+app/views/contacts/index.html.erb:1:in `_app_views_contacts_index_html_erb__3634639246953672391_70211018435220'
+Started GET "/contacts" for ::1 at 2019-07-09 13:09:50 -0700
+Processing by ContactsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  Rendering contacts/index.html.erb within layouts/application
+  [1m[36mContact Load (0.3ms)[0m  [1m[34mSELECT name, user_id, email, gender FROM contacts[0m
+  ↳ app/models/contact.rb:46
+  [1m[36mCACHE Contact Load (0.0ms)[0m  [1m[34mSELECT name, user_id, email, gender FROM contacts[0m
+  ↳ app/models/contact.rb:46
+  Rendered layouts/_card_header.html.erb (23.5ms)
+  Rendered contacts/index.html.erb within layouts/application (24.8ms)
+Completed 200 OK in 454ms (Views: 425.0ms | ActiveRecord: 2.6ms)
+
+
+Started GET "/contacts" for ::1 at 2019-07-09 13:10:21 -0700
+Processing by ContactsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  Rendering contacts/index.html.erb within layouts/application
+  [1m[36mContact Load (0.3ms)[0m  [1m[34mSELECT name, user_id, email, gender FROM contacts[0m
+  ↳ app/models/contact.rb:47
+  [1m[36mCACHE Contact Load (0.0ms)[0m  [1m[34mSELECT name, user_id, email, gender FROM contacts[0m
+  ↳ app/models/contact.rb:47
+  [1m[36mCACHE Contact Load (0.0ms)[0m  [1m[34mSELECT name, user_id, email, gender FROM contacts[0m
+  ↳ app/models/contact.rb:47
+  [1m[36mCACHE Contact Load (0.0ms)[0m  [1m[34mSELECT name, user_id, email, gender FROM contacts[0m
+  ↳ app/models/contact.rb:47
+  [1m[36mCACHE Contact Load (0.0ms)[0m  [1m[34mSELECT name, user_id, email, gender FROM contacts[0m
+  ↳ app/models/contact.rb:47
+  [1m[36mContact Load (0.7ms)[0m  [1m[34mSELECT "contacts".* FROM "contacts"[0m
+  ↳ (pry):24
+  [1m[36mCACHE Contact Load (0.0ms)[0m  [1m[34mSELECT "contacts".* FROM "contacts"[0m
+  ↳ (pry):25
+Started GET "/contacts" for ::1 at 2019-07-09 13:14:13 -0700
+  Rendered layouts/_card_header.html.erb (241376.3ms)
+  Rendered contacts/index.html.erb within layouts/application (241380.0ms)
+Completed 500 Internal Server Error in 241422ms (ActiveRecord: 3.8ms)
+
+
+  
+ActionView::Template::Error (undefined method `each' for nil:NilClass):
+     6:   </div>
+     7: 
+     8:     <div class="card-body">
+     9:       <%= yield %>
+    10:     </div>
+    11:   </div>
+  
+app/views/contacts/index.html.erb:6:in `block in _app_views_contacts_index_html_erb__3634639246953672391_70211056156920'
+app/views/layouts/_card_header.html.erb:9:in `_app_views_layouts__card_header_html_erb___3618169112375902268_70211019763800'
+app/views/contacts/index.html.erb:1:in `_app_views_contacts_index_html_erb__3634639246953672391_70211056156920'
+Processing by ContactsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  Rendering contacts/index.html.erb within layouts/application
+  [1m[36mContact Load (0.3ms)[0m  [1m[34mSELECT  "contacts".* FROM "contacts" WHERE (admin_level <= 0) ORDER BY "contacts"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/views/contacts/index.html.erb:6
+  [1m[36mContact Load (0.4ms)[0m  [1m[34mSELECT "contacts".* FROM "contacts" WHERE (admin_level <= 0)[0m
+  ↳ app/views/contacts/index.html.erb:12
+  Rendered layouts/_card_header.html.erb (20.7ms)
+  Rendered contacts/index.html.erb within layouts/application (22.6ms)
+Completed 200 OK in 101ms (Views: 64.6ms | ActiveRecord: 2.7ms)
+
+
+Started GET "/contacts" for ::1 at 2019-07-09 13:14:37 -0700
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/Mackenzie/.rvm/gems/ruby-2.6.1/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by ContactsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  Rendering contacts/index.html.erb within layouts/application
+  [1m[36mContact Load (0.3ms)[0m  [1m[34mSELECT  "contacts".* FROM "contacts" WHERE (admin_level <= 0) ORDER BY "contacts"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/views/contacts/index.html.erb:6
+  [1m[36mContact Load (0.3ms)[0m  [1m[34mSELECT "contacts".* FROM "contacts" WHERE (admin_level <= 0)[0m
+  ↳ app/views/contacts/index.html.erb:12
+  Rendered layouts/_card_header.html.erb (19.9ms)
+  Rendered contacts/index.html.erb within layouts/application (24.7ms)
+Completed 200 OK in 371ms (Views: 315.9ms | ActiveRecord: 2.9ms)
+
+
+Started GET "/contacts" for ::1 at 2019-07-09 13:16:04 -0700
+Processing by ContactsController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  Rendering contacts/index.html.erb within layouts/application
+  Rendered contacts/index.html.erb within layouts/application (55.4ms)
+Completed 500 Internal Server Error in 62ms (ActiveRecord: 0.2ms)
+
+
+  
+SyntaxError (/Users/Mackenzie/nametag/app/views/contacts/index.html.erb:30: syntax error, unexpected end-of-input, expecting end):
+  
+app/views/contacts/index.html.erb:30: syntax error, unexpected end-of-input, expecting end
+Started GET "/contacts" for ::1 at 2019-07-09 13:16:27 -0700
+Processing by ContactsController#index as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  Rendering contacts/index.html.erb within layouts/application
+  [1m[36mContact Load (0.3ms)[0m  [1m[34mSELECT  "contacts".* FROM "contacts" WHERE (admin_level <= 0) ORDER BY "contacts"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/views/contacts/index.html.erb:6
+  [1m[36mContact Load (0.3ms)[0m  [1m[34mSELECT "contacts".* FROM "contacts" WHERE (admin_level <= 0)[0m
+  ↳ app/views/contacts/index.html.erb:12
+  Rendered layouts/_card_header.html.erb (6.1ms)
+  Rendered contacts/index.html.erb within layouts/application (8.9ms)
+Completed 200 OK in 41ms (Views: 35.7ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/contacts" for ::1 at 2019-07-09 13:17:24 -0700
+Processing by ContactsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  Rendering contacts/index.html.erb within layouts/application
+  Rendered contacts/index.html.erb within layouts/application (1.4ms)
+Completed 500 Internal Server Error in 7ms (ActiveRecord: 0.2ms)
+
+
+  
+SyntaxError (/Users/Mackenzie/nametag/app/views/contacts/index.html.erb:28: syntax error, unexpected ensure, expecting end-of-input
+          ensure
+          ^~~~~~):
+  
+app/views/contacts/index.html.erb:28: syntax error, unexpected ensure, expecting end-of-input
+Started GET "/contacts" for ::1 at 2019-07-09 13:17:34 -0700
+Processing by ContactsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  Rendering contacts/index.html.erb within layouts/application
+  [1m[36mContact Load (0.7ms)[0m  [1m[34mSELECT  "contacts".* FROM "contacts" WHERE (admin_level <= 0) ORDER BY "contacts"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/views/contacts/index.html.erb:6
+  [1m[36mContact Load (0.2ms)[0m  [1m[34mSELECT "contacts".* FROM "contacts" WHERE (admin_level <= 0)[0m
+  ↳ app/views/contacts/index.html.erb:12
+  Rendered layouts/_card_header.html.erb (7.0ms)
+  Rendered contacts/index.html.erb within layouts/application (9.0ms)
+Completed 200 OK in 42ms (Views: 35.8ms | ActiveRecord: 1.2ms)
+
+
+  
+ActionController::RoutingError (No route matches [GET] "/assets/material/dashboard-free.css.map"):
+  
+actionpack (5.2.3) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.3) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:11:in `block in call'
+activesupport (5.2.3) lib/active_support/logger_silence.rb:21:in `silence'
+activesupport (5.2.3) lib/active_support/logger.rb:65:in `block (3 levels) in broadcast'
+activesupport (5.2.3) lib/active_support/logger_silence.rb:21:in `silence'
+activesupport (5.2.3) lib/active_support/logger.rb:63:in `block (2 levels) in broadcast'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:11:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.7) lib/rack/method_override.rb:22:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.3) lib/rails/engine.rb:524:in `call'
+puma (3.12.1) lib/puma/configuration.rb:227:in `call'
+puma (3.12.1) lib/puma/server.rb:660:in `handle_request'
+puma (3.12.1) lib/puma/server.rb:474:in `process_client'
+puma (3.12.1) lib/puma/server.rb:334:in `block in run'
+puma (3.12.1) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/contacts" for ::1 at 2019-07-09 13:22:48 -0700
+Processing by ContactsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  Rendering contacts/index.html.erb within layouts/application
+  [1m[36mContact Load (0.3ms)[0m  [1m[34mSELECT  "contacts".* FROM "contacts" WHERE (admin_level <= 0) AND (updated_at >= '2019-04-09') ORDER BY "contacts"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/views/contacts/index.html.erb:6
+  [1m[36mContact Load (0.3ms)[0m  [1m[34mSELECT "contacts".* FROM "contacts" WHERE (admin_level <= 0) AND (updated_at >= '2019-04-09')[0m
+  ↳ app/views/contacts/index.html.erb:12
+  Rendered layouts/_card_header.html.erb (47.5ms)
+  Rendered contacts/index.html.erb within layouts/application (50.9ms)
+Completed 200 OK in 202ms (Views: 91.0ms | ActiveRecord: 3.2ms)
+
+
+Started GET "/contacts" for ::1 at 2019-07-09 13:26:12 -0700
+Processing by ContactsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  Rendering contacts/index.html.erb within layouts/application
+  Rendered contacts/index.html.erb within layouts/application (1.7ms)
+Completed 500 Internal Server Error in 40ms (ActiveRecord: 1.4ms)
+
+
+  
+SyntaxError (/Users/Mackenzie/nametag/app/views/contacts/index.html.erb:30: syntax error, unexpected ensure, expecting end-of-input
+          ensure
+          ^~~~~~):
+  
+app/views/contacts/index.html.erb:30: syntax error, unexpected ensure, expecting end-of-input
+Started GET "/contacts" for ::1 at 2019-07-09 13:26:26 -0700
+Processing by ContactsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  Rendering contacts/index.html.erb within layouts/application
+  [1m[36mContact Load (0.3ms)[0m  [1m[34mSELECT "contacts".* FROM "contacts" WHERE (admin_level <= 0)[0m
+  ↳ app/views/contacts/index.html.erb:13
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/contacts/index.html.erb:17
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/contacts/index.html.erb:17
+  Rendered layouts/_card_header.html.erb (43.1ms)
+  Rendered contacts/index.html.erb within layouts/application (46.0ms)
+Completed 200 OK in 75ms (Views: 68.6ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/contacts" for ::1 at 2019-07-09 13:27:06 -0700
+Processing by ContactsController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  Rendering contacts/index.html.erb within layouts/application
+  [1m[36mContact Load (0.4ms)[0m  [1m[34mSELECT "contacts".* FROM "contacts" WHERE (admin_level <= 0)[0m
+  ↳ app/views/contacts/index.html.erb:13
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/contacts/index.html.erb:17
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/contacts/index.html.erb:17
+  Rendered layouts/_card_header.html.erb (5.6ms)
+  Rendered contacts/index.html.erb within layouts/application (8.1ms)
+Completed 200 OK in 51ms (Views: 47.9ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/contacts" for ::1 at 2019-07-09 13:28:33 -0700
+Processing by ContactsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  Rendering contacts/index.html.erb within layouts/application
+  [1m[36mContact Load (0.2ms)[0m  [1m[34mSELECT "contacts".* FROM "contacts" WHERE (admin_level <= 0)[0m
+  ↳ app/views/contacts/index.html.erb:14
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/contacts/index.html.erb:19
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/contacts/index.html.erb:19
+  Rendered layouts/_card_header.html.erb (4.6ms)
+  Rendered contacts/index.html.erb within layouts/application (5.9ms)
+Completed 200 OK in 25ms (Views: 20.1ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/contacts" for ::1 at 2019-07-09 13:28:50 -0700
+Processing by ContactsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  Rendering contacts/index.html.erb within layouts/application
+  [1m[36mContact Load (0.3ms)[0m  [1m[34mSELECT "contacts".* FROM "contacts" WHERE (admin_level <= 0)[0m
+  ↳ app/views/contacts/index.html.erb:14
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/contacts/index.html.erb:18
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/contacts/index.html.erb:18
+  Rendered layouts/_card_header.html.erb (5.1ms)
+  Rendered contacts/index.html.erb within layouts/application (6.7ms)
+Completed 200 OK in 22ms (Views: 18.4ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/contacts" for ::1 at 2019-07-09 13:29:02 -0700
+Processing by ContactsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  Rendering contacts/index.html.erb within layouts/application
+  [1m[36mContact Load (0.5ms)[0m  [1m[34mSELECT "contacts".* FROM "contacts" WHERE (admin_level <= 0)[0m
+  ↳ app/views/contacts/index.html.erb:14
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/contacts/index.html.erb:18
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/contacts/index.html.erb:18
+  Rendered layouts/_card_header.html.erb (6.8ms)
+  Rendered contacts/index.html.erb within layouts/application (9.0ms)
+Completed 200 OK in 40ms (Views: 34.1ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/contacts" for ::1 at 2019-07-09 13:29:22 -0700
+Processing by ContactsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  Rendering contacts/index.html.erb within layouts/application
+  [1m[36mContact Load (1.4ms)[0m  [1m[34mSELECT "contacts".* FROM "contacts" WHERE (admin_level <= 0)[0m
+  ↳ app/views/contacts/index.html.erb:14
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/contacts/index.html.erb:18
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/contacts/index.html.erb:18
+  Rendered layouts/_card_header.html.erb (9.4ms)
+  Rendered contacts/index.html.erb within layouts/application (11.4ms)
+Completed 200 OK in 60ms (Views: 47.1ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/contacts/5" for ::1 at 2019-07-09 13:29:47 -0700
+Processing by ContactsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mContact Load (3.4ms)[0m  [1m[34mSELECT  "contacts".* FROM "contacts" WHERE "contacts"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/contacts_controller.rb:47
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  Rendering contacts/show.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/contacts/show.html.erb:7
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "events" INNER JOIN "contacts_events" ON "events"."id" = "contacts_events"."event_id" WHERE "contacts_events"."contact_id" = ?[0m  [["contact_id", 5]]
+  ↳ app/views/contacts/show.html.erb:14
+  Rendered layouts/_card_header.html.erb (156.7ms)
+  Rendered contacts/show.html.erb within layouts/application (160.6ms)
+Completed 200 OK in 233ms (Views: 202.8ms | ActiveRecord: 5.9ms)
+
+
+Started GET "/contacts" for ::1 at 2019-07-09 13:30:11 -0700
+Processing by ContactsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  Rendering contacts/index.html.erb within layouts/application
+  [1m[36mContact Load (0.5ms)[0m  [1m[34mSELECT "contacts".* FROM "contacts" WHERE (admin_level <= 0)[0m
+  ↳ app/views/contacts/index.html.erb:14
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/contacts/index.html.erb:18
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/contacts/index.html.erb:18
+  Rendered layouts/_card_header.html.erb (10.2ms)
+  Rendered contacts/index.html.erb within layouts/application (12.2ms)
+Completed 500 Internal Server Error in 19ms (ActiveRecord: 1.0ms)
+
+
+  
+ActionView::Template::Error (undefined method `titleize' for nil:NilClass):
+     6:   </div>
+     7: 
+     8:     <div class="card-body">
+     9:       <%= yield %>
+    10:     </div>
+    11:   </div>
+  
+app/views/contacts/index.html.erb:20:in `block (2 levels) in _app_views_contacts_index_html_erb__5377605847403063_70212188276640'
+app/views/contacts/index.html.erb:14:in `block in _app_views_contacts_index_html_erb__5377605847403063_70212188276640'
+app/views/layouts/_card_header.html.erb:9:in `_app_views_layouts__card_header_html_erb___175737521049710591_70212188308540'
+app/views/contacts/index.html.erb:1:in `_app_views_contacts_index_html_erb__5377605847403063_70212188276640'
+Started GET "/contacts" for ::1 at 2019-07-09 13:30:55 -0700
+Processing by ContactsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  Rendering contacts/index.html.erb within layouts/application
+  [1m[36mContact Load (0.2ms)[0m  [1m[34mSELECT "contacts".* FROM "contacts" WHERE (admin_level <= 0)[0m
+  ↳ app/views/contacts/index.html.erb:14
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/contact.rb:38
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/contact.rb:38
+  Rendered layouts/_card_header.html.erb (28.3ms)
+  Rendered contacts/index.html.erb within layouts/application (30.0ms)
+Completed 200 OK in 96ms (Views: 64.3ms | ActiveRecord: 2.3ms)
+
+

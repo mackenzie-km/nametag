@@ -1,5 +1,4 @@
 <%= render :layout => 'layouts/card_header', :locals => {:header => "Welcome to Nametag", :description => "Sign up/login in to keep track of your contacts & events"} do %>
-  <%= render partial: "layouts/error_message", locals: {thing: @user} %>
 
   <h2> Edit Access for <%= "#{@user.name.capitalize}" %> </h2>
 
@@ -9,4 +8,5 @@
 
     <%= f.submit "Submit" %><br>
   <% end %>
+
 <% end %>
