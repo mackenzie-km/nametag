@@ -11,9 +11,9 @@
     <%= f.label "Password" %>
     <%= f.text_field :password %><br>
 
-    <%= f.submit "Submit" %><br>
+    <%= f.submit "Submit", :class => "btn btn-primary" %><br>
   <% end %>
-  <%= button_to('Sign Up', '/users/new', method: 'get') %>
-  <%= button_to('Log in with Google!', '/auth/google_oauth2') %>
+  <%= button_to('Sign Up', '/users/new', method: 'get', class: "btn btn-primary") %>
+  <%= button_to('Log in with Google!', '/auth/google_oauth2', class: "btn btn-primary") %>
 
 <% end %>
