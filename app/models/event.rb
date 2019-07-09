@@ -10,5 +10,8 @@ class Event < ApplicationRecord
     self.date.strftime("%B %-d, %Y")
   end
 
+  def contacts_count
+    self.contacts.count
+  end
 
 end

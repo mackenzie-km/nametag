@@ -24166,3 +24166,906 @@ Processing by UsersController#index as HTML
 Completed 200 OK in 127ms (Views: 21.9ms | ActiveRecord: 4.7ms)
 
 
+Started GET "/users" for ::1 at 2019-07-09 13:40:23 -0700
+  [1m[35m (2.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/Mackenzie/.rvm/gems/ruby-2.6.1/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (2.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:14
+  Rendered layouts/_card_header.html.erb (4.8ms)
+  Rendered users/index.html.erb within layouts/application (10.2ms)
+Completed 200 OK in 570ms (Views: 520.1ms | ActiveRecord: 3.5ms)
+
+
+Started GET "/events" for ::1 at 2019-07-09 13:47:08 -0700
+Processing by EventsController#index as HTML
+  [1m[36mUser Load (2.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (2.2ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE (admin_level <= 2)[0m
+  ↳ app/views/events/index.html.erb:3
+  Rendered layouts/_card_header.html.erb (131.6ms)
+  Rendered events/index.html.erb within layouts/application (137.8ms)
+Completed 200 OK in 209ms (Views: 177.7ms | ActiveRecord: 6.0ms)
+
+
+Started GET "/events/1" for ::1 at 2019-07-09 13:47:11 -0700
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:49
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  Rendering events/show.html.erb within layouts/application
+  [1m[35m (3.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "contacts" INNER JOIN "contacts_events" ON "contacts"."id" = "contacts_events"."contact_id" WHERE "contacts_events"."event_id" = ?[0m  [["event_id", 1]]
+  ↳ app/views/events/show.html.erb:6
+  [1m[36mContact Load (0.4ms)[0m  [1m[34mSELECT "contacts".* FROM "contacts" INNER JOIN "contacts_events" ON "contacts"."id" = "contacts_events"."contact_id" WHERE "contacts_events"."event_id" = ?[0m  [["event_id", 1]]
+  ↳ app/views/events/show.html.erb:8
+  Rendered layouts/_card_header.html.erb (113.9ms)
+  Rendered events/show.html.erb within layouts/application (116.0ms)
+Completed 200 OK in 163ms (Views: 135.1ms | ActiveRecord: 5.4ms)
+
+
+Started GET "/events" for ::1 at 2019-07-09 13:50:04 -0700
+Processing by EventsController#index as HTML
+  [1m[36mUser Load (2.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (2.3ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE (admin_level <= 2)[0m
+  ↳ app/views/events/index.html.erb:13
+  [1m[35m (2.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "contacts" INNER JOIN "contacts_events" ON "contacts"."id" = "contacts_events"."contact_id" WHERE "contacts_events"."event_id" = ?[0m  [["event_id", 1]]
+  ↳ app/models/event.rb:14
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "contacts" INNER JOIN "contacts_events" ON "contacts"."id" = "contacts_events"."contact_id" WHERE "contacts_events"."event_id" = ?[0m  [["event_id", 2]]
+  ↳ app/models/event.rb:14
+  Rendered layouts/_card_header.html.erb (46.2ms)
+  Rendered events/index.html.erb within layouts/application (47.8ms)
+Completed 200 OK in 112ms (Views: 61.5ms | ActiveRecord: 10.6ms)
+
+
+Started GET "/events" for ::1 at 2019-07-09 13:50:42 -0700
+Processing by EventsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE (admin_level <= 2)[0m
+  ↳ app/views/events/index.html.erb:13
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "contacts" INNER JOIN "contacts_events" ON "contacts"."id" = "contacts_events"."contact_id" WHERE "contacts_events"."event_id" = ?[0m  [["event_id", 1]]
+  ↳ app/models/event.rb:14
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "contacts" INNER JOIN "contacts_events" ON "contacts"."id" = "contacts_events"."contact_id" WHERE "contacts_events"."event_id" = ?[0m  [["event_id", 2]]
+  ↳ app/models/event.rb:14
+  Rendered layouts/_card_header.html.erb (8.7ms)
+  Rendered events/index.html.erb within layouts/application (10.6ms)
+Completed 200 OK in 30ms (Views: 24.1ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/events" for ::1 at 2019-07-09 13:51:38 -0700
+Processing by EventsController#index as HTML
+  [1m[36mUser Load (3.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (2.7ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE (admin_level <= 2)[0m
+  ↳ app/views/events/index.html.erb:13
+  [1m[35m (2.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "contacts" INNER JOIN "contacts_events" ON "contacts"."id" = "contacts_events"."contact_id" WHERE "contacts_events"."event_id" = ?[0m  [["event_id", 1]]
+  ↳ app/models/event.rb:14
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "contacts" INNER JOIN "contacts_events" ON "contacts"."id" = "contacts_events"."contact_id" WHERE "contacts_events"."event_id" = ?[0m  [["event_id", 2]]
+  ↳ app/models/event.rb:14
+  Rendered layouts/_card_header.html.erb (11.0ms)
+  Rendered events/index.html.erb within layouts/application (12.9ms)
+Completed 200 OK in 33ms (Views: 21.1ms | ActiveRecord: 8.8ms)
+
+
+  
+ActionController::RoutingError (No route matches [GET] "/assets/img/faces/marc.jpg"):
+  
+actionpack (5.2.3) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.3) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:11:in `block in call'
+activesupport (5.2.3) lib/active_support/logger_silence.rb:21:in `silence'
+activesupport (5.2.3) lib/active_support/logger.rb:65:in `block (3 levels) in broadcast'
+activesupport (5.2.3) lib/active_support/logger_silence.rb:21:in `silence'
+activesupport (5.2.3) lib/active_support/logger.rb:63:in `block (2 levels) in broadcast'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:11:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.7) lib/rack/method_override.rb:22:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.3) lib/rails/engine.rb:524:in `call'
+puma (3.12.1) lib/puma/configuration.rb:227:in `call'
+puma (3.12.1) lib/puma/server.rb:660:in `handle_request'
+puma (3.12.1) lib/puma/server.rb:474:in `process_client'
+puma (3.12.1) lib/puma/server.rb:334:in `block in run'
+puma (3.12.1) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/events" for ::1 at 2019-07-09 13:52:06 -0700
+Processing by EventsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE (admin_level <= 2)[0m
+  ↳ app/views/events/index.html.erb:13
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "contacts" INNER JOIN "contacts_events" ON "contacts"."id" = "contacts_events"."contact_id" WHERE "contacts_events"."event_id" = ?[0m  [["event_id", 1]]
+  ↳ app/models/event.rb:14
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "contacts" INNER JOIN "contacts_events" ON "contacts"."id" = "contacts_events"."contact_id" WHERE "contacts_events"."event_id" = ?[0m  [["event_id", 2]]
+  ↳ app/models/event.rb:14
+  Rendered layouts/_card_header.html.erb (7.9ms)
+  Rendered events/index.html.erb within layouts/application (9.3ms)
+Completed 200 OK in 28ms (Views: 22.6ms | ActiveRecord: 1.2ms)
+
+
+  
+ActionController::RoutingError (No route matches [GET] "/assets/imgages/nametag.png"):
+  
+actionpack (5.2.3) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.3) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:11:in `block in call'
+activesupport (5.2.3) lib/active_support/logger_silence.rb:21:in `silence'
+activesupport (5.2.3) lib/active_support/logger.rb:65:in `block (3 levels) in broadcast'
+activesupport (5.2.3) lib/active_support/logger_silence.rb:21:in `silence'
+activesupport (5.2.3) lib/active_support/logger.rb:63:in `block (2 levels) in broadcast'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:11:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.7) lib/rack/method_override.rb:22:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.3) lib/rails/engine.rb:524:in `call'
+puma (3.12.1) lib/puma/configuration.rb:227:in `call'
+puma (3.12.1) lib/puma/server.rb:660:in `handle_request'
+puma (3.12.1) lib/puma/server.rb:474:in `process_client'
+puma (3.12.1) lib/puma/server.rb:334:in `block in run'
+puma (3.12.1) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/events" for ::1 at 2019-07-09 13:52:22 -0700
+Processing by EventsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE (admin_level <= 2)[0m
+  ↳ app/views/events/index.html.erb:13
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "contacts" INNER JOIN "contacts_events" ON "contacts"."id" = "contacts_events"."contact_id" WHERE "contacts_events"."event_id" = ?[0m  [["event_id", 1]]
+  ↳ app/models/event.rb:14
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "contacts" INNER JOIN "contacts_events" ON "contacts"."id" = "contacts_events"."contact_id" WHERE "contacts_events"."event_id" = ?[0m  [["event_id", 2]]
+  ↳ app/models/event.rb:14
+  Rendered layouts/_card_header.html.erb (6.2ms)
+  Rendered events/index.html.erb within layouts/application (8.6ms)
+Completed 200 OK in 40ms (Views: 34.7ms | ActiveRecord: 1.1ms)
+
+
+  
+ActionController::RoutingError (No route matches [GET] "/assets/images/nametag.png"):
+  
+actionpack (5.2.3) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.3) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:11:in `block in call'
+activesupport (5.2.3) lib/active_support/logger_silence.rb:21:in `silence'
+activesupport (5.2.3) lib/active_support/logger.rb:65:in `block (3 levels) in broadcast'
+activesupport (5.2.3) lib/active_support/logger_silence.rb:21:in `silence'
+activesupport (5.2.3) lib/active_support/logger.rb:63:in `block (2 levels) in broadcast'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:11:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.7) lib/rack/method_override.rb:22:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.3) lib/rails/engine.rb:524:in `call'
+puma (3.12.1) lib/puma/configuration.rb:227:in `call'
+puma (3.12.1) lib/puma/server.rb:660:in `handle_request'
+puma (3.12.1) lib/puma/server.rb:474:in `process_client'
+puma (3.12.1) lib/puma/server.rb:334:in `block in run'
+puma (3.12.1) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/events" for ::1 at 2019-07-09 13:52:59 -0700
+Processing by EventsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE (admin_level <= 2)[0m
+  ↳ app/views/events/index.html.erb:13
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "contacts" INNER JOIN "contacts_events" ON "contacts"."id" = "contacts_events"."contact_id" WHERE "contacts_events"."event_id" = ?[0m  [["event_id", 1]]
+  ↳ app/models/event.rb:14
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "contacts" INNER JOIN "contacts_events" ON "contacts"."id" = "contacts_events"."contact_id" WHERE "contacts_events"."event_id" = ?[0m  [["event_id", 2]]
+  ↳ app/models/event.rb:14
+  Rendered layouts/_card_header.html.erb (6.8ms)
+  Rendered events/index.html.erb within layouts/application (11.3ms)
+Completed 200 OK in 41ms (Views: 37.5ms | ActiveRecord: 1.0ms)
+
+
+  
+ActionController::RoutingError (No route matches [GET] "/assets/images/nametag.png"):
+  
+actionpack (5.2.3) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.3) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:11:in `block in call'
+activesupport (5.2.3) lib/active_support/logger_silence.rb:21:in `silence'
+activesupport (5.2.3) lib/active_support/logger.rb:65:in `block (3 levels) in broadcast'
+activesupport (5.2.3) lib/active_support/logger_silence.rb:21:in `silence'
+activesupport (5.2.3) lib/active_support/logger.rb:63:in `block (2 levels) in broadcast'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:11:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.7) lib/rack/method_override.rb:22:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.3) lib/rails/engine.rb:524:in `call'
+puma (3.12.1) lib/puma/configuration.rb:227:in `call'
+puma (3.12.1) lib/puma/server.rb:660:in `handle_request'
+puma (3.12.1) lib/puma/server.rb:474:in `process_client'
+puma (3.12.1) lib/puma/server.rb:334:in `block in run'
+puma (3.12.1) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/events" for ::1 at 2019-07-09 13:53:13 -0700
+Processing by EventsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE (admin_level <= 2)[0m
+  ↳ app/views/events/index.html.erb:13
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "contacts" INNER JOIN "contacts_events" ON "contacts"."id" = "contacts_events"."contact_id" WHERE "contacts_events"."event_id" = ?[0m  [["event_id", 1]]
+  ↳ app/models/event.rb:14
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "contacts" INNER JOIN "contacts_events" ON "contacts"."id" = "contacts_events"."contact_id" WHERE "contacts_events"."event_id" = ?[0m  [["event_id", 2]]
+  ↳ app/models/event.rb:14
+  Rendered layouts/_card_header.html.erb (5.5ms)
+  Rendered events/index.html.erb within layouts/application (7.4ms)
+Completed 200 OK in 129ms (Views: 124.4ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/events/1" for ::1 at 2019-07-09 13:53:25 -0700
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:49
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  Rendering events/show.html.erb within layouts/application
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "contacts" INNER JOIN "contacts_events" ON "contacts"."id" = "contacts_events"."contact_id" WHERE "contacts_events"."event_id" = ?[0m  [["event_id", 1]]
+  ↳ app/views/events/show.html.erb:6
+  [1m[36mContact Load (0.5ms)[0m  [1m[34mSELECT "contacts".* FROM "contacts" INNER JOIN "contacts_events" ON "contacts"."id" = "contacts_events"."contact_id" WHERE "contacts_events"."event_id" = ?[0m  [["event_id", 1]]
+  ↳ app/views/events/show.html.erb:8
+  Rendered layouts/_card_header.html.erb (19.0ms)
+  Rendered events/show.html.erb within layouts/application (20.4ms)
+Completed 200 OK in 36ms (Views: 30.6ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/events" for ::1 at 2019-07-09 13:53:37 -0700
+Processing by EventsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE (admin_level <= 2)[0m
+  ↳ app/views/events/index.html.erb:13
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "contacts" INNER JOIN "contacts_events" ON "contacts"."id" = "contacts_events"."contact_id" WHERE "contacts_events"."event_id" = ?[0m  [["event_id", 1]]
+  ↳ app/models/event.rb:14
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "contacts" INNER JOIN "contacts_events" ON "contacts"."id" = "contacts_events"."contact_id" WHERE "contacts_events"."event_id" = ?[0m  [["event_id", 2]]
+  ↳ app/models/event.rb:14
+  Rendered layouts/_card_header.html.erb (4.6ms)
+  Rendered events/index.html.erb within layouts/application (6.5ms)
+Completed 200 OK in 19ms (Views: 16.1ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/events" for ::1 at 2019-07-09 13:54:17 -0700
+Processing by EventsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE (admin_level <= 2)[0m
+  ↳ app/views/events/index.html.erb:13
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "contacts" INNER JOIN "contacts_events" ON "contacts"."id" = "contacts_events"."contact_id" WHERE "contacts_events"."event_id" = ?[0m  [["event_id", 1]]
+  ↳ app/models/event.rb:14
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "contacts" INNER JOIN "contacts_events" ON "contacts"."id" = "contacts_events"."contact_id" WHERE "contacts_events"."event_id" = ?[0m  [["event_id", 2]]
+  ↳ app/models/event.rb:14
+  Rendered layouts/_card_header.html.erb (4.7ms)
+  Rendered events/index.html.erb within layouts/application (6.0ms)
+Completed 200 OK in 23ms (Views: 17.7ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/events/1/contacts" for ::1 at 2019-07-09 13:54:19 -0700
+Processing by ContactsController#index as HTML
+  Parameters: {"event_id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/contacts_controller.rb:8
+  Rendering contacts/index.html.erb within layouts/application
+  [1m[36mContact Load (0.2ms)[0m  [1m[34mSELECT "contacts".* FROM "contacts" INNER JOIN "contacts_events" ON "contacts"."id" = "contacts_events"."contact_id" WHERE "contacts_events"."event_id" = ?[0m  [["event_id", 1]]
+  ↳ app/views/contacts/index.html.erb:14
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/contact.rb:38
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/contact.rb:38
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/contact.rb:38
+  Rendered layouts/_card_header.html.erb (16.9ms)
+  Rendered contacts/index.html.erb within layouts/application (18.2ms)
+Completed 200 OK in 35ms (Views: 30.2ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/events/1/contacts" for ::1 at 2019-07-09 13:55:11 -0700
+Processing by ContactsController#index as HTML
+  Parameters: {"event_id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/contacts_controller.rb:8
+  Rendering contacts/index.html.erb within layouts/application
+  [1m[36mContact Load (0.1ms)[0m  [1m[34mSELECT "contacts".* FROM "contacts" INNER JOIN "contacts_events" ON "contacts"."id" = "contacts_events"."contact_id" WHERE "contacts_events"."event_id" = ?[0m  [["event_id", 1]]
+  ↳ app/views/contacts/index.html.erb:14
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/contact.rb:38
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/contact.rb:38
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/contact.rb:38
+  Rendered layouts/_card_header.html.erb (8.0ms)
+  Rendered contacts/index.html.erb within layouts/application (9.2ms)
+Completed 200 OK in 23ms (Views: 18.7ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/events/1/contacts" for ::1 at 2019-07-09 13:56:34 -0700
+Processing by ContactsController#index as HTML
+  Parameters: {"event_id"=>"1"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/contacts_controller.rb:8
+  Rendering contacts/index.html.erb within layouts/application
+  [1m[36mContact Load (0.3ms)[0m  [1m[34mSELECT "contacts".* FROM "contacts" INNER JOIN "contacts_events" ON "contacts"."id" = "contacts_events"."contact_id" WHERE "contacts_events"."event_id" = ?[0m  [["event_id", 1]]
+  ↳ app/views/contacts/index.html.erb:14
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/contact.rb:38
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/contact.rb:38
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/contact.rb:38
+  Rendered layouts/_card_header.html.erb (11.0ms)
+  Rendered contacts/index.html.erb within layouts/application (14.8ms)
+Completed 200 OK in 86ms (Views: 77.8ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/contacts/1" for ::1 at 2019-07-09 13:57:32 -0700
+Processing by ContactsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mContact Load (1.0ms)[0m  [1m[34mSELECT  "contacts".* FROM "contacts" WHERE "contacts"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/contacts_controller.rb:47
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  Rendering contacts/show.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/contacts/show.html.erb:7
+  [1m[35m (2.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "events" INNER JOIN "contacts_events" ON "events"."id" = "contacts_events"."event_id" WHERE "contacts_events"."contact_id" = ?[0m  [["contact_id", 1]]
+  ↳ app/views/contacts/show.html.erb:14
+  Rendered layouts/_card_header.html.erb (42.2ms)
+  Rendered contacts/show.html.erb within layouts/application (45.1ms)
+Completed 200 OK in 96ms (Views: 80.1ms | ActiveRecord: 4.2ms)
+
+
+Started GET "/contacts/1/events" for ::1 at 2019-07-09 13:57:41 -0700
+Processing by EventsController#index as HTML
+  Parameters: {"contact_id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mContact Load (0.2ms)[0m  [1m[34mSELECT  "contacts".* FROM "contacts" WHERE "contacts"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:8
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.5ms)[0m  [1m[34mSELECT "events".* FROM "events" INNER JOIN "contacts_events" ON "events"."id" = "contacts_events"."event_id" WHERE "contacts_events"."contact_id" = ?[0m  [["contact_id", 1]]
+  ↳ app/views/events/index.html.erb:13
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "contacts" INNER JOIN "contacts_events" ON "contacts"."id" = "contacts_events"."contact_id" WHERE "contacts_events"."event_id" = ?[0m  [["event_id", 1]]
+  ↳ app/models/event.rb:14
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "contacts" INNER JOIN "contacts_events" ON "contacts"."id" = "contacts_events"."contact_id" WHERE "contacts_events"."event_id" = ?[0m  [["event_id", 2]]
+  ↳ app/models/event.rb:14
+  Rendered layouts/_card_header.html.erb (15.3ms)
+  Rendered events/index.html.erb within layouts/application (18.5ms)
+Completed 200 OK in 75ms (Views: 68.6ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/contacts/1/events" for ::1 at 2019-07-09 13:59:07 -0700
+Processing by EventsController#index as HTML
+  Parameters: {"contact_id"=>"1"}
+  [1m[36mUser Load (3.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mContact Load (2.2ms)[0m  [1m[34mSELECT  "contacts".* FROM "contacts" WHERE "contacts"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:8
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (2.6ms)[0m  [1m[34mSELECT "events".* FROM "events" INNER JOIN "contacts_events" ON "events"."id" = "contacts_events"."event_id" WHERE "contacts_events"."contact_id" = ?[0m  [["contact_id", 1]]
+  ↳ app/views/events/index.html.erb:13
+  [1m[35m (2.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "contacts" INNER JOIN "contacts_events" ON "contacts"."id" = "contacts_events"."contact_id" WHERE "contacts_events"."event_id" = ?[0m  [["event_id", 1]]
+  ↳ app/models/event.rb:14
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "contacts" INNER JOIN "contacts_events" ON "contacts"."id" = "contacts_events"."contact_id" WHERE "contacts_events"."event_id" = ?[0m  [["event_id", 2]]
+  ↳ app/models/event.rb:14
+  Rendered layouts/_card_header.html.erb (21.3ms)
+  Rendered events/index.html.erb within layouts/application (24.9ms)
+Completed 200 OK in 242ms (Views: 215.3ms | ActiveRecord: 11.4ms)
+
+
+Started GET "/contacts/1/events" for ::1 at 2019-07-09 14:00:06 -0700
+Processing by EventsController#index as HTML
+  Parameters: {"contact_id"=>"1"}
+  [1m[36mUser Load (2.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mContact Load (2.2ms)[0m  [1m[34mSELECT  "contacts".* FROM "contacts" WHERE "contacts"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:8
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (2.6ms)[0m  [1m[34mSELECT "events".* FROM "events" INNER JOIN "contacts_events" ON "events"."id" = "contacts_events"."event_id" WHERE "contacts_events"."contact_id" = ?[0m  [["contact_id", 1]]
+  ↳ app/views/events/index.html.erb:13
+  [1m[35m (3.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "contacts" INNER JOIN "contacts_events" ON "contacts"."id" = "contacts_events"."contact_id" WHERE "contacts_events"."event_id" = ?[0m  [["event_id", 1]]
+  ↳ app/models/event.rb:14
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "contacts" INNER JOIN "contacts_events" ON "contacts"."id" = "contacts_events"."contact_id" WHERE "contacts_events"."event_id" = ?[0m  [["event_id", 2]]
+  ↳ app/models/event.rb:14
+  Rendered layouts/_card_header.html.erb (15.9ms)
+  Rendered events/index.html.erb within layouts/application (20.4ms)
+Completed 200 OK in 181ms (Views: 163.8ms | ActiveRecord: 10.9ms)
+
+
+  
+ActionController::RoutingError (No route matches [GET] "/assets/material/dashboard-free.css.map"):
+  
+actionpack (5.2.3) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.3) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:11:in `block in call'
+activesupport (5.2.3) lib/active_support/logger_silence.rb:21:in `silence'
+activesupport (5.2.3) lib/active_support/logger.rb:65:in `block (3 levels) in broadcast'
+activesupport (5.2.3) lib/active_support/logger_silence.rb:21:in `silence'
+activesupport (5.2.3) lib/active_support/logger.rb:63:in `block (2 levels) in broadcast'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:11:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.7) lib/rack/method_override.rb:22:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.3) lib/rails/engine.rb:524:in `call'
+puma (3.12.1) lib/puma/configuration.rb:227:in `call'
+puma (3.12.1) lib/puma/server.rb:660:in `handle_request'
+puma (3.12.1) lib/puma/server.rb:474:in `process_client'
+puma (3.12.1) lib/puma/server.rb:334:in `block in run'
+puma (3.12.1) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/contacts/1/events" for ::1 at 2019-07-09 14:01:13 -0700
+Processing by EventsController#index as HTML
+  Parameters: {"contact_id"=>"1"}
+  [1m[36mUser Load (3.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mContact Load (2.4ms)[0m  [1m[34mSELECT  "contacts".* FROM "contacts" WHERE "contacts"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:8
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (2.4ms)[0m  [1m[34mSELECT "events".* FROM "events" INNER JOIN "contacts_events" ON "events"."id" = "contacts_events"."event_id" WHERE "contacts_events"."contact_id" = ?[0m  [["contact_id", 1]]
+  ↳ app/views/events/index.html.erb:13
+  [1m[35m (9.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "contacts" INNER JOIN "contacts_events" ON "contacts"."id" = "contacts_events"."contact_id" WHERE "contacts_events"."event_id" = ?[0m  [["event_id", 1]]
+  ↳ app/models/event.rb:14
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "contacts" INNER JOIN "contacts_events" ON "contacts"."id" = "contacts_events"."contact_id" WHERE "contacts_events"."event_id" = ?[0m  [["event_id", 2]]
+  ↳ app/models/event.rb:14
+  Rendered layouts/_card_header.html.erb (40.4ms)
+  Rendered events/index.html.erb within layouts/application (46.5ms)
+Completed 200 OK in 447ms (Views: 403.5ms | ActiveRecord: 18.3ms)
+
+
+  
+ActionController::RoutingError (No route matches [GET] "/assets/material/dashboard-free.css.map"):
+  
+actionpack (5.2.3) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.3) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:11:in `block in call'
+activesupport (5.2.3) lib/active_support/logger_silence.rb:21:in `silence'
+activesupport (5.2.3) lib/active_support/logger.rb:65:in `block (3 levels) in broadcast'
+activesupport (5.2.3) lib/active_support/logger_silence.rb:21:in `silence'
+activesupport (5.2.3) lib/active_support/logger.rb:63:in `block (2 levels) in broadcast'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:11:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.7) lib/rack/method_override.rb:22:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.3) lib/rails/engine.rb:524:in `call'
+puma (3.12.1) lib/puma/configuration.rb:227:in `call'
+puma (3.12.1) lib/puma/server.rb:660:in `handle_request'
+puma (3.12.1) lib/puma/server.rb:474:in `process_client'
+puma (3.12.1) lib/puma/server.rb:334:in `block in run'
+puma (3.12.1) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/contacts/1/events" for ::1 at 2019-07-09 14:01:19 -0700
+Processing by EventsController#index as HTML
+  Parameters: {"contact_id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mContact Load (0.2ms)[0m  [1m[34mSELECT  "contacts".* FROM "contacts" WHERE "contacts"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:8
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT "events".* FROM "events" INNER JOIN "contacts_events" ON "events"."id" = "contacts_events"."event_id" WHERE "contacts_events"."contact_id" = ?[0m  [["contact_id", 1]]
+  ↳ app/views/events/index.html.erb:13
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "contacts" INNER JOIN "contacts_events" ON "contacts"."id" = "contacts_events"."contact_id" WHERE "contacts_events"."event_id" = ?[0m  [["event_id", 1]]
+  ↳ app/models/event.rb:14
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "contacts" INNER JOIN "contacts_events" ON "contacts"."id" = "contacts_events"."contact_id" WHERE "contacts_events"."event_id" = ?[0m  [["event_id", 2]]
+  ↳ app/models/event.rb:14
+  Rendered layouts/_card_header.html.erb (8.1ms)
+  Rendered events/index.html.erb within layouts/application (9.8ms)
+Completed 200 OK in 141ms (Views: 137.0ms | ActiveRecord: 1.3ms)
+
+
+  
+ActionController::RoutingError (No route matches [GET] "/assets/material/dashboard-free.css.map"):
+  
+actionpack (5.2.3) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.3) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:11:in `block in call'
+activesupport (5.2.3) lib/active_support/logger_silence.rb:21:in `silence'
+activesupport (5.2.3) lib/active_support/logger.rb:65:in `block (3 levels) in broadcast'
+activesupport (5.2.3) lib/active_support/logger_silence.rb:21:in `silence'
+activesupport (5.2.3) lib/active_support/logger.rb:63:in `block (2 levels) in broadcast'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:11:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.7) lib/rack/method_override.rb:22:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.3) lib/rails/engine.rb:524:in `call'
+puma (3.12.1) lib/puma/configuration.rb:227:in `call'
+puma (3.12.1) lib/puma/server.rb:660:in `handle_request'
+puma (3.12.1) lib/puma/server.rb:474:in `process_client'
+puma (3.12.1) lib/puma/server.rb:334:in `block in run'
+puma (3.12.1) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/contacts/1/events" for ::1 at 2019-07-09 14:03:39 -0700
+Processing by EventsController#index as HTML
+  Parameters: {"contact_id"=>"1"}
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mContact Load (0.7ms)[0m  [1m[34mSELECT  "contacts".* FROM "contacts" WHERE "contacts"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:8
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.4ms)[0m  [1m[34mSELECT "events".* FROM "events" INNER JOIN "contacts_events" ON "events"."id" = "contacts_events"."event_id" WHERE "contacts_events"."contact_id" = ?[0m  [["contact_id", 1]]
+  ↳ app/views/events/index.html.erb:13
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "contacts" INNER JOIN "contacts_events" ON "contacts"."id" = "contacts_events"."contact_id" WHERE "contacts_events"."event_id" = ?[0m  [["event_id", 1]]
+  ↳ app/models/event.rb:14
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "contacts" INNER JOIN "contacts_events" ON "contacts"."id" = "contacts_events"."contact_id" WHERE "contacts_events"."event_id" = ?[0m  [["event_id", 2]]
+  ↳ app/models/event.rb:14
+  Rendered layouts/_card_header.html.erb (23.7ms)
+  Rendered events/index.html.erb within layouts/application (28.0ms)
+Completed 200 OK in 424ms (Views: 395.5ms | ActiveRecord: 3.3ms)
+
+
+  
+ActionController::RoutingError (No route matches [GET] "/assets/material/dashboard-free.css.map"):
+  
+actionpack (5.2.3) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.3) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:11:in `block in call'
+activesupport (5.2.3) lib/active_support/logger_silence.rb:21:in `silence'
+activesupport (5.2.3) lib/active_support/logger.rb:65:in `block (3 levels) in broadcast'
+activesupport (5.2.3) lib/active_support/logger_silence.rb:21:in `silence'
+activesupport (5.2.3) lib/active_support/logger.rb:63:in `block (2 levels) in broadcast'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:11:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.7) lib/rack/method_override.rb:22:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.3) lib/rails/engine.rb:524:in `call'
+puma (3.12.1) lib/puma/configuration.rb:227:in `call'
+puma (3.12.1) lib/puma/server.rb:660:in `handle_request'
+puma (3.12.1) lib/puma/server.rb:474:in `process_client'
+puma (3.12.1) lib/puma/server.rb:334:in `block in run'
+puma (3.12.1) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/contacts/1/events" for ::1 at 2019-07-09 14:04:09 -0700
+Processing by EventsController#index as HTML
+  Parameters: {"contact_id"=>"1"}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mContact Load (1.2ms)[0m  [1m[34mSELECT  "contacts".* FROM "contacts" WHERE "contacts"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:8
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT "events".* FROM "events" INNER JOIN "contacts_events" ON "events"."id" = "contacts_events"."event_id" WHERE "contacts_events"."contact_id" = ?[0m  [["contact_id", 1]]
+  ↳ app/views/events/index.html.erb:13
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "contacts" INNER JOIN "contacts_events" ON "contacts"."id" = "contacts_events"."contact_id" WHERE "contacts_events"."event_id" = ?[0m  [["event_id", 1]]
+  ↳ app/models/event.rb:14
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "contacts" INNER JOIN "contacts_events" ON "contacts"."id" = "contacts_events"."contact_id" WHERE "contacts_events"."event_id" = ?[0m  [["event_id", 2]]
+  ↳ app/models/event.rb:14
+  Rendered layouts/_card_header.html.erb (10.0ms)
+  Rendered events/index.html.erb within layouts/application (12.8ms)
+Completed 200 OK in 257ms (Views: 247.1ms | ActiveRecord: 3.1ms)
+
+
+  
+ActionController::RoutingError (No route matches [GET] "/assets/material/dashboard-free.css.map"):
+  
+actionpack (5.2.3) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.3) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:11:in `block in call'
+activesupport (5.2.3) lib/active_support/logger_silence.rb:21:in `silence'
+activesupport (5.2.3) lib/active_support/logger.rb:65:in `block (3 levels) in broadcast'
+activesupport (5.2.3) lib/active_support/logger_silence.rb:21:in `silence'
+activesupport (5.2.3) lib/active_support/logger.rb:63:in `block (2 levels) in broadcast'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:11:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.7) lib/rack/method_override.rb:22:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.3) lib/rails/engine.rb:524:in `call'
+puma (3.12.1) lib/puma/configuration.rb:227:in `call'
+puma (3.12.1) lib/puma/server.rb:660:in `handle_request'
+puma (3.12.1) lib/puma/server.rb:474:in `process_client'
+puma (3.12.1) lib/puma/server.rb:334:in `block in run'
+puma (3.12.1) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/contacts/1/events" for ::1 at 2019-07-09 14:05:09 -0700
+Processing by EventsController#index as HTML
+  Parameters: {"contact_id"=>"1"}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mContact Load (0.6ms)[0m  [1m[34mSELECT  "contacts".* FROM "contacts" WHERE "contacts"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:8
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT "events".* FROM "events" INNER JOIN "contacts_events" ON "events"."id" = "contacts_events"."event_id" WHERE "contacts_events"."contact_id" = ?[0m  [["contact_id", 1]]
+  ↳ app/views/events/index.html.erb:13
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "contacts" INNER JOIN "contacts_events" ON "contacts"."id" = "contacts_events"."contact_id" WHERE "contacts_events"."event_id" = ?[0m  [["event_id", 1]]
+  ↳ app/models/event.rb:14
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "contacts" INNER JOIN "contacts_events" ON "contacts"."id" = "contacts_events"."contact_id" WHERE "contacts_events"."event_id" = ?[0m  [["event_id", 2]]
+  ↳ app/models/event.rb:14
+  Rendered layouts/_card_header.html.erb (16.4ms)
+  Rendered events/index.html.erb within layouts/application (21.1ms)
+Completed 200 OK in 75ms (Views: 58.6ms | ActiveRecord: 2.3ms)
+
+
+Started GET "/contacts/1/events" for ::1 at 2019-07-09 14:08:08 -0700
+Processing by EventsController#index as HTML
+  Parameters: {"contact_id"=>"1"}
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mContact Load (0.2ms)[0m  [1m[34mSELECT  "contacts".* FROM "contacts" WHERE "contacts"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:8
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events" INNER JOIN "contacts_events" ON "events"."id" = "contacts_events"."event_id" WHERE "contacts_events"."contact_id" = ?[0m  [["contact_id", 1]]
+  ↳ app/views/events/index.html.erb:14
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "contacts" INNER JOIN "contacts_events" ON "contacts"."id" = "contacts_events"."contact_id" WHERE "contacts_events"."event_id" = ?[0m  [["event_id", 1]]
+  ↳ app/models/event.rb:14
+  Rendered layouts/_card_header.html.erb (19.2ms)
+  Rendered events/index.html.erb within layouts/application (23.4ms)
+Completed 500 Internal Server Error in 43ms (ActiveRecord: 2.0ms)
+
+
+  
+ActionView::Template::Error (wrong number of arguments (given 2, expected 0..1)):
+     6:   </div>
+     7: 
+     8:     <div class="card-body">
+     9:       <%= yield %>
+    10:     </div>
+    11:   </div>
+  
+app/views/events/index.html.erb:19:in `block (2 levels) in _app_views_events_index_html_erb__3131864456672463801_70213554605640'
+app/views/events/index.html.erb:14:in `block in _app_views_events_index_html_erb__3131864456672463801_70213554605640'
+app/views/layouts/_card_header.html.erb:9:in `_app_views_layouts__card_header_html_erb__3850311635013889108_70213597447800'
+app/views/events/index.html.erb:1:in `_app_views_events_index_html_erb__3131864456672463801_70213554605640'
+Started GET "/contacts/1/events" for ::1 at 2019-07-09 14:08:36 -0700
+Processing by EventsController#index as HTML
+  Parameters: {"contact_id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mContact Load (0.2ms)[0m  [1m[34mSELECT  "contacts".* FROM "contacts" WHERE "contacts"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:8
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events" INNER JOIN "contacts_events" ON "events"."id" = "contacts_events"."event_id" WHERE "contacts_events"."contact_id" = ?[0m  [["contact_id", 1]]
+  ↳ app/views/events/index.html.erb:14
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "contacts" INNER JOIN "contacts_events" ON "contacts"."id" = "contacts_events"."contact_id" WHERE "contacts_events"."event_id" = ?[0m  [["event_id", 1]]
+  ↳ app/models/event.rb:14
+  Rendered layouts/_card_header.html.erb (4.7ms)
+  Rendered events/index.html.erb within layouts/application (6.5ms)
+Completed 500 Internal Server Error in 13ms (ActiveRecord: 0.8ms)
+
+
+  
+ActionView::Template::Error (wrong number of arguments (given 2, expected 0..1)):
+     6:   </div>
+     7: 
+     8:     <div class="card-body">
+     9:       <%= yield %>
+    10:     </div>
+    11:   </div>
+  
+app/views/events/index.html.erb:19:in `block (2 levels) in _app_views_events_index_html_erb__3131864456672463801_70213545566220'
+app/views/events/index.html.erb:14:in `block in _app_views_events_index_html_erb__3131864456672463801_70213545566220'
+app/views/layouts/_card_header.html.erb:9:in `_app_views_layouts__card_header_html_erb__3850311635013889108_70213545670100'
+app/views/events/index.html.erb:1:in `_app_views_events_index_html_erb__3131864456672463801_70213545566220'
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT  "events".* FROM "events" ORDER BY "events"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT SUM("contacts_events"."guests") FROM "contacts_events" WHERE "contacts_events"."event_id" = ?[0m  [["event_id", 1]]
+Started GET "/contacts/1/events" for ::1 at 2019-07-09 14:13:03 -0700
+  [1m[35m (2.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/Mackenzie/.rvm/gems/ruby-2.6.1/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by EventsController#index as HTML
+  Parameters: {"contact_id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mContact Load (0.1ms)[0m  [1m[34mSELECT  "contacts".* FROM "contacts" WHERE "contacts"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:8
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.4ms)[0m  [1m[34mSELECT "events".* FROM "events" INNER JOIN "contacts_events" ON "events"."id" = "contacts_events"."event_id" WHERE "contacts_events"."contact_id" = ?[0m  [["contact_id", 1]]
+  ↳ app/views/events/index.html.erb:14
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "contacts" INNER JOIN "contacts_events" ON "contacts"."id" = "contacts_events"."contact_id" WHERE "contacts_events"."event_id" = ?[0m  [["event_id", 1]]
+  ↳ app/models/event.rb:14
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT SUM("contacts_events"."guests") FROM "contacts_events" WHERE "contacts_events"."event_id" = ?[0m  [["event_id", 1]]
+  ↳ app/views/events/index.html.erb:19
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "contacts" INNER JOIN "contacts_events" ON "contacts"."id" = "contacts_events"."contact_id" WHERE "contacts_events"."event_id" = ?[0m  [["event_id", 2]]
+  ↳ app/models/event.rb:14
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT SUM("contacts_events"."guests") FROM "contacts_events" WHERE "contacts_events"."event_id" = ?[0m  [["event_id", 2]]
+  ↳ app/views/events/index.html.erb:19
+  Rendered layouts/_card_header.html.erb (54.3ms)
+  Rendered events/index.html.erb within layouts/application (59.2ms)
+Completed 200 OK in 620ms (Views: 555.3ms | ActiveRecord: 4.0ms)
+
+
+Started GET "/contacts/1/events" for ::1 at 2019-07-09 14:13:36 -0700
+Processing by EventsController#index as HTML
+  Parameters: {"contact_id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mContact Load (0.1ms)[0m  [1m[34mSELECT  "contacts".* FROM "contacts" WHERE "contacts"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/events_controller.rb:8
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT "events".* FROM "events" INNER JOIN "contacts_events" ON "events"."id" = "contacts_events"."event_id" WHERE "contacts_events"."contact_id" = ?[0m  [["contact_id", 1]]
+  ↳ app/views/events/index.html.erb:14
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "contacts" INNER JOIN "contacts_events" ON "contacts"."id" = "contacts_events"."contact_id" WHERE "contacts_events"."event_id" = ?[0m  [["event_id", 1]]
+  ↳ app/models/event.rb:14
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT SUM("contacts_events"."guests") FROM "contacts_events" WHERE "contacts_events"."event_id" = ?[0m  [["event_id", 1]]
+  ↳ app/views/events/index.html.erb:19
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "contacts" INNER JOIN "contacts_events" ON "contacts"."id" = "contacts_events"."contact_id" WHERE "contacts_events"."event_id" = ?[0m  [["event_id", 2]]
+  ↳ app/models/event.rb:14
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT SUM("contacts_events"."guests") FROM "contacts_events" WHERE "contacts_events"."event_id" = ?[0m  [["event_id", 2]]
+  ↳ app/views/events/index.html.erb:19
+  Rendered layouts/_card_header.html.erb (7.8ms)
+  Rendered events/index.html.erb within layouts/application (9.0ms)
+Completed 200 OK in 26ms (Views: 22.6ms | ActiveRecord: 1.1ms)
+
+
