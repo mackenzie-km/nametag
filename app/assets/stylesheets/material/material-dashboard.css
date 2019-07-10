@@ -748,6 +748,11 @@ output {
   display: inline-block;
 }
 
+.form-control {
+width:auto;
+display:inline-block;
+}
+
 summary {
   display: list-item;
   cursor: pointer;
@@ -16328,12 +16333,26 @@ a .material-icons {
   vertical-align: middle;
 }
 
+.lb-lg {
+  font-size: 18px;
+}
+
 .form-check,
 label {
   font-size: 14px;
   line-height: 1.42857;
   color: #AAAAAA;
   font-weight: 400;
+  color: #696969;
+}
+
+select[id*="date"] {
+  font-size: 14px;
+  line-height: 1.42857;
+  color: #AAAAAA;
+  font-weight: 400;
+  color: #696969;
+  padding: 3px;
 }
 
 /*           Animations              */
