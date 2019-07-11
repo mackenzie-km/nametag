@@ -42,14 +42,15 @@ class UsersController < ApplicationController
   end
 
   def enter_code
-    code = params[:user][:admin_level].to_i
+    code = user_params[:admin_level].to_i
     if code == 2
-      @user.update(admin_level: ENV['ADMIN'])
+      @user.admin_level=(ENV['ADMIN'])
     elsif code == 1
-      @user.update(admin_level: ENV['IGSM'])
+      @user.admin_level=(ENV['IGSM'])
     else
-      @user.update(admin_level: 0)
+      @user.admin_level=(0)
     end
+      @user.save
   end
 
   def find_user
