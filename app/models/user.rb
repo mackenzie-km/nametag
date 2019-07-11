@@ -3,8 +3,8 @@ class User < ApplicationRecord
   validates :email, presence: true
   validates :email, format: { with: /\A\S+@.+\.\S+\z/ }
   validates :email, uniqueness: true
-  validates :password, format: { with: /\A(?=.*[a-zA-Z])(?=.*[0-9]).{6,}\z/,
-    message: "must be 6+ characters long & include one number & one letter" }
+  validates :password, format: { with: /\A(?=.*\d).{4,8}\z/,
+    message: "must be 4-8 characters long & include 1+ number" }, allow_nil: true
 
   has_secure_password
 
