@@ -748,11 +748,6 @@ output {
   display: inline-block;
 }
 
-.form-control {
-width:auto;
-display:inline-block;
-}
-
 summary {
   display: list-item;
   cursor: pointer;
@@ -10832,7 +10827,7 @@ fieldset[disabled] .form-group.is-focused .form-check .form-check-label {
   opacity: 0;
   position: absolute;
   margin: 0;
-  z-index: -1;
+  z-index: 3;
   width: 0;
   height: 0;
   overflow: hidden;
