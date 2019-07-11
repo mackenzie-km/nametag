@@ -1,4 +1,4 @@
-<%= render :layout => 'layouts/card_header', :locals => {:header => "Edit an Event", :description => "Update an event's properties"} do %>
+<%= render :layout => 'layouts/12_col_view', :locals => {:header => "Edit an Event", :description => "Update an event's properties"} do %>
   <%= render partial: "event_form", locals: {event: @event} %>
   <%= button_to "Delete Event", "#{event_path(@event)}/delete", :class => "btn btn-primary", :method => :get %>
 <% end %>
