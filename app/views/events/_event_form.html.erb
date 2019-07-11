@@ -5,7 +5,9 @@
           <%= f.text_field :name, :class => "form-control" %><br>
 
           <%= f.label "Event Date", :class => "lb-lg" %><br>
+          <p>Reminder: Check the events homepage to ensure that today's event wasn't already created.</p>
           <%= f.date_select :date, :class => "form-control" %><br><br>
+
 
         <%= f.label "Attendees:", :class => "lb-lg" %><br>
         <%= f.collection_check_boxes :contact_ids, Contact.active, :id, :name do |b| %>
