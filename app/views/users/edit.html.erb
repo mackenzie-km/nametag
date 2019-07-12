@@ -1,6 +1,6 @@
-<%= render :layout => 'layouts/12_col_view', :locals => {:header => "Welcome to Nametag", :description => "Sign up/login in to keep track of your contacts & events"} do %>
+<%= render :layout => 'layouts/12_col_view', :locals => {:header => "Edit User Account Access", :description => "Remember that 0 is the lowest access, and 2 is the maximum access."} do %>
 
-  <h2> Edit Access for <%= "#{@user.name.capitalize}" %> </h2>
+  <h2> Edit Access for <%= "#{@user.name.titleize}" %> </h2>
 
   <%= form_for @user do |f| %>
     <%= f.label "Access Level:" %>
