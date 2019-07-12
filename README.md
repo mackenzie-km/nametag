@@ -1,8 +1,11 @@
 # README
 
-Future Project Goals:
+Urgent to-dos
+* Fix toggle navigation
+* Fix checkboxes/buttons
 * Move more to helper methods & partials
-* Add bootstrap css (things such as navbar, grid layout, etc.)
+* Practice & Record Walkthrough
+* Blog Post
 
 Far Off Future
 * Ability to import a spreadsheet
