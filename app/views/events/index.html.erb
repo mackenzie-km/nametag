@@ -1,6 +1,27 @@
-<h2> event homepage </h2>
-<% @events.each do |event| %>
-  <%= link_to event.name, event_path(event) %><br>
-<% end %><br>
+<%= render :layout => 'layouts/12_col_view', :locals => {:header => "View All Events", :description => "Coming soon: feature to sort by type of event"} do %>
 
-<%= button_to "Create Event", new_event_path, :method => :get %>
+  <div class="table-responsive">
+    <table class="table table-hover">
+        <thead class="">
+          <tr>
+              <th> Event Name </th>
+              <th> Event Date </th>
+              <th> Students </th>
+              <th> Guests </th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @events.each do |event| %>
+            <tr>
+              <td><%= link_to event.name, event_path(event) %> </td>
+              <td><%= event.date_human %></td>
+              <td><%= link_to event.contacts_count, event_contacts_path(event) %></td>
+              <td><%= event.contacts_events.sum(:guests) %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+
+  <%= button_to "Create Event", new_event_path, :class => "btn btn-primary", :method => :get %>
+<% end %>

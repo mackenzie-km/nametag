@@ -1,16 +1,20 @@
-<%= render partial: "layouts/error_message", locals: {thing: @user} %>
+<%= render :layout => 'layouts/12_col_view', :locals => {:header => "Welcome to Nametag", :description => "Sign up/login in to keep track of your contacts & events"} do %>
 
-<h2> Create a New User </h2>
+  <%= render partial: "layouts/error_message", locals: {thing: @user} %>
 
-<%= form_for @user do |f| %>
-  <%= f.label "Email" %>
-  <%= f.text_field :email %><br>
+  <h2> Create a New User </h2>
 
-  <%= f.label "Password" %>
-  <%= f.text_field :password %><br>
+  <%= form_for @user do |f| %>
+    <%= f.label "Email" %>
+    <%= f.text_field :email %><br>
 
-  <%= f.label "Access Code" %>
-  <%= f.text_field :admin_level %><br>
+    <%= f.label "Password" %>
+    <%= f.text_field :password %><br>
 
-  <%= f.submit "Submit" %><br>
+    <%= f.label "Access Code" %>
+    <%= f.text_field :admin_level %><br>
+
+    <%= f.submit "Submit", :class => "btn btn-primary" %><br>
+  <% end %>
+
 <% end %>

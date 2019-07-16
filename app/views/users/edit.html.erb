@@ -1,10 +1,12 @@
-<%= render partial: "layouts/error_message", locals: {thing: @user} %>
+<%= render :layout => 'layouts/12_col_view', :locals => {:header => "Edit User Account Access", :description => "Remember that 0 is the lowest access, and 2 is the maximum access."} do %>
 
-<h2> Edit Access for <%= "#{@user.name.capitalize}" %> </h2>
+  <h2> Edit Access for <%= "#{@user.name.titleize}" %> </h2>
 
-<%= form_for @user do |f| %>
-  <%= f.label "Access Level:" %>
-  <%= f.select(:admin_level, [0, 1, 2]) %><br>
+  <%= form_for @user do |f| %>
+    <%= f.label "Access Level:" %>
+    <%= f.select(:admin_level, [0, 1, 2]) %><br>
 
-  <%= f.submit "Submit" %><br>
+    <%= f.submit "Submit", :class => "btn btn-primary" %><br>
+  <% end %>
+
 <% end %>

@@ -1,7 +1,29 @@
-<h2> contacts homepage </h2>
-<% @contacts.each do |contact| %>
-  <%= link_to contact.name, contact_path(contact) %><br>
-<% end %><br>
+<%= render :layout => 'layouts/12_col_view', :locals => {:header => "View All Contacts", :description => "Coming soon: feature to sort contacts"} do %>
+  <div class="table-responsive">
+    <table class="table table-hover">
+        <thead class="">
+          <tr>
+              <th> ID </th>
+              <th> Name </th>
+              <th> Staff </th>
+              <th> Email </th>
+              <th> Gender </th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @contacts.each do |contact| %>
+            <tr>
+              <td><%= contact.id %> </td>
+              <td><%= link_to contact.name, contact_path(contact) %></td>
+              <td><%= contact.user_name %></td>
+              <td><%= contact.email %></td>
+              <td><%= contact.gender %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
 
 
-<%= button_to "Create Contact", new_contact_path, :method => :get %>
+  <%= button_to "Create Contact", new_contact_path, :class => "btn btn-primary", :method => :get %>
+<% end %>

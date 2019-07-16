@@ -1,7 +1,26 @@
-<h2> All the Users </h2>
-<% @users.each do |user| %>
-<%= "User: " + user.name %> <br>
-<%= "Admin Level: " + user.admin_level.to_s %><br>
-<%= button_to "Edit Access", edit_user_path(user), :method => :get  %>
-<%= button_to "Delete User", user_path(user), :method => :delete  %><br>
+<%= render :layout => 'layouts/12_col_view', :locals => {:header => "Edit User Account Access", :description => "Remember that 0 is the lowest access, and 2 is the maximum access."} do %>
+
+  <div class="table-responsive">
+    <table class="table table-hover">
+        <thead class="">
+          <tr>
+              <th> User </th>
+              <th> Admin Level </th>
+              <th> Edit Access </th>
+              <th> Delete User </th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @users.each do |user| %>
+            <tr>
+              <td><%= user.name %> </td>
+              <td><%= user.admin_level.to_s %></td>
+              <td><%= button_to "Edit", edit_user_path(user), :class => "btn btn-primary", :method => :get %></td>
+              <td><%= button_to "Delete", user_path(user), :class => "btn btn-primary", :method => :delete %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+
 <% end %>

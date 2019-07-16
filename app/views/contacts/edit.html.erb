@@ -1,2 +1,8 @@
-<%= render partial: "contact_form", locals: {contact: @contact} %>
-<%= button_to "Delete Contact", "#{contact_path(@contact)}/delete", :method => :get %>
+
+<%= render :layout => 'layouts/12_col_view', :locals => {:header => "Edit a Contact", :description => "Add as much information about the contact as you can"} do %>
+
+  <%= render partial: "contact_form", locals: {contact: @contact} %>
+  <%= button_to "Delete Contact", "#{contact_path(@contact)}/delete", :class => "btn btn-primary", :method => :get %>
+
+
+<% end %>

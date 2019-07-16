@@ -1,41 +1,55 @@
 <%= render partial: "layouts/error_message", locals: {thing: @contact} %>
-<h2> Create a New Contact </h2>
 
-<%= form_for contact do |f| %>
-  <%= f.label "Contact Name" %>
-  <%= f.text_field :name %><br>
 
-  <%= f.label "Email" %>
-  <%= f.text_field :email %><br>
+<%= form_for @contact do |f| %>
+  <%= f.label "Contact Name", class: "lb-lg" %>
+  <%= f.text_field :name, class: "form-control" %><br>
 
-  <%= f.label "Female:" %>
-  <%= f.radio_button :gender, "female" %>
-  <%= f.label "Male:" %>
-  <%= f.radio_button :gender, "male" %><br>
+  <%= f.label "Email", class: "lb-lg" %>
+  <%= f.text_field :email, class: "form-control"  %><br>
 
-  <%= f.label "Staff" %>
-  <%= f.collection_select :user_id, User.all, :id, :name %><br>
+  <div class="form-check form-check-inline">
+    <%= f.label "gender_female", class: "form-check-label" do %>
+      <%= f.label "Female", class: "lb-lg" %>
+      <%= f.radio_button :gender, "female", class: "form-check-input" %>
+      <span class="circle">
+        <span class="check"></span>
+      </span>
+    <% end %>
+  </div>
+<div class="form-check form-check-inline">
+    <%= f.label "gender_male", class: "form-check-label" do %>
+      <%= f.label "Male", class: "lb-lg" %>
+      <%= f.radio_button :gender, "male", class: "form-check-input" %>
+      <span class="circle">
+        <span class="check"></span>
+      </span>
+    <% end %>
+  </div><br>
 
-  <%= f.label "Phone Number" %>
-  <%= f.text_field :phone_number %><br>
+  <%= f.label "user_id", class: "lb-lg" %><br>
+  <%= f.collection_select :user_id, User.all, :id, :name, {}, {class: "custom-select"} %><br><br>
 
-  <%= f.label "School Status" %>
-  <%= f.select :school_status, ["exchange", "freshmen", "sophomore", "junior", "senior", "masters", "PhD", "post doc", "visiting scholar", "family", "alumni"] %><br>
+  <%= f.label "Phone Number", class: "lb-lg" %>
+  <%= f.text_field :phone_number, class: "form-control" %><br>
 
-  <%= f.label "Messenger Company" %>
-  <%= f.select :messenger_company, ["Line", "WeChat", "WhatsApp", "Kakao Talk"], include_blank: true %><br>
+  <%= f.label "School Status", class: "lb-lg" %><br>
+  <%= f.select :school_status, ["exchange", "freshmen", "sophomore", "junior", "senior", "masters", "PhD", "post doc", "visiting scholar", "family", "alumni"], {}, {class: "custom-select"} %><br><br>
 
-  <%= f.label "Messenger Id" %>
-  <%= f.text_field :messenger_id %><br>
+  <%= f.label "Messenger Company", class: "lb-lg" %><br>
+  <%= f.select :messenger_company, ["Line", "WeChat", "WhatsApp", "Kakao Talk"], {}, {include_blank: true, class: "custom-select"} %><br><br>
 
-  <%= f.label "Major" %>
-  <%= f.text_field :major %><br>
+  <%= f.label "Messenger Id", class: "lb-lg" %>
+  <%= f.text_field :messenger_id, class: "form-control" %><br>
 
-  <%= f.label "Country" %>
-  <%= f.text_field :country %><br>
+  <%= f.label "Major", class: "lb-lg" %>
+  <%= f.text_field :major, class: "form-control" %><br>
 
-  <%= f.label "Birthday" %>
-  <%= f.date_select :birthday, discard_year: true, include_blank: true  %><br>
+  <%= f.label "Country", class: "lb-lg" %>
+  <%= f.text_field :country, class: "form-control" %><br>
 
-  <%= f.submit "Submit" %><br>
+  <%= f.label "Birthday", class: "lb-lg" %><br>
+  <%= f.date_select :birthday, {discard_year: true}, {include_blank: true, class: "custom-select"} %><br><br>
+
+  <%= f.submit "Submit", class: "btn btn-primary" %><br>
 <% end %>
