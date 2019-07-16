@@ -2,7 +2,9 @@
 
 Future Project Goals:
 * Move more to helper methods & partials
-* Add bootstrap css (things such as navbar, grid layout, etc.)
+* Fix collapsing navbar
+* Practice & Record Walkthrough
+* Blog Post
 
 Far Off Future
 * Ability to import a spreadsheet

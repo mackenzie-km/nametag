@@ -48507,3 +48507,75 @@ puma (3.12.1) lib/puma/server.rb:660:in `handle_request'
 puma (3.12.1) lib/puma/server.rb:474:in `process_client'
 puma (3.12.1) lib/puma/server.rb:334:in `block in run'
 puma (3.12.1) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/events/new" for ::1 at 2019-07-15 18:40:42 -0700
+  [1m[35m (2.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/Mackenzie/.rvm/gems/ruby-2.6.1/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by EventsController#new as HTML
+  [1m[36mUser Load (2.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  Rendering events/new.html.erb within layouts/application
+  Rendered layouts/_error_message.html.erb (0.7ms)
+  [1m[36mContact Load (2.3ms)[0m  [1m[34mSELECT "contacts".* FROM "contacts" WHERE (updated_at >= '2019-04-15')[0m
+  ↳ app/views/events/_event_form.html.erb:13
+  Rendered events/_event_form.html.erb (261.7ms)
+  Rendered layouts/_12_col_view.html.erb (263.7ms)
+  Rendered events/new.html.erb within layouts/application (269.6ms)
+Completed 200 OK in 1137ms (Views: 1068.5ms | ActiveRecord: 8.3ms)
+
+
+Started GET "/events/new" for ::1 at 2019-07-15 18:42:34 -0700
+Processing by EventsController#new as HTML
+  [1m[36mUser Load (4.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  Rendering events/new.html.erb within layouts/application
+  Rendered layouts/_error_message.html.erb (1.8ms)
+  [1m[36mContact Load (3.8ms)[0m  [1m[34mSELECT "contacts".* FROM "contacts" WHERE (updated_at >= '2019-04-15')[0m
+  ↳ app/views/events/_event_form.html.erb:13
+  Rendered events/_event_form.html.erb (30.1ms)
+  Rendered layouts/_12_col_view.html.erb (32.1ms)
+  Rendered events/new.html.erb within layouts/application (36.8ms)
+Completed 200 OK in 90ms (Views: 56.3ms | ActiveRecord: 8.1ms)
+
+
+Started GET "/events/new" for ::1 at 2019-07-15 18:42:40 -0700
+Processing by EventsController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  Rendering events/new.html.erb within layouts/application
+  Rendered layouts/_error_message.html.erb (0.7ms)
+  [1m[36mContact Load (0.4ms)[0m  [1m[34mSELECT "contacts".* FROM "contacts" WHERE (updated_at >= '2019-04-15')[0m
+  ↳ app/views/events/_event_form.html.erb:13
+  Rendered events/_event_form.html.erb (14.4ms)
+  Rendered layouts/_12_col_view.html.erb (16.0ms)
+  Rendered events/new.html.erb within layouts/application (17.7ms)
+Completed 200 OK in 35ms (Views: 32.6ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/events/new" for ::1 at 2019-07-15 18:43:58 -0700
+Processing by EventsController#new as HTML
+  [1m[36mUser Load (2.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  Rendering events/new.html.erb within layouts/application
+  Rendered layouts/_error_message.html.erb (0.3ms)
+  [1m[36mContact Load (0.7ms)[0m  [1m[34mSELECT "contacts".* FROM "contacts" WHERE (updated_at >= '2019-04-15')[0m
+  ↳ app/views/events/_event_form.html.erb:13
+  Rendered events/_event_form.html.erb (9.8ms)
+  Rendered layouts/_12_col_view.html.erb (10.8ms)
+  Rendered events/new.html.erb within layouts/application (12.1ms)
+Completed 200 OK in 75ms (Views: 67.3ms | ActiveRecord: 3.3ms)
+
+
+Started GET "/events/new" for ::1 at 2019-07-15 18:45:15 -0700
+Processing by EventsController#new as HTML
+  [1m[36mUser Load (2.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  Rendering events/new.html.erb within layouts/application
+  Rendered layouts/_error_message.html.erb (0.5ms)
+  [1m[36mContact Load (2.5ms)[0m  [1m[34mSELECT "contacts".* FROM "contacts" WHERE (updated_at >= '2019-04-15')[0m
+  ↳ app/views/events/_event_form.html.erb:13
+  Rendered events/_event_form.html.erb (16.8ms)
+  Rendered layouts/_12_col_view.html.erb (18.2ms)
+  Rendered events/new.html.erb within layouts/application (19.5ms)
+Completed 200 OK in 60ms (Views: 50.1ms | ActiveRecord: 5.1ms)
+
+
