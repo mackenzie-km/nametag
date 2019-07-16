@@ -13040,6 +13040,27 @@ fieldset[disabled] .form-group .form-control {
   box-shadow: 0 4px 18px 0px rgba(0, 0, 0, 0.12), 0 7px 10px -5px rgba(0, 0, 0, 0.15);
 }
 
+#appear {
+  height: auto !important;
+  border: 0;
+  border-radius: 3px;
+  background-color: rgba(255, 255, 255, 0.8) !important;
+  box-shadow: 0 4px 18px 0px rgba(0, 0, 0, 0.12), 0 7px 10px -5px rgba(0, 0, 0, 0.15);
+}
+
+#appear i.material-icons {
+  display: block;
+  font-size: 1.4rem;
+  color: #555;
+  padding: .3rem;
+  margin-top: 20px;
+}
+
+#appear a .material-icons {
+  display: block;
+}
+
+
 .navbar .dropdown-item:hover,
 .navbar .dropdown-item:focus {
   box-shadow: 0 4px 20px 0px rgba(0, 0, 0, 0.14), 0 7px 10px -5px rgba(255, 255, 255, 0.4);
@@ -13064,6 +13085,7 @@ fieldset[disabled] .form-group .form-control {
   text-transform: uppercase;
   border-radius: 3px;
   line-height: 20px;
+  z-index: 300px;
 }
 
 .navbar .navbar-nav .nav-item .nav-link:not(.btn-just-icon) .fa {
