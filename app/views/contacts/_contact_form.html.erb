@@ -8,10 +8,25 @@
   <%= f.label "Email", class: "lb-lg" %>
   <%= f.text_field :email, class: "form-control"  %><br>
 
-  <%= f.label "Female:", class: "lb-lg" %>
-  <%= f.radio_button :gender, "female" %>
-  <%= f.label "Male:", class: "lb-lg" %>
-  <%= f.radio_button :gender, "male" %><br><br>
+  <div class="form-check form-check-radio">
+    <%= f.label "gender_female", class: "form-check-label" do %>
+      <%= f.label "Female", class: "lb-lg" %>
+      <%= f.radio_button :gender, "female", class: "form-check-input" %>
+      <span class="circle">
+        <span class="check"></span>
+      </span>
+    <% end %>
+  </div>
+
+  <div class="form-check form-check-radio">
+    <%= f.label "gender_male", class: "form-check-label" do %>
+      <%= f.label "Male", class: "lb-lg" %>
+      <%= f.radio_button :gender, "male", class: "form-check-input" %>
+      <span class="circle">
+        <span class="check"></span>
+      </span>
+    <% end %>
+  </div>
 
   <%= f.label "Staff", class: "lb-lg" %><br>
   <%= f.collection_select :user_id, User.all, :id, :name %><br><br>
