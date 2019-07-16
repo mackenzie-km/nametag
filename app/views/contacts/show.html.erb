@@ -1,17 +1,59 @@
-<h2> Contact Info </h2>
 
-<label>Name:</label> <%= @contact.name %><br>
-<label>Email:</label> <%= @contact.email %><br>
-<label>Gender:</label> <%= @contact.gender %><br>
-<label>Staff:</label> <%= @contact.user.name %><br>
-<label>Phone Number:</label> <%= @contact.phone_number %><br>
-<label>School Status:</label> <%= @contact.school_status %><br>
-<label>Messenger:</label> <%= @contact.messenger_company %> / <%= @contact.messenger_id %><br>
-<label>Major:</label> <%= @contact.major %><br>
-<label>Home Country:</label> <%= @contact.country %><br>
-<label>Birthday:</label> <%= @contact.birthday_human %><br>
-<label>Attendance Count:</label> <%= @contact.events.count %><br>
 
-<%= button_to "Edit Contact", edit_contact_path(@contact), :method => :get  %>
-<%= button_to "View Attended Events", contact_events_path(@contact), :method => :get  %>
-<%= button_to "View All Contacts", contacts_path, :method => :get %>
+<div class="row">
+  <div class="col-lg-4 col-md-6 col-sm-6">
+    <div class="card card-stats">
+      <div class="card-header card-header-icon">
+        <div class="card-icon">
+          <i class="material-icons">face</i>
+        </div>
+      <h3 class="card-title">Basic Bio</h3>
+      <p class="card-category">
+      <label>Name:</label> <%= @contact.name %><br>
+      <label>Gender:</label> <%= @contact.gender || "N/A" %><br>
+      <label>Staff:</label> <%= @contact.user_name || "N/A" %><br>
+      <label>School Status:</label> <%= @contact.school_status %><br>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-4 col-md-6 col-sm-6">
+    <div class="card card-stats">
+      <div class="card-header card-header-icon">
+        <div class="card-icon">
+          <i class="material-icons">add_circle</i>
+        </div>
+        <h3 class="card-title">Contact Info</h3>
+        <p class="card-category">
+        <label>Phone #:</label> <%= @contact.phone_number || "N/A" %><br>
+        <label>Messenger:</label> <%= @contact.messenger_company || "N/A" %><br>
+        <label>Messenger ID:</label><%= @contact.messenger_id || "N/A" %><br>
+        <label>Email:</label> <%= @contact.email || "N/A" %><br>
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-lg-4 col-md-6 col-sm-6">
+    <div class="card card-stats">
+      <div class="card-header card-header-icon">
+        <div class="card-icon">
+          <i class="material-icons">color_lens</i>
+        </div>
+        <h3 class="card-title">Other Facts</h3>
+        <p class="card-category">
+        <label>Major:</label> <%= @contact.major || "N/A" %><br>
+        <label>Home Country:</label> <%= @contact.country || "N/A" %><br>
+        <label>Birthday:</label> <%= @contact.birthday_human || "N/A" %><br>
+        <label>Attendance Count:</label> <%= @contact.events.count %></p>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="row justify-content-center">
+  <%= button_to "Edit Contact", edit_contact_path(@contact), :class => "btn btn-primary", :method => :get  %>
+  <%= button_to "View Attended Events", contact_events_path(@contact), :class => "btn btn-primary", :method => :get  %>
+  <%= button_to "View All Contacts", contacts_path, :class => "btn btn-primary", :method => :get %>
+</div>

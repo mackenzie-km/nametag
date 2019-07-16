@@ -1,1 +1,3 @@
-<%= render partial: "contact_form", locals: {contact: @contact} %>
+<%= render :layout => 'layouts/12_col_view', :locals => {:header => "Welcome to Nametag", :description => "Sign up/login in to keep track of your contacts & events"} do %>
+  <%= render partial: "contact_form", locals: {contact: @contact} %>
+<% end %>

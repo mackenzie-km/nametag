@@ -1,19 +1,26 @@
 <%= render partial: "layouts/error_message", locals: {thing: @event} %>
+      <%= form_for @event do |f| %>
 
-<h2> Create a New Event </h2>
+          <%= f.label "Event Name", :class => "lb-lg" %>
+          <%= f.text_field :name, :class => "form-control" %><br>
 
-<%= form_for @event do |f| %>
-  <%= f.label "Event Name" %>
-  <%= f.text_field :name %><br>
-
-  <%= f.label "Event Date" %>
-  <%= f.date_select :date %><br>
-
-  <%= f.label "Attendees:" %><br>
-  <%= f.collection_check_boxes :contact_ids, Contact.active, :id, :name do |b| %>
-    <%= b.check_box %> <%= b.label  %><br>
-    <% end %>
+          <%= f.label "Event Date", :class => "lb-lg" %><br>
+          <p>Reminder: Check the events homepage to ensure that today's event wasn't already created.</p>
+          <%= f.date_select :date, {}, {class: "custom-select"} %><br><br>
 
 
-  <%= f.submit "Submit" %><br>
-<% end %>
+        <%= f.label "Attendees:", :class => "lb-lg" %><br>
+        <%= f.collection_check_boxes :contact_ids, Contact.active, :id, :name do |b| %>
+          <div class="form-check form-check-inline">
+            <%= b.label(class: "form-check-label") do %>
+              <%= b.label %>
+              <%= b.check_box(class: "form-check-input") %>
+              <span class="form-check-sign">
+               <span class="check"></span>
+              </span>
+            <% end %>
+          </div>
+        <% end %><br><br>
+
+        <%= f.submit "Submit", class: "btn btn-primary" %><br>
+      <% end %>

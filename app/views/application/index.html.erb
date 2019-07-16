@@ -1,3 +1,27 @@
-<h2> Welcome to Nametag! </h2>
+<%= render :layout => 'layouts/12_col_view', :locals => {:header => "Welcome to Nametag", :description => "Sign up/login in to keep track of your contacts & events"} do %>
+    <div class="row">
+        <div class="col-md-6">
+          <p>Hello & welcome to Nametag! Name credits to Jin Miao (& others) who are always teasing me for being the "Nametag Lady"...</p>
+          <p>Nametag is my special tool to manage club/organization contact information <b>without relying on Gsheets & formulas.</b> Some of the features include:</p>
+              <ul>
+                <li>Drill down on a contact (vs. line of a gsheet)</li>
+                <li>Easy-to-use form for creating a contact</li>
+                <li>Calculation of # of contacts per event</li>
+                <li>Responsive design for phones</li>
+                <li>Coming soon: import from spreadsheet</li>
+                <li>Coming soon: dropdowns to filter contacts</li>
+                <li>Coming soon: # of guests and # of staff & returnee info</li>
+              </ul>
+          <div class="align-self-center text-center"><b> Email Mackenzie Moore @ mackenzie-moore@live.com if you have feedback, questions, or suggestions!</b></div><br>
+        </div>
 
-A magical land absent of gsheet formulas and uneven columns
+        <div class="col-md-6">
+          <div class="align-self-center text-center">
+            <img class="img-fluid" src="<%= image_path('writing.png') %>">
+          </div><br>
+          <caption>Nametag is a part of my Flatiron School portfolio project. This whole web application is built using Rails & a Bootstrap theme.
+          Please see the top left for credits! </caption>
+      </div>
+    </div>
+
+<% end %>

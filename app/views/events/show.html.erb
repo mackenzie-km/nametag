@@ -1,14 +1,41 @@
-<h2> Event Info </h2>
+<div class="row">
+  <div class="col-lg-6 col-md-6 col-sm-6">
+    <div class="card card-stats">
+      <div class="card-header card-header-icon">
+        <div class="card-icon">
+          <i class="material-icons">note</i>
+        </div>
+        <h3 class="card-title">Basic Facts</h3>
+        <p class="card-category">
+          <label>Name:</label> <%= @event.name %><br>
+          <label>Date:</label> <%= @event.date_human %><br>
+          <label>Student Count:</label> <%= @event.contacts.count %><br>
+          <label>Guest Count:</label> <%= @event.contacts_events.sum(:guests) %>
+        </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-6">
+          <div class="card card-stats">
+            <div class="card-header card-header-icon">
+              <div class="card-icon">
+                <i class="material-icons">how_to_reg</i>
+              </div>
+              <h3 class="card-title">Guest List</h3>
+              <p class="card-category">
+                <label>Attendees:</label><br>
+                <% @event.contacts.each do |contact| %>
+                  <%= link_to contact.name, contact_path(contact) %>
+                  <br>
+                <% end %>
+              </p>
+            </div>
+          </div>
+        </div>
+    </div>
 
-<label>Name:</label> <%= @event.name %><br>
-<label>Date:</label> <%= @event.date_human %><br>
-<label>Attendee Count:</label> <%= @event.contacts.count %><br>
-<label>Attendees:</label><br>
-  <% @event.contacts.each do |contact| %>
-  <%= link_to contact.name, contact_path(contact) %><br>
-  <% end %><br>
-
-
-<%= button_to "Edit Event", edit_event_path(@event), :method => :get  %>
-<%= button_to "View Detailed Contacts", event_contacts_path(@event), :method => :get  %>
-<%= button_to "View All Events", events_path, :method => :get %>
+<div class="row justify-content-center">
+  <%= button_to "Edit Event & Add Contacts", edit_event_path(@event), :method => :get, :class => "btn btn-primary"  %>
+  <%= button_to "View All Events", events_path, :method => :get, :class => "btn btn-primary" %>
+  <%= button_to "View Detailed Contacts", event_contacts_path(@event), :method => :get, :class => "btn btn-primary"  %>
+</div>
