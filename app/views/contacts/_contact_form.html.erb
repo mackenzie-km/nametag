@@ -8,7 +8,7 @@
   <%= f.label "Email", class: "lb-lg" %>
   <%= f.text_field :email, class: "form-control"  %><br>
 
-  <div class="form-check form-check-radio">
+  <div class="form-check form-check-inline">
     <%= f.label "gender_female", class: "form-check-label" do %>
       <%= f.label "Female", class: "lb-lg" %>
       <%= f.radio_button :gender, "female", class: "form-check-input" %>
@@ -17,8 +17,7 @@
       </span>
     <% end %>
   </div>
-
-  <div class="form-check form-check-radio">
+<div class="form-check form-check-inline">
     <%= f.label "gender_male", class: "form-check-label" do %>
       <%= f.label "Male", class: "lb-lg" %>
       <%= f.radio_button :gender, "male", class: "form-check-input" %>
@@ -26,19 +25,19 @@
         <span class="check"></span>
       </span>
     <% end %>
-  </div>
+  </div><br>
 
-  <%= f.label "Staff", class: "lb-lg" %><br>
-  <%= f.collection_select :user_id, User.all, :id, :name %><br><br>
+  <%= f.label "user_id", class: "lb-lg" %><br>
+  <%= f.collection_select :user_id, User.all, :id, :name, {}, {class: "custom-select"} %><br><br>
 
   <%= f.label "Phone Number", class: "lb-lg" %>
   <%= f.text_field :phone_number, class: "form-control" %><br>
 
   <%= f.label "School Status", class: "lb-lg" %><br>
-  <%= f.select :school_status, ["exchange", "freshmen", "sophomore", "junior", "senior", "masters", "PhD", "post doc", "visiting scholar", "family", "alumni"] %><br><br>
+  <%= f.select :school_status, ["exchange", "freshmen", "sophomore", "junior", "senior", "masters", "PhD", "post doc", "visiting scholar", "family", "alumni"], {}, {class: "custom-select"} %><br><br>
 
   <%= f.label "Messenger Company", class: "lb-lg" %><br>
-  <%= f.select :messenger_company, ["Line", "WeChat", "WhatsApp", "Kakao Talk"], include_blank: true %><br><br>
+  <%= f.select :messenger_company, ["Line", "WeChat", "WhatsApp", "Kakao Talk"], {}, {include_blank: true, class: "custom-select"} %><br><br>
 
   <%= f.label "Messenger Id", class: "lb-lg" %>
   <%= f.text_field :messenger_id, class: "form-control" %><br>
@@ -50,7 +49,7 @@
   <%= f.text_field :country, class: "form-control" %><br>
 
   <%= f.label "Birthday", class: "lb-lg" %><br>
-  <%= f.date_select :birthday, discard_year: true, include_blank: true  %><br><br>
+  <%= f.date_select :birthday, {discard_year: true}, {include_blank: true, class: "custom-select"} %><br><br>
 
   <%= f.submit "Submit", class: "btn btn-primary" %><br>
 <% end %>
