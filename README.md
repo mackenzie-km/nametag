@@ -1,12 +1,8 @@
 # README
 
 Urgent to-dos
-* Fix toggle navigation
-* Fix checkboxes/buttons
-* Move more to helper methods & partials
-* Fix collapsing navbar
+* Fix event creation to correctly update & also add guests to join table
+* Run through
 * Practice & Record Walkthrough
 * Blog Post
-
-Far Off Future
-* Ability to import a spreadsheet
+* Readme
