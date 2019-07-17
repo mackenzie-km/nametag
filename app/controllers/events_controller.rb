@@ -32,7 +32,7 @@ class EventsController < ApplicationController
   end
 
   def update
-    @event.update(event_params)
+    @event.update(name: event_params[:name], date: event_params[:date])
     @event.contacts = Contact.add_contacts(params[:event][:contact_ids], @event)
     if @event.save then redirect_to event_path(@event) else render :edit end
   end
@@ -44,7 +44,11 @@ class EventsController < ApplicationController
 
   private
   def event_params
-    params.require(:event).permit(:name, :date, :contact_ids)
+    params.require(:event).permit(:name, :date, contact_ids:[])
+  end
+
+  def guest_params
+    params.require(:event).permit(:guests)
   end
 
   def find_event

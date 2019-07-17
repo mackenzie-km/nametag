@@ -14,4 +14,10 @@ class Event < ApplicationRecord
     self.contacts.count
   end
 
+  def guests(value)
+    if value != ""
+      self.contacts_events.guests = value
+    end
+  end
+
 end
