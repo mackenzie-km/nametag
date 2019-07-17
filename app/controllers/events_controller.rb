@@ -14,6 +14,7 @@ class EventsController < ApplicationController
 
   def new
     @event = Event.new
+    @admin = current_user.admin_level
   end
 
   def create
@@ -27,6 +28,7 @@ class EventsController < ApplicationController
   end
 
   def edit
+    @admin = current_user.admin_level
   end
 
   def update
