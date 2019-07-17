@@ -17,6 +17,7 @@
 
 .card {
   font-size: .875rem;
+  min-height: 175px;
 }
 
 *,
@@ -17161,7 +17162,7 @@ select[id*="date"] {
 }
 
 .card [class*="card-header-"] .card-title+.card-category a {
-  color: #fff;
+  color: #555;
 }
 
 .card [class*="card-header-"]:not(.card-header-icon):not(.card-header-text):not(.card-header-image) {
