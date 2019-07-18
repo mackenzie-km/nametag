@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-  
+
   def index
   end
 
@@ -17,7 +17,7 @@ class ApplicationController < ActionController::Base
 
   def redirect_if_not_admin
     if has_access?(2) != true
-      flash[:message] = "You do not have access to this page."
+      flash[:message] = "You do not have access to the selected page."
       redirect_to root_path
     end
   end
