@@ -9,8 +9,8 @@
         <p class="card-category">
           <label>Name:</label> <%= @event.name %><br>
           <label>Date:</label> <%= @event.date_human %><br>
-          <label>Student Count:</label> <%= @event.contacts.count %><br>
-          <label>Guest Count:</label> <%= @event.contacts_events.sum(:guests) %>
+          <label>Attendee Count:</label> <%= @event.contacts_count %><br>
+          <label>Guest Count:</label> <%= @event.guests_count %>
         </p>
             </div>
           </div>
@@ -21,7 +21,7 @@
               <div class="card-icon">
                 <i class="material-icons">how_to_reg</i>
               </div>
-              <h3 class="card-title">Guest List</h3>
+              <h3 class="card-title">Attendee List</h3>
               <p class="card-category">
                 <% @event.contacts.each do |contact| %>
                   <%= link_to contact.name, contact_path(contact) %><br>
