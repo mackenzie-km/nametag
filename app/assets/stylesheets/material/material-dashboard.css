@@ -13061,6 +13061,14 @@ fieldset[disabled] .form-group .form-control {
   display: block;
 }
 
+.field_with_errors {
+  background: rgba(55, 111, 147, 0.25);
+}
+
+.error_message {
+  font-size: 1.2rem;
+  color: rgb(23, 54, 74);
+}
 
 .navbar .dropdown-item:hover,
 .navbar .dropdown-item:focus {

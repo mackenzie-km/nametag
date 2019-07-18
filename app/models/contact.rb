@@ -18,10 +18,12 @@ class Contact < ApplicationRecord
   end
 
   def self.add_contacts(params, event)
-    ContactsEvent.where(event_id: event.id).delete_all
-    params[:contact_ids].reject!(&:empty?)
-    params[:contact_ids].collect do |contact_id|
-      ContactsEvent.find_or_create_by(contact_id: contact_id.to_i, event_id: event.id)
+    if !!params[:contact_ids]
+      ContactsEvent.where(event_id: event.id).delete_all
+      params[:contact_ids].reject!(&:empty?)
+      params[:contact_ids].collect do |contact_id|
+        ContactsEvent.find_or_create_by(contact_id: contact_id.to_i, event_id: event.id)
+      end
     end
   end
 
