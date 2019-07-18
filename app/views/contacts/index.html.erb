@@ -27,5 +27,5 @@
     </div>
 
 
-  <%= button_to "Create Contact", new_contact_path, :class => "btn btn-primary", :method => :get %>
+  <%= button_to "Create Contact", ("/events/#{params[:event_id]}/contacts/new" if !!params[:event_id]) || new_contact_path, :class => "btn btn-primary", :method => :get %>
 <% end %>
