@@ -6,13 +6,13 @@
 
   <%= form_for @user do |f| %>
     <%= f.label "Email" %>
-    <%= f.text_field :email %><br>
+    <%= f.text_field :email, class: "form-control" %><br>
 
     <%= f.label "Password" %>
-    <%= f.text_field :password %><br>
+    <%= f.text_field :password, class: "form-control"  %><br>
 
     <%= f.label "Access Code" %>
-    <%= f.text_field :admin_level %><br>
+    <%= f.text_field :admin_level, class: "form-control"  %><br>
 
     <%= f.submit "Submit", :class => "btn btn-primary" %><br>
   <% end %>
