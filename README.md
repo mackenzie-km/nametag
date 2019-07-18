@@ -1,12 +1,11 @@
 # README
 
 Urgent to-dos
-* Fix toggle navigation
-* Fix checkboxes/buttons
-* Move more to helper methods & partials
-* Fix collapsing navbar
+* Fix event creation to correctly update & also add guests to join table
+* You must include a nested new route with form that relates to the parent resource
+* Field with errors
+* Refactor
+* Run through
 * Practice & Record Walkthrough
 * Blog Post
-
-Far Off Future
-* Ability to import a spreadsheet
+* Readme
