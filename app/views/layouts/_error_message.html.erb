@@ -1,4 +1,5 @@
-
+<div class="field<%= ' error_message' if thing.errors.any? %>">
   <% thing.errors.full_messages.each do |msg| %>
-      <%= msg %><br>
+    <p><%= msg %></p>
     <% end %>
+</div>
