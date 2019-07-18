@@ -9,7 +9,7 @@
           <%= f.date_select :date, {}, {class: "custom-select"} %><br><br>
 
 
-        <%= f.label "Attendees:", :class => "lb-lg" %><br>
+        <%= f.label "Attendees & Number of Guests:", :class => "lb-lg" %><br>
 
 
 
@@ -22,11 +22,13 @@
                 <span class="form-check-sign">
                  <span class="check"></span>
                 </span>
-                  <%= text_field_tag "event[guests]", "", class:"form-control", placeholder:"# of Guests"%><br>
+                  <%= text_field_tag "event[guests][#{c.id}]", 0, class:"form-control" %><br>
               <% end %>
             </div>
           <% end %><br><br>
 
+
+
     <%= f.submit "Submit", class: "btn btn-primary" %><br>
-    
+
 <% end %>
