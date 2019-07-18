@@ -27,6 +27,13 @@ class Contact < ApplicationRecord
     end
   end
 
+  def event_id=()
+    self.events << Event.find(value)
+  end
+
+  def event_id
+  end 
+
   def admin_level=(user)
     self[:admin_level] = user.admin_level
   end

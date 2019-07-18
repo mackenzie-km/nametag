@@ -24,4 +24,7 @@ Rails.application.routes.draw do
 
   get 'auth/:provider/callback', to: 'sessions#googleAuth'
   get 'auth/failure', to: redirect('/login')
+
+  get 'events/:event_id/contacts/new', to: 'contacts#new'
+  post 'events/:event_id/contacts', to: 'contacts#create'
 end

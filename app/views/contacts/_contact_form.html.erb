@@ -51,5 +51,7 @@
   <%= f.label "Birthday", class: "lb-lg" %><br>
   <%= f.date_select :birthday, {discard_year: true}, {include_blank: true, class: "custom-select"} %><br><br>
 
+  <%= f.hidden_field :event_id, value: @event_id %>
+
   <%= f.submit "Submit", class: "btn btn-primary" %><br>
 <% end %>

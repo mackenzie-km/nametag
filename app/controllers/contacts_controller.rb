@@ -13,12 +13,14 @@ class ContactsController < ApplicationController
   end
 
   def new
+    @event_id = params[:event_id]
     @contact = Contact.new
   end
 
   def create
     @contact = Contact.new(contact_params)
     @contact.admin_level=(User.find(session[:user_id]))
+    if !!Event.exists?(id: params[:contact][:event_id]) then @contact.events << Event.find_by(id: params[:contact][:event_id].to_i) end
     if @contact.save then redirect_to contact_path(@contact) else render :new end
   end
 
@@ -42,6 +44,7 @@ class ContactsController < ApplicationController
   def contact_params
     params.require(:contact).permit(:name, :email, :gender, :user_id, :phone_number, :school_status, :messenger_company, :messenger_id, :major, :country, :birthday)
   end
+
 
   def find_contact
     @contact = Contact.find(params[:id])
