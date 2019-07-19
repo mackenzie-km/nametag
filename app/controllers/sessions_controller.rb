@@ -13,7 +13,7 @@ class SessionsController < ApplicationController
       session[:user_id] = @user.id
       redirect_to contacts_path
     else
-      flash[:message] = "This password/email combination is invalid. Try again - or try logging in via Google."
+      flash.now[:alert] = "This password/email combination is invalid. Try again - or try logging in via Google."
       render :new
     end
   end

@@ -53,7 +53,7 @@ class ContactsController < ApplicationController
   def access_contact
     find_contact
     if !has_access?(@contact.admin_level)
-      flash[:message] = "You cannot edit/view this contact."
+      flash.now[:alert] = "You cannot edit/view this contact."
       redirect_to contacts_path
     end
   end
