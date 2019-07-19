@@ -5,7 +5,6 @@ FINAL STRETCH!
 * Run through
 * Practice & Record Walkthrough
 * Blog Post
-* Readme
 
 # Nametag
 
