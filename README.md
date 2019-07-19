@@ -27,7 +27,8 @@ While contributing, please abide by the code of conduct set forth in https://www
 
 ## Future Goals
 
-1. Allow for batch upload from a google sheet
+1. Allow for batch upload from a Google sheet
+2. Resolve security warnings with Google login (potentially remove google authorization if not resolved by OmniAuth)
 
 ## License
 This app is available as open source under the terms of the MIT License https://opensource.org/licenses/MIT
