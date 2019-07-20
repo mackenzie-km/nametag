@@ -34,4 +34,8 @@ class ApplicationController < ActionController::Base
     if (current_user && level > current_user.admin_level) then false else true end
   end
 
+  def user_admin_level
+    User.find_by(id: session[:user_id]).admin_level
+  end
+
 end

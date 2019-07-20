@@ -1,4 +1,4 @@
-<%= render :layout => 'layouts/12_col_view', :locals => {:header => "View Contacts", :description => "Coming soon: feature to sort contacts"} do %>
+<%= render :layout => 'layouts/12_col_view', :locals => {:header => ("View Contacts for Event #{params[:event_id]}" if !!params[:event_id]) || "View All Contacts", :description => "Coming soon: feature to sort contacts"} do %>
 <%= render partial: "layouts/flash_message", locals: {thing: @user} %>
 
   <div class="table-responsive">
@@ -27,5 +27,5 @@
     </div>
 
 
-  <%= button_to "Create Contact", ("/events/#{params[:event_id]}/contacts/new" if !!params[:event_id]) || new_contact_path, :class => "btn btn-primary", :method => :get %>
+  <%= button_to ("Create Contact For Event" if !!params[:event_id]) || "Create Contact", ("/events/#{params[:event_id]}/contacts/new" if !!params[:event_id]) || new_contact_path, :class => "btn btn-primary", :method => :get %>
 <% end %>
