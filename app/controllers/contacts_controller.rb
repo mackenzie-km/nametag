@@ -2,6 +2,7 @@ class ContactsController < ApplicationController
 
   before_action :redirect_if_no_login
   before_action :access_contact, only: [:show, :edit, :update, :destroy]
+  before_action :user_admin_level
 
   def index
     if params[:event_id]
@@ -13,7 +14,6 @@ class ContactsController < ApplicationController
   end
 
   def new
-    @user_admin_level = user_admin_level
     @event_id = params[:event_id]
     @contact = Contact.new
   end
@@ -29,7 +29,6 @@ class ContactsController < ApplicationController
   end
 
   def edit
-    @user_admin_level = user_admin_level
   end
 
   def update

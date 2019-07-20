@@ -35,7 +35,7 @@ class ApplicationController < ActionController::Base
   end
 
   def user_admin_level
-    User.find_by(id: session[:user_id]).admin_level
+    @user_admin_level = User.find_by(id: session[:user_id]).admin_level
   end
 
 end

@@ -31,9 +31,6 @@ class Contact < ApplicationRecord
     self.events << Event.find(value)
   end
 
-  def event_id
-  end 
-
   def admin_level=(user)
     self[:admin_level] = user.admin_level
   end
@@ -43,6 +40,6 @@ class Contact < ApplicationRecord
   end
 
   def user_name
-    self.user.name
+    self.user.name if self.user
   end
 end
