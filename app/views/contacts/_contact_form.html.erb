@@ -28,7 +28,7 @@
   </div><br>
 
   <%= f.label "user_id", class: "lb-lg" %><br>
-  <%= f.collection_select :user_id, User.all, :id, :name, {}, {class: "custom-select"} %><br><br>
+  <%= f.collection_select :user_id, User.all.access(@user_admin_level), :id, :name, {}, {class: "custom-select"} %><br><br>
 
   <%= f.label "Phone Number", class: "lb-lg" %>
   <%= f.text_field :phone_number, class: "form-control" %><br>

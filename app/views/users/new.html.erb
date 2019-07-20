@@ -1,8 +1,6 @@
-<%= render :layout => 'layouts/12_col_view', :locals => {:header => "Welcome to Nametag", :description => "Sign up/login in to keep track of your contacts & events"} do %>
+<%= render :layout => 'layouts/12_col_view', :locals => {:header => "Create a New User", :description => "Sign up/login in to keep track of your contacts & events"} do %>
 
   <%= render partial: "layouts/error_message", locals: {thing: @user} %>
-
-  <h2> Create a New User </h2>
 
   <%= form_for @user do |f| %>
     <%= f.label "Email" %>
@@ -14,7 +12,10 @@
     <%= f.label "Access Code" %>
     <%= f.text_field :admin_level, class: "form-control"  %><br>
 
-    <%= f.submit "Submit", :class => "btn btn-primary" %><br>
+    <div class="row">
+    <%= f.submit "Submit", :class => "btn btn-primary" %>
   <% end %>
 
+    <%= button_to('Log in with Google!', '/auth/google_oauth2', class: "btn btn-primary") %>
+    </div>
 <% end %>
