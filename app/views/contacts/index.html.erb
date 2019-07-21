@@ -1,31 +1,32 @@
 <%= render :layout => 'layouts/12_col_view', :locals => {:header => ("View Contacts for Event #{params[:event_id]}" if !!params[:event_id]) || "View All Contacts", :description => "Coming soon: feature to sort contacts"} do %>
-<%= render partial: "layouts/flash_message", locals: {thing: @user} %>
+
+  <%= render :partial => "layouts/flash_message", :locals => {thing: @user} %>
 
   <div class="table-responsive">
     <table class="table table-hover">
         <thead class="">
           <tr>
-              <th> ID </th>
-              <th> Name </th>
-              <th> Staff </th>
-              <th> Email </th>
-              <th> Gender </th>
+              <th><%= "ID" %></th>
+              <th><%= "Name" %></th>
+              <th><%= "Staff" %></th>
+              <th><%= "Email" %></th>
+              <th><%= "Gender" %></th>
           </tr>
         </thead>
         <tbody>
-          <% @contacts.each do |contact| %>
-            <tr>
-              <td><%= contact.id %> </td>
-              <td><%= link_to contact.name, contact_path(contact) %></td>
-              <td><%= contact.user_name %></td>
-              <td><%= contact.email %></td>
-              <td><%= contact.gender %></td>
-            </tr>
-          <% end %>
+            <% @contacts.each do |contact| %>
+              <tr>
+                <td><%= contact.id %> </td>
+                <td><%= link_to contact.name, contact_path(contact) %></td>
+                <td><%= contact.user_name %></td>
+                <td><%= contact.email %></td>
+                <td><%= contact.gender %></td>
+              </tr>
+            <% end %>
         </tbody>
       </table>
     </div>
 
-
-  <%= button_to ("Create Contact For Event" if !!params[:event_id]) || "Create Contact", ("/events/#{params[:event_id]}/contacts/new" if !!params[:event_id]) || new_contact_path, :class => "btn btn-primary", :method => :get %>
+      <%= button_to button_text(params),  button_link(params), :class => "btn btn-primary", :method => :get %>
+      
 <% end %>
