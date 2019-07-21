@@ -1,54 +1,27 @@
-
-
 <div class="row">
-  <div class="col-lg-4 col-md-6 col-sm-6">
-    <div class="card card-stats">
-      <div class="card-header card-header-icon">
-        <div class="card-icon">
-          <i class="material-icons">face</i>
-        </div>
-      <h3 class="card-title">Basic Bio</h3>
-      <p class="card-category">
+
+  <%= render :layout => 'contacts/card_layout', :locals => {header: "Basic Bio"} do %>
       <label>Name:</label> <%= @contact.name %><br>
       <label>Gender:</label> <%= @contact.gender || "N/A" %><br>
       <label>Staff:</label> <%= @contact.user_name || "N/A" %><br>
       <label>School Status:</label> <%= @contact.school_status %><br>
-      </div>
-    </div>
-  </div>
-  <div class="col-lg-4 col-md-6 col-sm-6">
-    <div class="card card-stats">
-      <div class="card-header card-header-icon">
-        <div class="card-icon">
-          <i class="material-icons">add_circle</i>
-        </div>
-        <h3 class="card-title">Contact Info</h3>
-        <p class="card-category">
+  <% end %>
+
+  <%= render :layout => 'contacts/card_layout', :locals => {header: "Contact Info"} do %>
         <label>Phone #:</label> <%= @contact.phone_number || "N/A" %><br>
         <label>Messenger:</label> <%= @contact.messenger_company || "N/A" %><br>
         <label>Messenger ID:</label><%= @contact.messenger_id || "N/A" %><br>
         <label>Email:</label> <%= @contact.email || "N/A" %><br>
-        </p>
-      </div>
-    </div>
-  </div>
+  <% end %>
 
-  <div class="col-lg-4 col-md-6 col-sm-6">
-    <div class="card card-stats">
-      <div class="card-header card-header-icon">
-        <div class="card-icon">
-          <i class="material-icons">color_lens</i>
-        </div>
-        <h3 class="card-title">Other Facts</h3>
-        <p class="card-category">
+
+    <%= render :layout => 'contacts/card_layout', :locals => {header: "Other Facts"} do %>
         <label>Major:</label> <%= @contact.major || "N/A" %><br>
         <label>Home Country:</label> <%= @contact.country || "N/A" %><br>
         <label>Birthday:</label> <%= birthday_human @contact || "N/A" %><br>
-        <label>Attendance Count:</label> <%= @contact.events.count %></p>
+        <label>Attendance Count:</label> <%= @contact.events.count %><br>
+  <% end %>
 
-      </div>
-    </div>
-  </div>
 </div>
 
 

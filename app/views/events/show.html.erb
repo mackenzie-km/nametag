@@ -1,36 +1,18 @@
 <div class="row">
-  <div class="col-lg-6 col-md-6 col-sm-6">
-    <div class="card card-stats">
-      <div class="card-header card-header-icon">
-        <div class="card-icon">
-          <i class="material-icons">note</i>
-        </div>
-        <h3 class="card-title">Basic Facts</h3>
-        <p class="card-category">
+  <%= render :layout => 'events/card_layout', :locals => {header: "Event Info"} do %>
+
+
           <label>Name:</label> <%= @event.name %><br>
           <label>Date:</label> <%= date_human @event %><br>
           <label>Attendee Count:</label> <%= @event.contacts_count %><br>
           <label>Guest Count:</label> <%= @event.guests_count %>
-        </p>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-6 col-md-6 col-sm-6">
-          <div class="card card-stats">
-            <div class="card-header card-header-icon">
-              <div class="card-icon">
-                <i class="material-icons">how_to_reg</i>
-              </div>
-              <h3 class="card-title">Attendee List</h3>
-              <p class="card-category">
-                <% @event.contacts.each do |contact| %>
-                  <%= link_to contact.name, contact_path(contact) %><br>
-                <% end %>
-              </p>
-            </div>
-          </div>
-        </div>
-    </div>
+  <% end %>
+  <%= render :layout => 'events/card_layout', :locals => {header: "Attendee List"} do %>
+          <% @event.contacts.each do |contact| %>
+            <%= link_to contact.name, contact_path(contact) %><br>
+          <% end %>
+  <% end %>
+</div>
 
 <div class="row justify-content-center">
   <%= button_to "Edit Event & Add Contacts", edit_event_path(@event), :method => :get, :class => "btn btn-primary"  %>
