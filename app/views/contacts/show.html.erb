@@ -43,7 +43,7 @@
         <p class="card-category">
         <label>Major:</label> <%= @contact.major || "N/A" %><br>
         <label>Home Country:</label> <%= @contact.country || "N/A" %><br>
-        <label>Birthday:</label> <%= @contact.birthday_human || "N/A" %><br>
+        <label>Birthday:</label> <%= birthday_human @contact || "N/A" %><br>
         <label>Attendance Count:</label> <%= @contact.events.count %></p>
 
       </div>

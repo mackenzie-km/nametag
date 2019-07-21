@@ -6,10 +6,6 @@ class Event < ApplicationRecord
 
   scope :access, -> (admin_level) { where('admin_level <= ?', admin_level) }
 
-  def date_human
-    self.date.strftime("%B %-d, %Y")
-  end
-
   def contacts_count
     self.contacts.count
   end

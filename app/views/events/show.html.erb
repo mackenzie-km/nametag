@@ -8,7 +8,7 @@
         <h3 class="card-title">Basic Facts</h3>
         <p class="card-category">
           <label>Name:</label> <%= @event.name %><br>
-          <label>Date:</label> <%= @event.date_human %><br>
+          <label>Date:</label> <%= date_human @event %><br>
           <label>Attendee Count:</label> <%= @event.contacts_count %><br>
           <label>Guest Count:</label> <%= @event.guests_count %>
         </p>

@@ -14,7 +14,7 @@
           <% @events.each do |event| %>
             <tr>
               <td><%= link_to event.name, event_path(event) %> </td>
-              <td><%= event.date_human %></td>
+              <td><%= date_human event %></td>
               <td><%= link_to event.contacts_count, event_contacts_path(event) %></td>
               <td><%= event.contacts_events.sum(:guests) %></td>
             </tr>

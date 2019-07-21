@@ -9,16 +9,8 @@ class Contact < ApplicationRecord
 
   scope :access, -> (admin_level) { where('admin_level <= ?', admin_level) }
 
-  def birthday_human
-    if self.birthday
-      self.birthday.strftime("%B %-d")
-    else
-      nil
-    end
-  end
-
   def self.add_contacts(params, event)
-    if !!params[:contact_ids]
+    if !params[:contact_ids].empty?
       ContactsEvent.where(event_id: event.id).delete_all
       params[:contact_ids].reject!(&:empty?)
       params[:contact_ids].collect do |contact_id|
