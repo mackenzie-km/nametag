@@ -2,6 +2,7 @@ class EventsController < ApplicationController
 
   before_action :redirect_if_no_login
   before_action :access_event, only: [:show, :edit, :update, :destroy]
+  before_action :find_user, only: [:edit, :update]
 
   def index
     if params[:contact_id]
@@ -35,7 +36,6 @@ class EventsController < ApplicationController
   end
 
   def update
-    @user = current_user
     @event.update(name: event_params[:name], date: Event.collect_date(event_params))
     Contact.add_contacts(event_params, @event, @user)
     @event.update_guests(event_params, @event)
@@ -62,5 +62,9 @@ class EventsController < ApplicationController
       flash.now[:alert] = "You cannot edit/view this event."
       redirect_to events_path
     end
+  end
+
+  def find_user
+    @user = current_user
   end
 end

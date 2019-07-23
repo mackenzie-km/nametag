@@ -13,9 +13,9 @@ class Contact < ApplicationRecord
     if !params[:contact_ids].empty?
       ContactsEvent.where(event_id: event.id).delete_all
       params[:contact_ids].reject!(&:empty?)
-      params[:contact_ids].collect do |contact_id|
-        if Contact.find_by(id: contact_id).admin_level <= user.admin_level
-          ContactsEvent.find_or_create_by(contact_id: contact_id.to_i, event_id: event.id)
+      params[:contact_ids].collect do |c_id|
+        if Contact.find_by(id: c_id).admin_level <= user.admin_level
+          ContactsEvent.find_or_create_by(contact_id: c_id.to_i, event_id: event.id)
         end
       end
     end
