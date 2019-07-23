@@ -31,7 +31,6 @@ class SessionsController < ApplicationController
     refresh_token = access_token.credentials.refresh_token
     @user.google_refresh_token = refresh_token if refresh_token.present?
     session[:user_id] = @user.id
-    puts "********************** #{  session[:user_id] } **********************"
     redirect_to contacts_path
   end
 end

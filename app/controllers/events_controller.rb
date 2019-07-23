@@ -35,9 +35,9 @@ class EventsController < ApplicationController
   end
 
   def update
-    date = Event.collect_date(event_params)
-    @event.update(name: event_params[:name], date: date)
-    Contact.add_contacts(event_params, @event)
+    @user = current_user
+    @event.update(name: event_params[:name], date: Event.collect_date(event_params))
+    Contact.add_contacts(event_params, @event, @user)
     @event.update_guests(event_params, @event)
     if @event.save then redirect_to event_path(@event) else render :edit end
   end

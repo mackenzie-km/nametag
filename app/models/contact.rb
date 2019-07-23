@@ -9,12 +9,14 @@ class Contact < ApplicationRecord
 
   scope :access, -> (admin_level) { where('admin_level <= ?', admin_level) }
 
-  def self.add_contacts(params, event)
+  def self.add_contacts(params, event, user)
     if !params[:contact_ids].empty?
       ContactsEvent.where(event_id: event.id).delete_all
       params[:contact_ids].reject!(&:empty?)
       params[:contact_ids].collect do |contact_id|
-        ContactsEvent.find_or_create_by(contact_id: contact_id.to_i, event_id: event.id)
+        if Contact.find_by(id: contact_id).admin_level <= user.admin_level
+          ContactsEvent.find_or_create_by(contact_id: contact_id.to_i, event_id: event.id)
+        end
       end
     end
   end
