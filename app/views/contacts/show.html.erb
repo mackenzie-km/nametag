@@ -10,7 +10,7 @@
   <%= render :layout => 'contacts/card_layout', :locals => {header: "Contact Info"} do %>
         <label>Phone #:</label> <%= @contact.phone_number || "N/A" %><br>
         <label>Messenger:</label> <%= @contact.messenger_company || "N/A" %><br>
-        <label>Messenger ID:</label><%= @contact.messenger_id || "N/A" %><br>
+        <label>Messenger ID:</label> <%= @contact.messenger_id || "N/A" %><br>
         <label>Email:</label> <%= @contact.email || "N/A" %><br>
   <% end %>
 
