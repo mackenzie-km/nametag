@@ -1,6 +1,6 @@
 <%= render :layout => 'layouts/12_col_view', :locals => {:header => ("View Contacts for Event #{params[:event_id]}" if !!params[:event_id]) || "View All Contacts", :description => "Coming soon: feature to sort contacts"} do %>
 
-  <%= render :partial => "layouts/flash_message", :locals => {thing: @user} %>
+  <%= render :partial => "layouts/flash_message" %>
 
   <div class="table-responsive">
     <table class="table table-hover">
