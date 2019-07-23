@@ -2,7 +2,7 @@ class EventsController < ApplicationController
 
   before_action :redirect_if_no_login
   before_action :access_event, only: [:show, :edit, :update, :destroy]
-  before_action :find_user, only: [:edit, :update]
+  before_action :find_user, only: [:create, :update]
 
   def index
     if params[:contact_id]
@@ -22,7 +22,7 @@ class EventsController < ApplicationController
     date = Event.collect_date(event_params)
     @event = Event.new(name: event_params[:name], date: date)
     @event.save
-    Contact.add_contacts(event_params, @event)
+    Contact.add_contacts(event_params, @event, @user)
     @event.update_guests(event_params, @event)
     @event.admin_level = current_user.admin_level
     if @event.save then redirect_to event_path(@event) else render :new end
