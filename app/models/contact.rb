@@ -26,7 +26,11 @@ class Contact < ApplicationRecord
   end
 
   def admin_level=(user)
-    self[:admin_level] = user.admin_level
+    if user != nil
+      self[:admin_level] = user.admin_level
+    else
+      0
+    end
   end
 
   def admin_level
