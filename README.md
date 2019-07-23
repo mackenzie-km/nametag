@@ -1,12 +1,4 @@
-# README
-
-FINAL STRETCH!
-* Refactor
-* Run through
-* Practice & Record Walkthrough
-* Blog Post
-
-# Nametag
+# README - NAMETAG
 
 Nametag is a tool to allow for easy storage & viewing of club/organization contact information.
 
