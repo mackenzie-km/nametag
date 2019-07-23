@@ -1,4 +1,4 @@
-# README - NAMETAG
+# Nametag
 
 Nametag is a tool to allow for easy storage & viewing of club/organization contact information.
 
