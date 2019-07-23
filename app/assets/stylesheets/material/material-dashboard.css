@@ -14503,7 +14503,7 @@ fieldset[disabled] .form-group.is-focused .togglebutton label {
 .wrapper {
   position: relative;
   top: 0;
-  height: 100vh;
+  min-height: 100vh;
   background-image: url(../squiggle.jpg);
   background-repeat: repeat;
   background-color: rgba(255, 255, 255, 0.9);

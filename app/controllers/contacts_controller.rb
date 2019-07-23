@@ -20,7 +20,7 @@ class ContactsController < ApplicationController
 
   def create
     @contact = Contact.new(contact_params)
-    @contact.admin_level=(User.find(session[:user_id]))
+    @contact.admin_level=(@contact.user)
     if !!Event.exists?(id: params[:contact][:event_id]) then @contact.events << Event.find_by(id: params[:contact][:event_id].to_i) end
     if @contact.save then redirect_to contact_path(@contact) else render :new end
   end
@@ -33,6 +33,7 @@ class ContactsController < ApplicationController
 
   def update
     @contact.update(contact_params)
+    @contact.admin_level=(@contact.user)
     if @contact.save then redirect_to contact_path(@contact) else render :edit end
   end
 
