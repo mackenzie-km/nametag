@@ -31,7 +31,7 @@ class ApplicationController < ActionController::Base
 
   def has_access?(level)
     redirect_if_no_login
-    if (current_user && level > current_user.admin_level) then false else true end
+    if level > current_user.admin_level then false else true end
   end
 
   def user_admin_level
