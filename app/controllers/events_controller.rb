@@ -21,11 +21,14 @@ class EventsController < ApplicationController
   def create
     date = Event.collect_date(event_params)
     @event = Event.new(name: event_params[:name], date: date)
-    @event.save
-    Contact.add_contacts(event_params, @event, @user)
-    @event.update_guests(event_params, @event)
-    @event.admin_level = current_user.admin_level
-    if @event.save then redirect_to event_path(@event) else render :new end
+    if @event.save
+      Contact.add_contacts(event_params, @event, @user)
+      @event.update_guests(event_params, @event)
+      @event.admin_level = current_user.admin_level
+      redirect_to event_path(@event)
+    else
+      render :new
+    end
   end
 
   def show
