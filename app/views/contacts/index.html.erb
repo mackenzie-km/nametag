@@ -1,4 +1,4 @@
-<%= render :layout => 'layouts/12_col_view', :locals => {:header => (index_header(params)), :description => "Use the buttons below to change viewing options"} do %>
+<%= render :layout => 'layouts/12_col_view', :locals => {:header => (c_index_header(params)), :description => "Use the buttons below to change viewing options"} do %>
 
   <%= render :partial => "layouts/flash_message" %>
 
@@ -31,8 +31,8 @@
   <%= button_to "My Contacts",  contacts_path, :class => "btn btn-primary", :method => :get %>
    <%= form_tag(contacts_path, method: "get") do %>
      <%= hidden_field :display_all, value: true %>
-     <%= submit_tag "All Contacts", class: "btn btn-primary" %>
+    <%= submit_tag "All Contacts", class: "btn btn-primary" %>
   <% end %>
-  <%= button_to c_button_text(params),  c_button_link(params), :class => "btn btn-primary", :method => :get %>
+  <%= button_to c_button_text(params), c_button_link(params), :class => "btn btn-primary", :method => :get %>
 </div>
 <% end %>

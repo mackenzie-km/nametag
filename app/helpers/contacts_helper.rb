@@ -15,7 +15,7 @@ module ContactsHelper
     ("/events/#{params[:event_id]}/contacts/new" if !!params[:event_id]) || new_contact_path
   end
 
-  def index_header(params)
+  def c_index_header(params)
     if params[:event_id]
       "View Contacts for Event #{params[:event_id]}"
     elsif params[:display_all]
