@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
 
-  before_action :redirect_if_not_admin, only: [:index, :edit, :update, :destroy]
+  before_action only: [:index, :edit, :update, :destroy] do redirect_if_not_access(2) end
   before_action :redirect_if_logged_in, only: [:new, :create]
   before_action :find_user, only: [:edit, :update, :destroy]
 
