@@ -1,13 +1,13 @@
 <div class="row">
 
-  <%= render :layout => 'contacts/card_layout', :locals => {header: "Basic Bio"} do %>
+  <%= render :layout => 'contacts/card_layout', :locals => {header: "Basic Bio", icon_here: "face"} do %>
       <label>Name:</label> <%= @contact.name %><br>
       <label>Gender:</label> <%= @contact.gender || "N/A" %><br>
       <label>Staff:</label> <%= @contact.user_name || "N/A" %><br>
       <label>School Status:</label> <%= @contact.school_status %><br>
   <% end %>
 
-  <%= render :layout => 'contacts/card_layout', :locals => {header: "Contact Info"} do %>
+  <%= render :layout => 'contacts/card_layout', :locals => {header: "Contact Info", icon_here: "info"} do %>
         <label>Phone #:</label> <%= @contact.phone_number || "N/A" %><br>
         <label>Last Day In Davis:</label> <%= @contact.last_day || "N/A" %><br>
         <label>Messenger ID:</label> <%= @contact.messenger_id || "N/A" %><br>
@@ -15,7 +15,7 @@
   <% end %>
 
 
-    <%= render :layout => 'contacts/card_layout', :locals => {header: "Other Facts"} do %>
+    <%= render :layout => 'contacts/card_layout', :locals => {header: "Other Facts", icon_here: "color_lens"} do %>
         <label>Major:</label> <%= @contact.major || "N/A" %><br>
         <label>Home Country:</label> <%= @contact.country || "N/A" %><br>
         <label>Birthday:</label> <%= birthday_human @contact || "N/A" %><br>
