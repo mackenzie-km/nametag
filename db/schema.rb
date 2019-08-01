@@ -42,6 +42,8 @@ ActiveRecord::Schema.define(version: 2019_07_06_210035) do
     t.string "name"
     t.date "date"
     t.integer "admin_level"
+    t.integer "staff_count", default: 0
+    t.integer "guest_count", default: 0
   end
 
   create_table "users", force: :cascade do |t|
