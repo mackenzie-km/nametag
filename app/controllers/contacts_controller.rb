@@ -5,13 +5,15 @@ class ContactsController < ApplicationController
   before_action :access_contact, only: [:show, :edit, :update, :destroy]
   before_action :user_admin_level, only: [:new, :edit]
 
-# FIX - write a scope for only your own contacts & button for all contacts
+# if associated with an event - shows event contacts. otherwise, shows your contacts.
   def index
     if params[:event_id]
       @event = Event.find(params[:event_id])
       @contacts = @event.contacts
-    else
+    elsif params[:display_all]
       @contacts = Contact.access(current_user.admin_level)
+    else
+      @contacts = Contact.yours(current_user.id)
     end
   end
 
@@ -65,7 +67,7 @@ class ContactsController < ApplicationController
     end
   end
 
-# chooses redirect based on whether contact is nested or not 
+# chooses redirect based on whether contact is nested or not
   def nested_contact_redirect(event, contact)
     if !!event then redirect_to event_contacts_path(event) else redirect_to contact_path(contact) end
   end
