@@ -23,5 +23,4 @@ Rails.application.routes.draw do
 # custom routes for google auth
   get 'auth/:provider/callback', to: 'sessions#googleAuth'
   get 'auth/failure', to: redirect('/login')
-
 end
