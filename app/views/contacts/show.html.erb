@@ -10,14 +10,14 @@
   <%= render :layout => 'contacts/card_layout', :locals => {header: "Contact Info", icon_here: "info"} do %>
         <label>Phone #:</label> <%= @contact.phone_number || "N/A" %><br>
         <label>Last Day In Davis:</label> <%= @contact.last_day || "N/A" %><br>
-        <label>Messenger ID:</label> <%= @contact.messenger_id || "N/A" %><br>
-        <label>Email:</label> <%= @contact.email || "N/A" %><br>
+        <label>Messenger ID:</label> <%= @contact.messenger_id.presence || "N/A" %><br>
+        <label>Email:</label> <%= @contact.email.presence || "N/A" %><br>
   <% end %>
 
 
     <%= render :layout => 'contacts/card_layout', :locals => {header: "Other Facts", icon_here: "color_lens"} do %>
-        <label>Major:</label> <%= @contact.major || "N/A" %><br>
-        <label>Home Country:</label> <%= @contact.country || "N/A" %><br>
+        <label>Major:</label> <%= @contact.major.presence || "N/A" %><br>
+        <label>Home Country:</label> <%= @contact.country.presence || "N/A" %><br>
         <label>Birthday:</label> <%= birthday_human @contact || "N/A" %><br>
         <label>Attendance Count:</label> <%= @contact.events.count %><br>
   <% end %>
