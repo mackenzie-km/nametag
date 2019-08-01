@@ -36,9 +36,6 @@
   <%= f.label "School Status", class: "lb-lg" %><br>
   <%= f.select :school_status, ["exchange", "freshmen", "sophomore", "junior", "senior", "masters", "PhD", "post doc", "visiting scholar", "family", "alumni"], {}, {class: "custom-select"} %><br><br>
 
-  <%= f.label "Messenger Company", class: "lb-lg" %><br>
-  <%= f.select :messenger_company, ["Line", "WeChat", "WhatsApp", "Kakao Talk"], {include_blank: true}, {class: "custom-select"} %><br><br>
-
   <%= f.label "Messenger Id", class: "lb-lg" %>
   <%= f.text_field :messenger_id, class: "form-control" %><br>
 
@@ -47,6 +44,9 @@
 
   <%= f.label "Country", class: "lb-lg" %>
   <%= f.text_field :country, class: "form-control" %><br>
+
+  <%= f.label "Last Day In Davis", class: "lb-lg" %><br>
+  <%= f.date_select :last_day, {include_blank: true}, {class: "custom-select"} %><br><br>
 
   <%= f.label "Birthday", class: "lb-lg" %><br>
   <%= f.date_select :birthday, {discard_year: true, include_blank: true}, {class: "custom-select"} %><br><br>

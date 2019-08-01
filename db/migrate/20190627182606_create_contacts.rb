@@ -7,12 +7,14 @@ class CreateContacts < ActiveRecord::Migration[5.2]
       t.integer :user_id
       t.integer :phone_number
       t.string :school_status
-      t.string :messenger_company
       t.string :messenger_id
+      t.date :last_day
       t.string :major
       t.string :country
       t.date :birthday
-      t.integer :admin_level 
+      t.integer :admin_level
+      t.boolean :newsletter
+      t.boolean :unsubscribed
       t.timestamps
     end
   end

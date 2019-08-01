@@ -19,12 +19,14 @@ ActiveRecord::Schema.define(version: 2019_07_06_210035) do
     t.integer "user_id"
     t.integer "phone_number"
     t.string "school_status"
-    t.string "messenger_company"
     t.string "messenger_id"
+    t.date "last_day"
     t.string "major"
     t.string "country"
     t.date "birthday"
     t.integer "admin_level"
+    t.boolean "newsletter"
+    t.boolean "unsubscribed"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -32,7 +34,6 @@ ActiveRecord::Schema.define(version: 2019_07_06_210035) do
   create_table "contacts_events", id: false, force: :cascade do |t|
     t.integer "contact_id", null: false
     t.integer "event_id", null: false
-    t.integer "guests"
     t.index ["contact_id"], name: "index_contacts_events_on_contact_id"
     t.index ["event_id"], name: "index_contacts_events_on_event_id"
   end
