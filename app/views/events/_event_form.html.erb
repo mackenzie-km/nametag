@@ -9,12 +9,16 @@
           <%= f.date_select :date, {}, {class: "custom-select"} %><br><br>
 
 
-        <%= f.label "Attendees & Number of Guests:", :class => "lb-lg" %><br>
+          <%= f.label "Staff Count", :class => "lb-lg" %>
+          <%= f.text_field :staff_count, :class => "form-control", placeholder: "# of staff" %><br>
+
+          <%= f.label "Guest Count", :class => "lb-lg" %>
+          <%= f.text_field :guest_count, :class => "form-control", placeholder: "# of guests" %><br>
 
 
+        <%= f.label "Attendees:", :class => "lb-lg" %><br>
 
-
-        <% Contact.access(@admin).each_with_index do |c,i| %>
+      <% Contact.access(@user_admin_level).each_with_index do |c,i| %>
           <div class="form-check form-check-inline">
             <%= label_tag "event_contact_ids_#{c.id}", class: "form-check-label" do %>
                 <%= label_tag "event_contact_ids_#{c.id}", c.name %>
@@ -22,7 +26,6 @@
                 <span class="form-check-sign">
                  <span class="check"></span>
                 </span>
-                  <%= text_field_tag "event[guests][#{c.id}]", 0, class:"form-control" %><br>
               <% end %>
             </div>
           <% end %><br><br>

@@ -5,7 +5,8 @@
           <label>Name:</label> <%= @event.name %><br>
           <label>Date:</label> <%= date_human @event %><br>
           <label>Attendee Count:</label> <%= @event.contacts_count %><br>
-          <label>Guest Count:</label> <%= @event.guests_count %>
+          <label>Guest Count:</label> <%= @event.guest_count %><br>
+          <label>Staff Count:</label> <%= @event.staff_count %>
   <% end %>
   <%= render :layout => 'events/card_layout', :locals => {header: "Attendee List"} do %>
           <% @event.contacts.each do |contact| %>
