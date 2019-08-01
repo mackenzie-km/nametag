@@ -37,7 +37,7 @@ class ApplicationController < ActionController::Base
 
 # returns false if required access level is too high - & vice versa
   def has_access?(level)
-    if level > (current_user.try(:admin_level) || 0) then return false else return true end
+    if (level || 0) > (current_user.try(:admin_level) || 0) then return false else return true end
   end
 
 # returns admin level if logged in

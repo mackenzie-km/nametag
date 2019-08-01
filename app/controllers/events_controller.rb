@@ -61,7 +61,7 @@ class EventsController < ApplicationController
 
   def access_event
     find_event
-    if !has_access?(@event.admin_level)
+    if !has_access?(@event.try(:admin_level))
       flash.now[:alert] = "You cannot edit/view this event."
       redirect_to events_path
     end
