@@ -41,6 +41,7 @@ class UsersController < ApplicationController
     params.require(:user).permit(:email, :password, :admin_level)
   end
 
+# takes admin's input (0, 1, or 2) & converts it to secret code for admin_level=(code) method
   def enter_code
     code = user_params[:admin_level].to_i
     if code == 2
