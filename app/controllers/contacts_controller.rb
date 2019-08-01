@@ -1,8 +1,9 @@
 class ContactsController < ApplicationController
 
+# before actions - check logged in, check access resource, set admin level for forms
   before_action :redirect_if_no_login
   before_action :access_contact, only: [:show, :edit, :update, :destroy]
-  before_action :user_admin_level
+  before_action :user_admin_level, only: [:new, :edit]
 
   def index
     if params[:event_id]
@@ -42,19 +43,21 @@ class ContactsController < ApplicationController
   end
 
   private
+  # allowed contact parameters
   def contact_params
     params.require(:contact).permit(:name, :email, :gender, :user_id, :phone_number, :school_status, :messenger_company, :messenger_id, :major, :country, :birthday)
   end
 
-
+# finds contact
   def find_contact
     @contact = Contact.find(params[:id])
   end
 
+# runs find_contact & returns T or F with error depending on user access level
   def access_contact
     find_contact
     if !has_access?(@contact.admin_level)
-      flash.now[:alert] = "You cannot edit/view this contact."
+      flash[:notice] = "You cannot edit/view this contact."
       redirect_to contacts_path
     end
   end
