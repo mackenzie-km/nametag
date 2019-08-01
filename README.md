@@ -5,7 +5,6 @@ Nametag is a tool to allow for easy storage & viewing of club/organization conta
 It allows you to relate contacts to events, and vice-versa.
 
 ## Installation & usage
-COMING SOON: 
 To visit the live app, please visit:
 https://igsm-nametag.herokuapp.com/
 
@@ -18,8 +17,9 @@ While contributing, please abide by the code of conduct set forth in https://www
 
 ## Future Goals
 
-1. Allow for batch upload from a Google sheet
-2. Resolve security warnings with Google login (potentially remove google authorization if not resolved by OmniAuth)
+1. Add page to show contacts pending newsletter addition (click "resolved" => newsletter: true)
+2. Add page to show unsubscribers pending announcement (click "resolved" => unsubscribers: true)
+3. Deploy to Heroku!
 
 ## License
 This app is available as open source under the terms of the MIT License https://opensource.org/licenses/MIT
