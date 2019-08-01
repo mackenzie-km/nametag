@@ -3,7 +3,6 @@ class CreateJoinTableContactsEvents < ActiveRecord::Migration[5.2]
     create_join_table :contacts, :events do |t|
       t.index :contact_id
       t.index :event_id
-      t.integer :guests
     end
   end
 end

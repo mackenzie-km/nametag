@@ -50,7 +50,7 @@ class ContactsController < ApplicationController
   private
   # allowed contact parameters
   def contact_params
-    params.require(:contact).permit(:name, :email, :gender, :user_id, :phone_number, :school_status, :messenger_company, :messenger_id, :major, :country, :birthday)
+    params.require(:contact).permit(:name, :email, :gender, :user_id, :phone_number, :school_status, :last_day, :messenger_id, :major, :country, :birthday, :unsubscribed, :newsletter)
   end
 
 # finds contact
