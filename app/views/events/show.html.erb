@@ -3,7 +3,7 @@
 
 
           <label>Name:</label> <%= @event.name %><br>
-          <label>Date:</label> <%= date_human @event %><br>
+          <label>Date:</label> <%= display_date(@event) %><br>
           <label>Student Count:</label> <%= @event.contacts_count %><br>
           <label>Guest Count:</label> <%= @event.guest_count %><br>
           <label>Staff Count:</label> <%= @event.staff_count %>

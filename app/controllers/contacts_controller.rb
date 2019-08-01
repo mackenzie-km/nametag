@@ -5,7 +5,7 @@ class ContactsController < ApplicationController
   before_action :access_contact, only: [:show, :edit, :update, :destroy]
   before_action :user_admin_level, only: [:new, :edit]
 
-# if associated with an event - shows event contacts. otherwise, shows your contacts.
+# default: shows your contacts. otherwise, if nested => event contacts. if all selected => all contacts.
   def index
     if params[:event_id]
       @event = Event.find(params[:event_id])
