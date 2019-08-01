@@ -28,9 +28,9 @@
     </div>
 
 <div class="row justify-content-center">
-  <%= button_to "My Contacts",  contacts_path, :class => "btn btn-primary", :method => :get %>
+  <%= button_to "My Contacts", contacts_path, :class => "btn btn-primary", :method => :get %>
    <%= form_tag(contacts_path, method: "get") do %>
-     <%= hidden_field :display_all, value: true %>
+     <%= hidden_field_tag(:display_all, true) %>
     <%= submit_tag "All Contacts", class: "btn btn-primary" %>
   <% end %>
   <%= button_to c_button_text(params), c_button_link(params), :class => "btn btn-primary", :method => :get %>
