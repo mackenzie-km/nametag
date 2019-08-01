@@ -9,6 +9,8 @@ class Contact < ApplicationRecord
 
   scope :access, -> (admin_level) { where('admin_level <= ?', admin_level) }
 
+  scope :yours, -> (user_id) { where('user_id = ?', user_id)}
+
   def self.add_contacts(params, event, user)
     if params[:contact_ids]
       ContactsEvent.where(event_id: event.id).delete_all
