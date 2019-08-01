@@ -12,17 +12,16 @@ Rails.application.routes.draw do
     resources :events, only: [:index]
   end
   resources :events, only: [:index] do
-    resources :contacts, only: [:index]
+    resources :contacts, only: [:index, :new, :create]
   end
 
-# custom
+# custom routes for login & logout
   get "login", to: "sessions#new"
   post "login", to: "sessions#create"
   get "logout", to: "sessions#destroy"
 
+# custom routes for google auth
   get 'auth/:provider/callback', to: 'sessions#googleAuth'
   get 'auth/failure', to: redirect('/login')
 
-  get 'events/:event_id/contacts/new', to: 'contacts#new'
-  post 'events/:event_id/contacts', to: 'contacts#create'
 end
