@@ -14,6 +14,7 @@ class User < ApplicationRecord
     self.email[/[^@]*/]
   end
 
+# compares user-provided code to secret ENV code and sets admin level appropriately
   def admin_level=(code)
     if code == ENV['ADMIN']
       self[:admin_level] = 2
@@ -28,6 +29,7 @@ class User < ApplicationRecord
     self[:admin_level]
   end
 
+# creates a user from omniauth, setting credentials appropriately 
   def self.from_omniauth(auth)
     @user = User.where(email: auth.info.email).first_or_initialize
     @user.admin_level=(ENV['IGSM']) if @user.email.include?("@gpmail.org")

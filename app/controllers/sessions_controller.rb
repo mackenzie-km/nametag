@@ -6,6 +6,7 @@ class SessionsController < ApplicationController
   def new
   end
 
+# tries to find and authenticate user to create a new session
   def create
     @user = User.find_by(email: params[:user][:email])
     @user = @user.try(:authenticate, params[:user][:password])
@@ -23,6 +24,7 @@ class SessionsController < ApplicationController
     redirect_to root_path
   end
 
+# uses googleAuth code to create a user from omniauth, set tokens, and set session id 
   def googleAuth
     access_token = request.env["omniauth.auth"]
     @user = User.from_omniauth(access_token)

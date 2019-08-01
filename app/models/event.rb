@@ -12,6 +12,7 @@ class Event < ApplicationRecord
     self.contacts.count
   end
 
+# to collect dates - bootstrap form params are not as clean as before 
   def self.collect_date(event_params)
     Date.new event_params["date(1i)"].to_i, event_params["date(2i)"].to_i, event_params["date(3i)"].to_i
   end
