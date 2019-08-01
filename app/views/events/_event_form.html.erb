@@ -18,18 +18,17 @@
 
         <%= f.label "Attendees:", :class => "lb-lg" %><br>
 
-      <% Contact.access(@user_admin_level).each_with_index do |c,i| %>
+    <%= f.collection_check_boxes :contact_ids, Contact.access(@user_admin_level), :id, :name do |b| %>
           <div class="form-check form-check-inline">
-            <%= label_tag "event_contact_ids_#{c.id}", class: "form-check-label" do %>
-                <%= label_tag "event_contact_ids_#{c.id}", c.name %>
-                <%= check_box_tag "event[contact_ids][]", c.id, false, {id: "event_contact_ids_#{c.id}", class: "form-check-input"} %>
-                <span class="form-check-sign">
-                 <span class="check"></span>
-                </span>
-              <% end %>
-            </div>
-          <% end %><br><br>
-
+            <%= b.label(class: "form-check-label") do %>
+              <%= b.label %>
+              <%= b.check_box(class: "form-check-input") %>
+              <span class="form-check-sign">
+               <span class="check"></span>
+              </span>
+            <% end %>
+          </div>
+        <% end %><br><br>
 
 
     <%= f.submit "Submit", class: "btn btn-primary" %><br>
