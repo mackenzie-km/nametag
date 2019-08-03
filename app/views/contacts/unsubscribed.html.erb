@@ -1,0 +1,37 @@
+<%= render :layout => 'layouts/12_col_view', :locals => {:header => "Recent Unsubscribers", :description => "View unsubscribers since #{1.month.ago.strftime("%B %-d, %Y")}"} do %>
+
+  <%= render :partial => "layouts/flash_message" %>
+
+  <div class="table-responsive">
+    <table class="table table-hover">
+        <thead class="">
+          <tr>
+              <th><%= "ID" %></th>
+              <th><%= "Name" %></th>
+              <th><%= "Staff" %></th>
+              <th><%= "Email" %></th>
+              <th><%= "Unsubscribed" %></th>
+          </tr>
+        </thead>
+        <tbody>
+            <% @contacts.each do |contact| %>
+              <tr>
+                <td><%= contact.id %> </td>
+                <td><%= link_to contact.name, contact_path(contact) %></td>
+                <td><%= contact.user_name %></td>
+                <td><%= contact.email %></td>
+                <td><%= contact.unsubscribed %></td>
+              </tr>
+            <% end %>
+        </tbody>
+      </table>
+    </div>
+
+<div class="row justify-content-center">
+  <%= button_to "Back To My Contacts", contacts_path, :class => "btn btn-primary", :method => :get %>
+   <%= form_tag(contacts_path, method: "get") do %>
+     <%= hidden_field_tag(:display_all, true) %>
+    <%= submit_tag "Back To All Contacts", class: "btn btn-primary" %>
+  <% end %>
+</div>
+<% end %>
