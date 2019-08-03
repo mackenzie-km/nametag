@@ -10,7 +10,6 @@
               <th><%= "Name" %></th>
               <th><%= "Staff" %></th>
               <th><%= "Email" %></th>
-              <th><%= "Unsubscribed" %></th>
           </tr>
         </thead>
         <tbody>
@@ -20,7 +19,6 @@
                 <td><%= link_to contact.name, contact_path(contact) %></td>
                 <td><%= contact.user_name %></td>
                 <td><%= contact.email %></td>
-                <td><%= contact.unsubscribed %></td>
               </tr>
             <% end %>
         </tbody>
