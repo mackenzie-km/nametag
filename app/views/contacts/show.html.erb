@@ -9,9 +9,9 @@
 
   <%= render :layout => 'contacts/card_layout', :locals => {header: "Contact Info", icon_here: "info"} do %>
         <label>Phone #:</label> <%= @contact.phone_number || "N/A" %><br>
-        <label>Last Day In Davis:</label> <%= @contact.last_day || "N/A" %><br>
         <label>Messenger ID:</label> <%= @contact.messenger_id.presence || "N/A" %><br>
         <label>Email:</label> <%= @contact.email.presence || "N/A" %><br>
+        <label>Unsubscribed:</label> <%= @contact.unsubscribed %><br>
   <% end %>
 
 
@@ -19,7 +19,7 @@
         <label>Major:</label> <%= @contact.major.presence || "N/A" %><br>
         <label>Home Country:</label> <%= @contact.country.presence || "N/A" %><br>
         <label>Birthday:</label> <%= birthday_human(@contact) || "N/A" %><br>
-        <label>Attendance Count:</label> <%= @contact.events.count %><br>
+        <label>Last Day In Davis:</label> <%= @contact.last_day || "N/A" %><br>
   <% end %>
 
 </div>
@@ -27,6 +27,6 @@
 
 <div class="row justify-content-center">
   <%= button_to "Edit Contact", edit_contact_path(@contact), :class => "btn btn-primary", :method => :get  %>
-  <%= button_to "View Attended Events", contact_events_path(@contact), :class => "btn btn-primary", :method => :get  %>
+  <%= button_to "View Attended Events - #{@contact.events.count}", contact_events_path(@contact), :class => "btn btn-primary", :method => :get  %>
   <%= button_to "View All Contacts", contacts_path, :class => "btn btn-primary", :method => :get %>
 </div>

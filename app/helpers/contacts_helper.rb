@@ -19,7 +19,7 @@ module ContactsHelper
     ("/events/#{params[:event_id]}/contacts/new" if !!params[:event_id]) || new_contact_path
   end
 
-# change header depending on which data set of contacts is selected 
+# change header depending on which data set of contacts is selected
   def c_index_header(params)
     if params[:event_id]
       "View Contacts for Event #{params[:event_id]}"

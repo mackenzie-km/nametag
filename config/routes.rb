@@ -23,4 +23,8 @@ Rails.application.routes.draw do
 # custom routes for google auth
   get 'auth/:provider/callback', to: 'sessions#googleAuth'
   get 'auth/failure', to: redirect('/login')
+
+# custom routes for newsletter and unsubscribers
+  get '/newsletter', to: "contacts#newsletter"
+  get '/unsubscribed', to: "contacts#unsubscribed"
 end

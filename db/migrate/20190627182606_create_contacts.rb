@@ -13,8 +13,8 @@ class CreateContacts < ActiveRecord::Migration[5.2]
       t.string :country
       t.date :birthday
       t.integer :admin_level
-      t.boolean :newsletter
-      t.boolean :unsubscribed
+      t.boolean :newsletter, :default => false
+      t.boolean :unsubscribed, :default => false
       t.timestamps
     end
   end

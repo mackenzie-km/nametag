@@ -26,8 +26,6 @@ class ContactsController < ApplicationController
   def create
     @contact = Contact.new(contact_params)
     @contact.admin_level=(User.find(session[:user_id]))
-    @event = Event.find_by(id: params[:contact][:event_id])
-    if (!!@event && has_access?(@event.admin_level)) then @contact.events << @event end
     if @contact.save then nested_contact_redirect(@event, @contact) else render :new end
   end
 
@@ -47,10 +45,18 @@ class ContactsController < ApplicationController
     redirect_to contacts_path
   end
 
+  def newsletter
+    @contacts = Contact.newsletter_pending
+  end
+
+  def unsubscribed
+    @contacts = Contact.unsubscribed
+  end
+
   private
   # allowed contact parameters
   def contact_params
-    params.require(:contact).permit(:name, :email, :gender, :user_id, :phone_number, :school_status, :last_day, :messenger_id, :major, :country, :birthday, :unsubscribed, :newsletter)
+    params.require(:contact).permit(:name, :email, :gender, :user_id, :phone_number, :school_status, :last_day, :messenger_id, :major, :country, :birthday, :unsubscribed, :newsletter, :event_id)
   end
 
 # finds contact

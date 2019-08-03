@@ -51,6 +51,28 @@
   <%= f.label "Birthday", class: "lb-lg" %><br>
   <%= f.date_select :birthday, {discard_year: true, include_blank: true}, {class: "custom-select"} %><br><br>
 
+  <%= f.label "Unsubscribed", class: "lb-lg" %><br>
+
+  <div class="form-check form-check-inline">
+      <%= f.label "unsubscribed_true", class: "form-check-label" do %>
+        <%= f.label "True", class: "lb-lg" %>
+        <%= f.radio_button :unsubscribed, true, {class: "form-check-input"} %>
+        <span class="circle">
+          <span class="check"></span>
+        </span>
+      <% end %>
+    </div>
+    <div class="form-check form-check-inline">
+        <%= f.label "unsubscribed_false", class: "form-check-label" do %>
+          <%= f.label "False", class: "lb-lg" %>
+          <%= f.radio_button :unsubscribed, false, {class: "form-check-input"} %>
+          <span class="circle">
+            <span class="check"></span>
+          </span>
+        <% end %>
+    </div><br><br>
+
+
   <%= f.hidden_field :event_id, value: @event_id %>
 
   <%= f.submit "Submit", class: "btn btn-primary" %><br>

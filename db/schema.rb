@@ -25,8 +25,8 @@ ActiveRecord::Schema.define(version: 2019_07_06_210035) do
     t.string "country"
     t.date "birthday"
     t.integer "admin_level"
-    t.boolean "newsletter"
-    t.boolean "unsubscribed"
+    t.boolean "newsletter", default: false
+    t.boolean "unsubscribed", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
