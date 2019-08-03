@@ -8,7 +8,7 @@ class Contact < ApplicationRecord
   scope :active, -> { where('updated_at >= ?', Date.today - 3.month) }
   scope :access, -> (admin_level) { where('admin_level <= ?', admin_level) }
   scope :yours, -> (user_id) { where('user_id = ?', user_id)}
-  scope :newsletter_pending, -> { where("newsletter = ? AND email <> ?", false, "") }
+  scope :newsletter_pending, -> { where("newsletter = ? AND email <> ? AND unsubscribed = ?", false, "", false) }
   scope :unsubscribed, -> { where("unsubscribed = ? AND updated_at > ?", true, 1.month.ago) }
 
   def self.add_contacts(params, event, user)
@@ -22,10 +22,17 @@ class Contact < ApplicationRecord
     end
   end
 
+  def self.update_newsletter_status(contacts)
+    contacts.each do |contact|
+      contact.newsletter = true
+      contact.save
+    end
+  end
+
   def event_id=(id)
     if !id.empty?
       @event = Event.find_by(id: id)
-      if (!!@event && has_access?(@event.admin_level)) then @contact.events << @event end
+      if (!!@event && (@event.admin_level <= self.user.admin_level)) then self.events << @event end
     end
   end
 

@@ -26,5 +26,6 @@ Rails.application.routes.draw do
 
 # custom routes for newsletter and unsubscribers
   get '/newsletter', to: "contacts#newsletter"
+  post '/newsletter', to: "contacts#newsletter_update"
   get '/unsubscribed', to: "contacts#unsubscribed"
 end

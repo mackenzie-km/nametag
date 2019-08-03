@@ -1,3 +1,35 @@
-<% @contacts.each do |contact| %>
-  <%= contact.name %>
+<%= render :layout => 'layouts/12_col_view', :locals => {:header => "Pending Newsletter", :description => "View contacts who need to be added to the newsletter"} do %>
+
+  <%= render :partial => "layouts/flash_message" %>
+
+  <div class="table-responsive">
+    <table class="table table-hover">
+        <thead class="">
+          <tr>
+              <th><%= "ID" %></th>
+              <th><%= "Name" %></th>
+              <th><%= "Staff" %></th>
+              <th><%= "Email" %></th>
+          </tr>
+        </thead>
+        <tbody>
+            <% @contacts.each do |contact| %>
+              <tr>
+                <td><%= contact.id %> </td>
+                <td><%= link_to contact.name, contact_path(contact) %></td>
+                <td><%= contact.user_name %></td>
+                <td><%= contact.email %></td>
+              </tr>
+            <% end %>
+        </tbody>
+      </table>
+    </div>
+
+<div class="row justify-content-center">
+  <%= form_tag("/newsletter", method: "post") do %>
+    <%= hidden_field_tag(:newsletters, true) %>
+   <%= submit_tag "Woo! Mark as complete!", class: "btn btn-primary" %>
+ <% end %>
+  <%= button_to "Will Complete Later", contacts_path, :class => "btn btn-primary", :method => :get %>
+</div>
 <% end %>

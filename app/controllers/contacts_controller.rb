@@ -49,6 +49,14 @@ class ContactsController < ApplicationController
     @contacts = Contact.newsletter_pending
   end
 
+  def newsletter_update
+    if params[:newsletters]
+      @contacts = Contact.newsletter_pending
+      Contact.update_newsletter_status(@contacts)
+    end
+    redirect_to "/newsletter"
+  end
+
   def unsubscribed
     @contacts = Contact.unsubscribed
   end
@@ -56,7 +64,7 @@ class ContactsController < ApplicationController
   private
   # allowed contact parameters
   def contact_params
-    params.require(:contact).permit(:name, :email, :gender, :user_id, :phone_number, :school_status, :last_day, :messenger_id, :major, :country, :birthday, :unsubscribed, :newsletter, :event_id)
+    params.require(:contact).permit(:name, :email, :gender, :user_id, :phone_number, :school_status, :last_day, :messenger_id, :major, :country, :birthday, :unsubscribed, :newsletters, :event_id)
   end
 
 # finds contact
