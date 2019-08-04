@@ -12,6 +12,9 @@
 
 ActiveRecord::Schema.define(version: 2019_07_06_210035) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "contacts", force: :cascade do |t|
     t.string "name"
     t.string "email"
@@ -32,8 +35,8 @@ ActiveRecord::Schema.define(version: 2019_07_06_210035) do
   end
 
   create_table "contacts_events", id: false, force: :cascade do |t|
-    t.integer "contact_id", null: false
-    t.integer "event_id", null: false
+    t.bigint "contact_id", null: false
+    t.bigint "event_id", null: false
     t.index ["contact_id"], name: "index_contacts_events_on_contact_id"
     t.index ["event_id"], name: "index_contacts_events_on_event_id"
   end
