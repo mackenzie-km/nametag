@@ -18864,7 +18864,6 @@ Copyright (c) 2015 Daniel Eden
     font-size: 1rem;
     margin: 0;
   }
-}
 
 @media (min-width: 992px) {
   .main-panel .navbar .navbar-collapse .navbar-nav .nav-item .nav-link p {
@@ -18875,5 +18874,3 @@ Copyright (c) 2015 Daniel Eden
     display: none !important;
   }
 }
-
-/*# sourceMappingURL=dashboard-free.css.map */
