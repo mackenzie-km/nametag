@@ -18089,7 +18089,6 @@ Copyright (c) 2015 Daniel Eden
     display: none !important;
   }
 }
-
 @media screen and (max-width: 991px) {
   .presentation-page .section-components .components-macbook {
     max-width: 850px !important;
@@ -18864,6 +18863,7 @@ Copyright (c) 2015 Daniel Eden
     font-size: 1rem;
     margin: 0;
   }
+}
 
 @media (min-width: 992px) {
   .main-panel .navbar .navbar-collapse .navbar-nav .nav-item .nav-link p {
