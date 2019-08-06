@@ -6,7 +6,7 @@ ruby '2.6.3'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.3'
 # Bundler 
-gem 'bundler', '~> 2.0.1'
+gem 'bundler', '~> 2.0.2'
 # Use PG as the database for Active Record
 gem 'pg', "< 1.0"
 # Use Puma as the app server
