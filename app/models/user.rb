@@ -8,7 +8,7 @@ class User < ApplicationRecord
 
   has_secure_password
 
-  scope :access, -> (admin_level) { where('admin_level <= ?', admin_level) }
+  scope :same_level, -> (admin_level) { where('admin_level = ?', admin_level) }
 
   def name
     self.email[/[^@]*/]
@@ -29,7 +29,7 @@ class User < ApplicationRecord
     self[:admin_level]
   end
 
-# creates a user from omniauth, setting credentials appropriately 
+# creates a user from omniauth, setting credentials appropriately
   def self.from_omniauth(auth)
     @user = User.where(email: auth.info.email).first_or_initialize
     @user.admin_level=(ENV['IGSM']) if @user.email.include?("@gpmail.org")
