@@ -29,4 +29,15 @@ module ContactsHelper
       "View My Contacts"
     end
   end
+
+# helps newsletter team know where to add people to
+  def event_source(contact)
+    id = contact.contacts_events.minimum(:event_id)
+    first_event = Event.find_by(id: id).try(:name)
+    if !!first_event && !!first_event.match(/.*CSM.*/)
+      "CSM WeChat"
+    else
+      "Newsletter"
+    end
+  end
 end
