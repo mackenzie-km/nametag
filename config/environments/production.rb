@@ -92,5 +92,12 @@ Rails.application.configure do
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
 
-  config.assets.precompile += %w[*.png *.jpg *.jpeg *.gif] 
+  # Makes sure all of my images are part of the precompile
+  config.assets.precompile += %w[*.png *.jpg *.jpeg *.gif]
+
+  # Per GTmetrix's recommendation to set cache headers for .js and .css files
+  config.public_file_server.headers = {
+  'Cache-Control' => "public, s-maxage=#{365.days.to_i}, maxage=#{180.days.to_i}",
+  'Expires' => "#{1.year.from_now.to_formatted_s(:rfc822)}"
+  }
 end
