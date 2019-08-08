@@ -13,6 +13,7 @@ class Contact < ApplicationRecord
 
   def self.add_contacts(params, event, user)
     if !params[:contact_ids].empty?
+      ContactsEvent.where(event_id: event.id).delete_all
       params[:contact_ids].reject!(&:empty?)
       params[:contact_ids].collect do |c_id|
         if Contact.find_by(id: c_id).admin_level <= user.admin_level
