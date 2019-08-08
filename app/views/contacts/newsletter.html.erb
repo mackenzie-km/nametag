@@ -1,4 +1,4 @@
-<%= render :layout => 'layouts/12_col_view', :locals => {:header => "Pending Newsletter", :description => "View contacts who need to be added to the newsletter"} do %>
+<%= render :layout => 'layouts/12_col_view', :locals => {:header => "Pending Newsletter", :description => "View contacts who need to be added to the newsletter or CSM WeChat"} do %>
 
   <%= render :partial => "layouts/flash_message" %>
 
@@ -10,6 +10,7 @@
               <th><%= "Name" %></th>
               <th><%= "Staff" %></th>
               <th><%= "Email" %></th>
+              <th><%= "Add To" %></th>
           </tr>
         </thead>
         <tbody>
@@ -19,6 +20,7 @@
                 <td><%= link_to contact.name, contact_path(contact) %></td>
                 <td><%= contact.user_name %></td>
                 <td><%= contact.email %></td>
+                <td><%= event_source(contact) %></td>
               </tr>
             <% end %>
         </tbody>
