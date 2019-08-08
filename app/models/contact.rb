@@ -6,7 +6,7 @@ class Contact < ApplicationRecord
   validates :name, presence: true
 
   scope :active, -> { where('updated_at >= ?', Date.today - 3.month) }
-  scope :access, -> (admin_level) { where('admin_level <= ?', admin_level) }
+  scope :same_level, -> (admin_level) { where('admin_level = ?', admin_level) }
   scope :yours, -> (user_id) { where('user_id = ?', user_id)}
   scope :newsletter_pending, -> (admin_level) { where("newsletter = ? AND email <> ? AND unsubscribed = ? AND admin_level <= ?", false, "", false, admin_level) }
   scope :unsubscribed, -> (admin_level) { where("unsubscribed = ? AND updated_at > ? AND admin_level <= ?", true, 1.month.ago, admin_level) }

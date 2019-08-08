@@ -11,7 +11,7 @@ class ContactsController < ApplicationController
       @event = Event.find(params[:event_id])
       @contacts = @event.contacts
     elsif params[:display_all]
-      @contacts = Contact.access(current_user.admin_level).order(updated_at: :desc)
+      @contacts = Contact.same_level(current_user.admin_level).order(updated_at: :desc)
     else
       @contacts = Contact.yours(current_user.id)
     end

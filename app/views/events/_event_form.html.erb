@@ -18,7 +18,7 @@
 
         <%= f.label "Attendees:", :class => "lb-lg" %><br>
 
-    <%= f.collection_check_boxes :contact_ids, Contact.access(@user_admin_level), :id, :name do |b| %>
+    <%= f.collection_check_boxes :contact_ids, Contact.same_level(@user_admin_level), :id, :name do |b| %>
           <div class="form-check form-check-inline">
             <%= b.label(class: "form-check-label") do %>
               <%= b.label %>
