@@ -46,19 +46,19 @@ class ContactsController < ApplicationController
   end
 
   def newsletter
-    @contacts = Contact.newsletter_pending
+    @contacts = Contact.newsletter_pending(current_user.admin_level)
   end
 
   def newsletter_update
     if params[:newsletters]
-      @contacts = Contact.newsletter_pending
+      @contacts = Contact.newsletter_pending(current_user.admin_level)
       Contact.update_newsletter_status(@contacts)
     end
     redirect_to "/newsletter"
   end
 
   def unsubscribed
-    @contacts = Contact.unsubscribed
+    @contacts = Contact.unsubscribed(current_user.admin_level)
   end
 
   private
