@@ -77,3 +77,6 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 # Use DOTENV to provide access to .env file for access codes and omniauth
 gem 'dotenv-rails'
+
+# Add CSRF protection
+gem "omniauth-rails_csrf_protection"
