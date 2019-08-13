@@ -14,7 +14,7 @@ class SessionsController < ApplicationController
       session[:user_id] = @user.id
       redirect_to contacts_path
     else
-      flash.now[:alert] = "This password/email combination is invalid. Try again - or try logging in via Google."
+      flash.now[:alert] = "Invalid combination. Try again - or try logging in via Google"
       render :new
     end
   end
@@ -24,7 +24,7 @@ class SessionsController < ApplicationController
     redirect_to root_path
   end
 
-# uses googleAuth code to create a user from omniauth, set tokens, and set session id 
+# uses googleAuth code to create a user from omniauth, set tokens, and set session id
   def googleAuth
     access_token = request.env["omniauth.auth"]
     @user = User.from_omniauth(access_token)
