@@ -2,7 +2,7 @@ class User < ApplicationRecord
   has_many :contacts
   validates :email, presence: true
   validates :email, format: { with: /\A\S+@.+\.\S+\z/ }
-  validates :email, uniqueness: true
+  validates :email, uniqueness: { message: "already taken. Try logging in with Google?" } 
   validates :password, format: { with: /\A(?=.*\d).{6,}\z/,
     message: "must be > 6 characters long & include > 1 number" }, allow_nil: true
 
