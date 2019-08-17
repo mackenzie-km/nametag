@@ -5,7 +5,7 @@ Rails.application.routes.draw do
 # creating model routes - note that user does not need show page
   resources :contacts
   resources :events
-  resources :users, only: [:index, :new, :edit, :create, :update, :destroy]
+  resources :users, only: [:index, :edit, :create, :update, :destroy]
 
 # creating nested routes for contact/:id/events & events/:id/contacts
   resources :contacts, only: [:index] do
