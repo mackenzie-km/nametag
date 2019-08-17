@@ -100,4 +100,7 @@ Rails.application.configure do
   'Cache-Control' => "public, s-maxage=#{365.days.to_i}, maxage=#{180.days.to_i}",
   'Expires' => "#{1.year.from_now.to_formatted_s(:rfc822)}"
   }
+
+  # forces SSL 
+  config.force_ssl = true
 end
