@@ -9,9 +9,9 @@ class EventsController < ApplicationController
   def index
     if params[:contact_id]
       @contact = Contact.find(params[:contact_id])
-      @events = @contact.events
+      @events = @contact.events.order(date: :desc)
     else
-      @events = Event.access(@user_admin_level)
+      @events = Event.access(@user_admin_level).order(date: :desc)
     end
   end
 

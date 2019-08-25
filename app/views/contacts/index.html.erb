@@ -1,7 +1,14 @@
 <%= render :layout => 'layouts/12_col_view', :locals => {:header => (c_index_header(params)), :description => "Use the buttons below to change viewing options"} do %>
 
   <%= render :partial => "layouts/flash_message" %>
-
+  <div class="row justify-content-end">
+    <%= button_to "My Contacts", contacts_path, :class => "btn btn-primary", :method => :get %>
+     <%= form_tag(contacts_path, method: "get") do %>
+       <%= hidden_field_tag(:display_all, true) %>
+      <%= submit_tag "All Contacts", class: "btn btn-primary" %>
+    <% end %>
+    <%= button_to c_button_text(params), c_button_link(params), :class => "btn btn-primary", :method => :get %>
+  </div>
   <div class="table-responsive">
     <table class="table table-hover">
         <thead class="">
@@ -24,13 +31,12 @@
         </tbody>
       </table>
     </div>
-
-<div class="row justify-content-center">
-  <%= button_to "My Contacts", contacts_path, :class => "btn btn-primary", :method => :get %>
-   <%= form_tag(contacts_path, method: "get") do %>
-     <%= hidden_field_tag(:display_all, true) %>
-    <%= submit_tag "All Contacts", class: "btn btn-primary" %>
-  <% end %>
-  <%= button_to c_button_text(params), c_button_link(params), :class => "btn btn-primary", :method => :get %>
-</div>
+    <div class="row justify-content-center">
+      <%= button_to "My Contacts", contacts_path, :class => "btn btn-primary", :method => :get %>
+       <%= form_tag(contacts_path, method: "get") do %>
+         <%= hidden_field_tag(:display_all, true) %>
+        <%= submit_tag "All Contacts", class: "btn btn-primary" %>
+      <% end %>
+      <%= button_to c_button_text(params), c_button_link(params), :class => "btn btn-primary", :method => :get %>
+    </div>
 <% end %>
