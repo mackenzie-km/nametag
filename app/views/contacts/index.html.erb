@@ -6,7 +6,6 @@
     <table class="table table-hover">
         <thead class="">
           <tr>
-              <th><%= "ID" %></th>
               <th><%= "Name" %></th>
               <th><%= "Staff" %></th>
               <th><%= "Email" %></th>
@@ -16,7 +15,6 @@
         <tbody>
             <% @contacts.each do |contact| %>
               <tr>
-                <td><%= contact.id %> </td>
                 <td><%= link_to contact.name, contact_path(contact) %></td>
                 <td><%= contact.user_name %></td>
                 <td><%= contact.email %></td>
