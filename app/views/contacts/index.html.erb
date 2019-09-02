@@ -2,12 +2,15 @@
 
   <%= render :partial => "layouts/flash_message" %>
   <div class="row justify-content-end">
-    <%= button_to "My Contacts", contacts_path, :class => "btn btn-primary", :method => :get %>
-     <%= form_tag(contacts_path, method: "get") do %>
-       <%= hidden_field_tag(:display_all, true) %>
-      <%= submit_tag "All Contacts", class: "btn btn-primary" %>
+    <%= link_to contacts_path, :class => "btn btn-primary" do %>
+      <i class="material-icons">people</i>
     <% end %>
-    <%= button_to c_button_text(params), c_button_link(params), :class => "btn btn-primary", :method => :get %>
+    <%= link_to contacts_path(:display_all => true), :class => "btn btn-primary" do %>
+      <i class="material-icons">public</i>
+    <% end %>
+    <%= link_to c_button_link(params), :class => "btn btn-primary" do %>
+      <i class="material-icons">person_add</i>
+    <% end %>
   </div>
   <div class="table-responsive">
     <table class="table table-hover">

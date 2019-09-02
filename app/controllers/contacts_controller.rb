@@ -9,7 +9,7 @@ class ContactsController < ApplicationController
   def index
     if params[:event_id]
       @event = Event.find(params[:event_id])
-      @contacts = @event.contacts.order(name: :asc, updated_at: :desc)
+      @contacts = @event.contacts.order(updated_at: :desc)
     elsif params[:display_all]
       @contacts = Contact.same_level(current_user.admin_level).order(updated_at: :desc)
     else
