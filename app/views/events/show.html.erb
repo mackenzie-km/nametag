@@ -16,7 +16,7 @@
 </div>
 
 <div class="row justify-content-center">
-  <%= button_to "Edit Event & Add Contacts", edit_event_path(@event), :method => :get, :class => "btn btn-primary"  %>
-  <%= button_to "View All Events", events_path, :method => :get, :class => "btn btn-primary" %>
-  <%= button_to "View Detailed Contacts", event_contacts_path(@event), :method => :get, :class => "btn btn-primary"  %>
+  <%= button_to "Create Contact For Event", new_event_contact_path(@event), :method => :get, :class => "btn btn-primary"  %>
+  <%= button_to "Edit Event Properties", edit_event_path(@event), :method => :get, :class => "btn btn-primary"  %>
+  <%= button_to "Detailed Contact List", event_contacts_path(@event), :method => :get, :class => "btn btn-primary"  %>
 </div>

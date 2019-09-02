@@ -26,6 +26,7 @@ class ContactsController < ApplicationController
   def create
     @contact = Contact.new(contact_params)
     @contact.admin_level=(User.find(session[:user_id]))
+    @event = Event.find_by(id: contact_params[:event_id])
     if @contact.save then nested_contact_redirect(@event, @contact) else render :new end
   end
 
@@ -83,6 +84,6 @@ class ContactsController < ApplicationController
 
 # chooses redirect based on whether contact is nested or not
   def nested_contact_redirect(event, contact)
-    if !!event then redirect_to event_contacts_path(event) else redirect_to contact_path(contact) end
+    if !!event then redirect_to event_path(event) else redirect_to contact_path(contact) end
   end
 end
