@@ -62,6 +62,20 @@ class ContactsController < ApplicationController
     @contacts = Contact.unsubscribed(current_user.admin_level)
   end
 
+  def register
+    @contact = Contact.new
+    @event_id = Event.find_by(name: "2019 Welcome Night")
+    render template: 'contacts/register', layout: false
+  end
+
+  def register_create
+    @contact = Contact.new(contact_params)
+    @contact.admin_level=(User.find(22))
+    @event = Event.find_by(id: contact_params[:event_id])
+    if @contact.save then flash.now[:notice] = "Thank you! Please use this form to submit a new response." end
+    render template: 'contacts/register', layout: false
+  end
+
   private
   # allowed contact parameters
   def contact_params

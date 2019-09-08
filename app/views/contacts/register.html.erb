@@ -1,0 +1,137 @@
+<!--
+=========================================================
+ Material Dashboard - v2.1.1
+=========================================================
+
+ Product Page: https://www.creative-tim.com/product/material-dashboard
+ Copyright 2019 Creative Tim (https://www.creative-tim.com)
+ Licensed under MIT (https://github.com/creativetimofficial/material-dashboard/blob/master/LICENSE.md)
+
+ Theme coded by Creative Tim
+
+=========================================================
+
+ The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software. -->
+
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>nametag</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <%= javascript_include_tag "//code.jquery.com/jquery-3.3.1.slim.min.js" %>
+  <%= javascript_include_tag "https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" %>
+  <%= javascript_include_tag "https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" %>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= stylesheet_link_tag "https://fonts.googleapis.com/css?family=Raleway" %>
+  <%= stylesheet_link_tag "https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" %>
+  <style>
+    .wrapper {
+      background-image: none !important; background-color:#F9F3E5;
+    }
+    body {
+      background-color: #F9F3E5 !important;
+    }
+    .main-panel {
+      position: absolute !important;
+      top: 150px !important;
+      background-color: white !important;
+      float: none !important;
+      margin-left: 25% !important;
+      margin-right: 25% !important;
+      width: 50% !important;
+    }
+    .main-panel>.content {
+      margin-top: 0px !important;
+      padding: 30px !important;
+    }
+    h2 {
+      font-family: 'Raleway', cursive !important;
+      font-size: 3rem !important;
+    }
+    .lb-lg {
+      font-family: 'Raleway', cursive !important;
+      color: #3C4858 !important;
+      font-size: 1.2rem !important;
+      margin-top: 8px !important;
+    }
+    .lb-sm {
+      font-family: 'Raleway', cursive !important;
+      color: #3C4858 !important;
+      font-size: .9rem !important;
+    }
+    .bottom {
+      border-bottom: 1px solid #D2D2D2 !important;
+      margin-bottom: 25px !important;
+    }
+    .row {
+      margin: 20px auto !important;
+    }
+    .form-check.form-check-inline{
+      left: 25px !important;
+    }
+  </style>
+</head>
+
+  <body>
+    <div class="wrapper">
+        <img class="img-fluid" src="<%= asset_path 'artem-bali-570692-unsplash.jpg' %>">
+  <!-- Container Begins -->
+      <div class="main-panel">
+
+        <div class="content">
+          <div class="container-fluid">
+            <div class="row bottom">
+              <h2>Welcome to IGSM!</h2>
+            </div>
+            <%= render partial: "layouts/error_message", locals: {thing: @contact} %>
+            <%= render partial: "layouts/flash_message" %>
+              <%= form_for(Contact.new, :url => register_path, :html => { :method => "post" }) do |f| %>
+                <%= f.label "Name", class: "lb-lg" %>
+                <%= f.text_field :name, class: "form-control" %><br>
+
+                <%= f.label "Email", class: "lb-lg" %>
+                <%= f.text_field :email, class: "form-control"  %><br>
+
+                <%= f.label "Gender", class: "lb-lg" %>
+                <div class="form-check form-check-inline">
+                  <%= f.label "gender_female", class: "form-check-label" do %>
+                    <%= f.label "Female", class: "lb-sm" %>
+                    <%= f.radio_button :gender, "Female", class: "form-check-input" %>
+                    <span class="circle">
+                      <span class="check"></span>
+                    </span>
+                  <% end %>
+                </div>
+              <div class="form-check form-check-inline">
+                  <%= f.label "gender_male", class: "form-check-label" do %>
+                    <%= f.label "Male", class: "lb-sm" %>
+                    <%= f.radio_button :gender, "Male", class: "form-check-input" %>
+                    <span class="circle">
+                      <span class="check"></span>
+                    </span>
+                  <% end %>
+                </div><br>
+
+                <%= f.label "Phone Number", class: "lb-lg" %>
+                <%= f.text_field :phone_number, class: "form-control" %><br>
+
+                <%= f.label "Academic Status", class: "lb-lg" %><br>
+                <%= f.select :school_status, ["exchange", "freshmen", "sophomore", "junior", "senior", "masters", "PhD", "post doc", "visiting scholar", "family", "alumni"], {include_blank: true}, {class: "custom-select"} %><br><br>
+
+                <%= f.label "Major", class: "lb-lg" %>
+                <%= f.text_field :major, class: "form-control" %><br>
+
+                <%= f.hidden_field :event_id, value: @event_id %>
+                <%= f.hidden_field :user_id, value: 22 %><br><br>
+
+                <div class="row justify-content-center">
+                  <%= f.submit "Submit", class: "btn btn-primary" %><br>
+                </div>
+              <% end %>
+        </div><!-- end container-fluid -->
+      </div><!-- end content -->
+    </div><!-- end main panel -->
+    </div><!-- end wrapper -->
+  </body>
+</html>

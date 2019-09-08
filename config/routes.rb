@@ -28,4 +28,8 @@ Rails.application.routes.draw do
   get '/newsletter', to: "contacts#newsletter"
   post '/newsletter', to: "contacts#newsletter_update"
   get '/unsubscribed', to: "contacts#unsubscribed"
+
+# custom route for welcome night form
+  get '/register', to: "contacts#register"
+  post '/register', to: "contacts#register_create"
 end
