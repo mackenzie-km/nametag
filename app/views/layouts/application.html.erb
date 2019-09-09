@@ -19,6 +19,12 @@
   <title>nametag</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <%= javascript_include_tag "//code.jquery.com/jquery-3.3.1.slim.min.js" %>
+  <%= javascript_include_tag "https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" %>
+  <%= javascript_include_tag "https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" %>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= stylesheet_link_tag "https://fonts.googleapis.com/css?family=Raleway" %>
+  <%= stylesheet_link_tag "https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" %>
 </head>
 
   <body>
@@ -93,11 +99,5 @@
           </div><!-- end content -->
         </div><!-- end main panel -->
       </div><!-- end wrapper -->
-      <%= javascript_include_tag "//code.jquery.com/jquery-3.3.1.slim.min.js" %>
-      <%= javascript_include_tag "https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" %>
-      <%= javascript_include_tag "https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" %>
-      <%= stylesheet_link_tag    "application", :media => "all" %>
-      <%= stylesheet_link_tag "https://fonts.googleapis.com/css?family=Raleway" %>
-      <%= stylesheet_link_tag "https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" %>
   </body>
 </html>
