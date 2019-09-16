@@ -30,6 +30,9 @@ Rails.application.routes.draw do
   get '/unsubscribed', to: "contacts#unsubscribed"
 
 # custom route for welcome night form
-  get '/register', to: "contacts#register"
-  post '/register', to: "contacts#register_create"
+  get '/welcome', to: "contacts#welcome"
+  post '/welcome', to: "contacts#welcome_create"
+
+  get '/international_connect', to: "contacts#international_connect"
+  post '/international_connect', to: "contacts#international_connect_create"
 end
