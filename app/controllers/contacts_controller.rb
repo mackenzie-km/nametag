@@ -62,18 +62,32 @@ class ContactsController < ApplicationController
     @contacts = Contact.unsubscribed(current_user.admin_level)
   end
 
-  def register
+  def welcome
     @contact = Contact.new
-    @event_id = Event.find_by(name: "2019 Welcome Night")
-    render template: 'contacts/register', layout: false
+    @event_id = Event.maximum("id")
+    render template: 'contacts/welcome', layout: false
   end
 
-  def register_create
+  def welcome_create
     @contact = Contact.new(contact_params)
     @contact.admin_level=(User.find(22))
     @event = Event.find_by(id: contact_params[:event_id])
     if @contact.save then flash.now[:notice] = "Thank you! Please use this form to submit a new response." end
-    render template: 'contacts/register', layout: false
+    render template: 'contacts/welcome', layout: false
+  end
+
+  def international_connect
+    @contact = Contact.new
+    @event_id = Event.maximum("id")
+    render template: 'contacts/international_connect', layout: false
+  end
+
+  def international_connect_create
+    @contact = Contact.new(contact_params)
+    @contact.admin_level=(User.find(22))
+    @event = Event.find_by(id: contact_params[:event_id])
+    if @contact.save then flash.now[:notice] = "Thank you! Please use this form to submit a new response." end
+    render template: 'contacts/international_connect', layout: false
   end
 
   private
