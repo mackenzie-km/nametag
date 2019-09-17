@@ -1,7 +1,7 @@
 class ContactsController < ApplicationController
-
 # before actions - check logged in, check access resource, set admin level for forms
   before_action :redirect_if_no_login
+  skip_before_action :redirect_if_no_login, only: [:welcome, :welcome_create, :international_connect, :international_connect_create]
   before_action :access_contact, only: [:show, :edit, :update, :destroy]
   before_action :user_admin_level, only: [:new, :edit]
 
@@ -64,36 +64,44 @@ class ContactsController < ApplicationController
 
   def welcome
     @contact = Contact.new
-    @event_id = Event.maximum("id")
     render template: 'contacts/welcome', layout: false
   end
 
   def welcome_create
     @contact = Contact.new(contact_params)
-    @contact.admin_level=(User.find(22))
-    @event = Event.find_by(id: contact_params[:event_id])
-    if @contact.save then flash.now[:notice] = "Thank you! Please use this form to submit a new response." end
+    @user = User.find(22)
+    @contact.user = @user
+    @contact.admin_level=(@user)
+    @event = Event.find_or_create_by(name: "Large Group", admin_level: 1, created_at: Date.current, date: Date.current)
+    if @contact.save
+      @contact.event_id = @event.id.to_s
+      flash.now[:notice] = "Thank you! Please use this form to submit a new response."
+    end
     render template: 'contacts/welcome', layout: false
   end
 
   def international_connect
     @contact = Contact.new
-    @event_id = Event.maximum("id")
     render template: 'contacts/international_connect', layout: false
   end
 
   def international_connect_create
     @contact = Contact.new(contact_params)
-    @contact.admin_level=(User.find(22))
-    @event = Event.find_by(id: contact_params[:event_id])
-    if @contact.save then flash.now[:notice] = "Thank you! Please use this form to submit a new response." end
+    @user = User.find(22)
+    @contact.user = @user
+    @contact.admin_level=(@user)
+    @event = Event.find_or_create_by(name: "International Connect", admin_level: 1, created_at: Date.current, date: Date.current)
+    if @contact.save
+      @contact.event_id = @event.id.to_s
+      flash.now[:notice] = "Thank you! Please use this form to submit a new response."
+    end
     render template: 'contacts/international_connect', layout: false
   end
 
   private
   # allowed contact parameters
   def contact_params
-    params.require(:contact).permit(:name, :email, :gender, :user_id, :phone_number, :school_status, :last_day, :messenger_id, :major, :country, :birthday, :unsubscribed, :newsletters, :event_id, :source)
+    params.require(:contact).permit(:name, :email, :gender, :user_id, :phone_number, :school_status, :last_day, :messenger_id, :major, :country, :birthday, :unsubscribed, :newsletters, :source, :event_id)
   end
 
 # finds contact
