@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_14_053506) do
+ActiveRecord::Schema.define(version: 2019_09_17_164750) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -48,6 +48,7 @@ ActiveRecord::Schema.define(version: 2019_09_14_053506) do
     t.integer "admin_level"
     t.integer "staff_count", default: 0
     t.integer "guest_count", default: 0
+    t.datetime "created_at"
   end
 
   create_table "users", force: :cascade do |t|

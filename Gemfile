@@ -80,3 +80,6 @@ gem 'dotenv-rails'
 
 # Add CSRF protection
 gem "omniauth-rails_csrf_protection"
+
+# Test Pry
+gem 'pry'
