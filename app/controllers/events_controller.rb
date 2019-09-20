@@ -33,6 +33,10 @@ class EventsController < ApplicationController
   end
 
   def show
+    respond_to do |format|
+      format.html { render :show }
+      format.json { render json: @event, status: 200}
+    end
   end
 
   def edit
