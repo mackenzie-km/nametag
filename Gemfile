@@ -83,3 +83,6 @@ gem "omniauth-rails_csrf_protection"
 
 # Test Pry
 gem 'pry'
+
+# Serialize Data for Api
+gem 'active_model_serializers'
