@@ -24,8 +24,12 @@ function organizeInfo(data) {
     let array = Object.entries(data).map(function(element) {
       if ((element[0] === "created_at") || (element[0] === "updated_at")) {
         return "<b>" + element[0] + ":</b> " + humanDate(element[1]) + "<br>";
+      } else if (typeof element[1][0] === 'object')  {
+        return "<b>" + "last event attended:</b> " + Object.values(element[1][0])[1] + " " + Object.values(element[1][0])[2] + "<br>"
+      } else if (typeof element[1] === 'object')  {
+        return "<b>" + element[0] + ":</b> " + Object.values(element[1]) + "<br>"
       } else {
-        return "<b>" + element[0] + ":</b> " + element[1] + "<br>";
+        return "<b>" + element[0] + ":</b> " + (element[1] || "N/A") + "<br>";
       };
     })
     return array.join("");
