@@ -7,17 +7,36 @@ function attachListeners(){
     event.preventDefault();
       let id = $(this).data("id");
        $.get("/contacts/" + id + ".json", function(data) {
-         $('#more-div').text(data)
+         let info = "<b>More Contact Information</b><br>" + organizeInfo(data)
+         $('#more-div').html(info)
        });
     });
 };
 
-// YAY, an object is showing up! need to parse the object now
-
 function humanDate(data){
-  let dateArray = data["date"].slice(0, -1)
+  let dateArray = data.split("T")
   return dateArray[0]
 };
+
+function organizeInfo(data) {
+  debugger
+  let array = Object.entries(data).map(function(element) {
+    if ((element[0] === "created_at") || (element[0] === "updated_at")) {
+      return "<b>" + element[0] + ":</b> " + humanDate(element[1]) + "<br>";
+    } else {
+      return "<b>" + element[0] + ":</b> " + element[1] + "<br>";
+    };
+  })
+  return array.join("");
+};
+
+// function Contact(data) {
+//   this.name = data["name"];
+//   this.email = data["email"];
+//   this.gender = data["gender"];
+//   this.staff = data["user"]["name"];
+//   this.created = humanDate(data["created_at"])
+// }
 
 // Contact.prototype.humanDate = humanDate(data);
 // Event.prototype.humanDate = humanDate(data);
