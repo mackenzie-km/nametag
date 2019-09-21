@@ -28,12 +28,12 @@
                 <%= ff.text_field :name, list: "contacts_autocomplete" %>
                 <datalist id="contacts_autocomplete">
                 <% @contacts.each do |c| %>
-                  <option value="<%= c.name %>">
+                  <option data-id="<%= c.id %>" value="<%= c.name %>"></option>
                 <% end %>
                 </datalist>
               <% end %>
 
-              <a href="#" class="more-button" data-id="</%= b.value %>"><i class="material-icons">info</i></a>
+              <a href="#" class="lookup-button"><i class="material-icons">info</i></a>
               <a href="#" class="add-button" data-id="</%= b.value %>"><i class="material-icons">add_circle</i></a><br>
               <i>Begin typing to find a new contact.</i>
           </div>
