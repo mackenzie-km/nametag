@@ -20,14 +20,18 @@ function humanDate(data){
 
 function organizeInfo(data) {
   debugger
-  let array = Object.entries(data).map(function(element) {
-    if ((element[0] === "created_at") || (element[0] === "updated_at")) {
-      return "<b>" + element[0] + ":</b> " + humanDate(element[1]) + "<br>";
-    } else {
-      return "<b>" + element[0] + ":</b> " + element[1] + "<br>";
-    };
-  })
-  return array.join("");
+  if (data["id"]) {
+    let array = Object.entries(data).map(function(element) {
+      if ((element[0] === "created_at") || (element[0] === "updated_at")) {
+        return "<b>" + element[0] + ":</b> " + humanDate(element[1]) + "<br>";
+      } else {
+        return "<b>" + element[0] + ":</b> " + element[1] + "<br>";
+      };
+    })
+    return array.join("");
+  } else {
+    return "This contact hasn't been created yet. Use the add button to create a new contact."
+  }
 };
 
 // function Contact(data) {
