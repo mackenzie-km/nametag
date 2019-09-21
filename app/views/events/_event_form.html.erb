@@ -16,23 +16,34 @@
           <%= f.text_field :guest_count, :class => "form-control", placeholder: "# of guests" %><br>
 
 
-        <%= f.label "Attendees:", :class => "lb-lg" %><br>
+        <% if @event.contacts.length > 0 %>
+          <div class="attendees">
+              <%= f.label "Attendees:", :class => "lb-lg" %><br>
+              <% @event.contacts.map do |c| %>
+                <%= c.name %>
+                <a href="#" class="more-button" data-id="<%= c.id %>"><i class="material-icons">info</i></a><br>
+              <% end %>
 
-    <%= f.collection_check_boxes :contact_ids, Contact.same_level(@user_admin_level), :id, :name do |b| %>
-          <div class="form-check form-check-inline">
-            <%= b.label(class: "form-check-label") do %>
-              <%= b.label %>
-              <%= b.check_box(class: "form-check-input") %>
-              <a href="#" class="more-button" data-id="<%= b.value %>"><i class="material-icons">info</i></a>
-              <a href="#" class="add-button" data-id="<%= b.value %>"><i class="material-icons">add_circle</i></a>
-              <span class="form-check-sign">
-               <span class="check"></span>
-              </span>
-            <% end %>
+              <%= f.fields_for :contacts do |ff| %>
+                <%= ff.text_field :name, list: "contacts_autocomplete" %>
+                <datalist id="contacts_autocomplete">
+                <% @contacts.each do |c| %>
+                  <option value="<%= c.name %>">
+                <% end %>
+                </datalist>
+              <% end %>
+
+              <a href="#" class="more-button" data-id="</%= b.value %>"><i class="material-icons">info</i></a>
+              <a href="#" class="add-button" data-id="</%= b.value %>"><i class="material-icons">add_circle</i></a><br>
+              <i>Begin typing to find a new contact.</i>
           </div>
-        <% end %><br><br>
+        <% end %>
 
-      <div id="more-div"><b>More Contact Information</b><br><i>Drill down by selecting info icon</i></div>
+
+
+
+
+      <div id="more-div"><%= f.label "More Contact Info", :class => "lb-lg" %><br><i>Drill down by selecting any info icon on the page</i><br></div>
 
     <%= f.submit "Submit", class: "btn btn-primary" %><br>
 

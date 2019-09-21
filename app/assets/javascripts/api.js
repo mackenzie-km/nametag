@@ -19,7 +19,6 @@ function humanDate(data){
 };
 
 function organizeInfo(data) {
-  debugger
   if (data["id"]) {
     let array = Object.entries(data).map(function(element) {
       if ((element[0] === "created_at") || (element[0] === "updated_at")) {

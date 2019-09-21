@@ -17,6 +17,7 @@ class EventsController < ApplicationController
 
   def new
     @event = Event.new
+    @contacts = Contact.same_level(@user_admin_level).order(name: :asc)
   end
 
 # add date, admin level, and contacts separately from .new method
@@ -40,6 +41,7 @@ class EventsController < ApplicationController
   end
 
   def edit
+    @contacts = Contact.same_level(@user_admin_level).order(name: :asc)
   end
 
 # update contacts & date separately from .update method
