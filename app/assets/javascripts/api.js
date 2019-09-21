@@ -1,17 +1,30 @@
 $(document).ready(function() {
-  attachListeners();
+  attachInfoListeners();
+  attachLookupListeners();
 });
 
-function attachListeners(){
+function attachInfoListeners(){
   $('.more-button').on("click", function(event) {
     event.preventDefault();
-      let id = $(this).data("id");
-       $.get("/contacts/" + id + ".json", function(data) {
-         let info = "<b>More Contact Information</b><br>" + organizeInfo(data)
-         $('#more-div').html(info)
-       });
+     let id = $(this).data("id");
+      $.get("/contacts/" + id + ".json", function(data) {
+        let info = "<b>More Contact Information</b><br>" + organizeInfo(data)
+        $('#more-div').html(info)
+      });
     });
 };
+
+function attachLookupListeners(){
+  $('.lookup-button').on("click", function(event) {
+    event.preventDefault();
+    if (!!$('#event_contacts_name').val()) {
+      $.get("/contacts/" + grabId() + ".json", function(data) {
+        let info = "<b>More Contact Information</b><br>" + organizeInfo(data)
+        $('#more-div').html(info)
+        });
+    };
+  });
+}
 
 function humanDate(data){
   let dateArray = data.split("T")
@@ -23,9 +36,9 @@ function organizeInfo(data) {
     let array = Object.entries(data).map(function(element) {
       if ((element[0] === "created_at") || (element[0] === "updated_at")) {
         return "<b>" + element[0] + ":</b> " + humanDate(element[1]) + "<br>";
-      } else if (typeof element[1][0] === 'object')  {
+      } else if ((element[0] === "events") && (typeof element[1][0] === 'object'))  {
         return "<b>" + "last event attended:</b> " + Object.values(element[1][0])[1] + " " + Object.values(element[1][0])[2] + "<br>"
-      } else if (typeof element[1] === 'object')  {
+      } else if (element[1] && (typeof element[1] === 'object'))  {
         return "<b>" + element[0] + ":</b> " + Object.values(element[1]) + "<br>"
       } else {
         return "<b>" + element[0] + ":</b> " + (element[1] || "N/A") + "<br>";
@@ -36,6 +49,24 @@ function organizeInfo(data) {
     return "This contact hasn't been created yet. Use the add button to create a new contact."
   }
 };
+
+// make sure events is always working
+
+function grabId() {
+  let box = $('#event_contacts_name').val()
+  let id = $('#contacts_autocomplete option').filter(function() {
+      return this.value == box;
+  }).data('id');
+  return id
+}
+
+function lookupInBox() {
+  debugger
+  $.get("/contacts/" + grabId() + ".json", function(data) {
+    let info = "<b>More Contact Information</b><br>" + organizeInfo(data)
+    $('#more-div').html(info)
+  });
+}
 
 // function Contact(data) {
 //   this.name = data["name"];
