@@ -37,7 +37,7 @@ function organizeInfo(data) {
       if ((element[0] === "created_at") || (element[0] === "updated_at")) {
         return "<b>" + element[0] + ":</b> " + humanDate(element[1]) + "<br>";
       } else if ((element[0] === "events") && (typeof element[1][0] === 'object'))  {
-        return "<b>" + "last event attended:</b> " + Object.values(element[1][0])[1] + " " + Object.values(element[1][0])[2] + "<br>"
+        return returnEvents(element)
       } else if (element[1] && (typeof element[1] === 'object'))  {
         return "<b>" + element[0] + ":</b> " + Object.values(element[1]) + "<br>"
       } else {
@@ -51,6 +51,16 @@ function organizeInfo(data) {
 };
 
 // make sure events is always working
+
+function returnEvents(element){
+  if (element[1][1] != "") {
+    debugger
+    return "<b>" + "last event attended:</b> " + Object.values(element[1][0])[1] + " " + Object.values(element[1][0])[2] + "<br>"
+  } else {
+    return "<b>" + "last event attended:</b> N/A <br>"
+  }
+
+}
 
 function grabId() {
   let box = $('#event_contacts_name').val()
