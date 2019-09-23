@@ -20,7 +20,7 @@
   </div>
   <div class="row justify-content-center">
     <div id="attendees" class="col-md-6 justify-content-center">
-        <%= f.label "Attendees:", :class => "lb-lg" %><br>
+        <%= f.label "Attendees", :class => "lb-lg" %><br>
         <% if @event.contacts.length > 0 %>
           <% @event.contacts.map do |c| %>
             <%= c.name %>
@@ -55,4 +55,4 @@
     <%= f.submit "Submit", class: "btn btn-primary" %><br>
 
 <% end %>
-<%= javascript_include_tag "api" %>
+<%= javascript_include_tag "events" %>
