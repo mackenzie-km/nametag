@@ -8,7 +8,7 @@ function attachInfoListeners(){
     event.preventDefault();
      let id = $(this).data("id");
       $.get("/contacts/" + id + ".json", function(data) {
-        let info = "<b>More Contact Information</b><br>" + organizeInfo(data)
+        let info = '<label class="lb-lg">More Contact Info:</label><br>' + organizeInfo(data)
         $('#more-div').html(info)
       });
     });
@@ -19,7 +19,7 @@ function attachLookupListeners(){
     event.preventDefault();
     if (!!$('#event_contacts_name').val()) {
       $.get("/contacts/" + grabId() + ".json", function(data) {
-        let info = "<b>More Contact Information</b><br>" + organizeInfo(data)
+        let info = '<label class="lb-lg">More Contact Info:</label><br>' + organizeInfo(data)
         $('#more-div').html(info)
         });
     };
@@ -35,13 +35,13 @@ function organizeInfo(data) {
   if (data["id"]) {
     let array = Object.entries(data).map(function(element) {
       if ((element[0] === "created_at") || (element[0] === "updated_at")) {
-        return "<b>" + element[0] + ":</b> " + humanDate(element[1]) + "<br>";
-      } else if ((element[0] === "events") && (typeof element[1][0] === 'object'))  {
-        return returnEvents(element)
+        return returnDates(element);
+      } else if ((element[0] === "events"))  {
+        return returnEvents(element);
       } else if (element[1] && (typeof element[1] === 'object'))  {
-        return "<b>" + element[0] + ":</b> " + Object.values(element[1]) + "<br>"
+        return returnObjects(element);
       } else {
-        return "<b>" + element[0] + ":</b> " + (element[1] || "N/A") + "<br>";
+        return returnRegular(element);
       };
     })
     return array.join("");
@@ -50,14 +50,23 @@ function organizeInfo(data) {
   }
 };
 
-// make sure events is always working
+function returnDates(element){
+  return "<b>" + element[0] + ":</b> " + humanDate(element[1]) + "<br>";
+}
+
+function returnObjects(element){
+  return "<b>" + element[0] + ":</b> " + Object.values(element[1]) + "<br>";
+}
+
+function returnRegular(element){
+  return "<b>" + element[0] + ":</b> " + (element[1] || "N/A") + "<br>";
+}
 
 function returnEvents(element){
-  if (element[1][1] != "") {
-    debugger
-    return "<b>" + "last event attended:</b> " + Object.values(element[1][0])[1] + " " + Object.values(element[1][0])[2] + "<br>"
+  if (!!element[1][0]) {
+    return "<b>" + "last event attended:</b> " + Object.values(element[1][0])[1] + " " + Object.values(element[1][0])[2] + "<br>";
   } else {
-    return "<b>" + "last event attended:</b> N/A <br>"
+    return "<b>" + "last event attended:</b> N/A <br>";
   }
 
 }
@@ -71,9 +80,8 @@ function grabId() {
 }
 
 function lookupInBox() {
-  debugger
   $.get("/contacts/" + grabId() + ".json", function(data) {
-    let info = "<b>More Contact Information</b><br>" + organizeInfo(data)
+    let info = '<label class="lb-lg">More Contact Info:</label><br>' + organizeInfo(data)
     $('#more-div').html(info)
   });
 }
