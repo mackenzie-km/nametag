@@ -1,6 +1,7 @@
 $(document).ready(function() {
   attachInfoListeners();
   attachLookupListeners();
+  attachAddListeners();
 });
 
 function attachInfoListeners(){
@@ -8,28 +9,38 @@ function attachInfoListeners(){
     event.preventDefault();
      let id = $(this).data("id");
       $.get("/contacts/" + id + ".json", function(data) {
-        let info = '<label class="lb-lg">More Contact Info:</label><br>' + organizeInfo(data)
-        $('#more-div').html(info)
+        let info = '<label class="lb-lg">More Contact Info:</label><br>' + organizeInfo(data);
+        $('#more-div').html(info);
       });
     });
-};
+}
 
 function attachLookupListeners(){
   $('.lookup-button').on("click", function(event) {
     event.preventDefault();
     if (!!$('#event_contacts_name').val()) {
       $.get("/contacts/" + grabId() + ".json", function(data) {
-        let info = '<label class="lb-lg">More Contact Info:</label><br>' + organizeInfo(data)
-        $('#more-div').html(info)
+        let info = '<label class="lb-lg">More Contact Info:</label><br>' + organizeInfo(data);
+        $('#more-div').html(info);
         });
-    };
+    }
+  });
+}
+
+function attachAddListeners(){
+  $('.add-button').on("click", function(event) {
+    event.preventDefault();
+    if (!!$('#event_contacts_name').val()) {
+      let values = {add_contact: grabId()};
+      $.post("/events/" + "id", values);
+    }
   });
 }
 
 function humanDate(data){
-  let dateArray = data.split("T")
-  return dateArray[0]
-};
+  let dateArray = data.split("T");
+  return dateArray[0];
+}
 
 function organizeInfo(data) {
   if (data["id"]) {
@@ -42,13 +53,13 @@ function organizeInfo(data) {
         return returnObjects(element);
       } else {
         return returnRegular(element);
-      };
-    })
+      }
+    });
     return array.join("");
   } else {
-    return "This contact hasn't been created yet. Use the add button to create a new contact."
+    return "This contact hasn't been created yet. Use the add button to create a new contact.";
   }
-};
+}
 
 function returnDates(element){
   return "<b>" + element[0] + ":</b> " + humanDate(element[1]) + "<br>";
@@ -72,17 +83,17 @@ function returnEvents(element){
 }
 
 function grabId() {
-  let box = $('#event_contacts_name').val()
+  let box = $('#event_contacts_name').val();
   let id = $('#contacts_autocomplete option').filter(function() {
       return this.value == box;
   }).data('id');
-  return id
+  return id;
 }
 
 function lookupInBox() {
   $.get("/contacts/" + grabId() + ".json", function(data) {
-    let info = '<label class="lb-lg">More Contact Info:</label><br>' + organizeInfo(data)
-    $('#more-div').html(info)
+    let info = '<label class="lb-lg">More Contact Info:</label><br>' + organizeInfo(data);
+    $('#more-div').html(info);
   });
 }
 
