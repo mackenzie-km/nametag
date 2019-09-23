@@ -1,4 +1,6 @@
 <%= render partial: "layouts/error_message", locals: {thing: @event} %>
+<div class="row">
+  <div class="col-md-12">
       <%= form_for @event do |f| %>
 
           <%= f.label "Event Name", :class => "lb-lg" %>
@@ -14,36 +16,40 @@
 
           <%= f.label "Guest Count", :class => "lb-lg" %>
           <%= f.text_field :guest_count, :class => "form-control", placeholder: "# of guests" %><br>
-
-
+      </div>
+  </div>
+  <div class="row justify-content-center">
+    <div id="attendees" class="col-md-6 justify-content-center">
+        <%= f.label "Attendees:", :class => "lb-lg" %><br>
         <% if @event.contacts.length > 0 %>
-          <div class="attendees">
-              <%= f.label "Attendees:", :class => "lb-lg" %><br>
-              <% @event.contacts.map do |c| %>
-                <%= c.name %>
-                <a href="#" class="more-button" data-id="<%= c.id %>"><i class="material-icons">info</i></a><br>
-              <% end %>
-
-              <%= f.fields_for :contacts do |ff| %>
-                <%= ff.text_field :name, list: "contacts_autocomplete" %>
-                <datalist id="contacts_autocomplete">
-                <% @contacts.each do |c| %>
-                  <option data-id="<%= c.id %>" value="<%= c.name %>"></option>
-                <% end %>
-                </datalist>
-              <% end %>
-
-              <a href="#" class="lookup-button"><i class="material-icons">info</i></a>
-              <a href="#" class="add-button" data-id="</%= b.value %>"><i class="material-icons">add_circle</i></a><br>
-              <i>Begin typing to find a new contact.</i>
-          </div>
+          <% @event.contacts.map do |c| %>
+            <%= c.name %>
+            <a href="#" class="more-button" data-id="<%= c.id %>"><i class="material-icons">info</i></a><br>
+          <% end %>
         <% end %>
 
+        <%= f.fields_for :contacts do |ff| %>
+          <%= ff.text_field :name, list: "contacts_autocomplete" %>
+          <datalist id="contacts_autocomplete">
+          <% @contacts.each do |c| %>
+            <option data-id="<%= c.id %>" value="<%= c.name %>"></option>
+          <% end %>
+          </datalist>
+        <% end %>
+
+        <a href="#" class="lookup-button"><i class="material-icons">info</i></a>
+        <a href="#" class="add-button" data-id="</%= b.value %>"><i class="material-icons">add_circle</i></a><br>
+        Begin typing to find a new contact to add.<br>
+    </div>
+    <div id="more-div" class="col-md-6 justify-content-center">
+      <%= f.label "More Contact Info", :class => "lb-lg" %><br><i>Drill down by selecting any info icon on the page</i>
+    </div>
+  </div>
 
 
 
 
-      <div id="more-div"><%= f.label "More Contact Info", :class => "lb-lg" %><br><i>Drill down by selecting any info icon on the page</i><br></div>
+
 
     <%= f.submit "Submit", class: "btn btn-primary" %><br>
 
