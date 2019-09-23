@@ -20,7 +20,7 @@ function attachLookupListeners(){
     event.preventDefault();
     if (!!$('#event_contacts_name').val()) {
       $.get("/contacts/" + grabId() + ".json", function(data) {
-        let info = '<label class="lb-lg">More Contact Info:</label><br>' + organizeInfo(data);
+        let info = '<label class="lb-lg">More Contact Info</label><br>' + organizeInfo(data);
         $('#more-div').html(info);
         });
     }
@@ -92,7 +92,7 @@ function grabId() {
 
 function lookupInBox() {
   $.get("/contacts/" + grabId() + ".json", function(data) {
-    let info = '<label class="lb-lg">More Contact Info:</label><br>' + organizeInfo(data);
+    let info = '<label class="lb-lg">More Contact Info</label><br>' + organizeInfo(data);
     $('#more-div').html(info);
   });
 }
