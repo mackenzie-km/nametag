@@ -46,12 +46,12 @@ class EventsController < ApplicationController
 
 # update contacts & date separately from .update method
   def update
-    binding.pry
-    if params[:event][:name]
-      params[:date] = Event.collect_date(event_params)
+    if !!params[:event][:name]
+      params[:event][:date] = Event.collect_date(event_params)
       @event.update(event_params)
     end
     Contact.add_contact(params)
+    Contact.delete_contact(event_params[:contacts][:delete_id]) if event_params[:contacts][:delete_id]
     if @event.save then redirect_to event_path(@event) else render :edit end
   end
 
