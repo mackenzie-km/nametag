@@ -22,8 +22,8 @@ class EventsController < ApplicationController
 
 # add date, admin level, and contacts separately from .new method
   def create
-    date = Event.collect_date(event_params)
-    @event = Event.new(name: event_params[:name], date: date, guest_count: event_params[:guest_count], staff_count: event_params[:staff_count])
+    params["date"] = Event.collect_date(event_params) if params[:date]
+    @event = Event.new(event_params)
     @event.admin_level = @user_admin_level
     if @event.save
       Contact.add_contacts(event_params, @event, current_user)
@@ -46,10 +46,12 @@ class EventsController < ApplicationController
 
 # update contacts & date separately from .update method
   def update
-    date = Event.collect_date(event_params[:date]) if !!event_params[:date]
-    @event.update(name: event_params[:name], date: date, guest_count: event_params[:guest_count], staff_count: event_params[:staff_count])
+    binding.pry
+    if params[:event][:name]
+      params[:date] = Event.collect_date(event_params)
+      @event.update(event_params)
+    end
     Contact.add_contact(params)
-    @event.contacts.push(:add_contact)
     if @event.save then redirect_to event_path(@event) else render :edit end
   end
 
@@ -61,7 +63,7 @@ class EventsController < ApplicationController
   private
   # permitted event parameters
   def event_params
-    params.require(:event).permit(:name, :date, :guest_count, :staff_count, contacts: {})
+    params.require(:event).permit(:name, :date, :guest_count, :staff_count, contacts: {}).select { |k, v| !v.nil? }
   end
 
   # finds events

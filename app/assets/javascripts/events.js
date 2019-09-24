@@ -31,18 +31,19 @@ function attachAddListeners(){
   $('.add-button').on("click", function(event) {
     event.preventDefault();
     if (!!$('#event_contacts_name').val()) {
-      let event_id = $(this).data("id")
+      let url = "/events/" + $(this).data("id")
       let data = $('form.add-attendees').serializeArray();
       data.push({name: "event[contacts][id]", value: grabId()});
-      // need to figure out why this ^ isn't posting & how to manage it
       $.ajax({
           type: "PATCH",
-          url: "/events/" + event_id,
+          url: url,
           dataType: "json",
           data: data
         });
-      debugger
-      $('#attendees').prepend(data[3]["value"] + '- Just Added<br>')
+      $('#attendees').prepend(data[3]["value"] + infoButton(data[4]["value"]))
+      $(document).ready(function() {
+        attachInfoListeners();
+      });
     }
   });
 }
@@ -69,6 +70,10 @@ function organizeInfo(data) {
   } else {
     return "This contact hasn't been created yet. Use the add button to create a new contact.";
   }
+}
+
+function infoButton(value){
+  return `<a href="#" class="more-button" data-id="${value}"><i class="material-icons">info</i></a><br>`
 }
 
 function returnDates(element){
