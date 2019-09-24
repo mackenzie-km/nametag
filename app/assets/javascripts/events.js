@@ -2,6 +2,7 @@ $(document).ready(function() {
   attachInfoListeners();
   attachLookupListeners();
   attachAddListeners();
+  attachRemoveListeners();
 });
 
 function attachInfoListeners(){
@@ -40,12 +41,27 @@ function attachAddListeners(){
           dataType: "json",
           data: data
         });
-      $('#attendees').prepend(data[3]["value"] + infoButton(data[4]["value"]))
+      $('#attendees').prepend(infoButton(data[3]["value"], data[4]["value"]))
       $(document).ready(function() {
         attachInfoListeners();
       });
     }
   });
+}
+
+function attachRemoveListeners(){
+  $('.remove-button').on("click", function(event) {
+    event.preventDefault();
+      let url = "/events/" + $(this).data("id")
+      let data = $('form.add-attendees').serializeArray();
+      data.push({name: "event[contacts][id]", value: grabId()});
+      $.ajax({
+          type: "PATCH",
+          url: url,
+          dataType: "json",
+          data: data
+        });
+    });
 }
 
 function humanDate(data){
@@ -72,8 +88,11 @@ function organizeInfo(data) {
   }
 }
 
-function infoButton(value){
-  return `<a href="#" class="more-button" data-id="${value}"><i class="material-icons">info</i></a><br>`
+function infoButton(name, id){
+  return `<button class="btn btn-primary btn-sm">${name}
+  <a href="#" class="more-button" data-id="${id}"><i class="material-icons inverse">info</i></a>
+  <a href="#" class="remove-button" data-id="${id}"><i class="material-icons inverse">remove_circle</i></a>
+  </button>`
 }
 
 function returnDates(element){

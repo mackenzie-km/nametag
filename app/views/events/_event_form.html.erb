@@ -27,26 +27,28 @@
     <div class="col-md-6 justify-content-center">
       <%= form_for @event, html: {class: 'add-attendees'} do |f| %>
         <%= f.label "Attendees", :class => "lb-lg" %><br>
-       <div id="attendees">
+          Begin typing to find a new contact to add.<br>
+         <%= f.fields_for :contacts do |ff| %>
+           <%= ff.text_field :name, list: "contacts_autocomplete" %>
+           <datalist id="contacts_autocomplete">
+           <% @contacts.each do |c| %>
+             <option data-id="<%= c.id %>" value="<%= c.name %>"></option>
+           <% end %>
+           </datalist>
+         <% end %>
+         <a href="#" class="lookup-button"><i class="material-icons">info</i></a>
+         <a href="#" class="add-button" data-id="<%= params[:id] %>"><i class="material-icons">add_circle</i></a><br>
+      <% end %>
+      <%= form_for @event, html: {class: 'remove-attendees'} do |f| %>
+         <div id="attendees">
         <% if @event.contacts.length > 0 %>
           <% @event.contacts.map do |c| %>
-            <%= c.name %>
-            <a href="#" class="more-button" data-id="<%= c.id %>"><i class="material-icons">info</i></a><br>
+            <button class="btn btn-primary btn-sm"><%= c.name %>
+            <a href="#" class="more-button" data-id="<%= c.id %>"><i class="material-icons inverse">info</i></a>
+            <a href="#" class="remove-button" data-id="<%= c.id %>"><i class="material-icons inverse">remove_circle</i></a>
+            </button>
           <% end %>
         <% end %>
-
-        <%= f.fields_for :contacts do |ff| %>
-          <%= ff.text_field :name, list: "contacts_autocomplete" %>
-          <datalist id="contacts_autocomplete">
-          <% @contacts.each do |c| %>
-            <option data-id="<%= c.id %>" value="<%= c.name %>"></option>
-          <% end %>
-          </datalist>
-        <% end %>
-
-        <a href="#" class="lookup-button"><i class="material-icons">info</i></a>
-        <a href="#" class="add-button" data-id="<%= params[:id] %>"><i class="material-icons">add_circle</i></a><br>
-        Begin typing to find a new contact to add.<br>
     </div>
     </div>
     <div id="more-div" class="col-md-6 justify-content-center">
