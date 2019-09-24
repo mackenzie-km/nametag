@@ -31,8 +31,18 @@ function attachAddListeners(){
   $('.add-button').on("click", function(event) {
     event.preventDefault();
     if (!!$('#event_contacts_name').val()) {
-      let values = {add_contact: grabId()};
-      $.post("/events/" + "id", values);
+      let event_id = $(this).data("id")
+      let data = $('form.add-attendees').serializeArray();
+      data.push({name: "event[contacts][id]", value: grabId()});
+      // need to figure out why this ^ isn't posting & how to manage it
+      $.ajax({
+          type: "PATCH",
+          url: "/events/" + event_id,
+          dataType: "json",
+          data: data
+        });
+      debugger
+      $('#attendees').prepend(data[3]["value"] + '- Just Added<br>')
     }
   });
 }

@@ -1,4 +1,5 @@
 <%= render partial: "layouts/error_message", locals: {thing: @event} %>
+<%= csrf_meta_tag %>
 <div class="row">
   <div class="col-md-12">
       <%= form_for @event do |f| %>
@@ -16,11 +17,17 @@
 
           <%= f.label "Guest Count", :class => "lb-lg" %>
           <%= f.text_field :guest_count, :class => "form-control", placeholder: "# of guests" %><br>
+
+          <%= f.submit "Submit", class: "btn btn-primary" %><br>
+
+      <% end %>
       </div>
   </div>
   <div class="row justify-content-center">
-    <div id="attendees" class="col-md-6 justify-content-center">
+    <div class="col-md-6 justify-content-center">
+      <%= form_for @event, html: {class: 'add-attendees'} do |f| %>
         <%= f.label "Attendees", :class => "lb-lg" %><br>
+       <div id="attendees">
         <% if @event.contacts.length > 0 %>
           <% @event.contacts.map do |c| %>
             <%= c.name %>
@@ -38,13 +45,15 @@
         <% end %>
 
         <a href="#" class="lookup-button"><i class="material-icons">info</i></a>
-        <a href="#" class="add-button" data-id="</%= b.value %>"><i class="material-icons">add_circle</i></a><br>
+        <a href="#" class="add-button" data-id="<%= params[:id] %>"><i class="material-icons">add_circle</i></a><br>
         Begin typing to find a new contact to add.<br>
+    </div>
     </div>
     <div id="more-div" class="col-md-6 justify-content-center">
       <%= f.label "More Contact Info", :class => "lb-lg" %><br>
       Drill down by selecting any info icon on the page
     </div>
+    <% end %>
   </div>
 
 
@@ -52,7 +61,5 @@
 
 
 
-    <%= f.submit "Submit", class: "btn btn-primary" %><br>
 
-<% end %>
 <%= javascript_include_tag "events" %>
