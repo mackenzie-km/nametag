@@ -11,10 +11,6 @@ class Contact < ApplicationRecord
   scope :newsletter_pending, -> (admin_level) { where("newsletter = ? AND email <> ? AND unsubscribed = ? AND admin_level <= ?", false, "", false, admin_level) }
   scope :unsubscribed, -> (admin_level) { where("unsubscribed = ? AND updated_at > ? AND admin_level <= ?", true, 1.month.ago, admin_level) }
 
-  def self.add_contact(params)
-      ContactsEvent.create(contact_id: params[:event][:contacts][:id], event_id: params[:id]) if !!params[:event][:contacts]
-  end
-
   def self.update_newsletter_status(contacts)
     contacts.each do |contact|
       contact.newsletter = true

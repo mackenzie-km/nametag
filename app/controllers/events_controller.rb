@@ -25,12 +25,7 @@ class EventsController < ApplicationController
     params["date"] = Event.collect_date(event_params) if params[:date]
     @event = Event.new(event_params)
     @event.admin_level = @user_admin_level
-    if @event.save
-      Contact.add_contacts(event_params, @event, current_user)
-      redirect_to event_path(@event)
-    else
-      render :new
-    end
+    if @event.save then render :edit else render :new end
   end
 
   def show
@@ -50,8 +45,7 @@ class EventsController < ApplicationController
       params[:event][:date] = Event.collect_date(event_params)
       @event.update(event_params)
     end
-    Contact.add_contact(params)
-    Contact.delete_contact(event_params[:contacts][:delete_id]) if event_params[:contacts][:delete_id]
+    Event.toggle_contact(params)
     if @event.save then redirect_to event_path(@event) else render :edit end
   end
 
