@@ -10,7 +10,7 @@ function attachInfoListeners(){
     event.preventDefault();
      let id = $(this).data("id");
       $.get("/contacts/" + id + ".json", function(data) {
-        let info = '<label class="lb-lg">More Contact Info:</label><br>' + organizeInfo(data);
+        let info = '<label class="lb-lg">More contact info:</label><br>' + organizeInfo(data);
         $('#more-div').html(info);
       });
     });
@@ -21,7 +21,7 @@ function attachLookupListeners(){
     event.preventDefault();
     if (!!$('#event_contacts_name').val()) {
       $.get("/contacts/" + grabId() + ".json", function(data) {
-        let info = '<label class="lb-lg">More Contact Info</label><br>' + organizeInfo(data);
+        let info = '<label class="lb-lg">More contact info</label><br>' + organizeInfo(data);
         $('#more-div').html(info);
         });
     }
@@ -31,8 +31,10 @@ function attachLookupListeners(){
 function attachAddListeners(){
   $('.add-button').on("click", function(event) {
     event.preventDefault();
-    if (!!$('#event_contacts_name').val()) {
-      let url = "/events/" + $(this).data("id")
+    let contact = grabId();
+    if (!!$('#event_contacts_name').val() && !$('#small_button_' + contact).length) {
+      let event_id = $(this).data("id")
+      let url = "/events/" + event_id
       let data = $('form.add-attendees').serializeArray();
       data.push({name: "event[contacts][id]", value: grabId()});
       $.ajax({
@@ -41,28 +43,34 @@ function attachAddListeners(){
           dataType: "json",
           data: data
         });
-      $('#attendees').prepend(infoButton(data[3]["value"], data[4]["value"]))
+      $('#attendees').prepend(infoButton(data[3]["value"], contact, event_id))
       $(document).ready(function() {
         attachInfoListeners();
+        attachRemoveListeners();
       });
     }
+    $('#event_contacts_name').val("")
   });
 }
 
 function attachRemoveListeners(){
-  $('.remove-button').on("click", function(event) {
-    event.preventDefault();
-      let url = "/events/" + $(this).data("id")
+    $('.remove-button').on("click", function(event) {
+      event.preventDefault();
+      let url = "/events/" + $(this).data('event-id');
+      let contact = $(this).data('contact-id');
       let data = $('form.add-attendees').serializeArray();
-      data.push({name: "event[contacts][id]", value: grabId()});
-      $.ajax({
-          type: "PATCH",
-          url: url,
-          dataType: "json",
-          data: data
-        });
-    });
+        data.push({name: "event[contacts][id]", value: contact});
+        $.ajax({
+            type: "PATCH",
+            url: url,
+            dataType: "json",
+            data: data
+          });
+      $('#small_button_' + String(contact)).remove();
+      });
+
 }
+
 
 function humanDate(data){
   let dateArray = data.split("T");
@@ -88,11 +96,12 @@ function organizeInfo(data) {
   }
 }
 
-function infoButton(name, id){
-  return `<button class="btn btn-primary btn-sm">${name}
-  <a href="#" class="more-button" data-id="${id}"><i class="material-icons inverse">info</i></a>
-  <a href="#" class="remove-button" data-id="${id}"><i class="material-icons inverse">remove_circle</i></a>
-  </button>`
+function infoButton(name, contact_id, event_id){
+  return `<div id="small_button_${contact_id}" class="btn btn-primary btn-sm">${name}
+  <a href="#" class="more-button" data-id="${contact_id}">
+  <i class="material-icons inverse">info</i></a>
+  <a href="#" class="remove-button" data-contact-id="${contact_id}" data-event-id="${event_id}">
+  <i class="material-icons inverse">remove_circle</i></a> </div>`
 }
 
 function returnDates(element){
@@ -126,7 +135,7 @@ function grabId() {
 
 function lookupInBox() {
   $.get("/contacts/" + grabId() + ".json", function(data) {
-    let info = '<label class="lb-lg">More Contact Info</label><br>' + organizeInfo(data);
+    let info = '<label class="lb-lg">More contact info</label><br>' + organizeInfo(data);
     $('#more-div').html(info);
   });
 }

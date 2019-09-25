@@ -17,46 +17,17 @@
 
           <%= f.label "Guest Count", :class => "lb-lg" %>
           <%= f.text_field :guest_count, :class => "form-control", placeholder: "# of guests" %><br>
-
-          <%= f.submit "Submit", class: "btn btn-primary" %><br>
-
-      <% end %>
-      </div>
+    </div>
   </div>
   <div class="row justify-content-center">
-    <div class="col-md-6 justify-content-center">
-      <%= form_for @event, html: {class: 'add-attendees'} do |f| %>
-        <%= f.label "Attendees", :class => "lb-lg" %><br>
-          Begin typing to find a new contact to add.<br>
-         <%= f.fields_for :contacts do |ff| %>
-           <%= ff.text_field :name, list: "contacts_autocomplete" %>
-           <datalist id="contacts_autocomplete">
-           <% @contacts.each do |c| %>
-             <option data-id="<%= c.id %>" value="<%= c.name %>"></option>
-           <% end %>
-           </datalist>
-         <% end %>
-         <a href="#" class="lookup-button"><i class="material-icons">info</i></a>
-         <a href="#" class="add-button" data-id="<%= params[:id] %>"><i class="material-icons">add_circle</i></a><br>
-      <% end %>
-      <%= form_for @event, html: {class: 'remove-attendees'} do |f| %>
-         <div id="attendees">
-        <% if @event.contacts.length > 0 %>
-          <% @event.contacts.map do |c| %>
-            <button class="btn btn-primary btn-sm"><%= c.name %>
-            <a href="#" class="more-button" data-id="<%= c.id %>"><i class="material-icons inverse">info</i></a>
-            <a href="#" class="remove-button" data-id="<%= c.id %>"><i class="material-icons inverse">remove_circle</i></a>
-            </button>
+          <%= f.submit "Submit", class: "btn btn-primary" %><br>
+
+          <% if !!@event.id %>
+            <%= button_to "Delete Event", "#{event_path(@event)}", :class => "btn btn-primary", :method => :delete %>
           <% end %>
-        <% end %>
-    </div>
-    </div>
-    <div id="more-div" class="col-md-6 justify-content-center">
-      <%= f.label "More Contact Info", :class => "lb-lg" %><br>
-      Drill down by selecting any info icon on the page
-    </div>
-    <% end %>
+      <% end %>
   </div>
+
 
 
 
