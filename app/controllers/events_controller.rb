@@ -30,7 +30,9 @@ class EventsController < ApplicationController
 
   def show
     respond_to do |format|
-      format.html { render :show }
+      format.html {
+        @contacts = @event.contacts
+        render :show  }
       format.json { render json: @event, status: 200}
     end
   end

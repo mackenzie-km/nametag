@@ -1,22 +1,60 @@
-<div class="row">
+
+
+
+
+<%= render :layout => 'layouts/12_col_view', :locals => {:header => (@event.name + " on " + display_date(@event)), :description => "Use the buttons below to change viewing options"} do %>
+
+  <%= render :partial => "layouts/flash_message" %>
+
+<div class="row justify-content-center center-this-div">
   <%= render :layout => 'events/card_layout', :locals => {header: "Event Info", icon_here: "info"} do %>
-
-
+  <br>
           <label>Name:</label> <%= @event.name %><br>
           <label>Date:</label> <%= display_date(@event) %><br>
+          <label>Created On:</label> <%= @event.created_at.strftime("%B %-d, %Y") %><br>
+
+  <% end %>
+  <%= render :layout => 'events/card_layout', :locals => {header: "Head Counts", icon_here: "person"} do %>
+  <br>
           <label>Student Count:</label> <%= @event.contacts_count %><br>
           <label>Guest Count:</label> <%= @event.guest_count %><br>
           <label>Staff Count:</label> <%= @event.staff_count %>
-  <% end %>
-  <%= render :layout => 'events/card_layout', :locals => {header: "Attendee List", icon_here: "how_to_reg"} do %>
-          <% @event.contacts.each do |contact| %>
-            <%= link_to contact.name, contact_path(contact) %><br>
-          <% end %>
-  <% end %>
-</div>
 
-<div class="row justify-content-center">
-  <%= button_to "Create Contact For Event", new_event_contact_path(@event), :method => :get, :class => "btn btn-primary"  %>
-  <%= button_to "Edit Event Properties", edit_event_path(@event), :method => :get, :class => "btn btn-primary"  %>
-  <%= button_to "Detailed Contact List", event_contacts_path(@event), :method => :get, :class => "btn btn-primary"  %>
+  <% end %>
+    <div class="col-sm-3 text-center">
+      <%= link_to new_event_contact_path(@event), :class => "btn btn-primary" do %>
+        New Contact <i class="material-icons">person_add</i>
+        <% end %>
+      <%= link_to edit_event_path(@event), :class => "btn btn-primary" do %>
+        Modify Event <i class="material-icons">edit</i>
+        <% end %>
+      <%= link_to new_event_path, :class => "btn btn-primary" do %>
+        Create Event <i class="material-icons">library_add</i>
+        <% end %>
+    </div>
 </div>
+<div class="col-md-12">
+  <div class="table-responsive">
+    <table class="table table-hover">
+        <thead class="">
+          <tr>
+              <th><%= "Name" %></th>
+              <th><%= "Staff" %></th>
+              <th><%= "Email" %></th>
+              <th><%= "Gender" %></th>
+          </tr>
+        </thead>
+        <tbody>
+            <% @contacts.each do |contact| %>
+              <tr>
+                <td><%= link_to contact.name, contact_path(contact) %></td>
+                <td><%= contact.user_name %></td>
+                <td><%= contact.email %></td>
+                <td><%= contact.gender %></td>
+              </tr>
+            <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+<% end %>
