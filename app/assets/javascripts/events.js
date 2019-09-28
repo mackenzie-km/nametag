@@ -9,17 +9,32 @@ $(document).ready(function() {
 
 class Contact {
  constructor(data) {
-  this.id = data["id"];
-  this.name = data["name"]
-  this.email = data["email"];
-  this.major = data["major"];
-  this.events = data["events"];
-  this.first_event = data["events"][0];
-}
+    this.id = data["id"];
+    this.name = data["name"]
+    this.email = data["email"];
+    this.major = data["major"];
+    this.staff = data["user"]["email"];
+    this.events = data["events"];
+    this.timestamp = data["created_at"];
+  };
+  lastAttended() {
+    if (this.events.length > 0) {
+    return this.events[0]["name"] + " on " + this.events[0]["date"];
+    } else {
+      return "N/A"
+    }
+  };
+};
+
+// allows for contact.cleanTimestamp() method to standardize dates via the prototype
+
+Contact.prototype.cleanTimestamp = function() {
+  let dateArray = this.timestamp.split("T");
+  return dateArray[0];
 };
 
 
-// helpers to grab contact information from input
+// helpers to grab contact information from input box
 
 function grabId() {
   let box = $('#event_contacts_name').val();
@@ -31,39 +46,32 @@ function grabId() {
 
 function lookupInBox() {
   $.get("/contacts/" + grabId() + ".json", function(data) {
-    let info = '<label class="lb-lg">More contact info</label><br>' + organizeInfo(data);
-    $('#more-div').html(info);
+    $('#more-div').html(printInfo(contact));
   });
 }
 
 // functions for returning html and css
 
-function organizeInfo(data) {
-  debugger
-  if (!!data["id"]) {
-    let contact = new Contact(data)
-    for (let [key, value] of Object.entries(contact)) {
-      return `<b>${key}</b>: ${value}<br>`
-    }
-    // let array = Object.entries(data).map(function(element) {
-    //   if ((element[0] === "created_at") || (element[0] === "updated_at")) {
-    //     return returnDates(element);
-    //   } else if ((element[0] === "events"))  {
-    //     return returnEvents(element);
-    //   } else if (element[1] && (typeof element[1] === 'object'))  {
-    //     return returnObjects(element);
-    //   } else {
-    //     return returnRegular(element);
-    //   }
-    // });
-    // return array.join("");
+function printInfo(contact) {
+  let info;
+  if (!!contact.id) {
+    info =
+    `<label class="lb-lg">More contact info</label><br>
+    <b>Name:</b> ${contact.name}<br>
+    <b>Id:</b> ${contact.id}<br>
+    <b>Email:</b> ${contact.email}<br>
+    <b>Last Attended:</b> ${contact.lastAttended()}<br>
+    <b>Created On:</b> ${contact.cleanTimestamp()}<br>
+    <b>Staff:</b> ${contact.staff} `
   } else {
-    return "This contact hasn't been created yet. Use the add button to create a new contact.";
+    info = "This contact hasn't been created yet. Use the add button to create a new contact.";
   }
+  return info
 }
 
 function infoButton(name, contact_id, event_id){
-  return `<div id="small_button_${contact_id}" class="btn btn-primary btn-sm">${name}
+  return
+  `<div id="small_button_${contact_id}" class="btn btn-primary btn-sm">${name}
   <a href="#" class="more-button" data-id="${contact_id}">
   <i class="material-icons inverse">info</i></a>
   <a href="#" class="remove-button" data-contact-id="${contact_id}" data-event-id="${event_id}">
@@ -77,8 +85,8 @@ function attachInfoListeners(){
     event.preventDefault();
      let id = $(this).data("id");
       $.get("/contacts/" + id + ".json", function(data) {
-        let info = '<label class="lb-lg">More contact info:</label><br>' + organizeInfo(data);
-        $('#more-div').html(info);
+        let contact = new Contact(data);
+        $('#more-div').html(printInfo(contact));
       });
     });
 }
@@ -88,8 +96,8 @@ function attachLookupListeners(){
     event.preventDefault();
     if (!!$('#event_contacts_name').val()) {
       $.get("/contacts/" + grabId() + ".json", function(data) {
-        let info = '<label class="lb-lg">More contact info</label><br>' + organizeInfo(data);
-        $('#more-div').html(info);
+        let contact = new Contact(data);
+        $('#more-div').html(printInfo(contact));
         });
     }
   });
