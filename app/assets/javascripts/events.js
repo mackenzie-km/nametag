@@ -69,9 +69,8 @@ function printInfo(contact) {
   return info
 }
 
-function infoButton(name, contact_id, event_id){
-  return
-  `<div id="small_button_${contact_id}" class="btn btn-primary btn-sm">${name}
+function infoButton(contact_name, contact_id, event_id){
+  return `<div id="small_button_${contact_id}" class="btn btn-primary btn-sm">${contact_name}
   <a href="#" class="more-button" data-id="${contact_id}">
   <i class="material-icons inverse">info</i></a>
   <a href="#" class="remove-button" data-contact-id="${contact_id}" data-event-id="${event_id}">
@@ -106,8 +105,8 @@ function attachLookupListeners(){
 function attachAddListeners(){
   $('.add-button').on("click", function(event) {
     event.preventDefault();
-    let contact = grabId();
-    if (!!$('#event_contacts_name').val() && !$('#small_button_' + contact).length) {
+    let contact_id = grabId();
+    if (!!$('#event_contacts_name').val() && !$('#small_button_' + contact_id).length) {
       let event_id = $(this).data("id")
       let url = "/events/" + event_id
       let data = $('form.add-attendees').serializeArray();
@@ -118,7 +117,7 @@ function attachAddListeners(){
           dataType: "json",
           data: data
         });
-      $('#attendees').prepend(infoButton(data[3]["value"], contact, event_id))
+      $('#attendees').prepend(infoButton(data[3]["value"], contact_id, event_id))
       $(document).ready(function() {
         attachInfoListeners();
         attachRemoveListeners();
