@@ -25,7 +25,7 @@ class EventsController < ApplicationController
     params["date"] = Event.collect_date(event_params) if params[:date]
     @event = Event.new(event_params)
     @event.admin_level = @user_admin_level
-    if @event.save then render :edit else render :new end
+    @event.save
   end
 
   def show
