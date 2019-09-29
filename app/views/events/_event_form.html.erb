@@ -21,11 +21,12 @@
   </div>
   <div class="row justify-content-center">
           <%= f.submit "Submit", class: "btn btn-primary" %><br>
+        <% end %>
 
-          <% if !!@event.id %>
+          <% if !!@event.try(:id) %>
             <%= button_to "Delete Event", "#{event_path(@event)}", :class => "btn btn-primary", :method => :delete %>
           <% end %>
-      <% end %>
+
   </div>
 
 

@@ -3,7 +3,7 @@ $(document).ready(function() {
   attachLookupListeners();
   attachAddListeners();
   attachRemoveListeners();
-  attachSubmitListeners();
+  // attachSubmitListeners();
 });
 
 // create shadow class to help work with data
@@ -146,15 +146,15 @@ function attachRemoveListeners(){
 
 }
 
-function attachSubmitListeners(){
-  $('input[value=Submit]').on("click", function(event) {
-    event.preventDefault();
-    data = $('form.main-details').serializeArray();
-      $.ajax({
-          type: "POST",
-          url: "/events",
-          dataType: "json",
-          data: data
-        });
-    });
-}
+// function attachSubmitListeners(){
+//   $('input[value=Submit]').on("click", function(event) {
+//     event.preventDefault();
+//     data = $('form.main-details').serializeArray();
+//       $.ajax({
+//           type: "POST",
+//           url: "/events",
+//           dataType: "json",
+//           data: data
+//         });
+//     });
+// }
