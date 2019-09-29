@@ -3,6 +3,7 @@ $(document).ready(function() {
   attachLookupListeners();
   attachAddListeners();
   attachRemoveListeners();
+  attachSubmitListeners();
 });
 
 // create shadow class to help work with data
@@ -143,4 +144,17 @@ function attachRemoveListeners(){
       $('#small_button_' + String(contact)).remove();
       });
 
+}
+
+function attachSubmitListeners(){
+  $('input[value=Submit]').on("click", function(event) {
+    event.preventDefault();
+    data = $('form.main-details').serializeArray();
+      $.ajax({
+          type: "POST",
+          url: "/events",
+          dataType: "json",
+          data: data
+        });
+    });
 }

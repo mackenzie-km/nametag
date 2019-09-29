@@ -1,32 +1,72 @@
-<div class="row">
+<%= render :layout => 'layouts/12_col_view', :locals => {:header => ("Contact Information for " + @contact.name), :description => "View contact info and attended events below"} do %>
 
-  <%= render :layout => 'contacts/card_layout', :locals => {header: "Basic Bio", icon_here: "face"} do %>
-      <label>Name:</label> <%= @contact.name %><br>
-      <label>Gender:</label> <%= @contact.gender || "N/A" %><br>
-      <label>Staff:</label> <%= @contact.user_name || "N/A" %><br>
-      <label>School Status:</label> <%= @contact.school_status %><br>
+<%= render :partial => "layouts/flash_message" %>
+
+<div class="row justify-content-center center-this-div">
+  <%= render :layout => 'events/card_layout', :locals => {header: "Basic Bio", icon_here: "face"} do %>
+    <label>Name:</label> <%= @contact.name %><br>
+    <label>Gender:</label> <%= @contact.gender || "N/A" %><br>
+    <label>Staff:</label> <%= @contact.user_name || "N/A" %><br>
+    <label>School Status:</label> <%= @contact.school_status %><br>
   <% end %>
-
   <%= render :layout => 'contacts/card_layout', :locals => {header: "Contact Info", icon_here: "info"} do %>
         <label>Phone #:</label> <%= @contact.phone_number || "N/A" %><br>
         <label>Messenger ID:</label> <%= @contact.messenger_id.presence || "N/A" %><br>
         <label>Email:</label> <%= @contact.email.presence || "N/A" %><br>
         <label>Unsubscribed:</label> <%= @contact.unsubscribed %><br>
   <% end %>
-
-
-    <%= render :layout => 'contacts/card_layout', :locals => {header: "Other Facts", icon_here: "color_lens"} do %>
+  <%= render :layout => 'contacts/card_layout', :locals => {header: "Other Facts", icon_here: "color_lens"} do %>
         <label>Major:</label> <%= @contact.major.presence || "N/A" %><br>
         <label>Home Country:</label> <%= @contact.country.presence || "N/A" %><br>
         <label>Birthday:</label> <%= birthday_human(@contact) || "N/A" %><br>
         <label>Last Day In Davis:</label> <%= @contact.last_day || "N/A" %><br>
   <% end %>
-
 </div>
-
-
 <div class="row justify-content-center">
-  <%= button_to "Edit Contact", edit_contact_path(@contact), :class => "btn btn-primary", :method => :get  %>
-  <%= button_to "View Attended Events - #{@contact.events.count}", contact_events_path(@contact), :class => "btn btn-primary", :method => :get  %>
-  <%= button_to "View All Contacts", contacts_path, :class => "btn btn-primary", :method => :get %>
+    <%= link_to edit_contact_path(@contact), :class => "btn btn-primary" do %>
+      Edit Contact <i class="material-icons">edit</i>
+    <% end %>
+    <%= link_to new_contact_path, :class => "btn btn-primary" do %>
+      New Contact <i class="material-icons">library_add</i>
+    <% end %>
+    <%= link_to contacts_path, :class => "btn btn-primary" do %>
+      All  Contacts  <i class="material-icons">public</i>
+    <% end %>
 </div>
+<br>
+<div class="col-md-12">
+  <div class="table-responsive">
+    <table class="table table-hover">
+        <thead class="">
+          <tr>
+              <th> Event Name </th>
+              <th> Event Date </th>
+              <th> Action </th>
+              <th> Students </th>
+              <th> Guests </th>
+              <th> Staff </th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @events.each do |event| %>
+            <tr>
+              <td><%= link_to event.name, event_path(event) %> </td>
+              <td><%= display_date event %></td>
+              <td>
+                <%= link_to edit_event_path(event) do %>
+                  <i class="material-icons">edit</i>
+                <% end %>
+                <%= link_to event_path(event) do %>
+                  <i class="material-icons">zoom_in</i>
+                <% end %>
+              </td>
+              <td><%= link_to event.contacts_count, event_contacts_path(event) %></td>
+              <td><%= event.guest_count %></td>
+              <td><%= event.staff_count %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+<% end %>
