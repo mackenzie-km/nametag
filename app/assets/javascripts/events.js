@@ -1,10 +1,18 @@
 $(document).ready(function() {
+  hideAttendees();
   attachInfoListeners();
   attachLookupListeners();
   attachAddListeners();
   attachRemoveListeners();
-  // attachSubmitListeners();
+  attachSubmitListeners();
 });
+
+// hides attendees section if event hasn't been made yet
+function hideAttendees(){
+  if (!$('input[id=submit]').data('id')) {
+    $('#attendees-section').hide();
+  };
+}
 
 // create shadow class to help work with data
 
@@ -78,7 +86,7 @@ function infoButton(contact_name, contact_id, event_id){
   <i class="material-icons inverse">remove_circle</i></a> </div>`
 }
 
-// Attach Listeners Functions
+ // Attach Listeners Functions
 
 function attachInfoListeners(){
   $('.more-button').on("click", function(event) {
@@ -146,15 +154,31 @@ function attachRemoveListeners(){
 
 }
 
-// function attachSubmitListeners(){
-//   $('input[value=Submit]').on("click", function(event) {
-//     event.preventDefault();
-//     data = $('form.main-details').serializeArray();
-//       $.ajax({
-//           type: "POST",
-//           url: "/events",
-//           dataType: "json",
-//           data: data
-//         });
-//     });
-// }
+ function attachSubmitListeners(){
+   $('input[id=submit]').on("click", function(event) {
+    event.preventDefault();
+    let id = $(this).data('id')
+    let data = $('form.main-details').serializeArray();
+    if (!id) {
+       $.ajax({
+           type: "POST",
+           url: "/events",
+           dataType: "json",
+           data: data
+         }).done(function(data) {
+      $('#form-wrapper').text(data); // need to parse this out
+      $('#attendees-section').show(); // need to test this
+    });
+     } else {
+         $.ajax({
+             type: "PATCH",
+             url: "/events/" + id,
+             dataType: "json",
+             data: data
+           }).done(function(data) {
+        $('#form-wrapper').text(data); // need to parse this out
+        $('#attendees-section').show(); // need to test this
+      });
+     }
+  });
+ }

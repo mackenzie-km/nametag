@@ -1,6 +1,8 @@
 <%= render :layout => 'layouts/12_col_view', :locals => {:header => "Edit an Event", :description => "Update an event's properties"} do %>
   <%= render partial: "event_form", locals: {event: @event} %>
 
+<div id="attendees-section">
+    <p> Add attendees to this event </p>
   <div class="row justify-content-center">
     <div class="col-md-8 justify-content-center">
       <%= form_for @event, html: {class: 'add-attendees'} do |f| %>
@@ -35,3 +37,4 @@
     <% end %>
   </div>
 <% end %>
+</div>

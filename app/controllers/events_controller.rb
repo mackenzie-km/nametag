@@ -26,6 +26,7 @@ class EventsController < ApplicationController
     @event = Event.new(event_params)
     @event.admin_level = @user_admin_level
     @event.save
+    render json: @event, status: 201
   end
 
   def show
@@ -48,7 +49,8 @@ class EventsController < ApplicationController
       @event.update(event_params)
     end
     Event.toggle_contact(params)
-    if @event.save then redirect_to event_path(@event) else render :edit end
+    @event.save
+    render json: @event, status: 201
   end
 
   def destroy
