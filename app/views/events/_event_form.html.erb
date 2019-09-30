@@ -1,5 +1,6 @@
 <%= render partial: "layouts/error_message", locals: {thing: @event} %>
 <%= csrf_meta_tag %>
+<div id="form-wrapper">
 <div class="row">
   <div class="col-md-12">
       <%= form_for @event, html: {class: 'main-details'} do |f| %>
@@ -17,17 +18,18 @@
 
           <%= f.label "Guest Count", :class => "lb-lg" %>
           <%= f.text_field :guest_count, :class => "form-control", placeholder: "# of guests" %><br>
-    </div>
-  </div>
-  <div class="row justify-content-center">
-          <%= f.submit "Submit", class: "btn btn-primary" %><br>
-        <% end %>
-
-          <% if !!@event.try(:id) %>
-            <%= button_to "Delete Event", "#{event_path(@event)}", :class => "btn btn-primary", :method => :delete %>
+    <div class="row justify-content-center">
+            <%= f.submit "Submit", id: "submit", "data-id": @event.id, class: "btn btn-primary" %><br>
           <% end %>
 
+            <% if !!@event.try(:id) %>
+              <%= button_to "Delete Event", "#{event_path(@event)}", :class => "btn btn-primary", :method => :delete %>
+            <% end %>
+    </div>
+    </div>
   </div>
+</div>
+
 
 
 
