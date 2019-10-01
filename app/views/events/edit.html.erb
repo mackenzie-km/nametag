@@ -1,7 +1,7 @@
 <%= render :layout => 'layouts/12_col_view', :locals => {:header => "Edit an Event", :description => "Update an event's properties"} do %>
   <%= render partial: "event_form", locals: {event: @event} %>
 <br>
-  <div class="row">
+  <div class="row" id="attendees-section">
     <div class="col-md-8">
       <%= form_for @event, html: {class: 'add-attendees'} do |f| %>
         <h3 class="card-title">Attendees</h3>
@@ -26,11 +26,14 @@
             </div>
           <% end %>
         <% end %>
+        <br>
     </div>
     </div>
-    <div id="more-div" class="col-md-4 justify-content-center">
-        <h3 class="card-title">More Contact Info</h3>
-      Drill down by selecting any info icon on the page
+    <div id="info-container" class="col-md-4 justify-content-center">
+      <h3 class="card-title">More Contact Info</h3>
+        <div id="more-div">
+          Drill down by selecting any info icon on the page
+        </div>
     </div>
     <% end %>
   </div>

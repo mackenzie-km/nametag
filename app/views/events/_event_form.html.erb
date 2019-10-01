@@ -1,8 +1,10 @@
 <%= render partial: "layouts/error_message", locals: {thing: @event} %>
+<%= render partial: "layouts/flash_message" %>
 <%= csrf_meta_tag %>
 <div id="form-wrapper">
 <div class="row">
   <div class="col-md-12">
+    <h3 class="card-title">Main Info</h3>
       <%= form_for @event, html: {class: 'main-details'} do |f| %>
 
           <%= f.label "Event Name", :class => "lb-lg" %>

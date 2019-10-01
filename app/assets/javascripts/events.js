@@ -1,10 +1,13 @@
+// need to figure out why flash message doesn't work
+// need to get the add_button id issue fixed
+
 $(document).ready(function() {
-  hideAttendees();
+  attachSubmitListeners();
   attachInfoListeners();
   attachLookupListeners();
   attachAddListeners();
   attachRemoveListeners();
-  attachSubmitListeners();
+  hideAttendees();
 });
 
 // hides attendees section if event hasn't been made yet
@@ -168,7 +171,7 @@ function attachRemoveListeners(){
    $('input[id=submit]').on("click", function(event) {
     event.preventDefault();
     let id = $(this).data('id')
-    let data = $('form.main-details').serialize();
+    let data = $('form.main-details').serializeArray();
     if (!id) {
        $.ajax({
            type: "POST",
@@ -176,9 +179,13 @@ function attachRemoveListeners(){
            dataType: "json",
            data: data
          }).done(function(data) {
+        // add in more validation
+      window.history.pushState(data, "", `/events/${data["id"]}/edit`);
       let event = new Event(data);
-      $('#form-wrapper').text(); // need to parse this out
-      $('#attendees-section').show(); // need to test this
+      $('#info-container').hide()
+      $('#attendees-section').show()
+      $('#form-wrapper').html(eventCardWrapper(event));
+
     });
      } else {
          $.ajax({
@@ -187,10 +194,11 @@ function attachRemoveListeners(){
              dataType: "json",
              data: data
            }).done(function(data) {
+        window.history.pushState(data, "", `/events/${data["id"]}/edit`);
         let event = new Event(data);
-        $('#more-div').hide()
+        $('#info-container').hide()
+        $('#attendees-section').show()
         $('#form-wrapper').html(eventCardWrapper(event));
-        $('#attendees-section').show(); // need to test this
       });
      }
   });
@@ -210,8 +218,8 @@ function attachRemoveListeners(){
              </div>
            <h3 class="card-title">Event Info</h3>
            <p class="card-category">
-           <label>Event name:</label> ${event.name}<br>
            <label>Event date:</label> ${event.date}<br>
+           <label>Event name:</label> ${event.name}<br>
            <label>Staff Count:</label> ${event.staff_count}<br>
            <label>Guest Count:</label> ${event.guest_count}<br>
            </p>
@@ -224,7 +232,7 @@ function attachRemoveListeners(){
           <div class="card-icon">
             <i class="material-icons">zoom_in</i>
           </div>
-        <h3 class="card-title">More Contact Info</h3>
+        <h3 class="card-title">Contact Info</h3>
         <p class="card-category" id="more-div">
           Drill down by selecting any info icon on the page
         </div>
