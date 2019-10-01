@@ -35,6 +35,18 @@ class Contact {
   };
 };
 
+class Event {
+ constructor(data) {
+    this.id = data["id"];
+    this.name = data["name"]
+    this.date = data["date"];
+    this.timestamp = data["created_at"];
+    this.contacts = data["contacts"];
+    this.staff_count = data["staff_count"];
+    this.guest_count = data["guest_count"];
+  };
+};
+
 // allows for contact.cleanTimestamp() method to standardize dates via the prototype
 
 Contact.prototype.cleanTimestamp = function() {
@@ -65,13 +77,11 @@ function printInfo(contact) {
   let info;
   if (!!contact.id) {
     info =
-    `<label class="lb-lg">More contact info</label><br>
-    <b>Name:</b> ${contact.name}<br>
-    <b>Id:</b> ${contact.id}<br>
-    <b>Email:</b> ${contact.email}<br>
-    <b>Last Attended:</b> ${contact.lastAttended()}<br>
-    <b>Created On:</b> ${contact.cleanTimestamp()}<br>
-    <b>Staff:</b> ${contact.staff} `
+    `<label>Name:</label> ${contact.name}<br>
+    <label>Email:</label> ${contact.email}<br>
+    <label>Last Attended:</label> ${contact.lastAttended()}<br>
+    <label>Created On:</label> ${contact.cleanTimestamp()}<br>
+    <label>Staff:</label> ${contact.staff} `
   } else {
     info = "This contact hasn't been created yet. Use the add button to create a new contact.";
   }
@@ -158,7 +168,7 @@ function attachRemoveListeners(){
    $('input[id=submit]').on("click", function(event) {
     event.preventDefault();
     let id = $(this).data('id')
-    let data = $('form.main-details').serializeArray();
+    let data = $('form.main-details').serialize();
     if (!id) {
        $.ajax({
            type: "POST",
@@ -166,7 +176,8 @@ function attachRemoveListeners(){
            dataType: "json",
            data: data
          }).done(function(data) {
-      $('#form-wrapper').text(data); // need to parse this out
+      let event = new Event(data);
+      $('#form-wrapper').text(); // need to parse this out
       $('#attendees-section').show(); // need to test this
     });
      } else {
@@ -176,9 +187,56 @@ function attachRemoveListeners(){
              dataType: "json",
              data: data
            }).done(function(data) {
-        $('#form-wrapper').text(data); // need to parse this out
+        let event = new Event(data);
+        $('#more-div').hide()
+        $('#form-wrapper').html(eventCardWrapper(event));
         $('#attendees-section').show(); // need to test this
       });
      }
   });
+ }
+
+// need to figure out why it's not serializing that
+// and also prettify (block buttons, fix text, standardize size)
+// and when you hit edit -> reload
+
+ function eventCardWrapper(event){
+   return `<div class="row justify-content-center center-this-div">
+     <div class="col-lg-5 justify-content-center">
+         <div class="card card-stats">
+           <div class="card-header card-header-icon">
+             <div class="card-icon">
+               <i class="material-icons">info</i>
+             </div>
+           <h3 class="card-title">Event Info</h3>
+           <p class="card-category">
+           <label>Event name:</label> ${event.name}<br>
+           <label>Event date:</label> ${event.date}<br>
+           <label>Staff Count:</label> ${event.staff_count}<br>
+           <label>Guest Count:</label> ${event.guest_count}<br>
+           </p>
+        </div>
+      </div>
+    </div>
+  <div class="col-lg-5 justify-content-center">
+      <div class="card card-stats">
+        <div class="card-header card-header-icon">
+          <div class="card-icon">
+            <i class="material-icons">zoom_in</i>
+          </div>
+        <h3 class="card-title">More Contact Info</h3>
+        <p class="card-category" id="more-div">
+          Drill down by selecting any info icon on the page
+        </div>
+      </p>
+     </div>
+   </div>
+ <div class="col-lg-2 text-center">
+    <a href="/events" class="btn btn-primary btn-block">  All  Events  <i class="material-icons">event</i></a>
+    <a href="/events/${event.id}/" class="btn btn-primary btn-block">  View  Event  <i class="material-icons">zoom_in</i></a>
+    <a href="/events/${event.id}/edit" class="btn btn-primary btn-block">Modify Info <i class="material-icons">edit</i></a>
+ </div>
+  </div>
+ </div>
+   </div>`
  }

@@ -14,10 +14,10 @@
 
 
           <%= f.label "Staff Count", :class => "lb-lg" %>
-          <%= f.text_field :staff_count, :class => "form-control", placeholder: "# of staff" %><br>
+          <%= f.text_field :staff_count, :class => "form-control" %><br>
 
           <%= f.label "Guest Count", :class => "lb-lg" %>
-          <%= f.text_field :guest_count, :class => "form-control", placeholder: "# of guests" %><br>
+          <%= f.text_field :guest_count, :class => "form-control" %><br>
     <div class="row justify-content-center">
             <%= f.submit "Submit", id: "submit", "data-id": @event.id, class: "btn btn-primary" %><br>
           <% end %>
