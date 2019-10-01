@@ -18,6 +18,7 @@ class EventsController < ApplicationController
   def new
     @event = Event.new
     @contacts = Contact.same_level(@user_admin_level).order(name: :asc)
+    render :edit
   end
 
 # add date, admin level, and contacts separately from .new method
@@ -25,8 +26,12 @@ class EventsController < ApplicationController
     params["date"] = Event.collect_date(event_params) if params[:date]
     @event = Event.new(event_params)
     @event.admin_level = @user_admin_level
-    @event.save
-    render json: @event, status: 201
+    if @event.save
+      render json: @event, status: 201
+    else
+      flash.now[:alert] = "Try again. Make sure you have a date and name set."
+      render :new
+    end
   end
 
   def show
