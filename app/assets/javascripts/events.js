@@ -130,24 +130,40 @@ function attachAddListeners(){
     let contact_id = grabId();
     if (!!$('#event_contacts_name').val() && !$('#small_button_' + contact_id).length) {
       let event_id = $(this).data("id")
-      let url = "/events/" + event_id
+      let url = window.location.pathname
+      url = url.substring(0, url.length - 5);
       let data = $('form.add-attendees').serializeArray();
+      let authenticity_token = $('meta[name="csrf-token"]').attr('content')
+      data.forEach(function(item, i) { if (item.name == "authenticity_token") item.value = authenticity_token; });
       data.push({name: "event[contacts][id]", value: grabId()});
+      data.push({name: "_method", value: "patch"});
+      let name = findName(data)
       $.ajax({
           type: "PATCH",
           url: url,
           dataType: "json",
-          data: data
+          data: data,
+          beforeSend: function(request) {
+    request.setRequestHeader("authenticity_token", data[1]);
+  }
+        }).done(function(data) {
+            $('#attendees').prepend(infoButton(name, contact_id, event_id))
+            attachInfoListeners();
+            attachRemoveListeners();
+            $('#event_contacts_name').val("")
         });
-      $('#attendees').prepend(infoButton(data[3]["value"], contact_id, event_id))
-      $(document).ready(function() {
-        attachInfoListeners();
-        attachRemoveListeners();
-      });
     }
-    $('#event_contacts_name').val("")
+
   });
 }
+
+function findName(data) {
+  let found = data.find(function(element) {
+    return element.name == "event[contacts][name]";
+  });
+  return found.value
+}
+
 
 function attachRemoveListeners(){
     $('.remove-button').on("click", function(event) {
@@ -179,14 +195,16 @@ function attachRemoveListeners(){
            dataType: "json",
            data: data
          }).done(function(data) {
-        // add in more validation
-      window.history.pushState(data, "", `/events/${data["id"]}/edit`);
-      let event = new Event(data);
-      $('#info-container').hide()
-      $('#attendees-section').show()
-      $('#form-wrapper').html(eventCardWrapper(event));
-
-    });
+           if (!!data) {
+             window.history.pushState(data, "", `/events/${data["id"]}/edit`);
+             let event = new Event(data);
+             $('#info-container').hide()
+             $('#attendees-section').show()
+             $('#form-wrapper').html(eventCardWrapper(event));
+           } else {
+             alert('Please make sure the name field is filled out and try again');
+           }
+        });
      } else {
          $.ajax({
              type: "PATCH",
@@ -194,11 +212,15 @@ function attachRemoveListeners(){
              dataType: "json",
              data: data
            }).done(function(data) {
-        window.history.pushState(data, "", `/events/${data["id"]}/edit`);
-        let event = new Event(data);
-        $('#info-container').hide()
-        $('#attendees-section').show()
-        $('#form-wrapper').html(eventCardWrapper(event));
+         if (!!data["name"]) {
+           window.history.pushState(data, "", `/events/${data["id"]}/edit`);
+           let event = new Event(data);
+           $('#info-container').hide()
+           $('#attendees-section').show()
+           $('#form-wrapper').html(eventCardWrapper(event));
+         } else {
+           alert('Please make sure the name field is filled out and try again');
+         }
       });
      }
   });

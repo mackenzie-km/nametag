@@ -28,9 +28,6 @@ class EventsController < ApplicationController
     @event.admin_level = @user_admin_level
     if @event.save
       render json: @event, status: 201
-    else
-      flash.now[:alert] = "Try again. Make sure you have a date and name set."
-      render :new
     end
   end
 
