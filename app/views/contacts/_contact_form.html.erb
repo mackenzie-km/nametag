@@ -27,8 +27,15 @@
     <% end %>
   </div><br>
 
-  <%= f.label "user_id", class: "lb-lg" %><br>
-  <%= f.collection_select :user_id, User.same_level(@user_admin_level), :id, :name, {}, {class: "custom-select"} %><br><br>
+<%= f.label "Staff", class: "lb-lg" %><br>
+  <%= f.fields_for :users do |ff| %>
+    <%= ff.text_field :email, list: "contacts_autocomplete" %>
+    <datalist id="contacts_autocomplete">
+    <% User.same_level(@user_admin_level).each do |u| %>
+      <option data-id="<%= u.id %>" value="<%= u.email %>"></option>
+    <% end %>
+    </datalist>
+  <% end %><br><br>
 
   <%= f.label "Phone Number", class: "lb-lg" %>
   <%= f.text_field :phone_number, class: "form-control" %><br>

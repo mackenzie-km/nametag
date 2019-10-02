@@ -24,8 +24,11 @@ class ContactsController < ApplicationController
 
 # creates contact while associating contact with applicable events and user admin level
   def create
-    @contact = Contact.new(contact_params)
+    binding.pry
+    @contact = Contact.new(contact_params.except(:users))
     @contact.admin_level=(User.find(session[:user_id]))
+    @user = User.find_by(email: contact_params[:users][:email])
+    @contact.user = @user
     @event = Event.find_by(id: contact_params[:event_id])
     if @contact.save then nested_contact_redirect(@event, @contact) else render :new end
   end
@@ -42,7 +45,9 @@ class ContactsController < ApplicationController
   end
 
   def update
-    @contact.update(contact_params)
+    @user = User.find_by(email: contact_params[:users][:email])
+    @contact.user = @user
+    @contact.update(contact_params.except(:users))
     if @contact.save then redirect_to contact_path(@contact) else render :edit end
   end
 
@@ -106,7 +111,7 @@ class ContactsController < ApplicationController
   private
   # allowed contact parameters
   def contact_params
-    params.require(:contact).permit(:name, :email, :gender, :user_id, :phone_number, :school_status, :last_day, :messenger_id, :major, :country, :birthday, :unsubscribed, :newsletters, :source, :event_id)
+    params.require(:contact).permit(:name, :email, :gender, :phone_number, :school_status, :last_day, :messenger_id, :major, :country, :birthday, :unsubscribed, :newsletters, :source, :event_id, users: {})
   end
 
 # finds contact
