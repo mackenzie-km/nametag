@@ -1,47 +1,83 @@
-<%= render :layout => 'layouts/12_col_view', :locals => {:header => (c_index_header(params)), :description => "Use the buttons below to change viewing options"} do %>
-
+<%= render :layout => 'layouts/12_col_view', :locals => {:header => ("View Contacts"), :description => "Use the buttons below to change viewing options"} do %>
   <%= render :partial => "layouts/flash_message" %>
-  <div class="row justify-content-end">
-    <%= link_to contacts_path, :class => "btn btn-primary" do %>
-      <i class="material-icons">people</i>
-    <% end %>
-    <%= link_to contacts_path(:display_all => true), :class => "btn btn-primary" do %>
-      <i class="material-icons">public</i>
-    <% end %>
-    <%= link_to c_button_link(params), :class => "btn btn-primary" do %>
-      <i class="material-icons">person_add</i>
-    <% end %>
-  </div>
-  <div class="table-responsive">
-    <table class="table table-hover">
-        <thead class="">
-          <tr>
-              <th><%= "Name" %></th>
-              <th><%= "Staff" %></th>
-              <th><%= "Email" %></th>
-              <th><%= "Gender" %></th>
-          </tr>
-        </thead>
-        <tbody>
-            <% @contacts.each do |contact| %>
-              <tr>
-                <td><%= link_to contact.name, contact_path(contact) %></td>
-                <td><%= contact.user_name %></td>
-                <td><%= contact.email %></td>
-                <td><%= contact.gender %></td>
-              </tr>
+<%= form_for @contact, :html => {:class => 'container-fluid'} do |f| %>
+  <div class="row">
+    <div class="col-md-4">
+      <h3>Find By Name</h3>
+        <div class="input-group">
+            <%= f.fields_for :contacts do |ff| %>
+              <%= ff.text_field :name, class: "form-control", list: "contacts_autocomplete" %>
+              <datalist id="contacts_autocomplete">
+              <% Contact.same_level(@user_admin_level).each do |c| %>
+                <option data-id="<%= c.id %>" value="<%= c.name %>"></option>
+              <% end %>
+              </datalist>
+          <% end %>
+          <span class="input-group-btn">
+            <%= link_to contacts_path, :id => "name", :class => "btn btn-primary btn-stubby" do %> <i class="material-icons">search</i> <% end %>
+          </span>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <h3>Find By Staff</h3>
+        <div class="input-group">
+          <%= f.fields_for :users do |ff| %>
+            <%= ff.text_field :email, class: "form-control", list: "staff_autocomplete" %>
+            <datalist id="staff_autocomplete">
+            <% User.same_level(@user_admin_level).each do |u| %>
+              <option data-id="<%= u.id %>" value="<%= u.email %>"></option>
             <% end %>
-        </tbody>
-      </table>
+            </datalist>
+          <% end %>
+          <span class="input-group-btn">
+            <%= link_to contacts_path, :id => "staff", :class => "btn btn-primary btn-stubby" do %> <i class="material-icons">search</i>  <% end %>
+          </span>
+        </div>
+      <br></div>
+<br>
+    <div class="col-md-4">
+        <%= link_to contacts_path, :id => "unclaimed", :class => "btn btn-primary btn-block" do %>
+          <i class="material-icons">help</i> Unclaimed
+        <% end %>
+        <%= link_to contacts_path, :id => "all", :class => "btn btn-primary btn-block" do %>
+          <i class="material-icons">public</i> All Contacts
+        <% end %>
+        <%= link_to new_contact_path, :id => "create", :class => "btn btn-primary btn-block" do %>
+          <i class="material-icons">person_add</i> New Contact
+        <% end %>
+      </div>
     </div>
-    <div class="row justify-content-center">
-      <%= button_to "My Contacts", contacts_path, :class => "btn btn-primary", :method => :get %>
-       <%= form_tag(contacts_path, method: "get") do %>
-         <%= hidden_field_tag(:display_all, true) %>
-        <%= submit_tag "All Contacts", class: "btn btn-primary" %>
-      <% end %>
-      <%= button_to c_button_text(params), c_button_link(params), :class => "btn btn-primary", :method => :get %>
+<% end %>
+<br>
+<div class="row">
+  <div class="col-md-12">
+    <h3> Listed Contacts </h3>
+    <div class="table-responsive">
+      <table class="table table-hover">
+          <thead class="">
+            <tr>
+                <th><%= "Name" %></th>
+                <th><%= "Staff" %></th>
+                <th><%= "Email" %></th>
+                <th><%= "Gender" %></th>
+            </tr>
+          </thead>
+          <tbody>
+            <% if !!@contacts %>
+              <% @contacts.each do |contact| %>
+                <tr>
+                  <td><%= link_to contact.name, contact_path(contact) %></td>
+                  <td><%= contact.user_name %></td>
+                  <td><%= contact.email %></td>
+                  <td><%= contact.gender %></td>
+                </tr>
+              <% end %>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
     </div>
+  </div>
 <% end %>
 
 <%= javascript_include_tag "contacts" %>

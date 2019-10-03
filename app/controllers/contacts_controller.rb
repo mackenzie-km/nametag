@@ -7,7 +7,10 @@ class ContactsController < ApplicationController
 
 # decision tree for different kinds of params and secure sql
   def index
-    binding.pry
+    #binding.pry
+    @contact = Contact.new
+    @contacts = nil
+    
     if !!params[:contact] && !!params[:contact][:name]
       @contacts = Contact.where(name: params[:contact][:name], admin_level: user_admin_level)
     elseif !!params[:user] && !!params[:user][:email]
@@ -18,7 +21,7 @@ class ContactsController < ApplicationController
     elseif params[:event_id]
       event = Event.where("id = ? AND admin_level = ?", params[:event_id], user_admin_level)
       @contacts = event.contacts.order(updated_at: :desc)
-    else
+    elseif params[:all]
       @contacts = Contact.same_level(user_admin_level)
     end
     # render as json or html
