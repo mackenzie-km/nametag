@@ -3,17 +3,27 @@ class ContactsController < ApplicationController
   before_action :redirect_if_no_login
   skip_before_action :redirect_if_no_login, only: [:welcome, :welcome_create, :international_connect, :international_connect_create]
   before_action :access_contact, only: [:show, :edit, :update, :destroy]
-  before_action :user_admin_level, only: [:new, :edit]
+  before_action :user_admin_level, only: [:new, :edit, :index]
 
 # default: shows your contacts. otherwise, if nested => event contacts. if all selected => all contacts.
   def index
-    if params[:event_id]
-      @event = Event.find(params[:event_id])
-      @contacts = @event.contacts.order(updated_at: :desc)
-    elsif params[:display_all]
-      @contacts = Contact.same_level(current_user.admin_level).order(updated_at: :desc)
-    else
-      @contacts = Contact.yours(current_user.id).order(name: :asc)
+    if params[:contact][:name] #by exact name - secure
+      @contacts = Contact.where(name: params[:contact][:name], admin_level: user_admin_level)
+    elseif params[:user][:email] #by exact staff email - secure
+      user = User.where(email: params[:user][:email], admin_level: user_admin_level)
+      @contacts = user.contacts
+    elseif params[:recently_updated] #by recent - secure
+      @contacts = Contact.where("updated_at >= ? AND admin_level = ?", Date.today - 1.month, user_admin_level)
+    elseif params[:event_id] #by event - secure
+      event = Event.where("id = ? AND admin_level = ?", params[:event_id], user_admin_level)
+      @contacts = event.contacts.order(updated_at: :desc)
+    else #all else - secure
+      @contacts = Contact.same_level(user_admin_level)
+    end
+    # render as json or html
+    respond_to do |format|
+      format.html { render :index }
+      format.json { render json: @contacts, status: 200}
     end
   end
 
