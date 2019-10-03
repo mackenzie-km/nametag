@@ -29,7 +29,7 @@
 
 <%= f.label "Staff", class: "lb-lg" %><br>
   <%= f.fields_for :users do |ff| %>
-    <%= ff.text_field :email, list: "contacts_autocomplete" %>
+    <%= ff.text_field :email, class: "form-control", list: "contacts_autocomplete" %>
     <datalist id="contacts_autocomplete">
     <% User.same_level(@user_admin_level).each do |u| %>
       <option data-id="<%= u.id %>" value="<%= u.email %>"></option>
