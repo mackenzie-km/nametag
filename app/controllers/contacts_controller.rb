@@ -5,19 +5,20 @@ class ContactsController < ApplicationController
   before_action :access_contact, only: [:show, :edit, :update, :destroy]
   before_action :user_admin_level, only: [:new, :edit, :index]
 
-# default: shows your contacts. otherwise, if nested => event contacts. if all selected => all contacts.
+# decision tree for different kinds of params and secure sql
   def index
-    if params[:contact].try(:name) #by exact name - secure
+    binding.pry
+    if !!params[:contact] && !!params[:contact][:name]
       @contacts = Contact.where(name: params[:contact][:name], admin_level: user_admin_level)
-    elseif params[:user].try(:email) #by exact staff email - secure
+    elseif !!params[:user] && !!params[:user][:email]
       user = User.where(email: params[:user][:email], admin_level: user_admin_level)
       @contacts = user.contacts
-    elseif params[:recently_updated] #by recent - secure
+    elseif params[:recently_updated]
       @contacts = Contact.where("updated_at >= ? AND admin_level = ?", Date.today - 1.month, user_admin_level)
-    elseif params[:event_id] #by event - secure
+    elseif params[:event_id]
       event = Event.where("id = ? AND admin_level = ?", params[:event_id], user_admin_level)
       @contacts = event.contacts.order(updated_at: :desc)
-    else #all else - secure
+    else
       @contacts = Contact.same_level(user_admin_level)
     end
     # render as json or html

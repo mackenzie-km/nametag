@@ -28,9 +28,9 @@ function attachSubmitListeners(){
 //  $('input[id=submit]').on("click", function(event) {
  $('a.btn').on("click", function(event) {
    event.preventDefault();
-   let data = {"id": 760}
-   $.getJSON("/contacts.json", data, function(result) {
-     console.log(result)
+   let criteria = {"contact[name]": "MACKENZIE MOORE"}
+   $.getJSON("/contacts.json", criteria, function(data) {
+     console.log(data)
     }
   );
  });
