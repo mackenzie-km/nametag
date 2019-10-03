@@ -7,9 +7,9 @@ class ContactsController < ApplicationController
 
 # default: shows your contacts. otherwise, if nested => event contacts. if all selected => all contacts.
   def index
-    if params[:contact][:name] #by exact name - secure
+    if params[:contact].try(:name) #by exact name - secure
       @contacts = Contact.where(name: params[:contact][:name], admin_level: user_admin_level)
-    elseif params[:user][:email] #by exact staff email - secure
+    elseif params[:user].try(:email) #by exact staff email - secure
       user = User.where(email: params[:user][:email], admin_level: user_admin_level)
       @contacts = user.contacts
     elseif params[:recently_updated] #by recent - secure
