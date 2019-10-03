@@ -48,7 +48,6 @@
       </div>
     </div>
 <% end %>
-<br>
 <div class="row">
   <div class="col-md-12">
     <h3> Listed Contacts </h3>
@@ -57,6 +56,7 @@
           <thead class="">
             <tr>
                 <th><%= "Name" %></th>
+                <th><%= "Action" %></th>
                 <th><%= "Staff" %></th>
                 <th><%= "Email" %></th>
                 <th><%= "Gender" %></th>
@@ -66,7 +66,15 @@
             <% if !!@contacts %>
               <% @contacts.each do |contact| %>
                 <tr>
-                  <td><%= link_to contact.name, contact_path(contact) %></td>
+                  <td><%= contact.name %></td>
+                  <td>
+                    <%= link_to edit_contact_path(contact) do %>
+                      <i class="material-icons">edit</i>
+                    <% end %>
+                    <%= link_to contact_path(contact) do %>
+                      <i class="material-icons">zoom_in</i>
+                    <% end %>
+                  </td>
                   <td><%= contact.user_name %></td>
                   <td><%= contact.email %></td>
                   <td><%= contact.gender %></td>
