@@ -10,18 +10,20 @@ class ContactsController < ApplicationController
     #binding.pry
     @contact = Contact.new
     @contacts = nil
-    
+
     if !!params[:contact] && !!params[:contact][:name]
       @contacts = Contact.where(name: params[:contact][:name], admin_level: user_admin_level)
-    elseif !!params[:user] && !!params[:user][:email]
-      user = User.where(email: params[:user][:email], admin_level: user_admin_level)
+    elsif !!params[:contact] && !!params[:contact][:email]
+      user = User.find_by(email: params[:contact][:email], admin_level: user_admin_level)
       @contacts = user.contacts
-    elseif params[:recently_updated]
+    elsif !!params[:unclaimed]
+      @contacts = Contact.find_by(user_id: 22)
+    elsif !!params[:recently_updated]
       @contacts = Contact.where("updated_at >= ? AND admin_level = ?", Date.today - 1.month, user_admin_level)
-    elseif params[:event_id]
+    elsif params[:event_id]
       event = Event.where("id = ? AND admin_level = ?", params[:event_id], user_admin_level)
       @contacts = event.contacts.order(updated_at: :desc)
-    elseif params[:all]
+    elsif !!params[:all]
       @contacts = Contact.same_level(user_admin_level)
     end
     # render as json or html
