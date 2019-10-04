@@ -15,11 +15,11 @@ class ContactsController < ApplicationController
       @contacts = Contact.where(name: params[:contact][:name], admin_level: user_admin_level)
     elsif !!params[:contact] && !!params[:contact][:email]
       user = User.find_by(email: params[:contact][:email], admin_level: user_admin_level)
-      @contacts = user.contacts
+      @contacts = user.contacts if !!@contacts
     elsif !!params[:unclaimed]
       @contacts = Contact.find_by(user_id: 22)
     elsif !!params[:recently_updated]
-      @contacts = Contact.where("updated_at >= ? AND admin_level = ?", Date.today - 1.month, user_admin_level)
+      @contacts = Contact.where("updated_at >= ? AND admin_level = ?", Date.today - 1.month, user_admin_level).order(updated_at: :desc)
     elsif params[:event_id]
       event = Event.where("id = ? AND admin_level = ?", params[:event_id], user_admin_level)
       @contacts = event.contacts.order(updated_at: :desc)
@@ -101,9 +101,7 @@ class ContactsController < ApplicationController
     @event = Event.find_or_create_by(name: "Large Group", admin_level: 1, created_at: Date.current, date: Date.current)
     if @contact.save
       @contact.event_id = @event.id.to_s
-      flash.now[:notice] = "Thank you! Please use this form to submit a new response."
     end
-    render template: 'contacts/welcome', layout: false
   end
 
   def international_connect
@@ -119,9 +117,7 @@ class ContactsController < ApplicationController
     @event = Event.find_or_create_by(name: "International Connect", admin_level: 1, created_at: Date.current, date: Date.current)
     if @contact.save
       @contact.event_id = @event.id.to_s
-      flash.now[:notice] = "Thank you! Please use this form to submit a new response."
     end
-    render template: 'contacts/international_connect', layout: false
   end
 
   private
