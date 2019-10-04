@@ -8,6 +8,9 @@ Bundler.require(*Rails.groups)
 
 module Nametag
   class Application < Rails::Application
+    config.action_dispatch.default_headers.merge!(
+     'Cache-Control' => 'no-store, no-cache'
+   )
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 5.2
     # Settings in config/environments/* take precedence over those specified here.
