@@ -67,12 +67,14 @@ function attachRecentlyUpdatedListener(){
 function getJSONRobot(criteria){
   $('tbody').empty();
   $.getJSON("/contacts.json", criteria, function(data) {
-    if (!(typeof data === Array)) { data = [].concat(data) }
-    data.map(function(object){
-     let contact = new Contact(object)
-     let html = tableHtmlPrinter(contact)
-     $('tbody').append(html)
-    });
+    if (data != null) {
+      if (!(typeof data === Array)) { data = [].concat(data) }
+      data.map(function(object){
+       let contact = new Contact(object)
+       let html = tableHtmlPrinter(contact)
+       $('tbody').append(html)
+      });
+    }
   });
 }
 
