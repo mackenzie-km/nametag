@@ -32,8 +32,8 @@
       <br></div>
 <br>
     <div class="col-md-4">
-        <%= link_to new_contact_path, :id => "create", :class => "btn btn-primary btn-block" do %>
-          <i class="material-icons">person_add</i> New Contact
+        <%= link_to contacts_path, :id => "recently_updated", :class => "btn btn-primary btn-block" do %>
+          <i class="material-icons">access_time</i> Recently Updated
         <% end %>
         <%= link_to contacts_path, :id => "unclaimed", :class => "btn btn-primary btn-block" do %>
           <i class="material-icons">help</i> Unclaimed
@@ -41,8 +41,8 @@
         <%= link_to contacts_path, :id => "all", :class => "btn btn-primary btn-block" do %>
           <i class="material-icons">public</i> All Contacts
         <% end %>
-        <%= link_to contacts_path, :id => "recently_updated", :class => "btn btn-primary btn-block" do %>
-          <i class="material-icons">access_time</i> Recently Updated
+        <%= link_to new_contact_path, :id => "create", :class => "btn btn-primary btn-block" do %>
+          <i class="material-icons">person_add</i> New Contact
         <% end %>
       </div>
     </div>
