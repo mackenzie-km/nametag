@@ -5,15 +5,13 @@
     <div class="col-md-4">
       <h3>Find By Name</h3>
         <div class="input-group">
-            <%= f.fields_for :contacts do |ff| %>
-              <%= ff.text_field :name, class: "form-control", list: "contacts_autocomplete" %>
+              <%= f.text_field :name, class: "form-control", list: "contacts_autocomplete" %>
               <datalist id="contacts_autocomplete">
               <% Contact.same_level(@user_admin_level).each do |c| %>
                 <option data-id="<%= c.id %>" value="<%= c.name %>"></option>
               <% end %>
               </datalist>
-          <% end %>
-          <span class="input-group-btn">
+            <span class="input-group-btn">
             <%= link_to contacts_path, :id => "name", :class => "btn btn-primary btn-stubby" do %> <i class="material-icons">search</i> <% end %>
           </span>
         </div>
@@ -21,14 +19,12 @@
       <div class="col-md-4">
         <h3>Find By Staff</h3>
         <div class="input-group">
-          <%= f.fields_for :users do |ff| %>
-            <%= ff.text_field :email, class: "form-control", list: "staff_autocomplete" %>
+            <%= f.text_field :email, class: "form-control", list: "staff_autocomplete" %>
             <datalist id="staff_autocomplete">
             <% User.same_level(@user_admin_level).each do |u| %>
               <option data-id="<%= u.id %>" value="<%= u.email %>"></option>
             <% end %>
             </datalist>
-          <% end %>
           <span class="input-group-btn">
             <%= link_to contacts_path, :id => "staff", :class => "btn btn-primary btn-stubby" do %> <i class="material-icons">search</i>  <% end %>
           </span>
@@ -36,14 +32,17 @@
       <br></div>
 <br>
     <div class="col-md-4">
+        <%= link_to new_contact_path, :id => "create", :class => "btn btn-primary btn-block" do %>
+          <i class="material-icons">person_add</i> New Contact
+        <% end %>
         <%= link_to contacts_path, :id => "unclaimed", :class => "btn btn-primary btn-block" do %>
           <i class="material-icons">help</i> Unclaimed
         <% end %>
         <%= link_to contacts_path, :id => "all", :class => "btn btn-primary btn-block" do %>
           <i class="material-icons">public</i> All Contacts
         <% end %>
-        <%= link_to new_contact_path, :id => "create", :class => "btn btn-primary btn-block" do %>
-          <i class="material-icons">person_add</i> New Contact
+        <%= link_to contacts_path, :id => "recently_updated", :class => "btn btn-primary btn-block" do %>
+          <i class="material-icons">access_time</i> Recently Updated
         <% end %>
       </div>
     </div>

@@ -1,6 +1,10 @@
 
 $(document).ready(function() {
-  attachSubmitListeners();
+  attachNameListener();
+  attachStaffListener();
+  attachUnclaimedListener();
+  attachAllListener();
+  attachRecentlyUpdatedListener();
 });
 
 class Contact {
@@ -24,14 +28,58 @@ Contact.prototype.cleanTimestamp = function() {
 };
 
 
-function attachSubmitListeners(){
-//  $('input[id=submit]').on("click", function(event) {
- $('a.btn').on("click", function(event) {
+function attachNameListener(){
+ $('a#name').on("click", function(event) {
    event.preventDefault();
-   let criteria = {"contact[name]": "MACKENZIE MOORE"}
-   $.getJSON("/contacts.json", criteria, function(data) {
-     console.log(data)
-    }
-  );
+   if (!!$('input#contact_name').val()) {
+     let criteria = $('input#contact_name').serialize()
+     $.getJSON("/contacts.json", criteria, function(data) {
+       debugger
+      }
+    );
+  }
+ });
+}
+
+function attachStaffListener(){
+ $('a#staff').on("click", function(event) {
+   event.preventDefault();
+   if (!!$('input#contact_email').val()) {
+     let criteria = $('input#contact_email').serialize()
+     $.getJSON("/contacts.json", criteria, function(data) {
+       debugger
+      }
+    );
+  }
+ });
+}
+
+function attachUnclaimedListener(){
+ $('a#unclaimed').on("click", function(event) {
+   event.preventDefault();
+   let criteria = {"unclaimed": "true"}
+    $.getJSON("/contacts.json", criteria, function(data) {
+       debugger
+    });
+ });
+}
+
+function attachAllListener(){
+ $('a#all').on("click", function(event) {
+   event.preventDefault();
+   let criteria = {"all": "true"}
+    $.getJSON("/contacts.json", criteria, function(data) {
+       debugger
+    });
+ });
+}
+
+function attachRecentlyUpdatedListener(){
+ $('a#recently_updated').on("click", function(event) {
+   event.preventDefault();
+   let criteria = {"recently_updated": "true"}
+    $.getJSON("/contacts.json", criteria, function(data) {
+       debugger
+    });
  });
 }
