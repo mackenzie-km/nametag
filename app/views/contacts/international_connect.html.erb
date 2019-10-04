@@ -41,6 +41,9 @@
       margin-right: 25% !important;
       width: 50% !important;
     }
+    .main-panel {
+      background-image: none !important;
+    }
     .main-panel>.content {
       margin-top: 0px !important;
       padding: 15px 30px 30px 30px !important;
@@ -141,12 +144,13 @@
                 <%= f.text_field :source, class: "form-control" %><br>
 
                 <div class="row justify-content-center">
-                  <%= f.submit "Submit", class: "btn btn-primary" %><br>
+                  <%= f.submit "Submit", id: "submit", class: "btn btn-primary" %><br>
                 </div>
               <% end %>
         </div><!-- end container-fluid -->
       </div><!-- end content -->
     </div><!-- end main panel -->
     </div><!-- end wrapper -->
+    <%= javascript_include_tag "user_signups" %>
   </body>
 </html>
