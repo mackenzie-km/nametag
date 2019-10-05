@@ -17,7 +17,7 @@ class ContactsController < ApplicationController
       user = User.find_by(email: params[:contact][:email], admin_level: user_admin_level)
       @contacts = user.contacts if !!@contacts
     elsif !!params[:unclaimed]
-      @contacts = Contact.find_by(user_id: 22)
+      @contacts = Contact.where(user_id: 22)
     elsif !!params[:recently_updated]
       @contacts = Contact.where("updated_at >= ? AND admin_level = ?", Date.today - 1.month, user_admin_level).order(updated_at: :desc)
     elsif params[:event_id]
@@ -40,7 +40,6 @@ class ContactsController < ApplicationController
 
 # creates contact while associating contact with applicable events and user admin level
   def create
-    binding.pry
     @contact = Contact.new(contact_params.except(:users))
     @contact.admin_level=(User.find(session[:user_id]))
     @user = User.find_by(email: contact_params[:users][:email])
