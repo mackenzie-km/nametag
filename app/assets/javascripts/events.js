@@ -80,11 +80,12 @@ function printInfo(contact) {
   let info;
   if (!!contact.id) {
     info =
-    `<label>Name:</label> ${contact.name}<br>
+    `<label>Name:</label> ${contact.name}<a href='/contacts/${contact.id}/edit'">
+    <i class="material-icons md-18">edit</i></a><br>
     <label>Email:</label> ${contact.email}<br>
     <label>Last Attended:</label> ${contact.lastAttended()}<br>
     <label>Created On:</label> ${contact.cleanTimestamp()}<br>
-    <label>Staff:</label> ${contact.staff} `
+    <label>Staff:</label> ${contact.staff}`
   } else {
     info = "This contact hasn't been created yet. Use the add button to create a new contact.";
   }
