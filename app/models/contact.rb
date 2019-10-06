@@ -17,10 +17,10 @@ class Contact < ApplicationRecord
     end
   end
 
-  def event_id=(id)
+  def set_event(id, admin_level)
     if !id.empty?
       @event = Event.find_by(id: id)
-      if (!!@event && (@event.admin_level <= self.user.admin_level)) then self.events << @event end
+      if (!!@event && (@event.admin_level <= admin_level)) then self.events << @event end
     end
   end
 
