@@ -3,7 +3,7 @@ class ContactsController < ApplicationController
   before_action :redirect_if_no_login
   skip_before_action :redirect_if_no_login, only: [:welcome, :welcome_create, :international_connect, :international_connect_create]
   before_action :access_contact, only: [:show, :edit, :update, :destroy]
-  before_action :user_admin_level, only: [:new, :edit, :index]
+  before_action :user_admin_level, only: [:new, :edit, :create, :index]
 
 # decision tree for different kinds of params and secure sql
   def index
@@ -40,9 +40,10 @@ class ContactsController < ApplicationController
 
 # creates contact while associating contact with applicable events and user admin level
   def create
-    @contact = Contact.new(contact_params.except(:users))
+    @contact = Contact.new(contact_params.except(:user_id, :event_id))
     @contact.admin_level=(User.find(session[:user_id]))
-    @user = User.find_by(email: contact_params[:users][:email])
+    @contact.set_event(contact_params[:event_id], user_admin_level)
+    @user = User.find_by(id: contact_params[:user_id])
     @contact.user = @user
     @event = Event.find_by(id: contact_params[:event_id])
     if @contact.save then nested_contact_redirect(@event, @contact) else render :new end
@@ -60,9 +61,9 @@ class ContactsController < ApplicationController
   end
 
   def update
-    @user = User.find_by(email: contact_params[:users][:email])
+    @user = User.find_by(id: contact_params[:user_id])
     @contact.user = @user
-    @contact.update(contact_params.except(:users))
+    @contact.update(contact_params.except(:user_id, :event_id))
     if @contact.save then redirect_to contact_path(@contact) else render :edit end
   end
 
@@ -122,7 +123,7 @@ class ContactsController < ApplicationController
   private
   # allowed contact parameters
   def contact_params
-    params.require(:contact).permit(:name, :email, :gender, :phone_number, :school_status, :last_day, :messenger_id, :major, :country, :birthday, :unsubscribed, :newsletters, :source, :event_id, users: {})
+    params.require(:contact).permit(:name, :email, :gender, :phone_number, :school_status, :last_day, :messenger_id, :major, :country, :birthday, :unsubscribed, :newsletters, :source, :event_id, :user_id)
   end
 
 # finds contact
