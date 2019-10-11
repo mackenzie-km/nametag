@@ -116,7 +116,7 @@ class ContactsController < ApplicationController
     @contact.admin_level=(@user)
     @event = Event.find_or_create_by(name: "International Connect", admin_level: 1, created_at: Date.current, date: Date.current)
     if @contact.save
-      @contact.event_id = @event.id.to_s
+      @contact.events << @event
     end
   end
 
