@@ -100,7 +100,10 @@ class ContactsController < ApplicationController
     @contact.admin_level=(@user)
     @event = Event.find_or_create_by(name: "Large Group", admin_level: 1, created_at: Date.current, date: Date.current)
     if @contact.save
-      @contact.event_id = @event.id.to_s
+      @contact.events << @event
+      redirect_to "/international_connect", notice: "Thank you! Submit a new response below."
+    else
+      redirect_to "/international_connect", notice: "Please try again. Make sure you save your name."
     end
   end
 
@@ -117,6 +120,9 @@ class ContactsController < ApplicationController
     @event = Event.find_or_create_by(name: "International Connect", admin_level: 1, created_at: Date.current, date: Date.current)
     if @contact.save
       @contact.events << @event
+      redirect_to "/international_connect", notice: "Thank you! Submit a new response below."
+    else
+      redirect_to "/international_connect", notice: "Please try again. Make sure you save your name."
     end
   end
 
