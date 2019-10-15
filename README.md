@@ -17,9 +17,9 @@ While contributing, please abide by the code of conduct set forth in https://www
 
 ## Future Goals
 
-1. Add page to show contacts pending newsletter addition (click "resolved" => newsletter: true)
-2. Add page to show unsubscribers pending announcement (click "resolved" => unsubscribers: true)
-3. Deploy to Heroku!
+1. Add auto-emails for unsubscribers
+2. Add notification for slow loading times for 'All Contacts' loading response
+3. Integration with Notion API (I'm waiting, Notion!)
 
 ## License
 This app is available as open source under the terms of the MIT License https://opensource.org/licenses/MIT
