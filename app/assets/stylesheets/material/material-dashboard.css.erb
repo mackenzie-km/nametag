@@ -14525,7 +14525,6 @@ fieldset[disabled] .form-group.is-focused .togglebutton label {
   top: 0;
   min-height: 100vh;
   background-repeat: repeat;
-  background-color: rgba(255, 255, 255, 0.9);
   background-blend-mode: lighten;
 }
 
@@ -14940,7 +14939,7 @@ fieldset[disabled] .form-group.is-focused .togglebutton label {
   float: right;
   width: calc(100% - 260px);
   transition: 0.33s, cubic-bezier(0.685, 0.0473, 0.346, 1);
-  background-image: url(<%= asset_path 'squiggle.jpg' %>) !important;
+  background: none;
 }
 
 .main-panel>.content {
@@ -16349,6 +16348,7 @@ thead.thead-inverse th,
 
 body {
   background-color: #eee;
+  background-image: url(<%= asset_path 'squiggle.jpg' %>) !important;
   color: #3C4858;
   font-weight: 300;
 }
