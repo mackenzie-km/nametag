@@ -17,7 +17,7 @@ class ContactsController < ApplicationController
       user = User.find_by(email: params[:contact][:email], admin_level: user_admin_level)
       @contacts = user.contacts if !!user
     elsif !!params[:unclaimed]
-      @contacts = Contact.where(user_id: 22)
+      @contacts = Contact.where(user_id: 22, admin_level: user_admin_level)
     elsif !!params[:recently_updated]
       @contacts = Contact.where("updated_at >= ? AND admin_level = ?", Date.today - 1.month, user_admin_level).order(updated_at: :desc)
     elsif params[:event_id]
