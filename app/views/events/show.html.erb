@@ -15,7 +15,7 @@
   <% end %>
   <%= render :layout => 'events/card_layout', :locals => {header: "Head Counts", icon_here: "person"} do %>
           <label>Student Count:</label> <%= @event.contacts_count %><br>
-          <label>Guest Count:</label> <%= @event.guest_count %><br>
+          <label># Untracked:</label> <%= @event.guest_count %><br>
           <label>Staff Count:</label> <%= @event.staff_count %>
 
   <% end %>
