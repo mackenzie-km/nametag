@@ -35,23 +35,23 @@
     }
     .main-panel {
       position: absolute !important;
-      top: 150px !important;
+      margin-top: -10% !important;
       background-color: white !important;
       float: none !important;
       margin-left: 25% !important;
       margin-right: 25% !important;
       width: 50% !important;
     }
-    .main-panel>.content {
-      margin-top: 0px !important;
-      padding: 30px !important;
-    }
     .main-panel {
       background-image: none !important;
     }
-    h2 {
+    .main-panel>.content {
+      margin-top: 0px !important;
+      padding: 15px 30px 30px 30px !important;
+    }
+    h1 {
       font-family: 'Raleway', cursive !important;
-      font-size: 3rem !important;
+      margin-bottom: 0rem !important;
     }
     .lb-lg {
       font-family: 'Raleway', cursive !important;
@@ -74,19 +74,35 @@
     .form-check.form-check-inline{
       left: 25px !important;
     }
+
+
+    @media only screen and (max-width: 1030px) {
+      .main-panel {
+        margin-left: 10% !important;
+        margin-right: 10% !important;
+        width: 80% !important;
+      }
+      h1 {
+        font-size: 2.2rem !important;
+      }
+      lb-lg {
+        font-size: 1.0rem !important;
+      }
+    }
   </style>
 </head>
 
   <body>
     <div class="wrapper">
-        <img class="img-fluid" src="<%= asset_path 'artem-bali-570692-unsplash.jpg' %>">
+        <img class="img-fluid mx-auto d-block" src="<%= asset_path 'artem-bali-570692-unsplash.jpg' %>">
   <!-- Container Begins -->
       <div class="main-panel">
 
         <div class="content">
           <div class="container-fluid">
             <div class="row bottom">
-              <h2>Welcome to IGSM!</h2>
+              <h1>IGSM Newsletter</h1><br>
+              <label class="lb-lg">Sign up to receive weekly photos & updates about upcoming events!</label><br>
             </div>
             <%= render partial: "layouts/error_message", locals: {thing: @contact} %>
             <%= render partial: "layouts/flash_message" %>
@@ -126,7 +142,7 @@
                 <%= f.label "Major", class: "lb-lg" %>
                 <%= f.text_field :major, class: "form-control" %><br>
 
-                <%= f.label "How did you hear about tonight?", class: "lb-lg" %>
+                <%= f.label "How did you hear about us?", class: "lb-lg" %>
                 <%= f.text_field :source, class: "form-control" %><br>
 
                 <div class="row justify-content-center">

@@ -35,7 +35,7 @@
     }
     .main-panel {
       position: absolute !important;
-      top: 100px !important;
+      margin-top: -10% !important;
       background-color: white !important;
       float: none !important;
       margin-left: 25% !important;
@@ -86,7 +86,7 @@
         width: 80% !important;
       }
       h2 {
-        font-size: 2rem !important;
+        font-size: 1.9rem !important;
       }
     }
   </style>
@@ -94,7 +94,7 @@
 
   <body>
     <div class="wrapper">
-        <img class="img-fluid" src="<%= asset_path 'pinned_globe.png' %>">
+        <img class="img-fluid mx-auto d-block" src="<%= asset_path 'pinned_globe.png' %>">
   <!-- Container Begins -->
       <div class="main-panel">
 
@@ -140,6 +140,27 @@
 
                 <%= f.label "How did you hear about tonight?", class: "lb-lg" %>
                 <%= f.text_field :source, class: "form-control" %><br>
+
+                <%= f.label "Would you like to receive our newsletter?", class: "lb-lg" %><br>
+                <div class="form-check form-check-inline">
+                    <%= f.label "unsubscribed_false", class: "form-check-label" do %>
+                      <%= f.label "false", "Yes", class: "lb-sm" %>
+                      <%= f.radio_button :unsubscribed, false, :checked => true, :value => true, class: "form-check-input" %>
+                      <span class="circle">
+                        <span class="check"></span>
+                      </span>
+                    <% end %>
+                  </div>
+                  <div class="form-check form-check-inline">
+                      <%= f.label "unsubscribed_true", class: "form-check-label" do %>
+                        <%= f.label "true", "No", class: "lb-sm" %>
+                        <%= f.radio_button :unsubscribed, true, :checked => false, :value => true, class: "form-check-input" %>
+                        <span class="circle">
+                          <span class="check"></span>
+                        </span>
+                      <% end %>
+                    </div><br>
+
 
                 <div class="row justify-content-center">
                   <%= f.submit "Submit", id: "submit", class: "btn btn-primary" %><br>

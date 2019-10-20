@@ -101,9 +101,9 @@ class ContactsController < ApplicationController
     @event = Event.find_or_create_by(name: "Large Group", admin_level: 1, created_at: Date.current, date: Date.current)
     if @contact.save
       @contact.events << @event
-      redirect_to "/international_connect", notice: "Thank you! Submit a new response below."
+      redirect_to "/welcome", notice: "Thank you! Submit a new response below."
     else
-      redirect_to "/international_connect", notice: "Please try again. Make sure you save your name."
+      redirect_to "/welcome", notice: "Please try again. Make sure you save your name."
     end
   end
 
