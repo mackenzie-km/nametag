@@ -16,7 +16,7 @@
  <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>nametag</title>
+  <title>International Graduate Student Ministry Newsletter Signup</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <%= javascript_include_tag "//code.jquery.com/jquery-3.3.1.min.js" %>
@@ -47,10 +47,11 @@
     }
     .main-panel>.content {
       margin-top: 0px !important;
-      padding: 15px 30px 30px 30px !important;
+      padding: 20px !important;
     }
     h1 {
       font-family: 'Raleway', cursive !important;
+      margin-top: 10px !important;
       margin-bottom: 0rem !important;
     }
     .lb-lg {
@@ -74,13 +75,41 @@
     .form-check.form-check-inline{
       left: 25px !important;
     }
+    #logo {
+      display: block;
+      min-width: 60%;
+      margin: 0px auto 15px auto;
+    }
+    .btn.btn-primary {
+    background-color: #3c4858 !important;
+  }
+    @media only screen and (max-width: 1350px) {
+        h1 {
+          font-size: 2.5rem !important;
+        }
+      }
 
 
-    @media only screen and (max-width: 1030px) {
+    @media only screen and (max-width: 1125px) and (min-width: 700px) {
       .main-panel {
-        margin-left: 10% !important;
-        margin-right: 10% !important;
-        width: 80% !important;
+        margin-left: 5% !important;
+        margin-right: 5% !important;
+        width: 90% !important;
+      }
+      h1 {
+        font-size: 2.2rem !important;
+      }
+      lb-lg {
+        font-size: 1.0rem !important;
+      }
+        #logo{max-width: 60%;}
+    }
+
+    @media only screen and (max-width: 700px) {
+      .main-panel {
+        margin-left: 5% !important;
+        margin-right: 5% !important;
+        width: 90% !important;
       }
       h1 {
         font-size: 2.2rem !important;
@@ -89,6 +118,7 @@
         font-size: 1.0rem !important;
       }
     }
+
   </style>
 </head>
 
@@ -101,8 +131,15 @@
         <div class="content">
           <div class="container-fluid">
             <div class="row bottom">
-              <h1>IGSM Newsletter</h1><br>
-              <label class="lb-lg">Sign up to receive weekly photos & updates about upcoming events!</label><br>
+              <div class="col-lg-3 col-sm-4 align-self-center text-center"">
+                <img class="img-fluid" id="logo" src="<%= image_path('b&w_logo.png') %>">
+              </div>
+              <div class="col-lg-9 col-sm-8">
+                <h1>IGSM Newsletter</h1>
+                <p class="lb-lg">
+                  Sign up here to receive photos & event information
+                  for IGSM (International Graduate Student Ministry) Davis!</p>
+              </div>
             </div>
             <%= render partial: "layouts/error_message", locals: {thing: @contact} %>
             <%= render partial: "layouts/flash_message" %>
